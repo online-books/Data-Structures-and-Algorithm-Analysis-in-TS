@@ -14,13 +14,9 @@ export default class AVLTree extends BinarySearchTree {
         return this.getHeight(this.root);
     }
     public insert (value: any) {
-        this.insertNode(value, this.root);
+        this.root = this.insertNode(value, this.root);
     }
     private insertNode (value: any, node: BinaryTreeNode | null): BinaryTreeNode {
-        if(!this.root){
-            this.root = new BinaryTreeNode(value);
-            return this.root;
-        }
         if (!node) {
             node = new BinaryTreeNode(value);
         } else {
@@ -55,7 +51,6 @@ export default class AVLTree extends BinarySearchTree {
         return node.height;
     }
     private singleRotateWithLeft (node: BinaryTreeNode): BinaryTreeNode {
-        console.log('AVL树::左单旋转', node);
         const k1 = node.left as BinaryTreeNode;
         node.left = k1.right;
         k1.right = node;
@@ -64,7 +59,6 @@ export default class AVLTree extends BinarySearchTree {
         return k1;
     }
     private singleRotateWithRight (node: BinaryTreeNode): BinaryTreeNode {
-        console.log('AVL树::右单旋转', node);
         const k1 = node.right as BinaryTreeNode;
         node.right = k1.left;
         k1.left = node;
@@ -73,7 +67,6 @@ export default class AVLTree extends BinarySearchTree {
         return k1;
     }
     private doubleRotateWithLeft (node: BinaryTreeNode): BinaryTreeNode {
-        console.log('AVL树::左双旋转', node);
         const k1 = node.left as BinaryTreeNode;
         const k2 = k1.right as BinaryTreeNode;
         k1.right = k2.left;
@@ -86,7 +79,6 @@ export default class AVLTree extends BinarySearchTree {
         return k2;
     }
     private doubleRotateWithRight (node: BinaryTreeNode): BinaryTreeNode {
-        console.log('AVL树::右双旋转', node);
         const k1 = node.right as BinaryTreeNode;
         const k2 = k1.left as BinaryTreeNode;
         node.right = k2.left;
