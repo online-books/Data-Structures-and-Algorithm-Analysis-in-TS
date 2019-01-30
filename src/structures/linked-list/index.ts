@@ -11,10 +11,17 @@ import Node from './node';
  */
 export function addPolynomial (l1: List, l2: List): List {
     const list = new List();
-    let l1Node;
-    let l2Node;
-    l1Node = l1.first() as Node;
-    l2Node = l2.first() as Node;
+    if (!l1.size && !l2.size) {
+        return list;
+    }
+    if(!l1.size){
+        return l2;
+    }
+    if(!l2.size){
+        return l1;
+    }
+    let l1Node = l1.first();
+    let l2Node = l2.first();
     while (l1Node && l2Node) {
         const power1 = l1Node.value.power;
         const power2 = l2Node.value.power;
@@ -47,7 +54,7 @@ export function addPolynomial (l1: List, l2: List): List {
                 power: l2Node.value.power,
                 coeff: l2Node.value.coeff,
             });
-            l1Node = l2Node.next;
+            l2Node = l2Node.next;
         }
     }
     return list;
@@ -116,8 +123,8 @@ export function radixSort (arr: number[]): number[] {
             }
             buckets[index].push(value);
         }
-        result=[];
-        buckets.forEach(bucket=>result.push(...bucket));
+        result = [];
+        buckets.forEach(bucket => result.push(...bucket));
     }
     return result;
 }

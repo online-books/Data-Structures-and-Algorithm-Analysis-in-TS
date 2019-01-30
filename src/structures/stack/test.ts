@@ -5,7 +5,7 @@ import {
 } from "./index";
 
 
-describe.skip('栈的应用', () => {
+describe('栈的应用', () => {
     test('平衡符号', () => {
         const str = '[a*(b+c)+d*(e+f)]';
         const result = balanceSymbol(str);

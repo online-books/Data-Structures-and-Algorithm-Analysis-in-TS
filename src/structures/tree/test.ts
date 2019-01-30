@@ -70,15 +70,17 @@ describe('二叉查找树', () => {
         tree.delete(15);
         tree.delete(5);
         tree.traverse(BinarySearchTree.PREORDER, console.log);
+        expect(tree.findMax()).toBe(17);
     });
 });
-describe.only('AVL树', () => {
+describe('AVL树', () => {
     test('数据的插入', () => {
         const tree = new AVLTree();
         const numbers = [3, 2, 1, 4, 5, 6, 7, 16, 15, 14, 13, 12, 11, 10, 8, 9,];
         numbers.forEach((value) => {
             tree.insert(value);
         });
-        console.log(tree.findMax());
+        expect(tree.findMax()).toBe(16);
+        expect(tree.height).toBe(4);
     })
 })

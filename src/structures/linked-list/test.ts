@@ -8,7 +8,7 @@ import List from './list';
 import Node from './node';
 
 
-describe.skip('链表的操作', () => {
+describe('链表的操作', () => {
     const list = new List();
     const arr = [1, 2, 3, 4, 5, 6];
 
@@ -39,7 +39,7 @@ describe.skip('链表的操作', () => {
         })
     });
 });
-describe.skip('链表的应用', () => {
+describe('链表的应用', () => {
     const list1 = new List();
     const list2 = new List();
     const arr1 = [
@@ -54,11 +54,12 @@ describe.skip('链表的应用', () => {
     ];
     const arr2 = [
         {
-            power: 1,
-            coeff: 8,
-        }, {
             power: 3,
             coeff: 2,
+        },
+        {
+            power: 1,
+            coeff: 8,
         }
     ];
     arr1.forEach(value => list1.insert(value));
@@ -68,7 +69,10 @@ describe.skip('链表的应用', () => {
         list.traverse((value: any) => {
             console.log(value);
         })
-        expect(list.last().value).toEqual(arr1[1]);
+        expect(list.last().value).toMatchObject({
+            power: 1,
+            coeff: 8,
+        });
     });
     test('multiple polynomial', () => {
         const list = mutiplePolynomial(list1, list2);
