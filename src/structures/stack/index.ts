@@ -50,7 +50,6 @@ export function balanceSymbol (str: string): Boolean {
 
 /**
  * 计算后缀表达式
- * @param expression 
  */
 export function postfixExpression (expression: string): number {
     const numbers: number[] = [];

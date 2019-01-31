@@ -6,8 +6,6 @@ import Node from './node';
 
 /**
  * 多项式相加
- * @param l1 
- * @param l2 
  */
 export function addPolynomial (l1: List, l2: List): List {
     const list = new List();
@@ -62,8 +60,6 @@ export function addPolynomial (l1: List, l2: List): List {
 
 /**
  * 多项式相乘
- * @param l1 
- * @param l2 
  */
 export function mutiplePolynomial (l1: List, l2: List): List {
     const list = new List();
