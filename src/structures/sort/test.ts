@@ -1,34 +1,49 @@
-import insertSort from './insert';
+import insertionSort from './insertion';
 import mergeSort from './merge';
+import quickSort from './quick';
 import selectSort from './select';
+import shellSort from './shell';
+
 
 function generateTestArray (size: number) {
-    const set =new Set();
+    const arr = [];
     for (let i = 0; i < size; i++) {
         const value = Math.floor(Math.random() * size);
-        set.add(value);
+        arr.push(value);
     }
-    set.add(size);
-    return Array.from(set);
+    return arr;
 }
 
 describe.only('排序算法', () => {
     test('选择排序', () => {
-        const size=20;
+        const size = 20;
         const arr = generateTestArray(size);
-        const result = selectSort(arr);
-        expect(result[arr.length-1]).toBe(size);
+        selectSort(arr);
+        console.log(arr);
     });
     test('插入排序', () => {
         const size = 20;
         const arr = generateTestArray(size);
-        const result = insertSort(arr);
-        expect(result[arr.length - 1]).toBe(size);
+        insertionSort(arr);
+        console.log(arr);
     });
-    test.only('归并排序',()=>{
-        const size=100;
+    test('归并排序', () => {
+        const size = 20;
         const arr = generateTestArray(size);
-        const result=mergeSort(arr);
-        expect(result[arr.length - 1]).toBe(size);
+        const result = mergeSort(arr);
+        console.log(result);
+    });
+    test('希尔排序', () => {
+        const size = 20;
+        const arr = generateTestArray(size);
+        shellSort(arr);
+        console.log(arr);
+    });
+    test.only('快速排序', () => {
+        const size = 5;
+        const arr = generateTestArray(size);
+        console.log(arr);
+        quickSort(arr);
+        console.log(arr);
     });
 })

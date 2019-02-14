@@ -3,7 +3,7 @@
  * 选择排序
  */
 
-export default function selectSort (arr: number[]): number[] {
+export default function selectSort (arr: number[]){
     const l = arr.length;
     for (let i = 0; i < l - 1; i++) {
         let minValue = arr[i];
@@ -16,5 +16,4 @@ export default function selectSort (arr: number[]): number[] {
         }
         arr[i] = minValue;
     }
-    return arr;
 }
