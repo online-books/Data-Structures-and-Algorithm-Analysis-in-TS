@@ -1,10 +1,6 @@
+import swap from '../../utils/index';
 import insertionSort from './insertion';
 
-function swap (arr: number[], start: number, end: number) {
-    const tmp = arr[start];
-    arr[start] = arr[end];
-    arr[end] = tmp;
-}
 function midian3 (arr: number[], start: number, end: number): number {
     const middle = Math.floor((start + end) / 2);
     if (arr[start] > arr[middle]) {
@@ -27,8 +23,8 @@ export default function quickSort (arr: number[], start = 0, end = arr.length - 
         let i = start;
         let j = end - 1;
         while (true) {
-            while (arr[--j] > pivot) {}
-            while (arr[++i] < pivot) {}
+            while (arr[--j] > pivot) { }
+            while (arr[++i] < pivot) { }
             if (j > i) {
                 swap(arr, i, j);
             } else {

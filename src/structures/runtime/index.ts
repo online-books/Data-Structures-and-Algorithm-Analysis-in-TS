@@ -1,6 +1,3 @@
-/***
- * 运行时间分析
- */
 
 /**
  * 最大子序列和问题
@@ -52,6 +49,7 @@ export function maxSubSumByN (A: number[]): number {
     return maxSubSum;
 }
 
+
 /**
  * 对已排序的数组进行对分查找
  */
@@ -101,5 +99,75 @@ export function pow (x: number, n: number): number {
         return pow(x * x, (n - 1) / 2) * x;
     } else {
         return pow(x * x, n / 2);
+    }
+}
+
+/**
+ * 深度搜索优先遍历DOM之递归实现
+ * @param node 
+ */
+export function deepFirstSearchTraversesDOMByRecursive (node: Element) {
+    const children = node.children;
+    console.log(node);
+    if (children.length) {
+        Array.from(children).forEach(deepFirstSearchTraversesDOMByRecursive);
+    }
+}
+
+/**
+ * 深度搜索优先遍历DOM之非递归实现
+ * @param node
+ */
+export function deepFirstSearchTraversesDOM (node: Element) {
+    let parentNode: Element | null = node;
+    let currentNode: Element | null = node;
+    while (currentNode) {
+        console.log(currentNode);
+        if (currentNode.firstElementChild) {
+            parentNode = currentNode;
+            currentNode = currentNode.firstElementChild;
+        } else {
+            if (currentNode.nextElementSibling) {
+                currentNode = currentNode.nextElementSibling;
+            } else {
+                while (parentNode && !parentNode.nextElementSibling) {
+                    if (parentNode.parentElement === node) {
+                        return;
+                    }
+                    parentNode = parentNode.parentElement;
+                }
+                if (!parentNode) {
+                    return;
+                }
+                currentNode = parentNode.nextElementSibling;
+            }
+        }
+    }
+}
+
+/**
+ * 广度搜索优先遍历DOM之递归实现
+ * @param node
+ */
+export function breadFirstSearchTraversesDOMByRecursive (root: Element) {
+    const nodesArr: Element[][] = [];
+    insertNode(root,0);
+    function insertNode (node: Element, depth: number) {
+        const children = node.children;
+        if (children.length) {
+            Array.from(children).forEach(item => {
+                if (!nodesArr[depth]) {
+                    nodesArr[depth] = [];
+                }
+                nodesArr[depth].push(item);
+                insertNode(item,depth+1);
+            });
+        }
+    }
+    while (nodesArr.length){
+        const nodes=nodesArr.shift() as Element[];
+        while(nodes.length){
+            console.log(nodes.shift());
+        }
     }
 }

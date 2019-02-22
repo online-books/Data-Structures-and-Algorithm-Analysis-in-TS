@@ -2,6 +2,7 @@ import List from '../linked-list/list';
 import Node from '../linked-list/node';
 import HashTable from './hash-table';
 
+// 分离链接法构建哈希表
 export default class SeparateChainingHashTable extends HashTable{
     private tableList: List[];
     constructor(size: number) {
