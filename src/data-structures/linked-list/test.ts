@@ -66,9 +66,6 @@ describe('链表的应用', () => {
     arr2.forEach(value => list2.insert(value));
     test('add polynomial', () => {
         const list = addPolynomial(list1, list2);
-        list.traverse((value: any) => {
-            console.log(value);
-        })
         expect(list.last().value).toMatchObject({
             power: 1,
             coeff: 8,

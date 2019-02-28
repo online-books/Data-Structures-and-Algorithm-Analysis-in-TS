@@ -69,7 +69,6 @@ describe('二叉查找树', () => {
     test('删除元素', () => {
         tree.delete(15);
         tree.delete(5);
-        tree.traverse(BinarySearchTree.PREORDER, console.log);
         expect(tree.findMax()).toBe(17);
     });
 });

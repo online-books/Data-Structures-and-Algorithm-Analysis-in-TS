@@ -99,7 +99,7 @@ export function transformInFixExpressionToPostfixExpression (expression: string)
     let result = '';
     for (let i = 0; i < expression.length; i++) {
         const value = expression[i];
-        
+
         if (numberReg.test(value)) {
             result += value;
         } else {

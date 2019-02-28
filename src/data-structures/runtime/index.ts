@@ -88,18 +88,38 @@ export function maxCommonFactor (m: number, n: number): number {
 }
 
 /**
- * 求幂运算
+ * 求幂运算之递归实现
  */
+
+export function powByRecursive (x: number, n: number): number {
+    if (n === 0) {
+        return 1;
+    }
+    if (n % 2) {
+        return powByRecursive(x * x, (n - 1) / 2) * x;
+    } else {
+        return powByRecursive(x * x, n / 2);
+    }
+}
 
 export function pow (x: number, n: number): number {
     if (n === 0) {
         return 1;
     }
-    if (n % 2) {
-        return pow(x * x, (n - 1) / 2) * x;
-    } else {
-        return pow(x * x, n / 2);
+    if (n === 1) {
+        return x;
     }
+    let result = x;
+    while (n >= 1) {
+        if (n % 2) {
+            result = result * result * x;
+            n = (n - 1) / 2;
+        } else {
+            result = result * result;
+            n = n / 2;
+        }
+    }
+    return result;
 }
 
 /**
@@ -151,7 +171,7 @@ export function deepFirstSearchTraversesDOM (node: Element) {
  */
 export function breadFirstSearchTraversesDOMByRecursive (root: Element) {
     const nodesArr: Element[][] = [];
-    insertNode(root,0);
+    insertNode(root, 0);
     function insertNode (node: Element, depth: number) {
         const children = node.children;
         if (children.length) {
@@ -160,13 +180,13 @@ export function breadFirstSearchTraversesDOMByRecursive (root: Element) {
                     nodesArr[depth] = [];
                 }
                 nodesArr[depth].push(item);
-                insertNode(item,depth+1);
+                insertNode(item, depth + 1);
             });
         }
     }
-    while (nodesArr.length){
-        const nodes=nodesArr.shift() as Element[];
-        while(nodes.length){
+    while (nodesArr.length) {
+        const nodes = nodesArr.shift() as Element[];
+        while (nodes.length) {
             console.log(nodes.shift());
         }
     }
