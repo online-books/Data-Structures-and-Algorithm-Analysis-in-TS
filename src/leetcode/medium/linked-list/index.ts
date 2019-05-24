@@ -1,0 +1,95 @@
+export class ListNode {
+    public val: number;
+    public next: ListNode | null;
+    constructor(val: number) {
+        this.next = null;
+        this.val = val;
+    }
+}
+
+export function addTwoNumbers(l1: ListNode, l2: ListNode): ListNode {
+    let node1: ListNode | null = l1;
+    let node2: ListNode | null = l2;
+    let result!: ListNode;
+    let node!: ListNode;
+    let isBiggerThan10 = false;
+    while (node1 && node2) {
+        let sum = node1.val + node2.val;
+        if (isBiggerThan10) {
+            sum += 1;
+            isBiggerThan10 = false;
+        }
+        if (sum >= 10) {
+            sum = sum % 10;
+            isBiggerThan10 = true;
+        }
+        if (!result) {
+            result = new ListNode(sum);
+            node = result;
+        } else {
+            node.next = new ListNode(sum);
+            node = node.next;
+        }
+        node1 = node1.next;
+        node2 = node2.next;
+    }
+    if (!node1 && !node2 && isBiggerThan10) {
+        node.next = new ListNode(1);
+        isBiggerThan10 = false;
+    }
+    while (node1) {
+        let value = node1.val;
+        if (isBiggerThan10) {
+            value += 1;
+            if (value >= 10) {
+                value = 0;
+            } else {
+                isBiggerThan10 = false;
+            }
+        }
+        node.next = new ListNode(value);
+        node = node.next;
+        node1 = node1.next;
+    }
+    while (node2) {
+        let value = node2.val;
+        if (isBiggerThan10) {
+            value += 1;
+            if (value >= 10) {
+                value = 0;
+            } else {
+                isBiggerThan10 = false;
+            }
+        }
+        node.next = new ListNode(value);
+        node = node.next;
+        node2 = node2.next;
+    }
+    if (isBiggerThan10) {
+        node.next = new ListNode(1);
+    }
+    return result;
+}
+
+/**
+ * Odd Even Linked List
+ * Given a singly linked list, group all odd nodes together followed by the even nodes. 
+ * Please note here we are talking about the node number and not the value in the nodes.
+ * @param head 
+ */
+export function oddEvenList(head: ListNode): ListNode {
+    let node: ListNode | null = head;
+    let current: ListNode | null = head;
+    while (node && node.next) {
+        node = node.next;
+        if(!node.next){
+            break;
+        }
+        const temp = current.next;
+        current.next = node.next;
+        node.next = current.next!.next;
+        current.next!.next = temp;
+        current = current.next!;
+    }
+    return head;
+}
