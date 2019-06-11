@@ -4,7 +4,7 @@ import {
     oddEvenList,
 } from './index';
 
-describe.only('Linked List', () => {
+describe.skip('Linked List', () => {
     const l1 = new ListNode(1);
     const l2 = new ListNode(9);
     l2.next = new ListNode(9);
@@ -32,7 +32,6 @@ describe.only('Linked List', () => {
         });
         oddEvenList(head);
         while (head) {
-            console.log(head.val);
             head = head.next as ListNode;
         }
     });

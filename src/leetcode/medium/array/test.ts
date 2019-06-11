@@ -7,7 +7,7 @@ import{
     threeSum,
 }from './index';
 
-describe('Array and Strings',()=>{
+describe.skip('Array and Strings',()=>{
     it('3 sum',()=>{
         const nums=[-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6];
         const result=threeSum(nums);

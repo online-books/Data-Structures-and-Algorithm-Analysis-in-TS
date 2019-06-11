@@ -82,7 +82,7 @@ export function oddEvenList(head: ListNode): ListNode {
     let current: ListNode | null = head;
     while (node && node.next) {
         node = node.next;
-        if(!node.next){
+        if (!node.next) {
             break;
         }
         const temp = current.next;
@@ -92,4 +92,51 @@ export function oddEvenList(head: ListNode): ListNode {
         current = current.next!;
     }
     return head;
+}
+
+/**
+ * Intersection of Two Linked Lists
+ * Find the node at which the intersection of two singly linked lists begins.
+ * @param headA 
+ * @param headB 
+ */
+export function getIntersectionNode(headA: ListNode, headB: ListNode): ListNode | null {
+    let lenA = 1;
+    let lenB = 1;
+    let nodeA = headA;
+    let nodeB = headB;
+    if(!nodeA||!nodeB){
+        return null;
+    }
+    while (nodeA.next) {
+        nodeA = nodeA.next;
+        lenA += 1;
+    }
+    while (nodeB.next) {
+        nodeB = nodeB.next;
+        lenB += 1;
+    }
+    nodeA = headA;
+    nodeB = headB;
+    if (lenA > lenB) {
+        let i = 0;
+        while (i < lenA - lenB) {
+            nodeA = nodeA.next as ListNode;
+            i += 1;
+        }
+    } else {
+        let i = 0;
+        while (i < lenB - lenA) {
+            nodeB = nodeB.next as ListNode;
+            i += 1;
+        }
+    }
+    while (nodeA !== nodeB) {
+        if (!nodeA || !nodeB) {
+            return null;
+        }
+        nodeA = nodeA.next as ListNode;
+        nodeB = nodeB.next as ListNode;
+    }
+    return nodeA;
 }
