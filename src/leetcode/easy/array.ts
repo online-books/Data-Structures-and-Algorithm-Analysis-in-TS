@@ -4,12 +4,12 @@
  * Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
  */
 
-export function removeDuplicates (nums: number[]) {
+export function removeDuplicates(nums: number[]) {
     if (nums.length <= 1) {
         return nums.length;
     }
     for (let i = 1; i < nums.length;) {
-        if (nums[i] === nums[i-1]) {
+        if (nums[i] === nums[i - 1]) {
             nums.splice(i, 1);
         } else {
             i++;
@@ -24,7 +24,7 @@ export function removeDuplicates (nums: number[]) {
  * Design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).
  * Note: You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).
  */
-export function maxProfit (prices: number[]): number {
+export function maxProfit(prices: number[]): number {
     const len = prices.length;
     let profit = 0;
     for (let i = 1; i < len; i++) {
@@ -37,7 +37,7 @@ export function maxProfit (prices: number[]): number {
  * Rotate Array
  * Given an array, rotate the array to the right by k steps, where k is non-negative.
  */
-export function rotate (nums: number[], k: number): void {
+export function rotate(nums: number[], k: number): void {
     const len = nums.length;
     let n = 1;
     while (n <= k) {
@@ -53,7 +53,7 @@ export function rotate (nums: number[], k: number): void {
  * Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
  */
 
-export function containsDuplicate (nums: any[]): boolean {
+export function containsDuplicate(nums: any[]): boolean {
     const obj = {};
     const len = nums.length;
     for (let i = 0; i < len; i++) {
@@ -74,7 +74,7 @@ export function containsDuplicate (nums: any[]): boolean {
  * Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
  */
 
-export function singleNumber (nums: number[]) {
+export function singleNumber(nums: number[]) {
     const len = nums.length;
     const obj = {};
     for (let i = 0; i < len; i++) {
@@ -99,7 +99,7 @@ export function singleNumber (nums: number[]) {
  * Each element in the result should appear as many times as it shows in both arrays.
  * The result can be in any order.
  */
-export function intersect (nums1: number[], nums2: number[]): number[] {
+export function intersect(nums1: number[], nums2: number[]): number[] {
     const len1 = nums1.length;
     const result = [];
     for (let i = 0; i < len1; i++) {
@@ -115,7 +115,7 @@ export function intersect (nums1: number[], nums2: number[]): number[] {
 /**
  *  Plus One
  */
-export function plusOne (digits: number[]): number[] {
+export function plusOne(digits: number[]): number[] {
     const max = digits.length - 1;
     for (let i = max; i >= 0;) {
         const value = digits[i];
@@ -140,7 +140,7 @@ export function plusOne (digits: number[]): number[] {
  * You must do this in-place without making a copy of the array.
  * Minimize the total number of operations.
  */
-export function moveZeroes (nums: number[]): number[] {
+export function moveZeroes(nums: number[]): number[] {
     const len = nums.length;
     let movedNum = 0;
     for (let i = 0; i < len;) {
@@ -166,7 +166,7 @@ export function moveZeroes (nums: number[]): number[] {
  */
 
 
-export function twoSum (nums: number[], target: number): number[] {
+export function twoSum(nums: number[], target: number): number[] {
     const obj = {};
     const len = nums.length;
     const result = [];
@@ -191,10 +191,10 @@ export function twoSum (nums: number[], target: number): number[] {
  * Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
  */
 
-export function isValidSudoku (board: string[][]): boolean {
+export function isValidSudoku(board: string[][]): boolean {
     const len = board.length;
     const itemLen = board[0].length;
-    function checkArr (arr: string[]): boolean {
+    function checkArr(arr: string[]): boolean {
         arr = arr.filter(val => val !== '.');
         if (!arr.length) {
             return false;
@@ -237,7 +237,7 @@ export function isValidSudoku (board: string[][]): boolean {
 /**
  * Rotate Image
  */
-export function rotateImage (matrix: number[][]): void {
+export function rotateImage(matrix: number[][]): void {
     const l = matrix.length - 1;
     let border = 0;
     while (border <= Math.floor(l / 2)) {

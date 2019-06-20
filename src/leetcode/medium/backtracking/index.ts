@@ -103,6 +103,12 @@ export function subsets(nums: number[]): number[][] {
     return recursion(0, [[]]);
 }
 
+/**
+ * Word Search
+ * Given a 2D board and a word, find if the word exists in the grid.
+ * @param board 
+ * @param word 
+ */
 export function exist(board: string[][], word: string): boolean {
     const rowNum = board.length;
     const columnNum = board[0].length;
