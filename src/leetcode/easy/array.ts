@@ -98,17 +98,25 @@ export function singleNumber(nums: number[]) {
  * Given two arrays, write a function to compute their intersection.
  * Each element in the result should appear as many times as it shows in both arrays.
  * The result can be in any order.
+ * What if the given array is already sorted? How would you optimize your algorithm?
+ * What if nums1's size is small compared to nums2's size? Which algorithm is better?
+ * What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
  */
 export function intersect(nums1: number[], nums2: number[]): number[] {
     const len1 = nums1.length;
+    const len2 = nums2.length;
+    let i = 0;
     const result = [];
-    for (let i = 0; i < len1; i++) {
-        const value = nums1[i];
-        const index = nums2.findIndex(item => item === value);
-        if (index > -1) {
-            result.push(nums2[index]);
-            nums2.splice(index, 1);
+    while (i < len1) {
+        let j = 0;
+        while (j < len2) {
+            if (nums1[i] === nums2[j]) {
+                result.push(nums1[i]);
+                i += 1;
+            }
+            j += 1;
         }
+        i += 1;
     }
     return result;
 }
@@ -260,3 +268,5 @@ export function rotateImage(matrix: number[][]): void {
     }
 
 }
+
+
