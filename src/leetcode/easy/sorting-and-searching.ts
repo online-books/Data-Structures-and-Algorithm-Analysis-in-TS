@@ -35,11 +35,9 @@ export function merge(nums1: number[], m: number, nums2: number[], n: number): n
  * You should minimize the number of calls to the API.
  */
 
-interface CheckFunc {
-    (version: number): boolean;
-}
+type ICheckFunc = (version: number) => boolean;
 
-export function solution(isBadVersion: CheckFunc): Function {
+export function solution(isBadVersion: ICheckFunc): Function {
     return (n: number): number => {
         let start = 1;
         let end = n;

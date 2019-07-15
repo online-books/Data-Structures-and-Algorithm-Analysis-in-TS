@@ -108,20 +108,6 @@ export function buildTree(preorder: number[], inorder: number[]): TreeNode | nul
     return getRootNode(inorder);
 }
 
-const deck = {
-    suits: ["hearts", "spades", "clubs", "diamonds"],
-    cards: Array(52),
-    createCardPicker() {
-        // NOTE: the line below is now an arrow function, allowing us to capture 'this' right here
-        return () => {
-            const pickedCard = Math.floor(Math.random() * 52);
-            const pickedSuit = Math.floor(pickedCard / 13);
-
-            return { suit: this.suits[pickedSuit], card: pickedCard % 13 };
-        }
-    }
-}
-
 /**
  * Kth Smallest Element in a BST
  * Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.

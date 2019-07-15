@@ -5,13 +5,14 @@ export default class BinarySearchTree extends BinaryTree {
     public static INORDER = Symbol('in-order');
     public static PREORDER = Symbol('pre-order');
     public static POSTORDER = Symbol('post-order');
+    public static LEVELORDER = Symbol('level-order');
     constructor() {
         super();
     }
-    get height (): number {
+    get height(): number {
         return this.getNodeHeight(this.root);
     }
-    public find (value: any): BinaryTreeNode | null {
+    public find(value: any): BinaryTreeNode | null {
         let node: BinaryTreeNode | null;
         node = this.root;
         while (node) {
@@ -25,21 +26,21 @@ export default class BinarySearchTree extends BinaryTree {
         }
         return null;
     }
-    public findMin (): any {
+    public findMin(): any {
         const node = this.findMinNode(this.root);
         if (node) {
             return node.value;
         }
         return null;
     }
-    public findMax (): any {
+    public findMax(): any {
         const node = this.findMaxNode(this.root);
         if (node) {
             return node.value;
         }
         return null;
     }
-    public insert (value: any): void {
+    public insert(value: any): void {
         const newNode = new BinaryTreeNode(value);
         if (!this.root) {
             this.root = newNode;
@@ -63,25 +64,27 @@ export default class BinarySearchTree extends BinaryTree {
             }
         }
     }
-    public delete (value: any): void {
+    public delete(value: any): void {
         this.removeNode(value, this.root);
     }
-    public traverse (type: Symbol, callback?: Function) {
+    public traverse(type: Symbol, callback?: Function) {
         if (type === BinarySearchTree.PREORDER) {
             this.preOrder(this.root, callback);
         } else if (type === BinarySearchTree.INORDER) {
             this.inOrder(this.root, callback);
         } else if (type === BinarySearchTree.POSTORDER) {
             this.postOrder(this.root, callback);
+        } else if (type === BinarySearchTree.LEVELORDER) {
+            this.levelOrder(this.root)
         }
     }
-    private getNodeHeight (node: BinaryTreeNode | null): number {
+    private getNodeHeight(node: BinaryTreeNode | null): number {
         if (!node) {
             return -1;
         }
         return 1 + Math.max(this.getNodeHeight(node.left), this.getNodeHeight(node.right));
     }
-    private inOrder (node?: BinaryTreeNode | null, callback?: Function) {
+    private inOrder(node?: BinaryTreeNode | null, callback?: Function) {
         if (!node) {
             return;
         }
@@ -91,7 +94,7 @@ export default class BinarySearchTree extends BinaryTree {
         }
         this.inOrder(node.right, callback);
     }
-    private preOrder (node?: BinaryTreeNode | null, callback?: Function) {
+    private preOrder(node?: BinaryTreeNode | null, callback?: Function) {
         if (!node) {
             return;
         }
@@ -101,7 +104,7 @@ export default class BinarySearchTree extends BinaryTree {
         this.preOrder(node.left, callback);
         this.preOrder(node.right, callback);
     }
-    private postOrder (node?: BinaryTreeNode | null, callback?: Function) {
+    private postOrder(node?: BinaryTreeNode | null, callback?: Function) {
         if (!node) {
             return;
         }
@@ -111,7 +114,10 @@ export default class BinarySearchTree extends BinaryTree {
             callback(node.value);
         }
     }
-    private removeNode (value: any, node: BinaryTreeNode | null) {
+    private levelOrder(node?: BinaryTreeNode | null, callback?: Function) {
+        return;
+    }
+    private removeNode(value: any, node: BinaryTreeNode | null) {
         if (!node) {
             return node;
         }
@@ -136,7 +142,7 @@ export default class BinarySearchTree extends BinaryTree {
         }
         return node;
     }
-    private findMinNode (node: BinaryTreeNode | null = this.root) {
+    private findMinNode(node: BinaryTreeNode | null = this.root) {
         if (!node) {
             return null;
         }
@@ -145,7 +151,7 @@ export default class BinarySearchTree extends BinaryTree {
         }
         return node;
     }
-    private findMaxNode (node: BinaryTreeNode | null = this.root) {
+    private findMaxNode(node: BinaryTreeNode | null = this.root) {
         if (!node) {
             return null;
         }

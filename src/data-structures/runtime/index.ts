@@ -3,7 +3,7 @@
  * 最大子序列和问题
  */
 
-export function maxSubSumByNlogN (A: number[], start: number, end: number): number {
+export function maxSubSumByNlogN(A: number[], start: number, end: number): number {
     if (start === end) {
         if (A[start] < 0) {
             return 0;
@@ -33,7 +33,7 @@ export function maxSubSumByNlogN (A: number[], start: number, end: number): numb
     return maxSum;
 }
 
-export function maxSubSumByN (A: number[]): number {
+export function maxSubSumByN(A: number[]): number {
     let maxSubSum = 0;
     let currentSum = 0;
     for (let i = 0; i < A.length; i++) {
@@ -54,7 +54,7 @@ export function maxSubSumByN (A: number[]): number {
  * 对已排序的数组进行对分查找
  */
 
-export function binarySeatch (A: number[], n: number) {
+export function binarySeatch(A: number[], n: number) {
     let left = 0;
     let right = A.length - 1;
     while (right >= left) {
@@ -75,7 +75,7 @@ export function binarySeatch (A: number[], n: number) {
  * 欧几里德算法求解最大公因数
  */
 
-export function maxCommonFactor (m: number, n: number): number {
+export function maxCommonFactor(m: number, n: number): number {
     if (m < n) {
         [m, n] = [n, m];
     }
@@ -91,10 +91,14 @@ export function maxCommonFactor (m: number, n: number): number {
  * 求幂运算之递归实现
  */
 
-export function powByRecursive (x: number, n: number): number {
+export function powByRecursive(x: number, n: number): number {
     if (n === 0) {
         return 1;
     }
+    if (n === 1) {
+        return x;
+    }
+
     if (n % 2) {
         return powByRecursive(x * x, (n - 1) / 2) * x;
     } else {
@@ -102,31 +106,31 @@ export function powByRecursive (x: number, n: number): number {
     }
 }
 
-export function pow (x: number, n: number): number {
+export function pow(x: number, n: number): number {
     if (n === 0) {
         return 1;
     }
     if (n === 1) {
         return x;
     }
-    let result = x;
-    while (n >= 1) {
+    let temp = 1;
+    while (n > 1) {
         if (n % 2) {
-            result = result * result * x;
-            n = (n - 1) / 2;
+            temp = temp * x;
+            n = n - 1;
         } else {
-            result = result * result;
+            x = x * x;
             n = n / 2;
         }
     }
-    return result;
+    return temp * x;
 }
 
 /**
  * 深度搜索优先遍历DOM之递归实现
  * @param node 
  */
-export function deepFirstSearchTraversesDOMByRecursive (node: Element) {
+export function deepFirstSearchTraversesDOMByRecursive(node: Element) {
     const children = node.children;
     console.log(node);
     if (children.length) {
@@ -138,7 +142,7 @@ export function deepFirstSearchTraversesDOMByRecursive (node: Element) {
  * 深度搜索优先遍历DOM之非递归实现
  * @param node
  */
-export function deepFirstSearchTraversesDOM (node: Element) {
+export function deepFirstSearchTraversesDOM(node: Element) {
     let parentNode: Element | null = node;
     let currentNode: Element | null = node;
     while (currentNode) {
@@ -169,10 +173,10 @@ export function deepFirstSearchTraversesDOM (node: Element) {
  * 广度搜索优先遍历DOM之递归实现
  * @param node
  */
-export function breadFirstSearchTraversesDOMByRecursive (root: Element) {
+export function breadFirstSearchTraversesDOMByRecursive(root: Element) {
     const nodesArr: Element[][] = [];
     insertNode(root, 0);
-    function insertNode (node: Element, depth: number) {
+    function insertNode(node: Element, depth: number) {
         const children = node.children;
         if (children.length) {
             Array.from(children).forEach(item => {

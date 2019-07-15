@@ -6,7 +6,7 @@ import {
 } from './index';
 
 
-describe.only('trees', () => {
+describe.skip('trees', () => {
 
     test('Construct Binary Tree from Preorder and Inorder Traversal', () => {
         const result: number[] = [];
@@ -18,7 +18,7 @@ describe.only('trees', () => {
         });
         expect(result).toEqual(inorder);
     });
-    test.only('Kth Smallest Element in a BST', () => {
+    test('Kth Smallest Element in a BST', () => {
         const tree = buildTree([3, 1, 2, 4], [1, 2, 3, 4]);
         const result = kthSmallest(tree as TreeNode, 1);
         console.log(result);
