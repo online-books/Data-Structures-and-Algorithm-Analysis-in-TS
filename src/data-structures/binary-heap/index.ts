@@ -3,7 +3,7 @@ import swap from '../../utils/index';
 
 export default class BinaryHeap {
 
-    public static create (arr: number[]): BinaryHeap {
+    public static create(arr: number[]): BinaryHeap {
         const binaryHeap = new BinaryHeap();
         const {
             data,
@@ -15,14 +15,14 @@ export default class BinaryHeap {
         }
         return binaryHeap;
     }
-    private data: any[] = [Number.MIN_SAFE_INTEGER];
-    public findMin (): number {
+    private data: number[] = [Number.MIN_SAFE_INTEGER];
+    public findMin(): number {
         if (this.isEmpty()) {
             throw Error('Binary heap is empty!');
         }
         return this.data[1];
     }
-    public deleteMin () {
+    public deleteMin() {
         if (this.isEmpty()) {
             throw Error('Binary heap is empty!');
         }
@@ -48,7 +48,7 @@ export default class BinaryHeap {
         data[i] = lastElement;
         data.pop();
     }
-    public insert (value: any) {
+    public insert(value: any) {
         const {
             data,
         } = this;
@@ -65,20 +65,22 @@ export default class BinaryHeap {
         }
         data[i] = value;
     }
-    public isEmpty (): Boolean {
+    public isEmpty(): Boolean {
         return this.data.length < 2;
     }
-    public empty () {
+    public empty() {
         this.data.length = 1;
     }
-    private percolateDown (data: any[], i: number, size: number) {
-        while (2 * i < size) {
+    private percolateDown(data: any[], i: number, size: number) {
+        while (2 * i <= size) {
             let index = 2 * i;
-            if (index !== size-1 && data[index] > data[index + 1]) {
+            if (index !== size && data[index] > data[index + 1]) {
                 index += 1;
             }
             if (data[i] > data[index]) {
                 swap(data, i, index);
+            } else {
+                break;
             }
             i = index;
         }
