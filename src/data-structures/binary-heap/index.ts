@@ -1,5 +1,5 @@
 
-import swap from '../../utils/index';
+import { swap } from '../../utils/index';
 
 export default class BinaryHeap {
 

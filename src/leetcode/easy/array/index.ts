@@ -1,10 +1,18 @@
+import {
+    compare,
+} from '../../../utils/index';
+
+
 /**
  * Remove Duplicates from Sorted Array
  * Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.
  * Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+ * Example:
+ * Input:[1,1,2],[0,0,1,1,1,2,2,3,3,4]
+ * Output:2,5
  */
 
-export function removeDuplicates(nums: number[]) {
+export function removeDuplicates(nums: number[]): number {
     if (nums.length <= 1) {
         return nums.length;
     }
@@ -23,6 +31,9 @@ export function removeDuplicates(nums: number[]) {
  * Say you have an array for which the ith element is the price of a given stock on day i.
  * Design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).
  * Note: You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).
+ * Example
+ * Input: [7,1,5,3,6,4],[1,2,3,4,5],[7,6,4,3,1]
+ * Output: 7,4,0
  */
 export function maxProfit(prices: number[]): number {
     const len = prices.length;
@@ -36,14 +47,19 @@ export function maxProfit(prices: number[]): number {
 /**
  * Rotate Array
  * Given an array, rotate the array to the right by k steps, where k is non-negative.
+ * Could you do it in-place with O(1) extra space?
+ * Example
+ * Input: [1,2,3,4,5,6,7] and k = 3
+ * Output: [5,6,7,1,2,3,4]
  */
 export function rotate(nums: number[], k: number): void {
-    const len = nums.length;
-    let n = 1;
-    while (n <= k) {
-        const [value] = nums.splice(len - 1, 1);
-        nums.unshift(value);
-        n += 1;
+    if (nums.length) {
+        let n = 1;
+        while (n <= k) {
+            const value = nums.pop() as number;
+            nums.unshift(value);
+            n += 1;
+        }
     }
 }
 
@@ -72,25 +88,13 @@ export function containsDuplicate(nums: any[]): boolean {
  * Single Number.
  * Given a non-empty array of integers, every element appears twice except for one. Find that single one.
  * Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+ * Example:
+ * Input: [2,2,1]
+ * Output: 1
  */
 
-export function singleNumber(nums: number[]) {
-    const len = nums.length;
-    const obj = {};
-    for (let i = 0; i < len; i++) {
-        const value = nums[i];
-        if (obj[value] == null) {
-            obj[value] = 1;
-        } else {
-            obj[value] = obj[value] + 1;
-        }
-    }
-    for (const key in obj) {
-        if (obj[key] === 1) {
-            return Number(key);
-        }
-    }
-    return;
+export function singleNumber(nums: number[]): number {
+    return nums.reduce((cur, next) => cur ^ next);
 }
 
 /**
@@ -101,27 +105,42 @@ export function singleNumber(nums: number[]) {
  * What if the given array is already sorted? How would you optimize your algorithm?
  * What if nums1's size is small compared to nums2's size? Which algorithm is better?
  * What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+ * Example 1: 
+ * Input: nums1 = [1,2,2,1], nums2 = [2,2]
+ * Output: [2,2]
  */
+
 export function intersect(nums1: number[], nums2: number[]): number[] {
-    const len1 = nums1.length;
-    const len2 = nums2.length;
+    const arr1 = nums1.sort(compare);
+    const arr2 = nums2.sort(compare);
+    const result: number[] = [];
+    const len1 = arr1.length;
+    const len2 = arr2.length;
     let i = 0;
-    const result = [];
-    while (i < len1) {
-        let j = 0;
-        while (j < len2) {
-            if (nums1[i] === nums2[j]) {
-                result.push(nums1[i]);
-                i += 1;
-            }
+    let j = 0;
+    while (j < len2 && i < len1) {
+        const val1 = arr1[i];
+        const val2 = arr2[j];
+        if (val1 > val2) {
             j += 1;
+        } else if (val1 === val2) {
+            result.push(val1);
+            i += 1;
+            j += 1;
+        } else {
+            i += 1;
         }
-        i += 1;
     }
     return result;
 }
 /**
  *  Plus One
+ * Given a non-empty array of digits representing a non-negative integer, plus one to the integer.
+ * The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.
+ * You may assume the integer does not contain any leading zero, except the number 0 itself.
+ * Example:
+ * Input: [1,2,3],[4,3,2,1]
+ * Output: [1,2,4],[4,3,2,2]
  */
 export function plusOne(digits: number[]): number[] {
     const max = digits.length - 1;
@@ -171,6 +190,9 @@ export function moveZeroes(nums: number[]): number[] {
  * Two Sum
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
  * You may assume that each input would have exactly one solution, and you may not use the same element twice.
+ * Example
+ * Given nums = [2, 7, 11, 15], target = 9
+ * return [0, 1].
  */
 
 
@@ -200,52 +222,36 @@ export function twoSum(nums: number[], target: number): number[] {
  */
 
 export function isValidSudoku(board: string[][]): boolean {
-    const len = board.length;
-    const itemLen = board[0].length;
-    function checkArr(arr: string[]): boolean {
-        arr = arr.filter(val => val !== '.');
-        if (!arr.length) {
-            return false;
-        }
-        if (containsDuplicate(arr)) {
-            return false;
-        }
-        return true;
-    }
-    for (let i = 0; i < len; i++) {
-        // 横轴检查
-        if (!checkArr(board[i])) {
-            return false;
-        }
-        const arr = [];
-        // 纵轴检查
-        for (let j = 0; j < itemLen; j++) {
-            arr.push(board[j][i]);
-            let anotherArr: string[] = [];
-            // 3x3检查
-            if (i % 3 === 0 && j % 3 === 0) {
-                anotherArr = anotherArr.concat(board[i].slice(j, j + 3));
-                anotherArr = anotherArr.concat(board[i + 1].slice(j, j + 3));
-                anotherArr = anotherArr.concat(board[i + 2].slice(j, j + 3));
-                if (!checkArr(anotherArr)) {
-                    return false;
-                }
+    const cache = {};
+    for (let i = 0; i < 9; i++) {
+        const num = Math.floor(i / 3);
+        for (let j = 0; j < 9; j++) {
+            const value = board[i][j];
+            if (value === '.') {
+                continue;
             }
-
+            const rowKey = `row-${i}-${value}`;
+            const columnKey = `column-${j}-${value}`;
+            const blockKey = `block-${num}-${Math.floor(j / 3)}-${value}`;
+            if (cache[rowKey] !== undefined || cache[columnKey] !== undefined || cache[blockKey] !== undefined) {
+                return false;
+            }
+            cache[rowKey] = value;
+            cache[columnKey] = value;
+            cache[blockKey] = value;
         }
-        if (!checkArr(arr)) {
-            return false;
-        }
-
     }
     return true;
-
 }
 
 /**
  * Rotate Image
+ * You are given an n x n 2D matrix representing an image.
+ * Rotate the image by 90 degrees (clockwise).
+ * Given input matrix =[[1,2,3],[4,5,6],[7,8,9]]
+ * rotate the input matrix in-place such that it becomes:[[7,4,1],[8,5,2],[9,6,3]]
  */
-export function rotateImage(matrix: number[][]): void {
+export function rotateImage1(matrix: number[][]): number[][] {
     const l = matrix.length - 1;
     let border = 0;
     while (border <= Math.floor(l / 2)) {
@@ -266,7 +272,21 @@ export function rotateImage(matrix: number[][]): void {
         }
         border += 1;
     }
+    return matrix;
+}
 
+export function rotateImage2(matrix: number[][]): number[][] {
+    matrix.reverse();
+    const row = matrix.length;
+    const column = matrix[0].length;
+    for (let i = 0; i < row; i++) {
+        for (let j = i + 1; j < column; j++) {
+            const temp = matrix[i][j];
+            matrix[i][j] = matrix[j][i];
+            matrix[j][i] = temp;
+        }
+    }
+    return matrix;
 }
 
 

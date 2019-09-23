@@ -1,3 +1,3 @@
 module.exports = {
-    rootDir: ["<rootDir>/src/design-patterns"]
+    rootDir: ["<rootDir>/src/leetcode/easy/array"]
 }

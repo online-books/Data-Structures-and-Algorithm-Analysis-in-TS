@@ -1,7 +1,7 @@
-import swap from '../../utils/index';
+import { swap } from '../../utils/index';
 import insertionSort from './insertion';
 
-function midian3 (arr: number[], start: number, end: number): number {
+function midian3(arr: number[], start: number, end: number): number {
     const middle = Math.floor((start + end) / 2);
     if (arr[start] > arr[middle]) {
         swap(arr, middle, start);
@@ -17,7 +17,7 @@ function midian3 (arr: number[], start: number, end: number): number {
 }
 
 
-export default function quickSort (arr: number[], start = 0, end = arr.length - 1): void {
+export default function quickSort(arr: number[], start = 0, end = arr.length - 1): void {
     if (end - start >= 3) {
         const pivot = midian3(arr, start, end);
         let i = start;
