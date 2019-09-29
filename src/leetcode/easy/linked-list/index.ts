@@ -1,5 +1,6 @@
-import ListNode from './list-node';
-import SingleList from './single-list';
+
+import SingleList from '../../lib/single-list/index';
+import ListNode from '../../lib/single-list/list-node';
 
 /**
  * Delete Node in a Linked List

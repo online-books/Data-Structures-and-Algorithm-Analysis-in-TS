@@ -1,26 +1,36 @@
+import { buildBinaryTree } from '../../lib/binary-tree/index';
+import TreeNode from '../../lib/binary-tree/tree-node';
+
 import {
     buildTree,
-    inorderTraversal,
+    inorderTraverse,
     kthSmallest,
-    TreeNode,
+    numIslands,
 } from './index';
 
 
-describe.skip('trees', () => {
-
+describe('medium => Tree', () => {
+    test('Binary Tree Inorder Traversal', () => {
+        const tree = buildBinaryTree([1, null, 2, 3])
+        expect(inorderTraverse(tree)).toEqual([1, 3, 2])
+    });
     test('Construct Binary Tree from Preorder and Inorder Traversal', () => {
-        const result: number[] = [];
-        const preorder = [3, 9, 10, 14, 13, 18, 12, 11, 20, 15, 6, 5, 7, 4, 2];
-        const inorder = [14, 10, 13, 9, 12, 18, 11, 3, 6, 15, 5, 20, 4, 7, 2];
-        const tree = buildTree(preorder, inorder);
-        inorderTraversal(tree, (val) => {
-            result.push(val);
-        });
-        expect(result).toEqual(inorder);
+        const tree1 = buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7]);
+        const tree2 = buildTree([1, 2], [1, 2]);
+        expect(inorderTraverse(tree1)).toEqual([9, 3, 15, 20, 7]);
+        expect(inorderTraverse(tree2)).toEqual([1, 2]);
+
     });
     test('Kth Smallest Element in a BST', () => {
         const tree = buildTree([3, 1, 2, 4], [1, 2, 3, 4]);
-        const result = kthSmallest(tree as TreeNode, 1);
-        console.log(result);
+        expect(kthSmallest(tree, 1));
+    });
+    test('Number of Islands', () => {
+        expect(numIslands([
+            ['1', '1', '1', '1', '0'],
+            ['1', '1', '0', '1', '0'],
+            ['1', '1', '0', '0', '0'],
+            ['0', '0', '0', '0', '0']
+        ])).toBe(1);
     })
 })

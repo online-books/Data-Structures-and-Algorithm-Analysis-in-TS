@@ -4,7 +4,7 @@ import {
     oddEvenList,
 } from './index';
 
-describe.skip('Linked List', () => {
+describe('Linked List', () => {
     const l1 = new ListNode(1);
     const l2 = new ListNode(9);
     l2.next = new ListNode(9);
@@ -17,8 +17,8 @@ describe.skip('Linked List', () => {
         }
         expect(arr).toEqual([0, 0, 1]);
     });
-    test.only('Odd Even Linked List', () => {
-        const nums = [1,2,3,4];
+    test('Odd Even Linked List', () => {
+        const nums = [1, 2, 3, 4];
         let node!: ListNode;
         let head!: ListNode;
         nums.forEach(num => {

@@ -1,55 +1,32 @@
+import TreeNode from '../../lib/binary-tree/tree-node';
 
 
-export class TreeNode {
-    public val: null | number;
-    public left: null | TreeNode;
-    public right: null | TreeNode;
-    constructor(val: number) {
-        this.val = val;
-    }
-}
+/**
+ * Binary Tree Inorder Traversal
+ * Given a binary tree, return the inorder traversal of its nodes' values.do it iteratively.
+ * Example:
+ * Input: [1,null,2,3]
+ * Output: [1,3,2]
+ */
 
-export function inorderTraversal(treeNode: TreeNode | null, callBack?: (val: number) => void): void {
-
-    if (!treeNode) {
-        return;
-    }
-    inorderTraversal(treeNode.left, callBack);
-    if (callBack) {
-        callBack(treeNode.val!);
-    }
-    inorderTraversal(treeNode.right, callBack);
-}
-export function preorderTraversal(treeNode: TreeNode | null, callBack: (val: number) => void): void {
-
-    if (!treeNode) {
-        return;
-    }
-    preorderTraversal(treeNode.left, callBack);
-    if (callBack) {
-        callBack(treeNode.val!);
-    }
-    preorderTraversal(treeNode.right, callBack);
-}
-
-export function inorderTraversalIteratively(root: TreeNode): number[] {
-    if (!root || !root.val) {
+export function inorderTraverse(root: TreeNode | null): any[] {
+    if (!root) {
         return [];
     }
-    const nodeArr: Array<TreeNode | number> = [root];
-    const result: number[] = [];
-    while (nodeArr.length) {
-        const item = nodeArr.shift();
-        if (typeof item === 'number') {
-            result.push(item);
-        } else if (typeof item === 'object') {
-            if (item.right) {
-                nodeArr.unshift(item.right);
+    const result: any[] = [];
+    const stack: TreeNode[] = [root];
+    while (stack.length) {
+        const node = stack.shift();
+        if (node instanceof TreeNode) {
+            if (node.right) {
+                stack.unshift(node.right);
             }
-            nodeArr.unshift(item.val as number);
-            if (item.left) {
-                nodeArr.unshift(item.left);
+            stack.unshift(node.val);
+            if (node.left) {
+                stack.unshift(node.left);
             }
+        } else if (typeof node === 'number') {
+            result.push(node);
         }
     }
     return result;
@@ -59,7 +36,6 @@ export function inorderTraversalIteratively(root: TreeNode): number[] {
  * Binary Tree Zigzag Level Order Traversal
  * Given a binary tree, return the zigzag level order traversal of its nodes' values. 
  * (ie, from left to right, then right to left for the next level and alternate between).
- * @param root 
  */
 export function zigzagLevelOrder(root: TreeNode): number[][] {
     const cache: { [propName: string]: number[] } = {};
@@ -84,18 +60,22 @@ export function zigzagLevelOrder(root: TreeNode): number[][] {
     return Object.values(cache);
 }
 
+/**
+ * Construct Binary Tree from Preorder and Inorder Traversal
+ * Given preorder and inorder traversal of a tree, construct the binary tree.
+ * Example:
+ * preorder = [3,9,20,15,7]
+ * inorder = [9,3,15,20,7]
+ */
 
 export function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
-    if (!preorder.length || !inorder.length) {
-        return null;
-    }
-    function getRootNode(arr: number[]): TreeNode | null {
+    function getRootNode(arr: number[]) {
         if (!arr.length) {
             return null;
         }
         const val = preorder.shift();
         if (val !== undefined) {
-            const rootIndex: number = arr.findIndex(num => num === val);
+            const rootIndex = arr.findIndex(num => num === val);
             const node = new TreeNode(val);
             if (arr.length > 1) {
                 node.left = getRootNode(arr.slice(0, rootIndex));
@@ -111,23 +91,74 @@ export function buildTree(preorder: number[], inorder: number[]): TreeNode | nul
 /**
  * Kth Smallest Element in a BST
  * Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
- * @param root 
- * @param k 
+ * 
  */
-export function kthSmallest(root: TreeNode, k: number): number {
-    const result: number[] = [];
-    function traverse(node: TreeNode | null): void {
-        if (!node) {
-            return;
-        }
-
-        traverse(node.left);
-        if (result.length >= k) {
-            return;
-        }
-        result.push(node.val as number);
-        traverse(node.right);
+export function kthSmallest(root: TreeNode | null, k: number): number {
+    if (!root) {
+        return -1;
     }
-    traverse(root);
-    return result[k - 1];
+    let count = 0;
+    const stack = [root];
+    while (stack.length) {
+        const node = stack.shift();
+        if (node !== undefined) {
+            if (node instanceof TreeNode) {
+                if (node.right) {
+                    stack.unshift(node.right)
+                }
+                stack.unshift(node.val);
+                if (node.left) {
+                    stack.unshift(node.left);
+                }
+            } else if (typeof node === 'number') {
+                count += 1;
+                if (count === k) {
+                    return node;
+                }
+            }
+        }
+    }
+    return -1;
+}
+
+/**
+ * Number of Islands
+ * Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. 
+ * An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. 
+ * You may assume all four edges of the grid are all surrounded by water.
+ * Example:
+ * Input:[[11110],[11010],[11000],[00000]]
+ * Output:1
+ */
+export function numIslands(grid: string[][]): number {
+
+    const row = grid.length;
+    if (!row) {
+        return 0;
+    }
+    const column = grid[0].length;
+    if (!column) {
+        return 0;
+    }
+    function DFSMarking(i: number, j: number): void {
+        if (i < 0 || j < 0 || i >= row || j >= column || grid[i][j] === '0') {
+            return;
+        }
+        grid[i][j] = '0';
+        DFSMarking(i - 1, j);
+        DFSMarking(i + 1, j);
+        DFSMarking(i, j - 1);
+        DFSMarking(i, j + 1);
+    }
+    let count = 0;
+    for (let i = 0; i < row; i++) {
+        for (let j = 0; j < column; j++) {
+            if (grid[i][j] === '1') {
+                DFSMarking(i, j);
+                count += 1;
+            }
+        }
+    }
+    return count;
+
 }

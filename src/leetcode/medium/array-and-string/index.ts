@@ -1,37 +1,40 @@
+import { compare } from '../../../utils/index';
+
 /**
- * Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? 
+ * 3Sum
+ * Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0?
  * Find all unique triplets in the array which gives the sum of zero.
- * @param {number[]} arr 
+ * Example:
+ * Input:[-1, 0, 1, 2, -1, -4],
+ * Output:[[-1, 0, 1],[-1, -1, 2]]
  */
-export function threeSum(nums: number[]): number[][] {
+
+export function threeSum(nums: number[], n = 0): number[][] {
+    const {
+        length
+    } = nums;
     const result: number[][] = [];
-    const arr = nums.sort((a, b) => a - b);
-    const len = arr.length;
-    for (let i = 0; i < len - 2; i++) {
-        const val1 = arr[i];
-        if (val1 > 0) {
-            return result;
-        }
-        if (i === 0 || (i > 0 && arr[i] !== arr[i - 1])) {
+    const sortedNums = nums.sort(compare);
+    for (let i = 0; i < length - 2; i++) {
+        const currentVal = sortedNums[i];
+        if (i === 0 || currentVal !== sortedNums[i - 1]) {
+            const twoSum = n - currentVal;
             let j = i + 1;
-            let k = len - 1;
-            const twoSum = 0 - val1;
+            let k = length - 1;
             while (k > j) {
-                const val2 = arr[j];
-                const val3 = arr[k];
-                const sum = val2 + val3;
-                if (sum > twoSum) {
-                    k--;
-                } else if (sum === twoSum) {
-                    result.push([val1, val2, val3]);
-                    while (j < k && arr[k] === arr[k - 1]) {
+                const val = sortedNums[j] + sortedNums[k];
+                if (val === twoSum) {
+                    result.push([currentVal, sortedNums[j], sortedNums[k]]);
+                    while (k > j && sortedNums[k] === sortedNums[k - 1]) {
                         k--;
                     }
-                    while (j < k && arr[j] === arr[j + 1]) {
+                    while (j < k && sortedNums[j] === sortedNums[j + 1]) {
                         j++;
                     }
                     k--;
                     j++;
+                } else if (val > twoSum) {
+                    k--;
                 } else {
                     j++;
                 }
@@ -42,14 +45,17 @@ export function threeSum(nums: number[]): number[][] {
 }
 
 /**
- * 
- * Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in-place. * 
- * @param matrix 
+ * Set Matrix Zeroes
+ * Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in-place.
+ * Could you devise a constant space solution?
+ * Example:
+ * Input:[[1,1,1],[1,0,1],[1,1,1]]
+ * Output:[[1,0,1],[0,0,0],[1,0,1]]
  */
-export function setZeroes(matrix: number[][]): void {
+export function setZeroes(matrix: number[][]): number[][] {
     const rows = matrix.length;
     if (!rows) {
-        return;
+        return matrix;
     }
     const columns = matrix[0].length;
     let isColum0 = false;
@@ -59,7 +65,8 @@ export function setZeroes(matrix: number[][]): void {
         }
         for (let j = 1; j < columns; j++) {
             if (matrix[i][j] === 0) {
-                matrix[0][j] = matrix[i][0] = 0;
+                matrix[i][0] = 0;
+                matrix[0][j] = 0;
             }
         }
     }
@@ -73,14 +80,16 @@ export function setZeroes(matrix: number[][]): void {
             matrix[i][0] = 0;
         }
     }
+    return matrix;
 }
 
 /**
+ * Group Anagrams
  * Given an array of strings, group anagrams together.
- * 
- * @param {string[]} strs
- * @return {string[][]}
+ * Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+ * Output:[["ate","eat","tea"],["nat","tan"],["bat"]]
  */
+
 export function groupAnagrams(strs: string[]): string[][] {
     const cache: { [propName: string]: string[] } = {};
     strs.forEach((str) => {
@@ -96,35 +105,42 @@ export function groupAnagrams(strs: string[]): string[][] {
 };
 
 /**
+ * Longest Substring Without Repeating Characters
  * Given a string, find the length of the longest substring without repeating characters.
- * @param {string} s
- * @returns {number}
+ * Example:
+ * Input: "abcabcbb"
+ * Output: 3
  */
 
 export function lengthOfLongestSubstring(s: string): number {
-    const len = s.length;
-    let maxLength = 0;
+    const {
+        length,
+    } = s;
+    let maxSubStrLen = 0;
     let subStr = '';
-    for (let i = 0; i < len; i++) {
+    for (let i = 0; i < length; i++) {
         const val = s[i];
         const index = subStr.indexOf(val);
         if (index >= 0) {
-            const currentLen = subStr.length;
-            if (maxLength < currentLen) {
-                maxLength = currentLen
+            if (subStr.length > maxSubStrLen) {
+                maxSubStrLen = subStr.length;
             }
-            subStr = subStr.slice(index + 1).concat(val);
+            subStr = subStr.slice(index + 1) + val;
         } else {
-            subStr = subStr.concat(val);
+            subStr += val;
         }
     }
-    return Math.max(maxLength, subStr.length);
+    return Math.max(maxSubStrLen, subStr.length);
 }
 
 /**
+ * Longest Palindromic Substring
  * Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
- * @param  s 
+ * Example：
+ * Input: "babad"
+ * Output: "bab"
  */
+
 export function longestPalindrome(s: string): string {
     const len = s.length;
     if (len < 2) {
@@ -148,12 +164,15 @@ export function longestPalindrome(s: string): string {
         getPalindromeMaxLength(i, i + 1);
     }
     return s.substr(index + 1, maxLength);
-
 }
 
 /**
+ * Increasing Triplet Subsequence
  * Given an unsorted array return whether an increasing subsequence of length 3 exists or not in the array.
- * @param nums 
+ * Note: Your algorithm should run in O(n) time complexity and O(1) space complexity.
+ * Example:
+ * Input: [1,2,3,4,5]
+ * Output: true
  */
 export function increasingTriplet(nums: number[]): boolean {
     let small = Number.MAX_VALUE;

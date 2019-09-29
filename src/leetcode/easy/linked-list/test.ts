@@ -1,14 +1,13 @@
 import {
     deleteNode,
-    hasCycle,
     isPalindrome,
     mergeTwoLists,
     removeNthFromEnd,
     reverseList,
 } from './index';
 
-import ListNode from './list-node';
-import SingleList from './single-list';
+import SingleList from '../../lib/single-list/index';
+import ListNode from '../../lib/single-list/list-node';
 
 
 describe('easy => Linked List', () => {

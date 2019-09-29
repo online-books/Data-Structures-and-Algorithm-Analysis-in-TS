@@ -1,32 +1,25 @@
-
 /**
  * Lette Combinations of a Phone Number
- * @param digits 
+ * Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.
+ * Example:
+ * Input: "23"
+ * Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
  */
 export function letterCombinations(digits: string): string[] {
-    const mappings = {
-        '2': ['a', 'b', 'c'],
-        '3': ['d', 'e', 'f'],
-        '4': ['g', 'h', 'i'],
-        '5': ['j', 'k', 'l'],
-        '6': ['m', 'n', 'o'],
-        '7': ['p', 'q', 'r', 's'],
-        '8': ['t', 'u', 'v'],
-        '9': ['w', 'x', 'y', 'z']
-    };
-    if (!digits || !digits.length) {
-        return [];
-    }
-    if (digits.length === 1) {
-        return mappings[digits];
-    }
-    const res1 = letterCombinations(digits.slice(0, 1));
-    const res2 = letterCombinations(digits.slice(1));
+    const letters = ['', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
     const result: string[] = [];
-    for (let i = 0; i < res1.length; i++) {
-        for (let j = 0; j < res2.length; j++) {
-            result.push(res1[i] + res2[j]);
+    function combine(str: string, index: number): void {
+        if (index === digits.length) {
+            result.push(str);
+            return;
         }
+        const letter = letters[Number(digits[index]) - 1];
+        for (let i = 0; i < letter.length; i++) {
+            combine(str.concat(letter[i]), index + 1);
+        }
+    }
+    if (digits.length) {
+        combine('', 0);
     }
     return result;
 }
@@ -34,107 +27,122 @@ export function letterCombinations(digits: string): string[] {
 /**
  * Generate Parentheses
  * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
- * @param n 
+ * Example:
+ * Input:3,
+ * Output:["((()))","(()())","(())()","()(())","()()()"]
  */
 
 export function generateParenthesis(n: number): string[] {
-    if (!n) {
-        return [];
+    const result: string[] = [];
+    const max = n * 2;
+    function combine(parentheses: string, open: number, close: number): void {
+        if (parentheses.length === max) {
+            result.push(parentheses);
+            return;
+        }
+        if (open < n) {
+            combine(parentheses.concat('('), open + 1, close);
+        }
+        if (close < open) {
+            combine(parentheses.concat(')'), open, close + 1);
+        }
     }
-    if (n === 1) {
-        return ['()'];
+    if (n) {
+        combine('', 0, 0);
     }
-    const result = generateParenthesis(n - 1);
-    const set: Set<string> = new Set();
-    for (let i = 0; i < result.length; i++) {
-        set.add('(' + result[i] + ')');
-        set.add('()' + result[i]);
-        set.add(result[i] + '()');
-    }
-    return Array.from(set);
+    return result;
 }
 
 /**
  * Permutations
  * Given a collection of distinct integers, return all possible permutations.
- * @param nums 
+ * Example:
+ * Input: [1,2,3]
+ * Output:[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
  */
 export function permute(nums: number[]): number[][] {
-    function recursion(index: number, arr: number[][]): number[][] {
-        if (index === nums.length) {
-            return arr;
+    const result: number[][] = [];
+    const {
+        length
+    } = nums;
+    function combine(arr: number[], index: number): void {
+        if (index === length) {
+            result.push(arr);
+            return;
         }
-        let result: number[][] = [];
-        if (index === 0) {
-            result = [[nums[0]]];
-        } else {
-            arr.forEach(item => {
-                for (let i = 0; i <= item.length; i++) {
-                    const a = item.slice();
-                    a.splice(i, 0, nums[index]);
-                    result.push(a);
-                }
-            })
+        for (let i = 0; i <= arr.length; i++) {
+            const copy = arr.slice();
+            copy.splice(i, 0, nums[index])
+            combine(copy, index + 1);
         }
-        return recursion(index + 1, result);
     }
-    return recursion(0, []);
+    combine([], 0);
+    return result;
 }
 
 /**
  * Subsets
  * Given a set of distinct integers, nums, return all possible subsets (the power set).
- * @param nums 
+ * The solution set must not contain duplicate subsets.
+ * Example:
+ * Input: nums = [1,2,3]
+ * Output:[[3],[1],[2],[1,2,3],[1,3],[2,3],[1,2],[]]
  */
 export function subsets(nums: number[]): number[][] {
-    const len = nums.length;
-    function recursion(index: number, arr: number[][]): number[][] {
-        if (index === len) {
-            return arr;
+    const {
+        length
+    } = nums;
+    const result: number[][] = [[]];
+    function combine(index: number): void {
+        if (index === length) {
+            return;
         }
-        const arrLen = arr.length;
+        const arrLen = result.length;
         for (let i = 0; i < arrLen; i++) {
-            const result = arr[i].slice();
-            result.push(nums[index]);
-            arr.push(result);
+            result.push(result[i].concat(nums[index]));
         }
-        return recursion(index + 1, arr);
+        combine(index + 1);
     }
-    return recursion(0, [[]]);
+    if (!length) {
+        return [];
+    }
+    combine(0);
+    return result;
 }
 
 /**
  * Word Search
  * Given a 2D board and a word, find if the word exists in the grid.
- * @param board 
- * @param word 
+ * The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. 
+ * The same letter cell may not be used more than once.
+ * Example:
+ * board =[['A','B','C','E'],['S','F','C','S'],['A','D','E','E']]
+ * "ABCCED", return true. "SEE", return true. "ABCB", return false.
  */
 export function exist(board: string[][], word: string): boolean {
-    const rowNum = board.length;
-    const columnNum = board[0].length;
-    const wordLen = word.length;
-    function recursion(index: number, row: number, column: number): boolean {
-        if (index === wordLen) {
+    const row = board.length;
+    if (!row) {
+        return false;
+    }
+    const column = board[0].length;
+    const {
+        length,
+    } = word;
+    function helper(i: number, j: number, index: number): boolean {
+        if (index === length) {
             return true;
         }
-        if (row < 0 || row >= rowNum) {
+        if (i < 0 || j < 0 || i >= row || j >= column || word[index] !== board[i][j]) {
             return false;
         }
-        if (column < 0 || column >= columnNum) {
-            return false;
-        }
-        if (board[row][column] !== word[index]) {
-            return false;
-        }
-        board[row][column] = '*';
-        const result = recursion(index + 1, row, column + 1) || recursion(index + 1, row, column - 1) || recursion(index + 1, row + 1, column) || recursion(index + 1, row - 1, column);
-        board[row][column] = word[index];
+        board[i][j] = '*';
+        const result = helper(i + 1, j, index + 1) || helper(i, j + 1, index + 1) || helper(i - 1, j, index + 1) || helper(i, j - 1, index + 1);
+        board[i][j] = word[index];
         return result;
-
     }
-    for (let i = 0; i < rowNum; i++) {
-        for (let j = 0; j < columnNum; j++) {
-            if (recursion(0, i, j)) {
+    for (let i = 0; i < row; i++) {
+        for (let j = 0; j < column; j++) {
+            if (helper(i, j, 0)) {
                 return true;
             }
         }
