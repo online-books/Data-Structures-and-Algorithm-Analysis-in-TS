@@ -34,9 +34,9 @@ describe('medium => backtracking', () => {
                 ['A', 'D', 'E', 'E']
             ];
         const board2 = [["A", "B", "C", "E"], ["S", "F", "E", "S"], ["A", "D", "E", "E"]];
-        // expect(exist(board, 'ABCCED')).toBeTruthy();
-        // expect(exist(board, 'SEE')).toBeTruthy();
-        // expect(exist(board, 'ABCB')).toBeFalsy();
+        expect(exist(board, 'ABCCED')).toBeTruthy();
+        expect(exist(board, 'SEE')).toBeTruthy();
+        expect(exist(board, 'ABCB')).toBeFalsy();
         expect(exist(board2, 'ABCESEEEFS')).toBeTruthy();
     });
 })

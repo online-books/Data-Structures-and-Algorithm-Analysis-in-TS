@@ -1,7 +1,27 @@
+import { compare, swap } from '../../../utils/index';
+
+function midian3(arr: number[], start: number, end: number): number {
+    const middle = Math.floor((start + end) / 2);
+    if (arr[start] > arr[middle]) {
+        swap(arr, middle, start);
+    }
+    if (arr[start] > arr[end]) {
+        swap(arr, end, start);
+    }
+    if (arr[middle] > arr[end]) {
+        swap(arr, end, middle);
+    }
+    swap(arr, middle, end - 1);
+    return arr[end - 1];
+}
+
+
 /**
  * Sort Colors
  * Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.
- * @param nums 
+ * Example：
+ * Input: [2,0,2,1,1,0]
+ * Output: [0,0,1,1,2,2]
  */
 export function sortColors(nums: number[]): void {
     const len = nums.length;
@@ -22,38 +42,75 @@ export function sortColors(nums: number[]): void {
     }
 }
 
-export function searchMatrix(matrix: number[][], target: number): boolean {
-    let row = matrix.length - 1;
-    if (row < 0) {
-        return false;
-    }
-    let column = matrix[0].length - 1;
-    if (matrix[row][column] < target) {
-        return false;
-    }
-    while (row >= 0 && column >= 0) {
-        const value = matrix[row][column];
-        if (value > target) {
-            if (row) {
-                row -= 1;
-            } else {
-                column -= 1;
-            }
-        } else if (value === target) {
-            return true;
+
+/**
+ * Top K Frequent Elements
+ * Given a non-empty array of integers, return the k most frequent elements.
+ * Example:
+ * Input: nums = [1,1,1,2,2,3], k = 2
+ * Output: [1,2]
+ */
+export function topKFrequent(nums: number[], k: number): number[] {
+    const obj = {};
+    for (let i = 0; i < nums.length; i++) {
+        const key = nums[i];
+        const val = obj[key];
+        if (typeof val === 'undefined') {
+            obj[key] = 1;
         } else {
-            for (let i = 0; i < column - 1; i++) {
-                if (matrix[row + 1][i] === target) {
-                    return true;
-                }
-            }
-            for (let j = 0; j < row - 1; j++) {
-                if (matrix[j][column + 1] === target) {
-                    return true;
-                }
-            }
-            return false;
+            obj[key] = val + 1;
         }
     }
-    return false;
+    const keys = Object.keys(obj).sort((key1, key2) => {
+        const val1 = obj[key1];
+        const val2 = obj[key2];
+        return val2 - val1;
+    });
+    return keys.slice(0, k).map(Number);
+}
+
+
+/**
+ * Kth Largest Element in an Array
+ * Find the kth largest element in an unsorted array.
+ * Example
+ * Input: [3,2,1,5,6,4] and k = 2
+ * Output: 5
+ */
+export function findKthLargest(nums: number[], k: number): number {
+    const {
+        length
+    } = nums;
+    if (length <= 3) {
+        return nums.sort(compare)[length - k];
+    }
+    const start = 0;
+    const end = length - 1;
+    const pivot = midian3(nums, start, end);
+    let i = 1;
+    let j = length - 3;
+    console.log(nums, k, pivot)
+    while (true) {
+        while (nums[i] <= pivot && i < end - 1) {
+            i++;
+        }
+        while (nums[j] > pivot) {
+            j--;
+        }
+        if (i < j) {
+            swap(nums, i, j);
+        } else {
+            break;
+        }
+    }
+    // 3, 1, 2, 4
+    swap(nums, i, end - 1);
+    console.log(nums, i, j)
+    if (k < length - i) { // k在数组的右半部分，大于pivot
+        return findKthLargest(nums.slice(i + 1), k);
+    } else if (k > length - i) { // k在数组的右半部分，大于pivot
+        return findKthLargest(nums.slice(start, i), k - (length - i));
+    } else if (k === length - i) {
+        return nums[i];
+    }
 }
