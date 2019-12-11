@@ -1,12 +1,9 @@
-import { compare } from '../../../utils/index';
+import { compare } from '../../../share/utils';
 
 /**
  * 3Sum
  * Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0?
  * Find all unique triplets in the array which gives the sum of zero.
- * Example:
- * Input:[-1, 0, 1, 2, -1, -4],
- * Output:[[-1, 0, 1],[-1, -1, 2]]
  */
 
 export function threeSum(nums: number[], n = 0): number[][] {
@@ -48,9 +45,6 @@ export function threeSum(nums: number[], n = 0): number[][] {
  * Set Matrix Zeroes
  * Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in-place.
  * Could you devise a constant space solution?
- * Example:
- * Input:[[1,1,1],[1,0,1],[1,1,1]]
- * Output:[[1,0,1],[0,0,0],[1,0,1]]
  */
 export function setZeroes(matrix: number[][]): number[][] {
     const rows = matrix.length;
@@ -86,8 +80,6 @@ export function setZeroes(matrix: number[][]): number[][] {
 /**
  * Group Anagrams
  * Given an array of strings, group anagrams together.
- * Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
- * Output:[["ate","eat","tea"],["nat","tan"],["bat"]]
  */
 
 export function groupAnagrams(strs: string[]): string[][] {
@@ -107,9 +99,6 @@ export function groupAnagrams(strs: string[]): string[][] {
 /**
  * Longest Substring Without Repeating Characters
  * Given a string, find the length of the longest substring without repeating characters.
- * Example:
- * Input: "abcabcbb"
- * Output: 3
  */
 
 export function lengthOfLongestSubstring(s: string): number {
@@ -136,9 +125,6 @@ export function lengthOfLongestSubstring(s: string): number {
 /**
  * Longest Palindromic Substring
  * Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
- * Example：
- * Input: "babad"
- * Output: "bab"
  */
 
 export function longestPalindrome(s: string): string {
@@ -170,9 +156,6 @@ export function longestPalindrome(s: string): string {
  * Increasing Triplet Subsequence
  * Given an unsorted array return whether an increasing subsequence of length 3 exists or not in the array.
  * Note: Your algorithm should run in O(n) time complexity and O(1) space complexity.
- * Example:
- * Input: [1,2,3,4,5]
- * Output: true
  */
 export function increasingTriplet(nums: number[]): boolean {
     let small = Number.MAX_VALUE;

@@ -1,8 +1,10 @@
 import {
     addTwoNumbers,
-    ListNode,
     oddEvenList,
 } from './index';
+
+import ListNode from '../../../data-structures/linked-list/list-node';
+import { buildList } from '../../../data-structures/linked-list/single-list';
 
 describe('Linked List', () => {
     const l1 = new ListNode(1);
@@ -18,21 +20,7 @@ describe('Linked List', () => {
         expect(arr).toEqual([0, 0, 1]);
     });
     test('Odd Even Linked List', () => {
-        const nums = [1, 2, 3, 4];
-        let node!: ListNode;
-        let head!: ListNode;
-        nums.forEach(num => {
-            if (!head) {
-                head = new ListNode(num);
-                node = head;
-            } else {
-                node.next = new ListNode(num);
-                node = node.next;
-            }
-        });
-        oddEvenList(head);
-        while (head) {
-            head = head.next as ListNode;
-        }
+        const list = buildList([1, 2, 3, 4])
+        oddEvenList(list);
     });
 })

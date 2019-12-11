@@ -1,6 +1,6 @@
 import {
     buildBinaryTree,
-} from '../../lib/binary-tree/index';
+} from '../../../data-structures/tree/index';
 
 import { isSymmetricIteratively, isSymmetricRecursively, isValidBST, levelOrder, maxDepth, sortedArrayToBST } from './index';
 

@@ -1,6 +1,11 @@
 import BinaryTree from './binary-tree';
 import BinaryTreeNode from './binary-tree-node';
 
+/**
+ * 二叉查找树的性质：对树中的每个节点X，它的左子树中所有关键字的值小于X的关键字值，右子树中所有的关键字值大于X的关键字值
+ * 二叉树的操作：插入、查找、查找最大值、查找最小值、删除
+ */
+
 export default class BinarySearchTree extends BinaryTree {
     public static INORDER = Symbol('in-order');
     public static PREORDER = Symbol('pre-order');
@@ -16,11 +21,11 @@ export default class BinarySearchTree extends BinaryTree {
         let node: BinaryTreeNode | null;
         node = this.root;
         while (node) {
-            if (node.value > value) {
+            if (node.val > value) {
                 node = node.left;
-            } else if (node.value < value) {
+            } else if (node.val < value) {
                 node = node.right;
-            } else if (node.value === value) {
+            } else if (node.val === value) {
                 return node;
             }
         }
@@ -29,14 +34,14 @@ export default class BinarySearchTree extends BinaryTree {
     public findMin(): any {
         const node = this.findMinNode(this.root);
         if (node) {
-            return node.value;
+            return node.val;
         }
         return null;
     }
     public findMax(): any {
         const node = this.findMaxNode(this.root);
         if (node) {
-            return node.value;
+            return node.val;
         }
         return null;
     }
@@ -47,19 +52,19 @@ export default class BinarySearchTree extends BinaryTree {
         }
         let node: BinaryTreeNode | null = this.root;
         while (node) {
-            if (node.value > value) {
+            if (node.val > value) {
                 if (!node.left) {
                     node.left = newNode;
                     break;
                 }
                 node = node.left;
-            } else if (node.value < value) {
+            } else if (node.val < value) {
                 if (!node.right) {
                     node.right = newNode;
                     break;
                 }
                 node = node.right;
-            } else if (node.value === value) {
+            } else if (node.val === value) {
                 break;
             }
         }
@@ -74,8 +79,6 @@ export default class BinarySearchTree extends BinaryTree {
             this.inOrder(this.root, callback);
         } else if (type === BinarySearchTree.POSTORDER) {
             this.postOrder(this.root, callback);
-        } else if (type === BinarySearchTree.LEVELORDER) {
-            this.levelOrder(this.root)
         }
     }
     private getNodeHeight(node: BinaryTreeNode | null): number {
@@ -90,7 +93,7 @@ export default class BinarySearchTree extends BinaryTree {
         }
         this.inOrder(node.left, callback);
         if (callback) {
-            callback(node.value)
+            callback(node.val)
         }
         this.inOrder(node.right, callback);
     }
@@ -99,7 +102,7 @@ export default class BinarySearchTree extends BinaryTree {
             return;
         }
         if (callback) {
-            callback(node.value);
+            callback(node.val);
         }
         this.preOrder(node.left, callback);
         this.preOrder(node.right, callback);
@@ -111,30 +114,32 @@ export default class BinarySearchTree extends BinaryTree {
         this.postOrder(node.left, callback);
         this.postOrder(node.right, callback);
         if (callback) {
-            callback(node.value);
+            callback(node.val);
         }
-    }
-    private levelOrder(node?: BinaryTreeNode | null, callback?: Function) {
-        return;
     }
     private removeNode(value: any, node: BinaryTreeNode | null) {
         if (!node) {
             return node;
         }
-        if (node.value === value) {
+        if (node.val === value) {
+            // 节点是树叶，直接删除即可
             if (!node.left && !node.right) {
                 node = null;
-            } else if (node.left && !node.right) {
+            }
+            // 节点只包含一个子节点，返回其子节点
+            else if (node.left && !node.right) {
                 return node.left;
             } else if (!node.left && node.right) {
                 return node.right;
-            } else {
+            }
+            // 节点有两个儿子节点，找出其右子树中最小节点X，将节点X的关键字值赋予该节点，然后删除X节点
+            else {
                 const minRightNode = this.findMinNode(node.right) as BinaryTreeNode;
-                node.value = minRightNode.value;
-                node.right = this.removeNode(minRightNode.value, node.right);
+                node.val = minRightNode.val;
+                node.right = this.removeNode(minRightNode.val, node.right);
             }
         } else {
-            if (node.value > value) {
+            if (node.val > value) {
                 node.left = this.removeNode(value, node.left);
             } else {
                 node.right = this.removeNode(value, node.right);

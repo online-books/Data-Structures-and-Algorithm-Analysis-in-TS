@@ -4,9 +4,6 @@
  * Given an array of non-negative integers, you are initially positioned at the first index of the array.
  * Each element in the array represents your maximum jump length at that position.
  * Determine if you are able to reach the last index.
- * Example:
- * Input: [2,3,1,1,4],[3,2,1,0,4]
- * Output: true,false
  */
 
 export function canJump(nums: number[]): boolean {
@@ -25,9 +22,6 @@ export function canJump(nums: number[]): boolean {
  * A robot is located at the top-left corner of a m x n grid.
  * The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid
  * How many possible unique paths are there?
- * Example：
- * Input: m = 3, n = 2
- * Output: 3
  */
 export function uniquePaths(m: number, n: number): number {
     const cache = {};
@@ -55,9 +49,6 @@ export function uniquePaths(m: number, n: number): number {
  * You are given coins of different denominations and a total amount of money amount.
  * Write a function to compute the fewest number of coins that you need to make up that amount.
  * If that amount of money cannot be made up by any combination of the coins, return -1
- * Example：
- * Input: coins = [1, 2, 5], amount = 11
- * Output: 3
  */
 
 export function coinChange(coins: number[], amount: number): number {
@@ -95,9 +86,6 @@ export function coinChange(coins: number[], amount: number): number {
  * Longest Increasing Subsequence
  * Given an unsorted array of integers, find the length of longest increasing subsequence.
  * Your algorithm should run in O(n log n) complexity.
- * Example：
- * Input: [10,9,2,5,3,7,101,18],[10,2,5,11,9,3,4,6,7,8,10,12]
- * Output: 4,8
  */
 
 export function lengthOfLIS(nums: number[]): number {

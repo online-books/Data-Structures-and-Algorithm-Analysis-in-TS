@@ -1,15 +1,12 @@
 import {
     compare,
-} from '../../../utils/index';
+} from '../../../share/utils';
 
 
 /**
  * Remove Duplicates from Sorted Array
  * Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.
  * Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
- * Example:
- * Input:[1,1,2],[0,0,1,1,1,2,2,3,3,4]
- * Output:2,5
  */
 
 export function removeDuplicates(nums: number[]): number {
@@ -31,9 +28,6 @@ export function removeDuplicates(nums: number[]): number {
  * Say you have an array for which the ith element is the price of a given stock on day i.
  * Design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).
  * Note: You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).
- * Example
- * Input: [7,1,5,3,6,4],[1,2,3,4,5],[7,6,4,3,1]
- * Output: 7,4,0
  */
 export function maxProfit(prices: number[]): number {
     const len = prices.length;
@@ -48,9 +42,6 @@ export function maxProfit(prices: number[]): number {
  * Rotate Array
  * Given an array, rotate the array to the right by k steps, where k is non-negative.
  * Could you do it in-place with O(1) extra space?
- * Example
- * Input: [1,2,3,4,5,6,7] and k = 3
- * Output: [5,6,7,1,2,3,4]
  */
 export function rotate(nums: number[], k: number): void {
     if (nums.length) {
@@ -88,9 +79,6 @@ export function containsDuplicate(nums: any[]): boolean {
  * Single Number.
  * Given a non-empty array of integers, every element appears twice except for one. Find that single one.
  * Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
- * Example:
- * Input: [2,2,1]
- * Output: 1
  */
 
 export function singleNumber(nums: number[]): number {
@@ -105,9 +93,6 @@ export function singleNumber(nums: number[]): number {
  * What if the given array is already sorted? How would you optimize your algorithm?
  * What if nums1's size is small compared to nums2's size? Which algorithm is better?
  * What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
- * Example 1: 
- * Input: nums1 = [1,2,2,1], nums2 = [2,2]
- * Output: [2,2]
  */
 
 export function intersect(nums1: number[], nums2: number[]): number[] {
@@ -134,13 +119,10 @@ export function intersect(nums1: number[], nums2: number[]): number[] {
     return result;
 }
 /**
- *  Plus One
+ * Plus One
  * Given a non-empty array of digits representing a non-negative integer, plus one to the integer.
  * The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.
  * You may assume the integer does not contain any leading zero, except the number 0 itself.
- * Example:
- * Input: [1,2,3],[4,3,2,1]
- * Output: [1,2,4],[4,3,2,2]
  */
 export function plusOne(digits: number[]): number[] {
     const max = digits.length - 1;
@@ -163,8 +145,7 @@ export function plusOne(digits: number[]): number[] {
 /**
  * Move Zeroes
  * Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
- * Note:
- * You must do this in-place without making a copy of the array.
+ * Note:You must do this in-place without making a copy of the array.
  * Minimize the total number of operations.
  */
 export function moveZeroes(nums: number[]): number[] {
@@ -190,9 +171,6 @@ export function moveZeroes(nums: number[]): number[] {
  * Two Sum
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
  * You may assume that each input would have exactly one solution, and you may not use the same element twice.
- * Example
- * Given nums = [2, 7, 11, 15], target = 9
- * return [0, 1].
  */
 
 

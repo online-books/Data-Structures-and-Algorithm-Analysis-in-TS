@@ -1,6 +1,6 @@
 /**
- * 问题：Climbing Stairs
- * 描述：You are climbing a stair case. It takes n steps to reach to the top.
+ * Climbing Stairs
+ * You are climbing a stair case. It takes n steps to reach to the top.
  * Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
  * Note: Given n will be a positive integer.
  */
@@ -23,13 +23,10 @@ export function climbStairs(n: number): number {
 }
 
 /**
- * 问题： Best Time to Buy and Sell Stock
- * 描述：Say you have an array for which the ith element is the price of a given stock on day i.
+ * Best Time to Buy and Sell Stock
+ * Say you have an array for which the ith element is the price of a given stock on day i.
  * If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
  * Note that you cannot sell a stock before you buy one.
- * Example：
- * Input: [7,1,5,3,6,4]，[7,6,4,3,1]
- * Output: 5，0
  */
 
 export function maxProfit(prices: number[]): number {
@@ -48,11 +45,8 @@ export function maxProfit(prices: number[]): number {
 }
 
 /**
- * 问题： Maximum Subarray
- * 描述： Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
- * Example:
- * Input: [-2,1,-3,4,-1,2,1,-5,4]
- * Output: 6
+ * Maximum Subarray
+ * Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
  */
 
 export function maxSubArray(nums: number[], type = 1): number {
@@ -105,13 +99,10 @@ export function maxSubArray(nums: number[], type = 1): number {
 }
 
 /**
- * 问题：House Robber
- * 描述：You are a professional robber planning to rob houses along a street. 
+ * House Robber
+ * You are a professional robber planning to rob houses along a street. 
  * Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
  * Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.
- * Example:
- * Input: [1,2,3,1]
- * Output: 4
  */
 
 

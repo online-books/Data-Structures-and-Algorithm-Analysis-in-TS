@@ -1,38 +1,39 @@
+import AvlTreeNode from './avl-tree-node';
+
+
 /**
- * AVL树
+ * AVL树：是带有平衡条件的二叉查找树，其每个节点的左子树与右子树的高度最多差1。
+ * 在进入插入操作时，需要更新通向根节点路径上那些节点的平衡信息，利用【旋转】操作来保持平衡条件
  */
 
-
-import BinarySearchTree from './binary-search-tree';
-import BinaryTreeNode from './binary-tree-node';
-
-export default class AVLTree extends BinarySearchTree {
+export default class AVLTree {
+    public root: AvlTreeNode | null;
     constructor() {
-        super();
+        this.root = null
     }
-    get height (): number {
+    get height(): number {
         return this.getHeight(this.root);
     }
-    public insert (value: any) {
+    public insert(value: any) {
         this.root = this.insertNode(value, this.root);
     }
-    private insertNode (value: any, node: BinaryTreeNode | null): BinaryTreeNode {
+    private insertNode(value: any, node: AvlTreeNode | null): AvlTreeNode {
         if (!node) {
-            node = new BinaryTreeNode(value);
+            node = new AvlTreeNode(value);
         } else {
-            if (node.value < value) {
+            if (node.val < value) {
                 node.right = this.insertNode(value, node.right);
                 if (this.getHeight(node.right) - this.getHeight(node.left) > 1) {
-                    if (value > node.right.value) {
+                    if (value > node.right.val) {
                         node = this.singleRotateWithRight(node);
                     } else {
                         node = this.doubleRotateWithRight(node);
                     }
                 }
-            } else if (node.value > value) {
+            } else if (node.val > value) {
                 node.left = this.insertNode(value, node.left);
                 if (this.getHeight(node.left) - this.getHeight(node.right) > 1) {
-                    if (value < node.left.value) {
+                    if (value < node.left.val) {
                         node = this.singleRotateWithLeft(node);
                     } else {
                         node = this.doubleRotateWithLeft(node);
@@ -44,31 +45,34 @@ export default class AVLTree extends BinarySearchTree {
         node.height = 1 + Math.max(this.getHeight(node.left), this.getHeight(node.right));
         return node;
     }
-    private getHeight (node: BinaryTreeNode | null): number {
+    private getHeight(node: AvlTreeNode | null): number {
         if (!node) {
             return -1;
         }
         return node.height;
     }
-    private singleRotateWithLeft (node: BinaryTreeNode): BinaryTreeNode {
-        const k1 = node.left as BinaryTreeNode;
+    // 左单旋转
+    private singleRotateWithLeft(node: AvlTreeNode): AvlTreeNode {
+        const k1 = node.left as AvlTreeNode;
         node.left = k1.right;
         k1.right = node;
         node.height = 1 + Math.max(this.getHeight(node.left), this.getHeight(node.right));
         k1.height = 1 + Math.max(this.getHeight(k1.left), node.height);
         return k1;
     }
-    private singleRotateWithRight (node: BinaryTreeNode): BinaryTreeNode {
-        const k1 = node.right as BinaryTreeNode;
+    // 右单旋转
+    private singleRotateWithRight(node: AvlTreeNode): AvlTreeNode {
+        const k1 = node.right as AvlTreeNode;
         node.right = k1.left;
         k1.left = node;
         node.height = 1 + Math.max(this.getHeight(node.left), this.getHeight(node.right));
         k1.height = 1 + Math.max(this.getHeight(k1.right), node.height);
         return k1;
     }
-    private doubleRotateWithLeft (node: BinaryTreeNode): BinaryTreeNode {
-        const k1 = node.left as BinaryTreeNode;
-        const k2 = k1.right as BinaryTreeNode;
+    // 左双旋转
+    private doubleRotateWithLeft(node: AvlTreeNode): AvlTreeNode {
+        const k1 = node.left as AvlTreeNode;
+        const k2 = k1.right as AvlTreeNode;
         k1.right = k2.left;
         node.left = k2.right;
         k2.left = k1;
@@ -78,9 +82,10 @@ export default class AVLTree extends BinarySearchTree {
         k2.height = Math.max(k1.height, node.height);
         return k2;
     }
-    private doubleRotateWithRight (node: BinaryTreeNode): BinaryTreeNode {
-        const k1 = node.right as BinaryTreeNode;
-        const k2 = k1.left as BinaryTreeNode;
+    // 右双旋转
+    private doubleRotateWithRight(node: AvlTreeNode): AvlTreeNode {
+        const k1 = node.right as AvlTreeNode;
+        const k2 = k1.left as AvlTreeNode;
         node.right = k2.left;
         k1.left = k2.right;
         k2.left = node;

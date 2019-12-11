@@ -1,9 +1,9 @@
-export default class BinaryTreeNode {
-    public value: any;
-    public height: number;
-    public left: null | BinaryTreeNode;
-    public right: null | BinaryTreeNode;
-    constructor(value: any) {
-        this.value = value;
+export default class TreeNode {
+    public left: TreeNode | null;
+    public right: TreeNode | null;
+    constructor(public val: any) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
     }
 }

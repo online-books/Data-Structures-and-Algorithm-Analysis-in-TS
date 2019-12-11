@@ -1,20 +1,10 @@
-export class ListNode {
-    public val: number;
-    public next: ListNode | null;
-    constructor(val: number) {
-        this.next = null;
-        this.val = val;
-    }
-}
 
+import ListNode from '../../../data-structures/linked-list/list-node';
 /**
  * Add Two Numbers
  * You are given two non-empty linked lists representing two non-negative integers. 
  * The digits are stored in reverse order and each of their nodes contain a single digit. 
  * Add the two numbers and return it as a linked list.
- * Example
- * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
- * Output: 7 -> 0 -> 8
  */
 export function addTwoNumbers(l1: ListNode, l2: ListNode): ListNode {
     let node1: ListNode | null = l1;
@@ -85,9 +75,6 @@ export function addTwoNumbers(l1: ListNode, l2: ListNode): ListNode {
  * Given a singly linked list, group all odd nodes together followed by the even nodes. 
  * Please note here we are talking about the node number and not the value in the nodes.
  * You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
- * Example
- * Input: 1->2->3->4->5->NULL
- * Output: 1->3->5->2->4->NULL
  */
 export function oddEvenList(head: ListNode): ListNode {
     let node: ListNode | null = head;
@@ -109,8 +96,6 @@ export function oddEvenList(head: ListNode): ListNode {
 /**
  * Intersection of Two Linked Lists
  * Find the node at which the intersection of two singly linked lists begins.
- * @param headA 
- * @param headB 
  */
 export function getIntersectionNode(headA: ListNode, headB: ListNode): ListNode | null {
     let lenA = 1;

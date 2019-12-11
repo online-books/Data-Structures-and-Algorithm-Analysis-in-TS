@@ -1,4 +1,4 @@
-import { compare, swap } from '../../../utils/index';
+import { compare, swap } from '../../../share/utils';
 
 function midian3(arr: number[], start: number, end: number): number {
     const middle = Math.floor((start + end) / 2);
@@ -19,9 +19,6 @@ function midian3(arr: number[], start: number, end: number): number {
 /**
  * Sort Colors
  * Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.
- * Example：
- * Input: [2,0,2,1,1,0]
- * Output: [0,0,1,1,2,2]
  */
 export function sortColors(nums: number[]): void {
     const len = nums.length;
@@ -46,9 +43,6 @@ export function sortColors(nums: number[]): void {
 /**
  * Top K Frequent Elements
  * Given a non-empty array of integers, return the k most frequent elements.
- * Example:
- * Input: nums = [1,1,1,2,2,3], k = 2
- * Output: [1,2]
  */
 export function topKFrequent(nums: number[], k: number): number[] {
     const obj = {};
@@ -73,9 +67,6 @@ export function topKFrequent(nums: number[], k: number): number[] {
 /**
  * Kth Largest Element in an Array
  * Find the kth largest element in an unsorted array.
- * Example
- * Input: [3,2,1,5,6,4] and k = 2
- * Output: 5
  */
 export function findKthLargest(nums: number[], k: number): number {
     const {
@@ -89,7 +80,6 @@ export function findKthLargest(nums: number[], k: number): number {
     const pivot = midian3(nums, start, end);
     let i = 1;
     let j = length - 3;
-    console.log(nums, k, pivot)
     while (true) {
         while (nums[i] <= pivot && i < end - 1) {
             i++;
@@ -103,9 +93,7 @@ export function findKthLargest(nums: number[], k: number): number {
             break;
         }
     }
-    // 3, 1, 2, 4
     swap(nums, i, end - 1);
-    console.log(nums, i, j)
     if (k < length - i) { // k在数组的右半部分，大于pivot
         return findKthLargest(nums.slice(i + 1), k);
     } else if (k > length - i) { // k在数组的右半部分，大于pivot
@@ -114,3 +102,4 @@ export function findKthLargest(nums: number[], k: number): number {
         return nums[i];
     }
 }
+

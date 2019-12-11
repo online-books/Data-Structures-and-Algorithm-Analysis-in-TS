@@ -1,12 +1,9 @@
-import TreeNode from '../../lib/binary-tree/tree-node';
+import TreeNode from '../../../data-structures/tree/binary-tree-node';
 
 
 /**
  * Binary Tree Inorder Traversal
  * Given a binary tree, return the inorder traversal of its nodes' values.do it iteratively.
- * Example:
- * Input: [1,null,2,3]
- * Output: [1,3,2]
  */
 
 export function inorderTraverse(root: TreeNode | null): any[] {
@@ -63,9 +60,6 @@ export function zigzagLevelOrder(root: TreeNode): number[][] {
 /**
  * Construct Binary Tree from Preorder and Inorder Traversal
  * Given preorder and inorder traversal of a tree, construct the binary tree.
- * Example:
- * preorder = [3,9,20,15,7]
- * inorder = [9,3,15,20,7]
  */
 
 export function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
@@ -126,9 +120,6 @@ export function kthSmallest(root: TreeNode | null, k: number): number {
  * Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. 
  * An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. 
  * You may assume all four edges of the grid are all surrounded by water.
- * Example:
- * Input:[[11110],[11010],[11000],[00000]]
- * Output:1
  */
 export function numIslands(grid: string[][]): number {
 

@@ -1,9 +1,6 @@
 /**
  * Lette Combinations of a Phone Number
  * Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.
- * Example:
- * Input: "23"
- * Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
  */
 export function letterCombinations(digits: string): string[] {
     const letters = ['', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
@@ -27,9 +24,6 @@ export function letterCombinations(digits: string): string[] {
 /**
  * Generate Parentheses
  * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
- * Example:
- * Input:3,
- * Output:["((()))","(()())","(())()","()(())","()()()"]
  */
 
 export function generateParenthesis(n: number): string[] {
@@ -56,9 +50,6 @@ export function generateParenthesis(n: number): string[] {
 /**
  * Permutations
  * Given a collection of distinct integers, return all possible permutations.
- * Example:
- * Input: [1,2,3]
- * Output:[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
  */
 export function permute(nums: number[]): number[][] {
     const result: number[][] = [];
@@ -84,9 +75,6 @@ export function permute(nums: number[]): number[][] {
  * Subsets
  * Given a set of distinct integers, nums, return all possible subsets (the power set).
  * The solution set must not contain duplicate subsets.
- * Example:
- * Input: nums = [1,2,3]
- * Output:[[3],[1],[2],[1,2,3],[1,3],[2,3],[1,2],[]]
  */
 export function subsets(nums: number[]): number[][] {
     const {
@@ -115,9 +103,6 @@ export function subsets(nums: number[]): number[][] {
  * Given a 2D board and a word, find if the word exists in the grid.
  * The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. 
  * The same letter cell may not be used more than once.
- * Example:
- * board =[['A','B','C','E'],['S','F','C','S'],['A','D','E','E']]
- * "ABCCED", return true. "SEE", return true. "ABCB", return false.
  */
 export function exist(board: string[][], word: string): boolean {
     const row = board.length;

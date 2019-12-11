@@ -1,6 +1,7 @@
 export default class ListNode {
-    public next: null | ListNode;
-    constructor(public val: any) {
+    public val: any;
+    public next: ListNode | null;
+    constructor(val?: any) {
         this.val = val;
         this.next = null;
     }

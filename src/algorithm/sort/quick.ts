@@ -1,4 +1,4 @@
-import { swap } from '../../utils/index';
+import { swap } from '../../share/utils';
 import insertionSort from './insertion';
 
 function midian3(arr: number[], start: number, end: number): number {

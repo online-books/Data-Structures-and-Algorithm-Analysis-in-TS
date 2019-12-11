@@ -4,12 +4,12 @@ import {
     mutiplePolynomial,
     radixSort,
 } from './index';
-import List from './list';
-import Node from './node';
+import ListNode from './list-node';
+import SingleList from './single-list';
 
 
 describe('链表的操作', () => {
-    const list = new List();
+    const list = new SingleList();
     const arr = [1, 2, 3, 4, 5, 6];
 
     test('insert', () => {
@@ -17,31 +17,31 @@ describe('链表的操作', () => {
             list.insert(value);
         });
         expect(list.size).toEqual(arr.length);
-        expect(list.last()).toEqual({
-            value: 6,
+        expect(list.lastNode).toEqual({
+            val: 6,
             next: null,
         })
     });
     test('find', () => {
         const value = arr[arr.length - 1];
         const node = list.find(value);
-        expect(node).toEqual(new Node(value));
+        expect(node).toEqual(new ListNode(value));
     });
     test('delete', () => {
         list.delete(3);
-        const prevNode = list.find(2) as Node;
-        const nextNode = list.find(4) as Node;
+        const prevNode = list.find(2);
+        const nextNode = list.find(4);
         expect(prevNode.next).toBe(nextNode);
         list.delete(6);
-        expect(list.last()).toEqual({
-            value: 5,
+        expect(list.lastNode).toEqual({
+            val: 5,
             next: null,
         })
     });
 });
 describe('链表的应用', () => {
-    const list1 = new List();
-    const list2 = new List();
+    const list1 = new SingleList();
+    const list2 = new SingleList();
     const arr1 = [
         {
             power: 5,
@@ -66,7 +66,7 @@ describe('链表的应用', () => {
     arr2.forEach(value => list2.insert(value));
     test('add polynomial', () => {
         const list = addPolynomial(list1, list2);
-        expect(list.last().value).toMatchObject({
+        expect(list.lastNode.val).toMatchObject({
             power: 1,
             coeff: 8,
         });

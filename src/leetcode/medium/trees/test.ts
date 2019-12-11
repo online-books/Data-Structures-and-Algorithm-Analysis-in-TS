@@ -1,5 +1,4 @@
-import { buildBinaryTree } from '../../lib/binary-tree/index';
-import TreeNode from '../../lib/binary-tree/tree-node';
+import { buildBinaryTree } from '../../../data-structures/tree/index';
 
 import {
     buildTree,

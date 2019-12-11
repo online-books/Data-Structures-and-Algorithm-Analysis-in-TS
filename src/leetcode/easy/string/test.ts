@@ -43,8 +43,8 @@ describe('easy => Strings', () => {
         expect(strStr('a', 'a')).toBe(0);
     });
     test('Longest Common Prefix', () => {
-        // expect(longestCommonPrefix(["flower", "flow", "flight"])).toBe('fl');
-        // expect(longestCommonPrefix(["dog", "racecar", "car"])).toBe('');
+        expect(longestCommonPrefix(["flower", "flow", "flight"])).toBe('fl');
+        expect(longestCommonPrefix(["dog", "racecar", "car"])).toBe('');
         expect(longestCommonPrefix(['c', 'c'])).toBe('c');
     })
 })

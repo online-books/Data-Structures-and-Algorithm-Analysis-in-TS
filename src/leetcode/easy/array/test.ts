@@ -1,4 +1,4 @@
-import { compare } from '../../../utils/index';
+import { compare } from '../../../share/utils';
 
 import {
     intersect,

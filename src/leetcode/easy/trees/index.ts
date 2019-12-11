@@ -1,4 +1,4 @@
-import TreeNode from '../../lib/binary-tree/tree-node';
+import TreeNode from '../../../data-structures/tree/binary-tree-node';
 
 
 /**
@@ -42,9 +42,6 @@ export function isValidBST(root: TreeNode | null): boolean {
 /**
  * Symmetric Tree
  * Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
- * example:
- * input:[1,2,2,3,4,4,3],[1,2,2,null,3,null,3]
- * output:true,false
  */
 export function isSymmetricIteratively(root: TreeNode | null): boolean {
     if (!root) {
@@ -111,9 +108,6 @@ export function isSymmetricRecursively(root: TreeNode | null): boolean {
  * 
  * Binary Tree Level Order Traversal
  * Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
- * Example:
- * input: [3,9,20,null,null,15,7]
- * output:[[3],[9,20],[15,7]]
  */
 export function levelOrder(root: TreeNode | null): any[][] {
     if (!root) {

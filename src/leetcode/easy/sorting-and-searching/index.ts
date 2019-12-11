@@ -1,6 +1,6 @@
 /**
- * 问题：Merge Sorted Array
- * 描述：Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+ * Merge Sorted Array
+ * Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
  */
 
 export function merge(nums1: number[], m: number, nums2: number[], n: number): number[] {
@@ -26,8 +26,8 @@ export function merge(nums1: number[], m: number, nums2: number[], n: number): n
 }
 
 /**
- * 问题：First Bad Version
- * 描述：You are a product manager and currently leading a team to develop a new product. 
+ * First Bad Version
+ * You are a product manager and currently leading a team to develop a new product. 
  * Unfortunately, the latest version of your product fails the quality check. 
  * Since each version is developed based on the previous version, all the versions after a bad version are also bad.
  * Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, which causes all the following ones to be bad.

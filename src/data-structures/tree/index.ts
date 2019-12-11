@@ -4,32 +4,11 @@
 
 import BinaryTreeNode from './binary-tree-node';
 
-interface ITree {
-    value: any;
-    children: ITree[];
-}
-/**
- * 先序遍历树
- */
-export function listTreePreOrder (tree: ITree, depth: number): number {
-    let result = depth;
-    if (tree.children.length) {
-        tree.children.forEach((node) => {
-            const a = listTreePreOrder(node, depth + 1);
-            if (result < a) {
-                result = a;
-            }
-        });
-    }
-    return result;
-}
-
-
 /**
  * 后缀表达式构造表达式树
  */
 
-export function generateExpressionTree (postfixExpression: string) {
+export function generateExpressionTree(postfixExpression: string) {
     const reg = /[*-+\/]/;
     const nodesStack: BinaryTreeNode[] = [];
     for (let i = 0; i < postfixExpression.length; i++) {
@@ -47,4 +26,38 @@ export function generateExpressionTree (postfixExpression: string) {
         nodesStack.unshift(node);
     }
     return nodesStack.shift();
+}
+
+export function buildBinaryTree(input: Array<number | null>): BinaryTreeNode | null {
+    const stack: Array<BinaryTreeNode | null> = [];
+    let root: BinaryTreeNode | null = null;
+    let prevNode: BinaryTreeNode | null = null;
+    while (input.length) {
+        const value = input.shift();
+        let node: BinaryTreeNode | null = null;
+        if (value !== null) {
+            node = new BinaryTreeNode(value);
+            if (!root) {
+                root = node;
+            }
+        }
+        if (stack.length) {
+            const top = stack[0];
+            if (top === null) {
+                stack.shift();
+                input.unshift(value || null);
+            } else {
+                if (prevNode !== top) {
+                    top.left = node;
+                    prevNode = top;
+                } else {
+                    top.right = node;
+                    prevNode = null;
+                    stack.shift();
+                }
+            }
+        }
+        stack.push(node);
+    }
+    return root;
 }

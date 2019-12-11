@@ -2,49 +2,13 @@ import AVLTree from './avl-tree';
 import BinarySearchTree from './binary-search-tree';
 import {
     generateExpressionTree,
-    listTreePreOrder,
 } from './index';
 
 describe('tree', () => {
-    test('树的先序遍历并获取深度', () => {
-        const tree = {
-            value: 1,
-            children: [
-                {
-                    value: 2,
-                    children: [
-                        {
-                            value: 5,
-                            children: [
-                                {
-                                    value: 6,
-                                    children: []
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    value: 3,
-                    children: [
-                        {
-                            value: 7,
-                            children: []
-                        }
-                    ],
-                },
-                {
-                    value: 4,
-                    children: []
-                }
-            ]
-        }
-        expect(listTreePreOrder(tree, 0)).toBe(3);
-    });
     test('后缀表达式构造表达式树', () => {
-        const expression = 'ab+cde+**';
+        const expression = '12+345+**';
         const binaryTree = generateExpressionTree(expression);
-        expect(binaryTree).toMatchObject({ value: '*' });
+        expect(binaryTree.val).toBe('*');
     });
 });
 describe('二叉查找树', () => {
@@ -79,7 +43,6 @@ describe('AVL树', () => {
         numbers.forEach((value) => {
             tree.insert(value);
         });
-        expect(tree.findMax()).toBe(16);
         expect(tree.height).toBe(4);
     })
 })

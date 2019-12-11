@@ -1,15 +1,12 @@
 
-import SingleList from '../../lib/single-list/index';
-import ListNode from '../../lib/single-list/list-node';
+import ListNode from '../../../data-structures/linked-list/list-node';
 
 /**
  * Delete Node in a Linked List
  * Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
- * Example:list = [4,5,1,9], node = 5
- * Output: [4,1,9]
  */
-export function deleteNode(node: ListNode, list: SingleList): void {
-    let current = list.head;
+export function deleteNode(node: ListNode, list: ListNode): void {
+    let current = list;
     while (current && current.next) {
         if (current.next.val === node.val) {
             const next = current.next.next;
@@ -24,13 +21,13 @@ export function deleteNode(node: ListNode, list: SingleList): void {
  * Remove Nth Node From End of List
  * Given a linked list, remove the n-th node from the end of list and return its head.
  */
-export function removeNthFromEnd(list: SingleList, n: number): SingleList {
-    let current = list.head.next;
+export function removeNthFromEnd(list: ListNode, n: number): ListNode {
+    let current = list.next;
     let prev: null | ListNode = null;
     let count = 1;
     while (current) {
         if (count === n) {
-            prev = list.head;
+            prev = list;
         } else if (count > n) {
             if (prev) {
                 prev = prev.next;
@@ -48,18 +45,15 @@ export function removeNthFromEnd(list: SingleList, n: number): SingleList {
 /**
  * 
  * Reverse a singly linked list.
- * Example：
- * Input: 1->2->3->4->5->NULL
- * Output: 5->4->3->2->1->NULL
  */
-export function reverseList(list: SingleList): SingleList {
+export function reverseList(list: ListNode): ListNode {
     const stack: ListNode[] = [];
-    let currentNode = list.head.next;
+    let currentNode = list.next;
     while (currentNode) {
         stack.unshift(currentNode);
         currentNode = currentNode.next;
     }
-    currentNode = list.head;
+    currentNode = list;
     while (stack.length) {
         currentNode.next = stack.shift() as ListNode;
         currentNode = currentNode.next;
@@ -74,45 +68,37 @@ export function reverseList(list: SingleList): SingleList {
  * Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
  */
 
-export function mergeTwoLists(l1: SingleList, l2: SingleList): SingleList {
-    const l = new SingleList();
-    let node1 = l1.head.next;
-    let node2 = l2.head.next;
+export function mergeTwoLists(l1: ListNode, l2: ListNode): ListNode {
+    const list = new ListNode(0);
+    let node1 = l1;
+    let node2 = l2;
+    let cur = list;
     while (node1 && node2) {
         if (node1.val > node2.val) {
-            l.insert(node2.val);
+            cur.next = node2;
             node2 = node2.next;
-        } else if (node1.val < node2.val) {
-            l.insert(node1.val);
-            node1 = node1.next;
         } else {
-            l.insert(node2.val);
-            node2 = node2.next;
-            l.insert(node1.val);
+            cur.next = node1;
             node1 = node1.next;
         }
+        cur = cur.next;
     }
-    while (node1) {
-        l.insert(node1.val);
-        node1 = node1.next;
+    if (node1) {
+        cur.next = node1;
     }
-    while (node2) {
-        l.insert(node2.val);
-        node2 = node2.next;
+    if (node2) {
+        cur.next = node2;
     }
-    return l;
+    return list.next;
 }
 
 /**
  *  Palindrome Linked List
  *  Given a singly linked list, determine if it is a palindrome.
- *  Example：
- *  Input: 1->2,1->2->2->1
- *  Output: false,true
  */
-export function isPalindrome(list: SingleList): boolean {
+export function isPalindrome(list: ListNode): boolean {
     const arr = [];
-    let node = list.head.next;
+    let node = list;
     while (node) {
         arr.push(node.val)
         node = node.next;
@@ -134,9 +120,9 @@ export function isPalindrome(list: SingleList): boolean {
  * Given a linked list, determine if it has a cycle in it.
  */
 
-export function hasCycle(list: SingleList): boolean {
-    let step1 = list.head.next;
-    let step2 = list.head.next;
+export function hasCycle(list: ListNode): boolean {
+    let step1 = list.next;
+    let step2 = list.next;
     while (step1 && step2 && step1.next && step2.next) {
         step1 = step1.next;
         step2 = step2.next.next;
