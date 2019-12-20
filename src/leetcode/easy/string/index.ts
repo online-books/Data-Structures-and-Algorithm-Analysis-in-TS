@@ -76,9 +76,20 @@ export function isAnagram(s: string, t: string): boolean {
  */
 
 export function isPalindrome(s: string): boolean {
-    const str = s.replace(/\W/g, '');
-    const reversedStr = str.split('').reverse().join('');
-    return str.toLowerCase() === reversedStr.toLowerCase();
+    const str = s.replace(/[^a-zA-Z0-9]/g, '');
+    const {
+        length
+    } = str;
+    let i = 0;
+    let j = length - 1;
+    while (i < j) {
+        if (str[i].toLowerCase() !== str[j].toLowerCase()) {
+            return false;
+        }
+        i += 1;
+        j -= 1;
+    }
+    return true;
 }
 
 

@@ -68,7 +68,7 @@ export function reverseList(list: ListNode): ListNode {
  * Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
  */
 
-export function mergeTwoLists(l1: ListNode, l2: ListNode): ListNode {
+export function mergeTwoSortedLists(l1: ListNode, l2: ListNode): ListNode {
     const list = new ListNode(0);
     let node1 = l1;
     let node2 = l2;

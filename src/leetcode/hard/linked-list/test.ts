@@ -9,7 +9,7 @@ import {
 } from './index';
 
 
-describe('hard => Linked List', () => {
+describe('Hard => Linked List', () => {
     test('Merge k Sorted Lists', () => {
         const l1 = buildList([1, 4, 5]);
         const l2 = buildList([1, 3, 4]);

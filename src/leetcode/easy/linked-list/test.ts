@@ -1,7 +1,7 @@
 import {
     deleteNode,
     isPalindrome,
-    mergeTwoLists,
+    mergeTwoSortedLists,
     removeNthFromEnd,
     reverseList,
 } from './index';
@@ -35,7 +35,7 @@ describe('easy => Linked List', () => {
     test('Merge Two Sorted Lists', () => {
         const l1 = buildList([1, 2, 4]);
         const l2 = buildList([1, 3, 4]);
-        const mergedList = mergeTwoLists(l1, l2);
+        const mergedList = mergeTwoSortedLists(l1, l2);
         const values = getValuesFromList(mergedList);
         expect(values).toEqual([1, 1, 2, 3, 4, 4]);
     });
