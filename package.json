@@ -2,18 +2,15 @@
   "name": "data-structures-and-algorithm-analysis",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react-scripts-ts": "3.1.0"
-  },
   "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom ",
-    "eject": "react-scripts-ts eject"
+    "test": "npx jest --watch -o"
   },
   "devDependencies": {
     "@types/jest": "^23.3.12",
-    "@types/node": "^10.12.18",
+    "@types/node": "^12.12.21",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.2.0",
+    "tslib": "^1.10.0",
     "typescript": "^3.2.2"
   }
 }

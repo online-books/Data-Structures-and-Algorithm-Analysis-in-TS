@@ -1,4 +1,4 @@
-import BinaryHeap from './index';
+import BinaryHeap from './binary-heap';
 
 describe('二叉堆', () => {
     test('构建二叉堆', () => {

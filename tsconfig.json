@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
-    "outDir": "build/dist",
-    "module": "esnext",
-    "target": "es6",
-    "lib": ["es6", "dom"],
+    "baseUrl": ".",
+    "module": "Commonjs",
+    "target": "ESNext",
+    "lib": ["ESNext"],
     "sourceMap": true,
     "allowJs": false,
     "moduleResolution": "node",
-    "rootDir": "src",
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -18,17 +17,11 @@
     "noUnusedLocals": true,
     "experimentalDecorators": true,
     "paths": {
-      "data-structures": ["data-structures"]
+      "@src/*": ["src/*"]
     }
   },
   "exclude": [
-    "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "src/setupTests.ts"
+    "node_modules"
   ],
   "include": [
     "src/**/*"

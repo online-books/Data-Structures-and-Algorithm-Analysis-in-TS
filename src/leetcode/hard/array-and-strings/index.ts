@@ -1,4 +1,4 @@
-import { compare } from '../../../share/utils';
+import { compare } from '@src/share/utils';
 
 /**
  * Product of Array Except Self

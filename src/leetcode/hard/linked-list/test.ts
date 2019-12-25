@@ -1,7 +1,7 @@
 import {
     buildList
-} from '../../../data-structures/linked-list/single-list'
-import { getValuesFromList } from '../../../share/utils';
+} from '@src/data-structures/linked-list/single-list'
+import { getValuesFromList } from '@src/share/utils';
 
 import {
     mergeKLists,

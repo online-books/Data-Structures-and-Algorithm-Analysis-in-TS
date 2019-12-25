@@ -9,7 +9,7 @@ export default class SeparateChainingHashTable extends HashTable {
         super(size);
         this.tableList = new Array(size).fill(new SinleList());
     }
-    public insert(value: number | string) {
+    public insert(value: string) {
         const index = this.hash(value);
         const list = this.tableList[index];
         const node = list.find(value);
@@ -18,16 +18,12 @@ export default class SeparateChainingHashTable extends HashTable {
         }
         list.insert(value);
     }
-    public find(value: number | string): ListNode | null {
+    public find(value: string): ListNode | null {
         const index = this.hash(value);
         const list = this.tableList[index];
-        if (!list.size) {
-            return null;
-        }
-        const node = list.find(value);
-        return node;
+        return list.find(value);
     }
-    public delete(value: number | string) {
+    public delete(value: string) {
         const index = this.hash(value);
         this.tableList[index].delete(value);
     }

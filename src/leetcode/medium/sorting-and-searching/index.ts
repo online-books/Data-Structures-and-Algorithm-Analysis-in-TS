@@ -1,4 +1,4 @@
-import { compare, swap } from '../../../share/utils';
+import { compare, swap } from '@src/share/utils';
 
 function midian3(arr: number[], start: number, end: number): number {
     const middle = Math.floor((start + end) / 2);
@@ -98,7 +98,7 @@ export function findKthLargest(nums: number[], k: number): number {
         return findKthLargest(nums.slice(i + 1), k);
     } else if (k > length - i) { // k在数组的右半部分，大于pivot
         return findKthLargest(nums.slice(start, i), k - (length - i));
-    } else if (k === length - i) {
+    } else {
         return nums[i];
     }
 }

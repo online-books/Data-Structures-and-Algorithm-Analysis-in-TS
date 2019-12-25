@@ -1,6 +1,6 @@
 import { mergeTwoSortedLists } from '../../easy/linked-list';
 
-import ListNode from '../../../data-structures/linked-list/list-node';
+import ListNode from '@src/data-structures/linked-list/list-node';
 /**
  * Merge k Sorted Lists
  * Merge k sorted linked lists and return it as one sorted list. 

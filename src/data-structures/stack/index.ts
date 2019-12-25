@@ -1,16 +1,11 @@
 /**
- * 栈
- * 1. 平衡符号
- * 2. 计算后缀表达式
- * 3. 中缀到后缀的转换
+ * 栈是限制插入和删除只能在一个位置上进行的表，又叫先入后出(LIFO)表。
+ * 队列是插入在一端而删除在另一端的表。
  */
 
 
-/**
- * 平衡符号
- */
-
-export function balanceSymbol (str: string): Boolean {
+// 判断平衡符号
+export function balanceSymbol(str: string): Boolean {
     const inputReg = /[{([]/;
     const outputReg = /[}\])]/;
     const stack = [];
@@ -48,10 +43,8 @@ export function balanceSymbol (str: string): Boolean {
     return true;
 }
 
-/**
- * 计算后缀表达式
- */
-export function postfixExpression (expression: string): number {
+// 计算后缀表达式
+export function postfixExpression(expression: string): number {
     const numbers: number[] = [];
     const reg = /[*+-\/]/;
     for (let i = 0; i < expression.length; i++) {
@@ -88,10 +81,8 @@ export function postfixExpression (expression: string): number {
     return numbers[0];
 }
 
-/**
- * 中缀表达式转换为后缀表达式
- */
-export function transformInFixExpressionToPostfixExpression (expression: string): string {
+// 中缀表达式转换为后缀表达式
+export function transformInFixExpressionToPostfixExpression(expression: string): string {
     const numberReg = /[\d]/;
     const highReg = /[*\/]/;
     const lowReg = /[-+]/;

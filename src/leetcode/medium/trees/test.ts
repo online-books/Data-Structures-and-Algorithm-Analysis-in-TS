@@ -1,4 +1,4 @@
-import { buildBinaryTree } from '../../../data-structures/tree/index';
+import { buildBinaryTree } from '@src/data-structures/tree/index';
 
 import {
     buildTree,

@@ -3,8 +3,8 @@ import {
     oddEvenList,
 } from './index';
 
-import ListNode from '../../../data-structures/linked-list/list-node';
-import { buildList } from '../../../data-structures/linked-list/single-list';
+import ListNode from '@src/data-structures/linked-list/list-node';
+import { buildList } from '@src/data-structures/linked-list/single-list';
 
 describe('Linked List', () => {
     const l1 = new ListNode(1);

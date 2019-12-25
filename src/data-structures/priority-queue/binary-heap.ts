@@ -1,4 +1,3 @@
-
 import { swap } from '../../share/utils';
 
 function percolateDown(data: any[], i: number, size: number) {

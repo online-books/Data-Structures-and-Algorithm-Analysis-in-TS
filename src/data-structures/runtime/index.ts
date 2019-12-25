@@ -1,6 +1,7 @@
 
 /**
  * 最大子序列和问题
+ * 运行时间：O(NlogN)
  */
 
 export function maxSubSumByNlogN(A: number[], start: number, end: number): number {
@@ -33,6 +34,10 @@ export function maxSubSumByNlogN(A: number[], start: number, end: number): numbe
     return maxSum;
 }
 
+/**
+ * 最大子序列和问题
+ * 运行时间：O(N)
+ */
 export function maxSubSumByN(A: number[]): number {
     let maxSubSum = 0;
     let currentSum = 0;
@@ -52,6 +57,7 @@ export function maxSubSumByN(A: number[]): number {
 
 /**
  * 对已排序的数组进行对分查找
+ * 运行时间：O(logN)
  */
 
 export function binarySeatch(A: number[], n: number) {
@@ -73,6 +79,7 @@ export function binarySeatch(A: number[], n: number) {
 
 /**
  * 欧几里德算法求解最大公因数
+ * 运行时间：O(logN)
  */
 
 export function maxCommonFactor(m: number, n: number): number {
@@ -124,74 +131,4 @@ export function pow(x: number, n: number): number {
         }
     }
     return temp * x;
-}
-
-/**
- * 深度搜索优先遍历DOM之递归实现
- * @param node 
- */
-export function deepFirstSearchTraversesDOMByRecursive(node: Element) {
-    const children = node.children;
-    console.log(node);
-    if (children.length) {
-        Array.from(children).forEach(deepFirstSearchTraversesDOMByRecursive);
-    }
-}
-
-/**
- * 深度搜索优先遍历DOM之非递归实现
- * @param node
- */
-export function deepFirstSearchTraversesDOM(node: Element) {
-    let parentNode: Element | null = node;
-    let currentNode: Element | null = node;
-    while (currentNode) {
-        console.log(currentNode);
-        if (currentNode.firstElementChild) {
-            parentNode = currentNode;
-            currentNode = currentNode.firstElementChild;
-        } else {
-            if (currentNode.nextElementSibling) {
-                currentNode = currentNode.nextElementSibling;
-            } else {
-                while (parentNode && !parentNode.nextElementSibling) {
-                    if (parentNode.parentElement === node) {
-                        return;
-                    }
-                    parentNode = parentNode.parentElement;
-                }
-                if (!parentNode) {
-                    return;
-                }
-                currentNode = parentNode.nextElementSibling;
-            }
-        }
-    }
-}
-
-/**
- * 广度搜索优先遍历DOM之递归实现
- * @param node
- */
-export function breadFirstSearchTraversesDOMByRecursive(root: Element) {
-    const nodesArr: Element[][] = [];
-    insertNode(root, 0);
-    function insertNode(node: Element, depth: number) {
-        const children = node.children;
-        if (children.length) {
-            Array.from(children).forEach(item => {
-                if (!nodesArr[depth]) {
-                    nodesArr[depth] = [];
-                }
-                nodesArr[depth].push(item);
-                insertNode(item, depth + 1);
-            });
-        }
-    }
-    while (nodesArr.length) {
-        const nodes = nodesArr.shift() as Element[];
-        while (nodes.length) {
-            console.log(nodes.shift());
-        }
-    }
 }

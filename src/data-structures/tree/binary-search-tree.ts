@@ -2,8 +2,8 @@ import BinaryTree from './binary-tree';
 import BinaryTreeNode from './binary-tree-node';
 
 /**
- * 二叉查找树的性质：对树中的每个节点X，它的左子树中所有关键字的值小于X的关键字值，右子树中所有的关键字值大于X的关键字值
- * 二叉树的操作：插入、查找、查找最大值、查找最小值、删除
+ * 二叉查找树
+ * 性质：对树中的每个节点X，它的左子树中所有关键字的值小于X的关键字值，右子树中所有的关键字值大于X的关键字值
  */
 
 export default class BinarySearchTree extends BinaryTree {

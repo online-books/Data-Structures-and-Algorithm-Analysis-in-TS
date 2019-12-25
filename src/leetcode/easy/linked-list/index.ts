@@ -1,5 +1,4 @@
-
-import ListNode from '../../../data-structures/linked-list/list-node';
+import ListNode from '@src/data-structures/linked-list/list-node';
 
 /**
  * Delete Node in a Linked List
@@ -97,14 +96,14 @@ export function mergeTwoSortedLists(l1: ListNode, l2: ListNode): ListNode {
  *  Given a singly linked list, determine if it is a palindrome.
  */
 export function isPalindrome(list: ListNode): boolean {
-    const arr = [];
+    const arr: any[] = [];
     let node = list;
     while (node) {
         arr.push(node.val)
         node = node.next;
     }
     const {
-        length
+        length,
     } = arr;
     const middle = Math.floor(length / 2);
     for (let i = 0; i < middle; i++) {

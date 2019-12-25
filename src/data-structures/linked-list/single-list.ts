@@ -1,5 +1,8 @@
 import ListNode from './list-node';
 
+/**
+ * 链表由一系列不必在内存中相连的结构组成，每一个结构均含有表元素和指向该元素后继元的结构的指针
+ */
 export default class SingleList {
     public size: number = 0;
     public lastNode: ListNode;

@@ -1,6 +1,6 @@
 import {
     compare,
-} from '../../../share/utils';
+} from '@src/share/utils';
 
 
 /**

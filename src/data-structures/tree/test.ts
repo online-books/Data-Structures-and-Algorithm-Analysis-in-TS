@@ -44,5 +44,5 @@ describe('AVL树', () => {
             tree.insert(value);
         });
         expect(tree.height).toBe(4);
-    })
+    });
 })

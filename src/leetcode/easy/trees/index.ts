@@ -1,4 +1,4 @@
-import TreeNode from '../../../data-structures/tree/binary-tree-node';
+import TreeNode from '@src/data-structures/tree/binary-tree-node';
 
 
 /**

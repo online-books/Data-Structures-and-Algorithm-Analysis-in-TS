@@ -1,6 +1,6 @@
 import {
     swap,
-} from '../../../share/utils'
+} from '@src/share/utils'
 
 /**
  * Reverse String

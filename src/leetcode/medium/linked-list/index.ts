@@ -1,5 +1,5 @@
 
-import ListNode from '../../../data-structures/linked-list/list-node';
+import ListNode from '@src/data-structures/linked-list/list-node';
 /**
  * Add Two Numbers
  * You are given two non-empty linked lists representing two non-negative integers. 
