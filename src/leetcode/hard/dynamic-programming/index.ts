@@ -36,21 +36,26 @@ export function numDecodings(s: string): number {
     const {
         length
     } = s;
-    let count = 0;
-    console.log(s);
-    for (let i = 0; i < length; i++) {
-        const num = Number(s[i]);
-        if (num === 0) {
-            if (i === 0 || Number(s.slice(i - 1, i + 1)) > 26) {
-                return 0;
-            }
-        } else {
-            if (Number(s.slice(i - 1, i + 1)) < 27) {
-                count += 1;
-            }
+    if (!length) {
+        return 0;
+    }
+    const dp: number[] = new Array(length + 1).fill(0);
+    dp[0] = 1;
+    dp[1] = s[0] !== '0' ? 1 : 0;
+    for (let i = 2; i <= length; i++) {
+        const num = Number(s[i - 1]);
+        const sum = Number(s.slice(i - 2, i));
+        if (num >= 1 && num <= 9) {
+            dp[i] += dp[i - 1];
+        }
+        if (sum >= 10 && sum <= 26) {
+            dp[i] += dp[i - 2];
+        }
+        if (dp[i] === 0) {
+            return 0;
         }
     }
-    return count;
+    return dp[length];
 }
 
 /**
@@ -61,5 +66,22 @@ export function numDecodings(s: string): number {
  * After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day)
  */
 export function maxProfit(prices: number[]): number {
-    return 0;
+    const {
+        length,
+    } = prices;
+    if (!length) {
+        return 0;
+    }
+    const dp: number[] = new Array(length).fill(0);
+    dp[1] = prices[1] === undefined ? 0 : Math.max(prices[1] - prices[0], 0);
+    for (let i = 2; i < length; i++) {
+        const profit1 = Math.max(prices[i] - prices[i - 1], 0) + dp[i - 2];
+        let profit2 = Math.max(prices[i - 1] - prices[i - 2], 0);
+        if (i > 2) {
+            profit2 += dp[i - 3]
+        }
+        const profit = Math.max(profit1, profit2);
+        dp[i] = profit;
+    }
+    return dp[length - 1];
 }

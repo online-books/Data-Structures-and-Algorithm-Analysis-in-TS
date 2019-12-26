@@ -21,8 +21,12 @@ describe('Hard => Dynamic Programming', () => {
         expect(numDecodings('0')).toBe(0);
         expect(numDecodings('10')).toBe(1);
         expect(numDecodings('100')).toBe(0);
+        expect(numDecodings('1010')).toBe(1);
+        expect(numDecodings('110')).toBe(1);
+        expect(numDecodings('1212')).toBe(5);
     });
-    test.skip('Best Time to Buy and Sell Stock with Cooldown', () => {
+    test('Best Time to Buy and Sell Stock with Cooldown', () => {
         expect(maxProfit([1, 2, 3, 0, 2])).toBe(3);
+        expect(maxProfit([1, 4, 2])).toBe(3);
     });
 });

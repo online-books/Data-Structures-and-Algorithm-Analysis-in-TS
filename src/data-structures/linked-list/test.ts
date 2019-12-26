@@ -8,7 +8,7 @@ import ListNode from './list-node';
 import SingleList from './single-list';
 
 
-describe('链表的操作', () => {
+describe('链表', () => {
     const list = new SingleList();
     const arr = [1, 2, 3, 4, 5, 6];
 
@@ -82,7 +82,6 @@ describe('链表的应用', () => {
         expect(maxPower).toBe(8);
     });
     test('radix sort', () => {
-
         const test = [5, 34, 2, 74, 743, 132, 543, 7, 57, 543, 324, 6547, 74, 56, 45, 35, 23, 4];
         const result = radixSort(test);
         expect(result[0]).toBe(Math.min(...test));

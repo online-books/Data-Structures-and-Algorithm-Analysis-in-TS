@@ -1,4 +1,3 @@
-import BinaryTree from './binary-tree';
 import BinaryTreeNode from './binary-tree-node';
 
 /**
@@ -6,13 +5,14 @@ import BinaryTreeNode from './binary-tree-node';
  * 性质：对树中的每个节点X，它的左子树中所有关键字的值小于X的关键字值，右子树中所有的关键字值大于X的关键字值
  */
 
-export default class BinarySearchTree extends BinaryTree {
+export default class BinarySearchTree {
     public static INORDER = Symbol('in-order');
     public static PREORDER = Symbol('pre-order');
     public static POSTORDER = Symbol('post-order');
     public static LEVELORDER = Symbol('level-order');
+    private root: BinaryTreeNode | null;
     constructor() {
-        super();
+        this.root = null;
     }
     get height(): number {
         return this.getNodeHeight(this.root);

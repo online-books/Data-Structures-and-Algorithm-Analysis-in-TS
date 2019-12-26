@@ -89,7 +89,4 @@ export default class BinaryHeap {
     public isEmpty(): Boolean {
         return this.data.length < 2;
     }
-    public empty() {
-        this.data.length = 1;
-    }
 }

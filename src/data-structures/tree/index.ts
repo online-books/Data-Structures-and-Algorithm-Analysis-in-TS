@@ -1,7 +1,3 @@
-/**
- * 树
- */
-
 import BinaryTreeNode from './binary-tree-node';
 
 /**
