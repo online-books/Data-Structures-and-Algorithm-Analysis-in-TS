@@ -27,6 +27,5 @@ describe('Hard => Dynamic Programming', () => {
     });
     test('Best Time to Buy and Sell Stock with Cooldown', () => {
         expect(maxProfit([1, 2, 3, 0, 2])).toBe(3);
-        expect(maxProfit([1, 4, 2])).toBe(3);
     });
 });

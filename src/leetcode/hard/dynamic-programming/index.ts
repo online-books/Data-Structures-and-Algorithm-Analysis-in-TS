@@ -74,14 +74,17 @@ export function maxProfit(prices: number[]): number {
     }
     const dp: number[] = new Array(length).fill(0);
     dp[1] = prices[1] === undefined ? 0 : Math.max(prices[1] - prices[0], 0);
+    let profit = dp[1];
     for (let i = 2; i < length; i++) {
-        const profit1 = Math.max(prices[i] - prices[i - 1], 0) + dp[i - 2];
+        const cur = prices[i];
+        const prev = prices[i - 1];
+        const diff = cur - prev;
+        const profit1 = Math.max(diff, 0) + dp[i - 2];
         let profit2 = Math.max(prices[i - 1] - prices[i - 2], 0);
         if (i > 2) {
             profit2 += dp[i - 3]
         }
-        const profit = Math.max(profit1, profit2);
-        dp[i] = profit;
+        dp[i] = Math.max(profit, profit1, profit2);
     }
     return dp[length - 1];
 }
