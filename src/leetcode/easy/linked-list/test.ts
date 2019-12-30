@@ -16,8 +16,8 @@ describe('easy => Linked List', () => {
         const list = buildList([4, 5, 1, 9]);
         const node = new ListNode(5);
         deleteNode(node, list);
-        const next = list.next;
-        expect(next.next.val).toBe(9);
+        const next = list.next as ListNode;
+        expect(next.next!.val).toBe(9);
     });
     test('Remove Nth Node From End of List', () => {
         const list1 = new ListNode(1);
@@ -25,12 +25,12 @@ describe('easy => Linked List', () => {
         expect(list1.next).toBe(null);
         let list2 = buildList([4, 5, 1, 9]);
         list2 = removeNthFromEnd(list2, 2);
-        expect(list2.next.next.val).toBe(9);
+        expect(list2.next!.next!.val).toBe(9);
     });
     test('Reverse Linked List', () => {
         const list = buildList([1, 2, 3, 4, 5]);
         const reversedList = reverseList(list);
-        expect((reversedList.next).val).toBe(5);
+        expect(reversedList.next!.val).toBe(5);
     });
     test('Merge Two Sorted Lists', () => {
         const l1 = buildList([1, 2, 4]);

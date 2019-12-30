@@ -5,5 +5,8 @@ export default class AvlTreeNode {
     public right: null | AvlTreeNode;
     constructor(val: any) {
         this.val = val;
+        this.left = null;
+        this.right = null;
+        this.height = 0;
     }
 }

@@ -4,10 +4,13 @@ import BinaryTreeNode from './binary-tree-node';
  * 后缀表达式构造表达式树
  */
 
-export function generateExpressionTree(postfixExpression: string) {
+export function generateExpressionTree(postfixExpression: string): BinaryTreeNode {
     const reg = /[*-+\/]/;
     const nodesStack: BinaryTreeNode[] = [];
-    for (let i = 0; i < postfixExpression.length; i++) {
+    const {
+        length
+    } = postfixExpression;
+    for (let i = 0; i < length; i++) {
         const value = postfixExpression[i];
         const node = new BinaryTreeNode(value);
         if (reg.test(value)) {
@@ -21,7 +24,7 @@ export function generateExpressionTree(postfixExpression: string) {
         }
         nodesStack.unshift(node);
     }
-    return nodesStack.shift();
+    return nodesStack.shift() || new BinaryTreeNode('');
 }
 
 export function buildBinaryTree(input: Array<number | null>): BinaryTreeNode | null {

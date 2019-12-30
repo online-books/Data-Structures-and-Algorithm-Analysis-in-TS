@@ -20,6 +20,7 @@ function percolateDown(data: any[], i: number, size: number) {
  * 结构性质：对于数组任意一个位置i上的元素，其左儿子在位置2i上，右儿子在（2i+1）上，它的父元素在（i/2）上。
  * 堆序性质：对于每一个节点X，X的父元素的关键字小于或等于X中的关键字，根结点除外。
  * 堆的基本操作：插入、删除最小元、构建堆
+ * TODO:delete
  */
 
 export default class BinaryHeap {
@@ -85,6 +86,9 @@ export default class BinaryHeap {
             i = j;
         }
         data[i] = value;
+    }
+    public delete(val: any): void {
+
     }
     public isEmpty(): Boolean {
         return this.data.length < 2;

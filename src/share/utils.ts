@@ -13,7 +13,7 @@ export function compare(a: number, b: number): 1 | -1 {
     return -1;
 }
 
-export function getValuesFromList(list: ListNode): any[] {
+export function getValuesFromList(list: ListNode | null): any[] {
     const values = [];
     while (list) {
         values.push(list.val);

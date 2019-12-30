@@ -14,9 +14,9 @@ export function mergeKLists(lists: ListNode[]): ListNode | null {
     if (!length) {
         return null;
     }
-    let firstList = lists.shift();
+    let firstList = lists.shift()!;
     while (lists.length) {
-        firstList = mergeTwoSortedLists(firstList, lists.shift());
+        firstList = mergeTwoSortedLists(firstList, lists.shift()!)!;
     }
     return firstList;
 }
@@ -35,13 +35,13 @@ export function sortList(head: ListNode): ListNode {
     let fast = head;
     while (fast !== null && fast.next !== null) {
         prev = slow;
-        slow = slow.next;
-        fast = fast.next.next;
+        slow = slow.next!;
+        fast = fast.next.next!;
     }
     prev.next = null;
     const l1 = sortList(head);
     const l2 = sortList(slow);
-    return mergeTwoSortedLists(l1, l2);
+    return mergeTwoSortedLists(l1, l2)!;
 };
 
 

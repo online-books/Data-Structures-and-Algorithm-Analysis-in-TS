@@ -1,5 +1,4 @@
 import HashTable from './hash-table';
-
 /**
  * 平方探测法构建开放寻址哈希表
  */

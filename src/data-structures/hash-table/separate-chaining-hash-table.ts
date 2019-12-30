@@ -1,7 +1,6 @@
 import ListNode from '../linked-list/list-node';
 import SinleList from '../linked-list/single-list';
 import HashTable from './hash-table';
-
 // 分离链接法构建哈希表
 export default class SeparateChainingHashTable extends HashTable {
     private tableList: SinleList[];

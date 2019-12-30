@@ -1,19 +1,24 @@
 import AvlTreeNode from './avl-tree-node';
-
+import BinarySearchTree from './binary-search-tree';
 
 /**
  * AVL树
  * 结构性：带有平衡条件的二叉查找树，其每个节点的左子树与右子树的高度最多差1。
  * 实现要点：在进行插入操作时，需要更新通向根节点路径上那些节点的平衡信息，利用【旋转】操作来保持平衡条件
+ * TODO:delete
  */
 
-export default class AVLTree {
-    public root: AvlTreeNode | null;
+
+export default class AVLTree extends BinarySearchTree {
+    protected root: AvlTreeNode | null;
     constructor() {
-        this.root = null
+        super();
     }
     get height(): number {
         return this.getHeight(this.root);
+    }
+    public delete(val: any): void {
+
     }
     public insert(value: any) {
         this.root = this.insertNode(value, this.root);

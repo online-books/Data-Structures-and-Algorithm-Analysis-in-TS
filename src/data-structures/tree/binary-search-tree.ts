@@ -10,12 +10,12 @@ export default class BinarySearchTree {
     public static PREORDER = Symbol('pre-order');
     public static POSTORDER = Symbol('post-order');
     public static LEVELORDER = Symbol('level-order');
-    private root: BinaryTreeNode | null;
-    constructor() {
-        this.root = null;
-    }
+    protected root: BinaryTreeNode | null = null;
     get height(): number {
         return this.getNodeHeight(this.root);
+    }
+    public getRoot(): BinaryTreeNode | null {
+        return this.root;
     }
     public find(value: any): BinaryTreeNode | null {
         let node: BinaryTreeNode | null;

@@ -31,7 +31,7 @@ describe('链表', () => {
         list.delete(3);
         const prevNode = list.find(2);
         const nextNode = list.find(4);
-        expect(prevNode.next).toBe(nextNode);
+        expect(prevNode!.next).toBe(nextNode);
         list.delete(6);
         expect(list.lastNode).toEqual({
             val: 5,

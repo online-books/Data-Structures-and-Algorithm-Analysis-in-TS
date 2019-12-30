@@ -27,6 +27,7 @@
   - 后缀表达式构造表达式树
 - 二叉查找树
 - AVL树
+- 伸展树
 
 #### 4.散列表
 - 散列函数
@@ -37,6 +38,7 @@
 #### 5.优先队列
 - 二叉堆
 - 左式堆
+- 斜堆
 - 二项队列
 
 #### 6.排序
@@ -149,3 +151,4 @@
   - Wildcard Matching
 - Dynamic Programming
   - Maximum Product Subarray
+  - Decode Ways

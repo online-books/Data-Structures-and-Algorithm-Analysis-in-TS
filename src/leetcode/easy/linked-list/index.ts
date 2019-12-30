@@ -67,10 +67,10 @@ export function reverseList(list: ListNode): ListNode {
  * Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
  */
 
-export function mergeTwoSortedLists(l1: ListNode, l2: ListNode): ListNode {
+export function mergeTwoSortedLists(l1: ListNode, l2: ListNode): ListNode | null {
     const list = new ListNode(0);
-    let node1 = l1;
-    let node2 = l2;
+    let node1: ListNode | null = l1;
+    let node2: ListNode | null = l2;
     let cur = list;
     while (node1 && node2) {
         if (node1.val > node2.val) {
@@ -97,7 +97,7 @@ export function mergeTwoSortedLists(l1: ListNode, l2: ListNode): ListNode {
  */
 export function isPalindrome(list: ListNode): boolean {
     const arr: any[] = [];
-    let node = list;
+    let node: ListNode | null = list;
     while (node) {
         arr.push(node.val)
         node = node.next;
