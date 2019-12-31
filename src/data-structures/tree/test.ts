@@ -39,7 +39,7 @@ describe('AVL树', () => {
     const data = [3, 2, 11, 10, 8, 9];
     data.forEach(value => tree.insert(value));
     test('构建', () => {
-        const root = tree.getRoot();
+        const root = tree.root;
         expect(root!.val).toBe(8);
     })
     test('查找最小值', () => {
@@ -62,12 +62,12 @@ describe('AVL树', () => {
 //     });
 //     test('查找元素', () => {
 //         tree.find(1);
-//         expect(tree.getRoot()!.val).toBe(1);
+//         expect(tree.root!.val).toBe(1);
 //         expect(tree.height).toBe(4);
 //         tree.find(2);
-//         expect(tree.getRoot()!.val).toBe(2);
+//         expect(tree.root!.val).toBe(2);
 //         expect(tree.height).toBe(4);
-//         expect(tree.getRoot()!.left!.val).toBe(1);
+//         expect(tree.root!.left!.val).toBe(1);
 //     })
 // });
 

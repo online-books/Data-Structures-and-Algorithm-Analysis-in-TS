@@ -21,3 +21,12 @@ export function getValuesFromList(list: ListNode | null): any[] {
     }
     return values;
 }
+
+export function swapChildNode(treeNode: { left: any, right: any }) {
+    const {
+        left,
+        right,
+    } = treeNode;
+    treeNode.left = right;
+    treeNode.right = left;
+}

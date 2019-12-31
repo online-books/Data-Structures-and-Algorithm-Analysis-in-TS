@@ -10,7 +10,7 @@ import BinarySearchTree from './binary-search-tree';
 
 
 export default class AVLTree extends BinarySearchTree {
-    protected root: AvlTreeNode | null;
+    public root: AvlTreeNode | null;
     constructor() {
         super();
     }

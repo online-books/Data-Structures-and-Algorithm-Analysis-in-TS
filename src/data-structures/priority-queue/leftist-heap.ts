@@ -1,4 +1,5 @@
 import LeftistHeapNode from './leftist-heap-node';
+import { swapChildNode } from '../../share/utils';
 
 /**
  * 左式堆
@@ -9,13 +10,10 @@ import LeftistHeapNode from './leftist-heap-node';
 
 
 export default class LeftistHeap {
-    private root: LeftistHeapNode | null = null;
-    public getRoot(): LeftistHeapNode | null {
-        return this.root;
-    }
+    public root: LeftistHeapNode | null = null;
     public deleteMin(): any {
         if (this.root) {
-            this.root = this.mergeNode(this.root.left, this.root.right);
+            this.root = this.preMerge(this.root.left, this.root.right);
         }
     }
     public insert(val: any): void {
@@ -23,13 +21,13 @@ export default class LeftistHeap {
         if (!this.root) {
             this.root = node;
         } else {
-            this.root = this.mergeNode(node, this.root);
+            this.root = this.preMerge(node, this.root);
         }
     }
-    public mergeHeap(heap: LeftistHeap): void {
-        this.root = this.mergeNode(this.getRoot(), heap.getRoot());
+    public merge(heap: LeftistHeap): void {
+        this.root = this.preMerge(this.root, heap.root);
     }
-    private mergeNode(heapNode1: LeftistHeapNode | null, heapNode2: LeftistHeapNode | null): LeftistHeapNode | null {
+    private preMerge(heapNode1: LeftistHeapNode | null, heapNode2: LeftistHeapNode | null): LeftistHeapNode | null {
         if (!heapNode1) {
             return heapNode2;
         }
@@ -37,30 +35,22 @@ export default class LeftistHeap {
             return heapNode1;
         }
         if (heapNode1.val < heapNode2.val) {
-            return this.merge(heapNode1, heapNode2);
+            return this.mergeNode(heapNode1, heapNode2);
         } else {
-            return this.merge(heapNode2, heapNode1);
+            return this.mergeNode(heapNode2, heapNode1);
         }
     }
-    private merge(heapNode1: LeftistHeapNode, heapNode2: LeftistHeapNode): LeftistHeapNode {
+    private mergeNode(heapNode1: LeftistHeapNode, heapNode2: LeftistHeapNode): LeftistHeapNode {
         if (!heapNode1.left) {
             heapNode1.left = heapNode2;
         } else {
-            heapNode1.right = this.mergeNode(heapNode1.right, heapNode2);
+            heapNode1.right = this.preMerge(heapNode1.right, heapNode2);
             if (heapNode1.left.npl < heapNode1.right!.npl) {
-                this.swapChildNode(heapNode1);
+                swapChildNode(heapNode1);
             }
             heapNode1.npl = heapNode1.right!.npl + 1;
         }
         return heapNode1;
 
-    }
-    private swapChildNode(node: LeftistHeapNode) {
-        const {
-            left,
-            right,
-        } = node;
-        node.left = right;
-        node.right = left;
     }
 }
