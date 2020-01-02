@@ -3,7 +3,7 @@ import HashTable from './hash-table';
  * 平方探测法构建开放寻址哈希表
  */
 export default class OpenAdressingHashTable extends HashTable {
-    private tableList: any[];
+    private tableList: string[];
     constructor(size: number) {
         super(size);
         this.tableList = new Array(size);

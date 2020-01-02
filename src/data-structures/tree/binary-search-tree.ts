@@ -14,7 +14,7 @@ export default class BinarySearchTree {
     get height(): number {
         return this.getNodeHeight(this.root);
     }
-    public find(value: any): BinaryTreeNode | null {
+    public find(value: number): BinaryTreeNode | null {
         let node: BinaryTreeNode | null;
         node = this.root;
         while (node) {
@@ -28,21 +28,21 @@ export default class BinarySearchTree {
         }
         return null;
     }
-    public findMin(): any {
+    public findMin(): number | null {
         const node = this.findMinNode(this.root);
         if (node) {
             return node.val;
         }
         return null;
     }
-    public findMax(): any {
+    public findMax(): number | null {
         const node = this.findMaxNode(this.root);
         if (node) {
             return node.val;
         }
         return null;
     }
-    public insert(value: any): void {
+    public insert(value: number): void {
         const newNode = new BinaryTreeNode(value);
         if (!this.root) {
             this.root = newNode;
@@ -66,7 +66,7 @@ export default class BinarySearchTree {
             }
         }
     }
-    public delete(value: any): void {
+    public delete(value: number): void {
         this.removeNode(value, this.root);
     }
     public traverse(type: Symbol, callback?: Function) {
@@ -114,7 +114,7 @@ export default class BinarySearchTree {
             callback(node.val);
         }
     }
-    private removeNode(value: any, node: BinaryTreeNode | null) {
+    private removeNode(value: number, node: BinaryTreeNode | null) {
         if (!node) {
             return node;
         }

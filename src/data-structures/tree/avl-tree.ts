@@ -17,13 +17,13 @@ export default class AVLTree extends BinarySearchTree {
     get height(): number {
         return this.getHeight(this.root);
     }
-    public delete(val: any): void {
+    public delete(val: number): void {
 
     }
-    public insert(value: any) {
+    public insert(value: number) {
         this.root = this.insertNode(value, this.root);
     }
-    private insertNode(value: any, node: AvlTreeNode | null): AvlTreeNode {
+    private insertNode(value: number, node: AvlTreeNode | null): AvlTreeNode {
         if (!node) {
             node = new AvlTreeNode(value);
         } else {

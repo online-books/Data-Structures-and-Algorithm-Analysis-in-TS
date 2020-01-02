@@ -16,9 +16,9 @@ function midian3(arr: number[], start: number, end: number): number {
     return arr[end - 1];
 }
 
-
+// 快速排序
 export default function quickSort(arr: number[], start = 0, end = arr.length - 1): void {
-    if (end - start >= 3) {
+    if (end - start >= 10) {
         const pivot = midian3(arr, start, end);
         let i = start;
         let j = end - 1;

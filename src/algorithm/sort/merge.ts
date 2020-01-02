@@ -1,8 +1,5 @@
-/**
- * 归并排序
- */
-
-function merge (arr1: number[], arr2: number[]): number[] {
+// 归并排序
+function merge(arr1: number[], arr2: number[]): number[] {
     const result: number[] = [];
     while (arr1.length && arr2.length) {
         const value1 = arr1[0];
@@ -27,7 +24,7 @@ function merge (arr1: number[], arr2: number[]): number[] {
     return result;
 }
 
-export default function mergeSort (arr: number[], star = 0, end = arr.length): number[] {
+export default function mergeSort(arr: number[], star = 0, end = arr.length): number[] {
     if (arr.length === 1) {
         return arr;
     }

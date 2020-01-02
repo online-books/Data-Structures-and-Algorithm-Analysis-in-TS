@@ -11,12 +11,12 @@ import { swapChildNode } from '../../share/utils';
 
 export default class LeftistHeap {
     public root: LeftistHeapNode | null = null;
-    public deleteMin(): any {
+    public deleteMin(): void {
         if (this.root) {
             this.root = this.preMerge(this.root.left, this.root.right);
         }
     }
-    public insert(val: any): void {
+    public insert(val: number): void {
         const node = new LeftistHeapNode(val);
         if (!this.root) {
             this.root = node;

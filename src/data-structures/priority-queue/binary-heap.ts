@@ -1,6 +1,6 @@
 import { swap } from '../../share/utils';
 
-function percolateDown(data: any[], i: number, size: number) {
+function percolateDown(data: number[], i: number, size: number) {
     while (2 * i <= size) {
         let index = 2 * i;
         if (index !== size && data[index] > data[index + 1]) {
@@ -70,7 +70,7 @@ export default class BinaryHeap {
         data[i] = lastElement;
         data.pop();
     }
-    public insert(value: any) {
+    public insert(value: number) {
         const {
             data,
         } = this;
@@ -87,7 +87,7 @@ export default class BinaryHeap {
         }
         data[i] = value;
     }
-    public delete(val: any): void {
+    public delete(val: number): void {
 
     }
     public isEmpty(): Boolean {

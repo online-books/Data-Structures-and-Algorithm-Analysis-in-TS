@@ -2,6 +2,7 @@ import BinaryHeap from './binary-heap';
 import LeftistHeap from './leftist-heap';
 import LeftistHeapNode from './leftist-heap-node';
 import SkewHeap from './skew-heap';
+import BinomialQueue from './binomial-queue';
 
 describe('二叉堆', () => {
     const data = [15, 17, 13, 9, 16, 14, 10];
@@ -69,5 +70,29 @@ describe('斜堆', () => {
         expect(skewHeap.root!.val).toBe(6);
         skewHeap2.merge(skewHeap1);
         expect(skewHeap2.root!.val).toBe(8);
+    });
+});
+
+describe('二项队列', () => {
+    const binQueue = new BinomialQueue();
+    test('插入', () => {
+        const data = [6, 3, 9, 10, 13];
+        data.forEach(val => binQueue.insert(val));
+        expect(binQueue.forest.length).toBe(3);
+    });
+    test('查找最小元', () => {
+        expect(binQueue.findMin()!.val).toBe(3);
+    });
+    test('删除最小元', () => {
+        binQueue.deleteMin();
+        expect(binQueue.findMin()!.val).toBe(6);
+    });
+    test('合并', () => {
+        const binQueue1 = new BinomialQueue();
+        const data = [8, 12, 20, 7, 4];
+        data.forEach(val => binQueue1.insert(val));
+        binQueue.merge(binQueue1);
+        expect(binQueue.forest.length).toBe(4);
     })
-})
+});
+

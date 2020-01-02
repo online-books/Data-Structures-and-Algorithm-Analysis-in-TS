@@ -15,29 +15,36 @@ function generateTestArray(size: number) {
 }
 
 describe('排序算法', () => {
+    let arr: number[];
+    let startTime: number;
+    beforeAll(() => {
+        const size = 10000;
+        arr = generateTestArray(size);
+    });
+    beforeEach(() => {
+        startTime = Date.now();
+    });
+    afterEach(() => {
+        const endTime = Date.now();
+        const dur = endTime - startTime;
+        console.log(`【Sort Duration】:${dur}ms`);
+    })
+    afterAll(() => {
+        arr.length = 0;
+    });
     test('选择排序', () => {
-        const size = 20;
-        const arr = generateTestArray(size);
         selectSort(arr);
     });
     test('插入排序', () => {
-        const size = 20;
-        const arr = generateTestArray(size);
         insertionSort(arr);
     });
     test('归并排序', () => {
-        const size = 20;
-        const arr = generateTestArray(size);
         mergeSort(arr);
     });
     test('希尔排序', () => {
-        const size = 20;
-        const arr = generateTestArray(size);
         shellSort(arr);
     });
     test('快速排序', () => {
-        const size = 5;
-        const arr = generateTestArray(size);
         quickSort(arr);
     });
 })

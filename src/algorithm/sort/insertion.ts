@@ -1,8 +1,5 @@
-/**
- * 插入排序
- */
-
-export default function insertionSort (arr: number[], start = 0, end = arr.length - 1) {
+// 插入排序
+export default function insertionSort(arr: number[], start = 0, end = arr.length - 1) {
     for (let i = start + 1; i <= end; i++) {
         const value = arr[i];
         let j = i;

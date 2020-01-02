@@ -11,7 +11,7 @@ export default class SplayTree extends BinarySearchTree {
     constructor() {
         super();
     }
-    public delete(val: any): void {
+    public delete(val: number): void {
 
     }
     private zigRotateWidthLeft(node: BinaryTreeNode): BinaryTreeNode {

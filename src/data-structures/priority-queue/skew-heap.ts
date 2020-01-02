@@ -12,7 +12,7 @@ export default class SkewHeap {
     public merge(skewHeap: SkewHeap): void {
         this.root = this.preMerge(this.root, skewHeap.root);
     }
-    public insert(val: any) {
+    public insert(val: number) {
         const node = new BinaryTreeNode(val);
         this.root = this.preMerge(this.root, node);
     }

@@ -1,9 +1,5 @@
-
-/**
- * 选择排序
- */
-
-export default function selectSort (arr: number[]){
+// 选择排序
+export default function selectSort(arr: number[]) {
     const l = arr.length;
     for (let i = 0; i < l - 1; i++) {
         let minValue = arr[i];
