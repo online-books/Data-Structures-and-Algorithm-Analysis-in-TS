@@ -1,0 +1,77 @@
+import HashTable from '../hash-table/linear-detection-hash-table';
+
+interface EdgeNode {
+    weight: number;
+    next: EdgeNode | null;
+    adjVex: number;
+}
+
+interface VertexNode {
+    index: number;
+    name: string;
+    firstArc: EdgeNode | null;
+}
+
+export interface Edge {
+    from: string;
+    to: string;
+    weight: number;
+}
+
+export default abstract class Graph {
+    protected vertexList: VertexNode[];
+    protected hashTable: HashTable;
+    protected indegreeList: number[];
+    constructor(vertexes: string[], edges: Edge[]) {
+        const {
+            length
+        } = vertexes;
+        this.hashTable = new HashTable(length);
+        this.vertexList = new Array(length);
+        this.indegreeList = new Array(length).fill(0);
+        this.init(edges);
+    }
+
+    protected abstract init(edges: Edge[]): void;
+
+    protected addEdge(from: string, to: string, weight: number) {
+        const {
+            vertexList,
+            hashTable,
+            indegreeList
+        } = this;
+        const fromVertexIndex = hashTable.insert(from);
+        const toVertexIndex = hashTable.insert(to);
+        const edgeNode = {
+            weight,
+            next: null,
+            adjVex: toVertexIndex
+        };
+        if (!vertexList[fromVertexIndex]) {
+            vertexList[fromVertexIndex] = {
+                index: fromVertexIndex,
+                name: from,
+                firstArc: null,
+            };
+        }
+        if (!vertexList[toVertexIndex]) {
+            vertexList[toVertexIndex] = {
+                index: toVertexIndex,
+                name: to,
+                firstArc: null,
+            };
+        }
+        const vertexNode = vertexList[fromVertexIndex];
+        if (!vertexNode.firstArc) {
+            vertexNode.firstArc = edgeNode;
+        } else {
+            let next = vertexNode.firstArc;
+            while (next.next) {
+                next = next.next;
+            }
+            next.next = edgeNode;
+        }
+        const indegree = indegreeList[toVertexIndex];
+        indegreeList[toVertexIndex] = indegree + 1;
+    }
+}

@@ -7,11 +7,12 @@ export default abstract class OpenAdressingHashTable extends HashTable {
         super(size);
         this.tableList = new Array(size);
     }
-    public insert(value: string) {
+    public insert(value: string): number {
         const index = this.find(value);
         if (this.tableList[index] === undefined) {
             this.tableList[index] = value;
         }
+        return index;
     }
 
     public delete(value: string) {
