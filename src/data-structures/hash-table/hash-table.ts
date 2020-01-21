@@ -1,18 +1,21 @@
-export default class HashTable {
+export default abstract class HashTable {
     protected tableSize: number;
     constructor(size: number) {
         this.tableSize = size;
     }
-    protected hash(value: string): number {
-        let code = 0;
-        for (let i = 0; i < value.length; i++) {
-            code += value.codePointAt(i) as number;
+
+    abstract find(value: string): void;
+
+    abstract insert(value: string): void;
+
+    abstract delete(value: string): void;
+
+    protected hash(str: string): number {
+        let hashVal = 0;
+        for (let i = 0, j = str.length; i < j; i++) {
+            const point = str.codePointAt(i) as number;
+            hashVal = (hashVal << 5) + point;
         }
-        return code % this.tableSize;
-        // let hashVal = 0;
-        // while(value!=='\0'){
-        //     hashVal = (hashVal<<5)+*key++;
-        // }
-        // return hashVal%this.tableSize;
+        return hashVal % this.tableSize;
     }
 }

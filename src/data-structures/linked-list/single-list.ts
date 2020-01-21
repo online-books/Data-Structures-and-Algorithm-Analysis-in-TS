@@ -6,13 +6,10 @@ import ListNode from './list-node';
 export default class SingleList {
     public size: number = 0;
     public lastNode: ListNode;
-    private head: ListNode;
+    public head: ListNode;
     constructor(value: any = null) {
         this.head = new ListNode(value);
         this.lastNode = this.head;
-    }
-    public get firstNode() {
-        return this.head.next;
     }
     public insert(value: any, node?: ListNode): ListNode {
         const newNode = new ListNode(value);

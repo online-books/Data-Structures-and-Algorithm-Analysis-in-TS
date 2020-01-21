@@ -15,8 +15,8 @@ export function addPolynomial(l1: SingleList, l2: SingleList): SingleList {
     if (!l2.size) {
         return l1;
     }
-    let l1Node = l1.firstNode;
-    let l2Node = l2.firstNode;
+    let l1Node = l1.head.next;
+    let l2Node = l2.head.next;
     while (l1Node && l2Node) {
         const power1 = l1Node.val.power;
         const power2 = l2Node.val.power;
@@ -64,8 +64,8 @@ export function mutiplePolynomial(l1: SingleList, l2: SingleList): SingleList {
     let l1Node;
     let l2Node;
     let parent;
-    l1Node = l1.firstNode;
-    l2Node = l2.firstNode;
+    l1Node = l1.head.next;
+    l2Node = l2.head.next;
     parent = l2Node;
     while (l1Node) {
         while (l2Node) {

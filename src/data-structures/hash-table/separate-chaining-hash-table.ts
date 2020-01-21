@@ -1,6 +1,6 @@
-import ListNode from '../linked-list/list-node';
 import SinleList from '../linked-list/single-list';
 import HashTable from './hash-table';
+
 // 分离链接法构建哈希表
 export default class SeparateChainingHashTable extends HashTable {
     private tableList: SinleList[];
@@ -17,7 +17,7 @@ export default class SeparateChainingHashTable extends HashTable {
         }
         list.insert(value);
     }
-    public find(value: string): ListNode | null {
+    public find(value: string) {
         const index = this.hash(value);
         const list = this.tableList[index];
         return list.find(value);
