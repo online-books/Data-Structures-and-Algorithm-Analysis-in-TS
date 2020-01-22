@@ -1,12 +1,12 @@
 import HashTable from '../hash-table/linear-detection-hash-table';
 
-interface EdgeNode {
+export interface EdgeNode {
     weight: number;
     next: EdgeNode | null;
     adjVex: number;
 }
 
-interface VertexNode {
+export interface VertexNode {
     index: number;
     name: string;
     firstArc: EdgeNode | null;
@@ -22,13 +22,10 @@ export default abstract class Graph {
     protected vertexList: VertexNode[];
     protected hashTable: HashTable;
     protected indegreeList: number[];
-    constructor(vertexes: string[], edges: Edge[]) {
-        const {
-            length
-        } = vertexes;
-        this.hashTable = new HashTable(length);
-        this.vertexList = new Array(length);
-        this.indegreeList = new Array(length).fill(0);
+    constructor(vertexNum: number, edges: Edge[]) {
+        this.hashTable = new HashTable(vertexNum);
+        this.vertexList = new Array(vertexNum);
+        this.indegreeList = new Array(vertexNum).fill(0);
         this.init(edges);
     }
 
@@ -71,7 +68,6 @@ export default abstract class Graph {
             }
             next.next = edgeNode;
         }
-        const indegree = indegreeList[toVertexIndex];
-        indegreeList[toVertexIndex] = indegree + 1;
+        indegreeList[toVertexIndex] += 1;
     }
 }
