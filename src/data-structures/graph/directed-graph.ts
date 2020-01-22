@@ -1,6 +1,10 @@
 import Graph, { Edge, VertexNode } from './graph';
 import BinaryHeap from '../priority-queue/binary-heap';
 
+function checkWeight(weight: number) {
+    return weight >= 0;
+}
+
 export default class DirectedGraph extends Graph {
 
     protected init(edges: Edge[]) {
@@ -44,7 +48,7 @@ export default class DirectedGraph extends Graph {
         if (count !== vertexList.length) {
             throw Error('Graph has a cycle');
         }
-        return result
+        return result;
     }
     // 无权最短路径
     public unweightedShortestPath(vertexName: string): Array<{ name: string, value: number }> {
@@ -108,17 +112,71 @@ export default class DirectedGraph extends Graph {
                 });
                 let edgeNode = vertexNode.firstArc;
                 while (edgeNode) {
-                    const item = list[edgeNode.adjVex];
+                    const {
+                        adjVex,
+                        weight,
+                        next,
+                    } = edgeNode;
+                    if (!checkWeight(weight)) {
+                        throw Error('weight is negative');
+                    }
+                    const item = list[adjVex];
                     if (!item.visited) {
-                        if (item.value === -1 || item.value > (value + edgeNode.weight)) {
-                            item.value = value + edgeNode.weight;
+                        if (item.value === -1 || item.value > (value + weight)) {
+                            item.value = value + weight;
                             heap.insert(item);
                         }
                     }
-                    edgeNode = edgeNode.next;
+                    edgeNode = next;
                 }
             }
         }
         return result;
+    }
+    // 具有负边值图的最短路径
+    public weightedNegativeShortestPath(vertexName: string): Array<{ name: string, value: number }> {
+        const {
+            vertexList,
+        } = this;
+        const cache: { [propName: string]: number } = {};
+        const queue: Array<{ vertexNode: VertexNode, value: number, count: number }> = [];
+        const list = vertexList.map(vertexNode => {
+            const data = {
+                count: 0, // 入队次数标记，防止图中存在负值圈无限循环
+                vertexNode,
+                value: Number.MAX_VALUE
+            };
+            if (vertexNode.name === vertexName) {
+                data.value = 0;
+                queue.push(data);
+            }
+            return data;
+        });
+        while (queue.length) {
+            const data = queue.shift()!;
+            const { vertexNode, value } = data;
+            data.count += 1;
+            cache[vertexNode.name] = value;
+            if (data.count > vertexList.length) {
+                break;
+            }
+            let edgeNode = vertexNode.firstArc;
+            while (edgeNode) {
+                const nextData = list[edgeNode.adjVex];
+                if (value + edgeNode.weight < nextData.value) {
+                    nextData.value = value + edgeNode.weight;
+                    if (queue.findIndex(item => item.vertexNode.name === nextData.vertexNode.name) < 0) {
+                        queue.push(nextData);
+                    }
+                }
+                edgeNode = edgeNode.next;
+            }
+        }
+        return Object.entries(cache).map(([name, value]) => {
+            return {
+                name,
+                value,
+            }
+        })
     }
 }
