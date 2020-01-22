@@ -1,13 +1,18 @@
 import { swap } from '../../share/utils';
 
-function percolateDown(data: number[], i: number, size: number) {
+interface HeapNode {
+    value: number,
+    [propName: string]: any
+}
+
+function percolateDown(list: HeapNode[], i: number, size: number) {
     while (2 * i <= size) {
         let index = 2 * i;
-        if (index !== size && data[index] > data[index + 1]) {
+        if (index !== size && list[index].value > list[index + 1].value) {
             index += 1;
         }
-        if (data[i] > data[index]) {
-            swap(data, i, index);
+        if (list[i].value > list[index].value) {
+            swap(list, i, index);
         } else {
             break;
         }
@@ -20,77 +25,74 @@ function percolateDown(data: number[], i: number, size: number) {
  * 结构性质：对于数组任意一个位置i上的元素，其左儿子在位置2i上，右儿子在（2i+1）上，它的父元素在（i/2）上。
  * 堆序性质：对于每一个节点X，X的父元素的关键字小于或等于X中的关键字，根结点除外。
  * 堆的基本操作：插入、删除最小元、构建堆
- * TODO:delete
  */
 
 export default class BinaryHeap {
 
-    public static create(arr: number[]): BinaryHeap {
+    public static create(arr: HeapNode[]): BinaryHeap {
         const binaryHeap = new BinaryHeap();
         const {
-            data,
+            list,
         } = binaryHeap;
-        data.push(...arr);
-        const len = data.length;
+        list.push(...arr);
+        const len = list.length - 1;
         for (let i = Math.floor(len / 2); i > 0; i--) {
-            percolateDown(data, i, len);
+            percolateDown(list, i, len);
         }
         return binaryHeap;
     }
-    private data: number[] = [Number.MIN_SAFE_INTEGER];
-    public findMin(): number {
+    private list: HeapNode[] = [{ value: Number.MIN_SAFE_INTEGER }];
+    public findMin(): HeapNode {
         if (this.isEmpty()) {
             throw Error('Binary heap is empty!');
         }
-        return this.data[1];
+        return this.list[1];
     }
-    public deleteMin() {
+    public deleteMin(): HeapNode {
         if (this.isEmpty()) {
             throw Error('Binary heap is empty!');
         }
         const {
-            data
+            list
         } = this;
-        const l = data.length;
-        const lastElement = data[l - 1];
+        const l = list.length - 1;
+        const lastElement = list[l];
+        const minElement = this.list[1];
         let i = 1;
         for (; i <= Math.floor(l / 2);) {
             let j = i * 2;
-            if (j !== l && data[j] > data[j + 1]) {
+            if (j !== l && list[j].value > list[j + 1].value) {
                 j = j + 1;
             }
-            if (data[j] < lastElement) {
-                data[i] = data[j];
+            if (list[j].value < lastElement.value) {
+                list[i] = list[j];
                 i = j;
             } else {
                 break;
             }
 
         }
-        data[i] = lastElement;
-        data.pop();
+        list[i] = lastElement;
+        list.pop();
+        return minElement;
     }
-    public insert(value: number) {
+    public insert(data: HeapNode) {
         const {
-            data,
+            list,
         } = this;
-        const len = data.push(value);
-        let i = len - 1;
+        let i = list.push(data) - 1;
         for (; i > 1;) {
             const j = Math.floor(i / 2);
-            if (value < data[j]) {
-                data[i] = data[j];
+            if (data.value < list[j].value) {
+                list[i] = list[j];
             } else {
                 break;
             }
             i = j;
         }
-        data[i] = value;
-    }
-    public delete(val: number): void {
-
+        list[i] = data;
     }
     public isEmpty(): Boolean {
-        return this.data.length < 2;
+        return this.list.length < 2;
     }
 }

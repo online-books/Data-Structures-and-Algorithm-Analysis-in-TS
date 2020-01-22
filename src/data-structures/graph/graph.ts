@@ -18,11 +18,26 @@ export interface Edge {
     weight: number;
 }
 
+function checkEdge(edge: Edge) {
+    const {
+        from,
+        to,
+        weight
+    } = edge;
+    if (typeof from === 'string' && typeof to === 'string' && Number.isInteger(weight) && weight > 0) {
+        return true;
+    }
+    return false;
+}
+
 export default abstract class Graph {
     protected vertexList: VertexNode[];
     protected hashTable: HashTable;
     protected indegreeList: number[];
     constructor(vertexNum: number, edges: Edge[]) {
+        if (!edges.every(edge => checkEdge(edge))) {
+            throw TypeError('Edge type error');
+        }
         this.hashTable = new HashTable(vertexNum);
         this.vertexList = new Array(vertexNum);
         this.indegreeList = new Array(vertexNum).fill(0);

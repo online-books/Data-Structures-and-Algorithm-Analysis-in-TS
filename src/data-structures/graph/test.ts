@@ -4,12 +4,12 @@ import DirectedGraph from './directed-graph';
 
 const edges = [
     { from: 'a', to: 'b', weight: 3 },
-    { from: 'a', to: 'c', weight: 2 },
-    { from: 'b', to: 'c', weight: 2 },
+    { from: 'a', to: 'c', weight: 6 },
+    { from: 'b', to: 'c', weight: 1 },
     { from: 'b', to: 'd', weight: 2 },
-    { from: 'c', to: 'e', weight: 2 },
-    { from: 'c', to: 'f', weight: 2 },
-    { from: 'd', to: 'e', weight: 2 },
+    { from: 'c', to: 'e', weight: 3 },
+    { from: 'c', to: 'f', weight: 5 },
+    { from: 'd', to: 'e', weight: 4 },
     { from: 'e', to: 'f', weight: 2 },
 ];
 
@@ -44,30 +44,61 @@ describe('有向图', () => {
         result.forEach(item => {
             switch (item.name) {
                 case 'a': {
-                    expect(item.path).toBe(0);
+                    expect(item.value).toBe(0);
                     break;
                 }
                 case 'b': {
-                    expect(item.path).toBe(1);
+                    expect(item.value).toBe(1);
                     break;
                 }
                 case 'c': {
-                    expect(item.path).toBe(1);
+                    expect(item.value).toBe(1);
                     break;
                 }
                 case 'd': {
-                    expect(item.path).toBe(2);
+                    expect(item.value).toBe(2);
                     break;
                 }
                 case 'e': {
-                    expect(item.path).toBe(2);
+                    expect(item.value).toBe(2);
                     break;
                 }
                 case 'f': {
-                    expect(item.path).toBe(2);
+                    expect(item.value).toBe(2);
                     break;
                 }
             }
         });
-    })
+    });
+    test('Dijkstra', () => {
+        const result = graph.dijkstra('a');
+        result.forEach(item => {
+            switch (item.name) {
+                case 'a': {
+                    expect(item.value).toBe(0);
+                    break;
+                }
+                case 'b': {
+                    expect(item.value).toBe(3);
+                    break;
+                }
+                case 'c': {
+                    expect(item.value).toBe(4);
+                    break;
+                }
+                case 'd': {
+                    expect(item.value).toBe(5);
+                    break;
+                }
+                case 'e': {
+                    expect(item.value).toBe(7);
+                    break;
+                }
+                case 'f': {
+                    expect(item.value).toBe(9);
+                    break;
+                }
+            }
+        });
+    });
 });
