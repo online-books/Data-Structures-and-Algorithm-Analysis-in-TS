@@ -108,7 +108,11 @@ export default class DirectedGraph extends Graph {
   public dijkstra(vertexName: string): Array<{ name: string; value: number }> {
     const { vertexList } = this;
     const result = [];
-    const heap = new BinaryHeap();
+    const heap = new BinaryHeap<{
+      value: number;
+      vertexNode: VertexNode;
+      visited: boolean;
+    }>();
     const list = vertexList.map(vertexNode => {
       const data = {
         vertexNode,

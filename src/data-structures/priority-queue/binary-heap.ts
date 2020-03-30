@@ -1,23 +1,23 @@
-import { swap } from '../../share/utils';
+import { swap } from "../../share/utils";
 
 interface HeapNode {
-    value: number,
-    [propName: string]: any
+  value: number;
+  // [propName: string]: any
 }
 
 function percolateDown(list: HeapNode[], i: number, size: number) {
-    while (2 * i <= size) {
-        let index = 2 * i;
-        if (index !== size && list[index].value > list[index + 1].value) {
-            index += 1;
-        }
-        if (list[i].value > list[index].value) {
-            swap(list, i, index);
-        } else {
-            break;
-        }
-        i = index;
+  while (2 * i <= size) {
+    let index = 2 * i;
+    if (index !== size && list[index].value > list[index + 1].value) {
+      index += 1;
     }
+    if (list[i].value > list[index].value) {
+      swap(list, i, index);
+    } else {
+      break;
+    }
+    i = index;
+  }
 }
 
 /**
@@ -27,72 +27,68 @@ function percolateDown(list: HeapNode[], i: number, size: number) {
  * 堆的基本操作：插入、删除最小元、构建堆
  */
 
-export default class BinaryHeap {
-
-    public static create(arr: HeapNode[]): BinaryHeap {
-        const binaryHeap = new BinaryHeap();
-        const {
-            list,
-        } = binaryHeap;
-        list.push(...arr);
-        const len = list.length - 1;
-        for (let i = Math.floor(len / 2); i > 0; i--) {
-            percolateDown(list, i, len);
-        }
-        return binaryHeap;
+export default class BinaryHeap<T extends HeapNode> {
+  private list: T[] = [];
+  public static create<T extends HeapNode>(arr: T[]) {
+    const binaryHeap = new BinaryHeap<T>();
+    const { list } = binaryHeap;
+    list.push(arr[0]);
+    list.push(...arr);
+    const len = list.length - 1;
+    for (let i = Math.floor(len / 2); i > 0; i--) {
+      percolateDown(list, i, len);
     }
-    private list: HeapNode[] = [{ value: Number.MIN_SAFE_INTEGER }];
-    public findMin(): HeapNode {
-        if (this.isEmpty()) {
-            throw Error('Binary heap is empty!');
-        }
-        return this.list[1];
+    return binaryHeap;
+  }
+  public findMin(): T {
+    if (this.isEmpty()) {
+      throw Error("Binary heap is empty!");
     }
-    public deleteMin(): HeapNode {
-        if (this.isEmpty()) {
-            throw Error('Binary heap is empty!');
-        }
-        const {
-            list
-        } = this;
-        const l = list.length - 1;
-        const lastElement = list[l];
-        const minElement = this.list[1];
-        let i = 1;
-        for (; i <= Math.floor(l / 2);) {
-            let j = i * 2;
-            if (j !== l && list[j].value > list[j + 1].value) {
-                j = j + 1;
-            }
-            if (list[j].value < lastElement.value) {
-                list[i] = list[j];
-                i = j;
-            } else {
-                break;
-            }
-
-        }
-        list[i] = lastElement;
-        list.pop();
-        return minElement;
+    return this.list[1];
+  }
+  public deleteMin(): T {
+    if (this.isEmpty()) {
+      throw Error("Binary heap is empty!");
     }
-    public insert(data: HeapNode) {
-        const {
-            list,
-        } = this;
-        let i = list.push(data) - 1;
-        for (; i > 1;) {
-            const j = Math.floor(i / 2);
-            if (data.value < list[j].value) {
-                list[i] = list[j];
-            } else {
-                break;
-            }
-            i = j;
-        }
-        list[i] = data;
+    const { list } = this;
+    const l = list.length - 1;
+    const lastElement = list[l];
+    const minElement = this.list[1];
+    let i = 1;
+    for (; i <= Math.floor(l / 2); ) {
+      let j = i * 2;
+      if (j !== l && list[j].value > list[j + 1].value) {
+        j = j + 1;
+      }
+      if (list[j].value < lastElement.value) {
+        list[i] = list[j];
+        i = j;
+      } else {
+        break;
+      }
     }
-    public isEmpty(): Boolean {
-        return this.list.length < 2;
+    list[i] = lastElement;
+    list.pop();
+    return minElement;
+  }
+  public insert(data: T) {
+    const { list } = this;
+    if (list.length === 0) {
+      list.push(data);
     }
+    let i = list.push(data) - 1;
+    for (; i > 1; ) {
+      const j = Math.floor(i / 2);
+      if (data.value < list[j].value) {
+        list[i] = list[j];
+      } else {
+        break;
+      }
+      i = j;
+    }
+    list[i] = data;
+  }
+  public isEmpty(): Boolean {
+    return this.list.length < 2;
+  }
 }

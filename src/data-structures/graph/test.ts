@@ -162,7 +162,28 @@ describe.skip("网络流问题", () => {
   });
 });
 
-describe.skip("最小生成树", () => {
-  test("prim", () => {});
-  test("kruskal", () => {});
+describe("最小生成树", () => {
+  const edges = [
+    { from: "a", to: "b", weight: 2 },
+    { from: "a", to: "c", weight: 4 },
+    { from: "a", to: "d", weight: 1 },
+    { from: "b", to: "e", weight: 10 },
+    { from: "b", to: "d", weight: 3 },
+    { from: "c", to: "d", weight: 2 },
+    { from: "c", to: "f", weight: 5 },
+    { from: "d", to: "f", weight: 8 },
+    { from: "d", to: "g", weight: 4 },
+    { from: "d", to: "e", weight: 7 },
+    { from: "e", to: "g", weight: 6 },
+    { from: "f", to: "g", weight: 1 }
+  ];
+  test("prim", () => {
+    const undirectedGraph = new UndirectedGraph(edges);
+    const minSpanningTree = undirectedGraph.prim();
+    const sum = minSpanningTree.reduce((prev, next) => {
+      return prev + next.weight;
+    }, 0);
+    expect(sum).toBe(16);
+  });
+  test.skip("kruskal", () => {});
 });

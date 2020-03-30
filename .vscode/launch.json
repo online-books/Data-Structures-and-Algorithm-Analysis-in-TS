@@ -1,20 +1,22 @@
 {
-    "version": "0.2.0",
-    "configurations": [{
-        "name": "Debug CRA Tests",
-        "type": "node",
-        "request": "launch",
-        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts-ts",
-        "args": [
-            "test",
-            "--runInBand",
-            "--no-cache",
-            "--env=jsdom",
-            "--testNamePattern=runtime"
-        ],
-        "cwd": "${workspaceRoot}",
-        "protocol": "inspector",
-        "console": "integratedTerminal",
-        "internalConsoleOptions": "neverOpen"
-    }]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug CRA Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts-ts",
+      "args": [
+        "test",
+        "--runInBand",
+        "--no-cache",
+        "--env=jsdom",
+        "--testNamePattern=runtime"
+      ],
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
 }

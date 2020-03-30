@@ -1,4 +1,5 @@
 import Graph, { Edge, GRAPH_TYPE } from "./graph";
+import BinaryHeap from "../priority-queue/binary-heap";
 
 export default class UndirectedGraph extends Graph {
   constructor(edges: Edge[]) {
@@ -16,10 +17,59 @@ export default class UndirectedGraph extends Graph {
     }
     return count;
   }
+  /**
+   * 判断此无向图是否是连通的
+   */
   public isConnected(): boolean {
     return this.vertexList.every((vNode, vIndex) => {
       return this.checkVertexNodeConnection(vIndex);
     });
+  }
+
+  /**
+   * prim算法计算最小生成树
+   */
+  public prim(): Array<{ from: string; to: string; weight: number }> {
+    const { vertexList, minWeightEdge } = this;
+    const result: Array<{ from: string; to: string; weight: number }> = [];
+    const binaryHeap = new BinaryHeap<{
+      value: number;
+      index: number;
+      visited: boolean;
+      from: number;
+    }>();
+    const list = vertexList.map((vertexNode, vertexIndex) => ({
+      value: 0,
+      index: vertexIndex,
+      visited: false,
+      from: vertexIndex
+    }));
+    binaryHeap.insert(list[minWeightEdge.from]);
+    while (!binaryHeap.isEmpty()) {
+      const heapNode = binaryHeap.deleteMin();
+      const { index, visited, value, from } = heapNode;
+      if (visited) {
+        continue;
+      }
+      const vertexNode = vertexList[index];
+      result.push({
+        from: vertexList[from].name,
+        to: vertexNode.name,
+        weight: value
+      });
+      heapNode.visited = true;
+      let nextNode = vertexNode.firstArc;
+      while (nextNode) {
+        const item = list[nextNode.adjVex];
+        if (item.value === 0 || item.value > nextNode.weight) {
+          item.value = nextNode.weight;
+          item.from = index;
+          binaryHeap.insert(item);
+        }
+        nextNode = nextNode.next;
+      }
+    }
+    return result;
   }
   private checkVertexNodeConnection(vertexNodeIndex: number) {
     const { vertexList } = this;

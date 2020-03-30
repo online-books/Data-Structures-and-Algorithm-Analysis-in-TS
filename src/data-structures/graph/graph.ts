@@ -27,6 +27,13 @@ export default abstract class Graph {
   protected hashTable: HashTable;
   protected indegreeList: number[];
   protected type: GRAPH_TYPE;
+  protected minWeightEdge: { from: number; to: number };
+  protected constructor() {
+    this.minWeightEdge = {
+      from: 0,
+      to: 0
+    };
+  }
   protected init(edges: Edge[]): void {
     const cache = {};
     edges.forEach(edge => {
@@ -41,17 +48,28 @@ export default abstract class Graph {
     this.hashTable = new HashTable(vertexNum);
     this.vertexList = new Array(vertexNum);
     this.indegreeList = new Array(vertexNum).fill(0);
-    if (this.type === GRAPH_TYPE.UNDIRECTED_GRAPH) {
-      edges.forEach(edge => {
-        this.addEdge(edge.from, edge.to);
-        this.addEdge(edge.to, edge.from);
-      });
-    } else {
-      edges.forEach(edge => this.addEdge(edge.from, edge.to, edge.weight));
-    }
+    let minWeight = Number.MAX_VALUE;
+    edges.forEach(edge => {
+      const { from, to, weight = 1 } = edge;
+      const { fromVertexIndex, toVertexIndex } = this.addEdge(from, to, weight);
+      if (minWeight > weight) {
+        minWeight = weight;
+        Object.assign(this.minWeightEdge, {
+          from: fromVertexIndex,
+          to: toVertexIndex
+        });
+      }
+      if (this.type === GRAPH_TYPE.UNDIRECTED_GRAPH) {
+        this.addEdge(to, from, weight);
+      }
+    });
   }
 
-  protected addEdge(from: string, to: string, weight = 1) {
+  protected addEdge(
+    from: string,
+    to: string,
+    weight: number
+  ): { fromVertexIndex: number; toVertexIndex: number } {
     const { vertexList, hashTable, indegreeList } = this;
     const fromVertexIndex = hashTable.insert(from);
     const toVertexIndex = hashTable.insert(to);
@@ -83,5 +101,9 @@ export default abstract class Graph {
       next.next = edgeNode;
     }
     indegreeList[toVertexIndex] += 1;
+    return {
+      fromVertexIndex,
+      toVertexIndex
+    };
   }
 }
