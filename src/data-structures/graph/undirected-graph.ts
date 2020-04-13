@@ -45,7 +45,8 @@ export default class UndirectedGraph extends Graph {
       from: vertexIndex
     }));
     binaryHeap.insert(list[minWeightEdge.from]);
-    while (!binaryHeap.isEmpty()) {
+    let nodeAccepted = 0;
+    while (nodeAccepted < vertexList.length) {
       const heapNode = binaryHeap.deleteMin();
       const { index, visited, value, from } = heapNode;
       if (visited) {
@@ -57,6 +58,7 @@ export default class UndirectedGraph extends Graph {
         to: vertexNode.name,
         weight: value
       });
+      nodeAccepted += 1;
       heapNode.visited = true;
       let nextNode = vertexNode.firstArc;
       while (nextNode) {
@@ -71,6 +73,11 @@ export default class UndirectedGraph extends Graph {
     }
     return result;
   }
+
+  /**
+   * kruskal计算最小生成树
+   */
+  public kruskal() {}
   private checkVertexNodeConnection(vertexNodeIndex: number) {
     const { vertexList } = this;
     const vertexNodeIndexArr = new Array(vertexList.length).fill(0);

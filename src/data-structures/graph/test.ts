@@ -10,7 +10,7 @@ describe("无向图", () => {
     { from: "c", to: "e" },
     { from: "c", to: "f" },
     { from: "d", to: "e" },
-    { from: "e", to: "f" }
+    { from: "e", to: "f" },
   ];
   const graph = new UndirectedGraph(edges);
   test("顶点的度", () => {
@@ -35,7 +35,7 @@ describe("有向图", () => {
     { from: "c", to: "e" },
     { from: "c", to: "f" },
     { from: "d", to: "e" },
-    { from: "e", to: "f" }
+    { from: "e", to: "f" },
   ];
   const graph = new DirectedGraph(edges);
   test("顶点的入度", () => {
@@ -61,11 +61,11 @@ describe("最短路径算法", () => {
       { from: "c", to: "e" },
       { from: "c", to: "f" },
       { from: "d", to: "e" },
-      { from: "e", to: "f" }
+      { from: "e", to: "f" },
     ];
     const graph = new DirectedGraph(edges);
     const result = graph.unweightedShortestPath("a");
-    result.forEach(item => {
+    result.forEach((item) => {
       switch (item.name) {
         case "a": {
           expect(item.value).toBe(0);
@@ -107,11 +107,11 @@ describe("最短路径算法", () => {
       { from: "d", to: "f", weight: 8 },
       { from: "d", to: "g", weight: 4 },
       { from: "e", to: "g", weight: 6 },
-      { from: "g", to: "f", weight: 1 }
+      { from: "g", to: "f", weight: 1 },
     ];
     const graph = new DirectedGraph(edges);
     const result = graph.dijkstra("a");
-    result.forEach(item => {
+    result.forEach((item) => {
       switch (item.name) {
         case "a": {
           expect(item.value).toBe(0);
@@ -155,7 +155,7 @@ describe.skip("网络流问题", () => {
       { from: "a", to: "d", weight: 4 },
       { from: "b", to: "d", weight: 2 },
       { from: "c", to: "t", weight: 2 },
-      { from: "d", to: "t", weight: 3 }
+      { from: "d", to: "t", weight: 3 },
     ];
     const graph = new DirectedGraph(edges);
     expect(graph.getMaxFlow("s", "t")).toBe(5);
@@ -175,7 +175,7 @@ describe("最小生成树", () => {
     { from: "d", to: "g", weight: 4 },
     { from: "d", to: "e", weight: 7 },
     { from: "e", to: "g", weight: 6 },
-    { from: "f", to: "g", weight: 1 }
+    { from: "f", to: "g", weight: 1 },
   ];
   test("prim", () => {
     const undirectedGraph = new UndirectedGraph(edges);
@@ -185,5 +185,5 @@ describe("最小生成树", () => {
     }, 0);
     expect(sum).toBe(16);
   });
-  test.skip("kruskal", () => {});
+  test("kruskal", () => {});
 });

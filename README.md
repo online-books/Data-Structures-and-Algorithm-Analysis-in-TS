@@ -1,18 +1,20 @@
-
-
 ## 目录
-***
+
+---
 
 ### 数据结构与算法分析
 
 #### 1.算法分析
+
 - 运行时间计算
+
   - 最大子序列和问题
   - 对已排序的数组进行对分查找
   - 欧几里德算法求解最大公因数
   - 求幂运算
-  
+
 #### 2.表、栈和队列
+
 - 栈
   - 平衡符号
   - 计算后缀表达式
@@ -21,54 +23,62 @@
   - 单链表的实现
   - 两个多项式相加、相乘的求解
   - 基数排序实现
+
 #### 3.树
+
 - 二叉树
   - 二叉树的实现
   - 后缀表达式构造表达式树
 - 二叉查找树
-- AVL树
+- AVL 树
 
 #### 4.散列表
+
 - 散列函数
 - 分离链接法
 - 开放定址法
   - 平方探测法构建开放寻址哈希表
 
 #### 5.优先队列
+
 - 二叉堆
 - 左式堆
 - 斜堆
 - 二项队列
 
 #### 6.排序
+
 - 插入排序
 - 选择排序
 - 归并排序
 - 希尔排序
 - 快速排序
 
-#### 7.图论算法
+#### 7.不相交集 ADT
+
+#### 8.图论算法
+
 - 拓扑排序
 - 最短路径算法
   - 无权最短路径
-  - Dijkstra算法
+  - Dijkstra 算法
   - 具有负边值的图
 - 最大流问题
 - 最小生成树
-  - Prim算法
-  - Kruskal算法
+  - Prim 算法
+  - Kruskal 算法
 - DFS
   - 无向图
   - 双联通性
   - 欧拉回路
   - 查找强分支
 
-
-***
+---
 
 ### LeetCode
 
 #### 1.Easy
+
 - String
   - Reverse String
   - Reverse Integer
@@ -112,6 +122,7 @@
   - House Robber
 
 #### 2.Medium
+
 - String
   - Longest Substring Without Repeating Characters
   - Longest Palindromic Substring
@@ -147,6 +158,7 @@
   - Longest Increasing Subsequence
 
 #### 3.Hard
+
 - String
   - Longest Consecutive Sequence
 - Array
