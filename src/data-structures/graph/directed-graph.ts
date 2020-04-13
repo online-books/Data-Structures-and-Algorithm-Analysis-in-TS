@@ -72,11 +72,11 @@ export default class DirectedGraph extends Graph {
       vertexNode: VertexNode;
       value: number;
     }> = [];
-    const vertexNodes = this.vertexList.map(vertexNode => {
+    const vertexNodes = this.vertexList.map((vertexNode) => {
       const data = { vertexNode, value: -1 };
       if (vertexNode.name === vertexName) {
         Object.assign(data, {
-          value: 0
+          value: 0,
         });
         queue.push(data);
       }
@@ -86,7 +86,7 @@ export default class DirectedGraph extends Graph {
       const data = queue.shift()!;
       result.push({
         name: data.vertexNode.name,
-        value: data.value
+        value: data.value,
       });
       let nextNode = data.vertexNode.firstArc;
       while (nextNode) {
@@ -113,11 +113,11 @@ export default class DirectedGraph extends Graph {
       vertexNode: VertexNode;
       visited: boolean;
     }>();
-    const list = vertexList.map(vertexNode => {
+    const list = vertexList.map((vertexNode) => {
       const data = {
         vertexNode,
         value: -1,
-        visited: false
+        visited: false,
       };
       if (vertexNode.name === vertexName) {
         data.value = 0;
@@ -132,7 +132,7 @@ export default class DirectedGraph extends Graph {
         data.visited = true;
         result.push({
           name: vertexNode.name,
-          value
+          value,
         });
         let edgeNode = vertexNode.firstArc;
         while (edgeNode) {
@@ -168,11 +168,11 @@ export default class DirectedGraph extends Graph {
       value: number;
       count: number;
     }> = [];
-    const list = vertexList.map(vertexNode => {
+    const list = vertexList.map((vertexNode) => {
       const data = {
         count: 0, // 入队次数标记，防止图中存在负值圈无限循环
         vertexNode,
-        value: Number.MAX_VALUE
+        value: Number.MAX_VALUE,
       };
       if (vertexNode.name === vertexName) {
         data.value = 0;
@@ -195,7 +195,7 @@ export default class DirectedGraph extends Graph {
           nextData.value = value + edgeNode.weight;
           if (
             queue.findIndex(
-              item => item.vertexNode.name === nextData.vertexNode.name
+              (item) => item.vertexNode.name === nextData.vertexNode.name
             ) < 0
           ) {
             queue.push(nextData);
@@ -206,7 +206,7 @@ export default class DirectedGraph extends Graph {
     }
     return Object.entries(cache).map(([name, value]) => ({
       name,
-      value
+      value,
     }));
   }
   /**
@@ -217,7 +217,7 @@ export default class DirectedGraph extends Graph {
   public getMaxFlow(startVertexName: string, endVertexName: string): number {
     let startVertexNode!: VertexNode;
     let endVertextNode!: VertexNode;
-    const residualGraph: FlowNode[] = this.vertexList.map(vertexNode => {
+    const residualGraph: FlowNode[] = this.vertexList.map((vertexNode) => {
       if (vertexNode.name === startVertexName) {
         startVertexNode = vertexNode;
       }
@@ -226,7 +226,7 @@ export default class DirectedGraph extends Graph {
       }
       const flowNode: FlowNode = {
         next: null,
-        flow: 0
+        flow: 0,
       };
       let nextVertexNode = vertexNode.firstArc;
       let nextFlowNode = flowNode!;
@@ -234,7 +234,7 @@ export default class DirectedGraph extends Graph {
         nextFlowNode.flow = nextVertexNode.weight;
         nextFlowNode.next = {
           next: null,
-          flow: 0
+          flow: 0,
         };
         nextVertexNode = nextVertexNode.next;
         nextFlowNode = nextFlowNode.next;

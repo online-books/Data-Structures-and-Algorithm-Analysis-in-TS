@@ -180,10 +180,19 @@ describe("最小生成树", () => {
   test("prim", () => {
     const undirectedGraph = new UndirectedGraph(edges);
     const minSpanningTree = undirectedGraph.prim();
+    expect(minSpanningTree.length).toBe(6);
     const sum = minSpanningTree.reduce((prev, next) => {
       return prev + next.weight;
     }, 0);
     expect(sum).toBe(16);
   });
-  test("kruskal", () => {});
+  test("kruskal", () => {
+    const undirectedGraph = new UndirectedGraph(edges);
+    const minSpanningTree = undirectedGraph.kruskal();
+    expect(minSpanningTree.length).toBe(6);
+    const sum = minSpanningTree.reduce((prev, next) => {
+      return prev + next.weight;
+    }, 0);
+    expect(sum).toBe(16);
+  });
 });

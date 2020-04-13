@@ -17,6 +17,5 @@ describe("不相交集", () => {
     disSet.union(4, 5);
     expect(disSet.find(4)).toBe(5);
     expect(disSet.find(8)).toBe(5);
-    console.log(disSet);
   });
 });
