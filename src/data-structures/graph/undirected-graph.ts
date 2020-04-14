@@ -28,9 +28,20 @@ export default class UndirectedGraph extends Graph {
    * 判断此无向图是否是连通的
    */
   public isConnected(): boolean {
-    return this.vertexList.every((vNode, vIndex) => {
-      return this.checkVertexNodeConnection(vIndex);
-    });
+    const { vertexList } = this;
+    const vertexNodeIndexArr = new Array(vertexList.length).fill(0);
+    function dfs(vNodeIndex: number) {
+      vertexNodeIndexArr[vNodeIndex] = 1;
+      let edgeNode = vertexList[vNodeIndex].firstArc;
+      while (edgeNode) {
+        if (!vertexNodeIndexArr[edgeNode.adjVex]) {
+          dfs(edgeNode.adjVex);
+        }
+        edgeNode = edgeNode.next;
+      }
+    }
+    dfs(0);
+    return vertexNodeIndexArr.every((val) => val === 1);
   }
 
   /**
@@ -70,15 +81,15 @@ export default class UndirectedGraph extends Graph {
         edgeAccepted += 1;
       }
       heapNode.visited = true;
-      let nextNode = vertexNode.firstArc;
-      while (nextNode) {
-        const item = list[nextNode.adjVex];
-        if (item.value === 0 || item.value > nextNode.weight) {
-          item.value = nextNode.weight;
+      let edgeNode = vertexNode.firstArc;
+      while (edgeNode) {
+        const item = list[edgeNode.adjVex];
+        if (item.value === 0 || item.value > edgeNode.weight) {
+          item.value = edgeNode.weight;
           item.from = index;
           binaryHeap.insert(item);
         }
-        nextNode = nextNode.next;
+        edgeNode = edgeNode.next;
       }
     }
     return result;
@@ -97,14 +108,14 @@ export default class UndirectedGraph extends Graph {
     }> = [];
     const result: MinSpannningTreeEdge[] = [];
     vertexList.forEach((vertexNode, index) => {
-      let nextNode = vertexNode.firstArc;
-      while (nextNode) {
+      let edgeNode = vertexNode.firstArc;
+      while (edgeNode) {
         edges.push({
           from: index,
-          to: nextNode.adjVex,
-          value: nextNode.weight,
+          to: edgeNode.adjVex,
+          value: edgeNode.weight,
         });
-        nextNode = nextNode.next;
+        edgeNode = edgeNode.next;
       }
     });
     const binaryHeap = BinaryHeap.create(edges);
@@ -126,20 +137,61 @@ export default class UndirectedGraph extends Graph {
     }
     return result;
   }
-  private checkVertexNodeConnection(vertexNodeIndex: number) {
+
+  /**
+   * 深度优先搜索检测割点：若无割点，则此图是双联通的
+   */
+  public findArt(vertexNodeName?: string): Set<string> {
     const { vertexList } = this;
-    const vertexNodeIndexArr = new Array(vertexList.length).fill(0);
-    function dfs(vNodeIndex: number) {
-      vertexNodeIndexArr[vNodeIndex] = 1;
-      let nextNode = vertexList[vNodeIndex].firstArc;
-      while (nextNode) {
-        if (!vertexNodeIndexArr[nextNode.adjVex]) {
-          dfs(nextNode.adjVex);
+    const nums: number[] = [];
+    const lows: number[] = [];
+    const parents: number[] = [];
+    const visited: number[] = new Array(vertexList.length).fill(0);
+    const set: Set<string> = new Set();
+    let count = 0;
+    let startIndex = 0;
+    let startVertexEdges = 0;
+    if (vertexNodeName) {
+      startIndex = this.hashTable.find(vertexNodeName);
+    }
+    function dfs(vertexNodeIndex: number) {
+      visited[vertexNodeIndex] = 1;
+      nums[vertexNodeIndex] = lows[vertexNodeIndex] = count++;
+      const vertexNode = vertexList[vertexNodeIndex];
+      let edgeNode = vertexNode.firstArc;
+      while (edgeNode) {
+        const { adjVex } = edgeNode;
+        // 前向边
+        if (!visited[adjVex]) {
+          parents[adjVex] = vertexNodeIndex;
+          dfs(adjVex);
+          // 起始节点单独判断
+          if (vertexNodeIndex === startIndex) {
+            startVertexEdges += 1;
+            // 若起始节点有多余一个儿子，则是节点
+            if (startVertexEdges > 1) {
+              set.add(vertexNode.name);
+            }
+          } else {
+            if (lows[adjVex] >= nums[vertexNodeIndex]) {
+              set.add(vertexNode.name);
+            }
+          }
+
+          lows[vertexNodeIndex] = Math.min(lows[adjVex], lows[vertexNodeIndex]);
+        } else {
+          // 背向边
+          if (parents[vertexNodeIndex] !== adjVex) {
+            lows[vertexNodeIndex] = Math.min(
+              nums[adjVex],
+              lows[vertexNodeIndex]
+            );
+          }
         }
-        nextNode = nextNode.next;
+        edgeNode = edgeNode.next;
       }
     }
-    dfs(vertexNodeIndex);
-    return vertexNodeIndexArr.every((val) => val === 1);
+    dfs(startIndex);
+    return set;
   }
 }

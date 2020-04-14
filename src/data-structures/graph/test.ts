@@ -196,3 +196,34 @@ describe("最小生成树", () => {
     expect(sum).toBe(16);
   });
 });
+
+describe("DFS", () => {
+  test("biconnected", () => {
+    const edges1 = [
+      { from: "a", to: "b" },
+      { from: "a", to: "d" },
+      { from: "a", to: "e" },
+      { from: "b", to: "d" },
+      { from: "b", to: "c" },
+      { from: "c", to: "e" },
+      { from: "c", to: "d" },
+    ];
+    const graph1 = new UndirectedGraph(edges1);
+    const artPoints1 = graph1.findArt();
+    expect(artPoints1.size).toBe(0);
+    const edges2 = [
+      { from: "a", to: "b" },
+      { from: "a", to: "d" },
+      { from: "b", to: "c" },
+      { from: "c", to: "d" },
+      { from: "c", to: "g" },
+      { from: "d", to: "e" },
+      { from: "d", to: "f" },
+    ];
+    const graph2 = new UndirectedGraph(edges2);
+    const artPoints2 = graph2.findArt();
+    expect(artPoints2.size).toBe(2);
+    expect(artPoints2).toContain("c");
+    expect(artPoints2).toContain("d");
+  });
+});
