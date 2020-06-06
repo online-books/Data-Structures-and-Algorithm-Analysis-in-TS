@@ -1,4 +1,9 @@
-import { huffmanCode } from "./index";
+import {
+  huffmanCode,
+  binPackingProblemWithFirstFit,
+  binPackingProblemWithBestFit,
+  binPackingProblemWithFirstFitDecreasing,
+} from "./index";
 
 describe("greedy", () => {
   test("huffman code", () => {
@@ -12,5 +17,23 @@ describe("greedy", () => {
     expect(node.val).toBe(44);
     expect(node.left!.val).toBe(17);
     expect(node.right!.val).toBe(27);
+  });
+  test("bin packing problem with first fit", () => {
+    const goods = [2, 5, 4, 7, 1, 3, 8];
+    const cap = 10;
+    const cost = binPackingProblemWithFirstFit(goods, cap);
+    expect(cost).toBe(4);
+  });
+  test("bin packing problem with best fit", () => {
+    const goods = [2, 5, 4, 7, 1, 3, 8];
+    const cap = 10;
+    const cost = binPackingProblemWithBestFit(goods, cap);
+    expect(cost).toBe(4);
+  });
+  test.only("bin packing problem with first fit decreasing", () => {
+    const goods = [2, 5, 4, 7, 3, 8];
+    const cap = 10;
+    const cost = binPackingProblemWithFirstFitDecreasing(goods, cap);
+    expect(cost).toBe(3);
   });
 });
