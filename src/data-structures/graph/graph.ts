@@ -19,7 +19,7 @@ export interface Edge {
 
 export const enum GRAPH_TYPE {
   DIRECTED_GRAPH = 0,
-  UNDIRECTED_GRAPH = 1
+  UNDIRECTED_GRAPH = 1,
 }
 
 export default abstract class Graph {
@@ -31,12 +31,12 @@ export default abstract class Graph {
   protected constructor() {
     this.minWeightEdge = {
       from: 0,
-      to: 0
+      to: 0,
     };
   }
   protected init(edges: Edge[]): void {
     const cache = {};
-    edges.forEach(edge => {
+    edges.forEach((edge) => {
       if (!cache[edge.from]) {
         cache[edge.from] = 1;
       }
@@ -49,14 +49,14 @@ export default abstract class Graph {
     this.vertexList = new Array(vertexNum);
     this.indegreeList = new Array(vertexNum).fill(0);
     let minWeight = Number.MAX_VALUE;
-    edges.forEach(edge => {
+    edges.forEach((edge) => {
       const { from, to, weight = 1 } = edge;
       const { fromVertexIndex, toVertexIndex } = this.addEdge(from, to, weight);
       if (minWeight > weight) {
         minWeight = weight;
         Object.assign(this.minWeightEdge, {
           from: fromVertexIndex,
-          to: toVertexIndex
+          to: toVertexIndex,
         });
       }
       if (this.type === GRAPH_TYPE.UNDIRECTED_GRAPH) {
@@ -73,37 +73,42 @@ export default abstract class Graph {
     const { vertexList, hashTable, indegreeList } = this;
     const fromVertexIndex = hashTable.insert(from);
     const toVertexIndex = hashTable.insert(to);
-    const edgeNode = {
-      weight,
-      next: null,
-      adjVex: toVertexIndex
-    };
     if (!vertexList[fromVertexIndex]) {
       vertexList[fromVertexIndex] = {
         name: from,
-        firstArc: null
+        firstArc: null,
       };
     }
     if (!vertexList[toVertexIndex]) {
       vertexList[toVertexIndex] = {
         name: to,
-        firstArc: null
+        firstArc: null,
       };
     }
     const vertexNode = vertexList[fromVertexIndex];
-    if (!vertexNode.firstArc) {
-      vertexNode.firstArc = edgeNode;
-    } else {
-      let next = vertexNode.firstArc;
-      while (next.next) {
-        next = next.next;
-      }
-      next.next = edgeNode;
-    }
+    const edgeNode = {
+      weight,
+      next: vertexNode.firstArc,
+      adjVex: toVertexIndex,
+    };
+    vertexNode.firstArc = edgeNode;
     indegreeList[toVertexIndex] += 1;
     return {
       fromVertexIndex,
-      toVertexIndex
+      toVertexIndex,
     };
+  }
+
+  protected getAllEdges(): Set<string> {
+    const { vertexList } = this;
+    const set = new Set<string>();
+    vertexList.forEach((vertexNode, vertexIndex) => {
+      let edgeNode = vertexNode.firstArc;
+      while (edgeNode) {
+        set.add(`${vertexIndex}_${edgeNode.adjVex}`);
+        edgeNode = edgeNode.next;
+      }
+    });
+    return set;
   }
 }

@@ -16,6 +16,32 @@ export default class DirectedGraph extends Graph {
     this.type = GRAPH_TYPE.DIRECTED_GRAPH;
     this.init(edges);
   }
+
+  public isStronglyConnected(): boolean {
+    const edgesReversed: Edge[] = [];
+    const { vertexList } = this;
+    const forest = this.getDfsSpanningForest((from, to) => {
+      edgesReversed.push({
+        from: vertexList[to].name,
+        to: vertexList[from].name,
+      });
+    });
+    const path = forest.reduce((prev, next) => prev.concat(next), []);
+    const graphReversed = new DirectedGraph(edgesReversed);
+    const forestReversed: number[][] = [];
+    console.log(path);
+    console.log(graphReversed);
+    while (path.length) {
+      const treeReversed = graphReversed.getDfsSpanningTree(path.pop()!, () => {
+        // console.log(path.pop());
+        path.pop();
+      });
+      forestReversed.push([...treeReversed]);
+    }
+    console.log(forestReversed);
+    return true;
+  }
+
   /**
    * 计算顶点入度
    * @param {strig} vertexName
@@ -243,5 +269,66 @@ export default class DirectedGraph extends Graph {
     });
     console.log(startVertexNode, endVertextNode);
     return residualGraph.length;
+  }
+
+  public getDfsSpanningTree(vertexIndex: number, cb?: () => void): number[] {
+    const { vertexList } = this;
+    const visited = new Array(vertexList.length).fill(0);
+    const tree: number[] = [];
+    console.log(vertexIndex);
+    const dfs = (vertexIndex: number) => {
+      visited[vertexIndex] = 1;
+      tree.push(vertexIndex);
+      let edgeNode = vertexList[vertexIndex].firstArc;
+      while (edgeNode) {
+        if (!visited[edgeNode.adjVex]) {
+          dfs(edgeNode.adjVex);
+          if (typeof cb === "function") {
+            cb();
+          }
+        }
+        edgeNode = edgeNode.next;
+      }
+    };
+    dfs(vertexIndex);
+    return tree;
+  }
+
+  /**
+   * 获取深度优先搜索生成森林
+   */
+  private getDfsSpanningForest(cb?: (from: number, to: number) => void) {
+    const { vertexList } = this;
+    const visited = new Array(vertexList.length).fill(0);
+    const forest: number[][] = [];
+    const tree: number[] = [];
+    const path: any[] = [];
+    const dfs = (vertexIndex: number) => {
+      visited[vertexIndex] = 1;
+      let edgeNode = vertexList[vertexIndex].firstArc;
+      path.push({
+        name: vertexList[vertexIndex].name,
+        vertexIndex,
+      });
+      while (edgeNode) {
+        if (!visited[edgeNode.adjVex]) {
+          dfs(edgeNode.adjVex);
+          tree.push(edgeNode.adjVex);
+        }
+        if (typeof cb === "function") {
+          cb(vertexIndex, edgeNode.adjVex);
+        }
+        edgeNode = edgeNode.next;
+      }
+    };
+    vertexList.forEach((vertexNode, vertexIndex) => {
+      if (!visited[vertexIndex]) {
+        dfs(vertexIndex);
+        tree.push(vertexIndex);
+        forest.push([...tree]);
+        tree.length = 0;
+      }
+    });
+    return forest;
   }
 }

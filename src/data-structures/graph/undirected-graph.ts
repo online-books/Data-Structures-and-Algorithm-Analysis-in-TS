@@ -1,6 +1,7 @@
 import Graph, { Edge, GRAPH_TYPE } from "./graph";
 import BinaryHeap from "../priority-queue/binary-heap";
 import DisjointSet from "../disjoint-set";
+// import SingleList from "../linked-list/single-list";
 
 interface MinSpannningTreeEdge {
   from: string;
@@ -16,13 +17,7 @@ export default class UndirectedGraph extends Graph {
   }
   public degree(vertexName: string): number {
     const vertexIndex = this.hashTable.find(vertexName);
-    let edgeNode = this.vertexList[vertexIndex].firstArc;
-    let count = 0;
-    while (edgeNode) {
-      edgeNode = edgeNode.next;
-      count += 1;
-    }
-    return count;
+    return this.indegreeList[vertexIndex];
   }
   /**
    * 判断此无向图是否是连通的
@@ -141,7 +136,7 @@ export default class UndirectedGraph extends Graph {
   /**
    * 深度优先搜索检测割点：若无割点，则此图是双联通的
    */
-  public findArt(vertexNodeName?: string): Set<string> {
+  public findArt(vertexNodeName?: string): Set<string> | null {
     const { vertexList } = this;
     const nums: number[] = [];
     const lows: number[] = [];
@@ -192,6 +187,55 @@ export default class UndirectedGraph extends Graph {
       }
     }
     dfs(startIndex);
-    return set;
+    return set.size ? set : null;
+  }
+
+  /**
+   * 欧拉回路
+   * 充分必要条件：1.每个顶点的度都为偶数；2.图是连通的
+   */
+  public eulerCircuit(): string[] | null {
+    const { vertexList, indegreeList } = this;
+    const notVisitedEdges = this.getAllEdges();
+    const path: string[] = [];
+    let oddCount = 0;
+
+    vertexList.forEach((vertexNode, vertexIndex) => {
+      const degreeNumber = indegreeList[vertexIndex];
+      if (degreeNumber % 2) {
+        oddCount += 1;
+      }
+    });
+    if (oddCount === 1 || oddCount > 2 || !this.isConnected()) {
+      throw Error("No euler circuit exist!");
+    }
+    let startNodeIndex = 0;
+    let backToStartNode = false;
+    const dfs = (vertexNodeIndex: number) => {
+      const currentVertexNode = vertexList[vertexNodeIndex];
+      path.push(currentVertexNode.name);
+      let edgeNode = currentVertexNode.firstArc;
+      while (edgeNode) {
+        if (backToStartNode) {
+          return;
+        }
+        const { adjVex } = edgeNode;
+        const edge = `${vertexNodeIndex}_${adjVex}`;
+        const edgeReverse = `${adjVex}_${vertexNodeIndex}`;
+        if (notVisitedEdges.has(edge)) {
+          notVisitedEdges.delete(edge);
+          notVisitedEdges.delete(edgeReverse);
+          if (adjVex === startNodeIndex) {
+            backToStartNode = true;
+          }
+          dfs(adjVex);
+        }
+        edgeNode = edgeNode.next;
+      }
+    };
+    while (notVisitedEdges.size) {
+      dfs(startNodeIndex);
+    }
+    return path.length ? path : null;
   }
 }
