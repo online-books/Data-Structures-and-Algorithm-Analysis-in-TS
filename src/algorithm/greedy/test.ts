@@ -30,7 +30,7 @@ describe("greedy", () => {
     const cost = binPackingProblemWithBestFit(goods, cap);
     expect(cost).toBe(4);
   });
-  test.only("bin packing problem with first fit decreasing", () => {
+  test("bin packing problem with first fit decreasing", () => {
     const goods = [2, 5, 4, 7, 3, 8];
     const cap = 10;
     const cost = binPackingProblemWithFirstFitDecreasing(goods, cap);

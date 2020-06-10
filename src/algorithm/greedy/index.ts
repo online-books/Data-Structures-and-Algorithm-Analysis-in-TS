@@ -73,7 +73,6 @@ export function binPackingProblemWithFirstFit(
       cost += 1;
     }
   }
-  console.log(boxes);
   return cost;
 }
 
@@ -113,6 +112,5 @@ export function binPackingProblemWithFirstFitDecreasing(
   boxCap: number
 ): number {
   const sortedGoods = goods.sort(compareDecrease);
-  console.log(sortedGoods);
   return binPackingProblemWithFirstFit(sortedGoods, boxCap);
 }
