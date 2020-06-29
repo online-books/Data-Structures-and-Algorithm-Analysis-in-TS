@@ -1,6 +1,7 @@
 import AVLTree from "./avl-tree";
 import BinarySearchTree from "./binary-search-tree";
-import SplayTree from "./splay-tree";
+import SplayTreeBottomToTop from "./splay-tree/splay-tree-bottom-to-top";
+import SplayTreeTopToBottom from "./splay-tree/splay-tree-top-to-bottom";
 
 import { generateExpressionTree } from "./index";
 
@@ -53,18 +54,47 @@ describe("AVL树", () => {
 });
 
 describe("伸展树", () => {
-  const tree = new SplayTree();
-  const data = [7, 6, 5, 4, 3, 2, 1];
-  data.forEach((value) => tree.insert(value));
-  test("获取高度", () => {
-    expect(tree.height).toBe(6);
+  test("自下向顶伸展树", () => {
+    const data1 = [7, 6, 5, 4, 3, 2, 1];
+    const tree1 = new SplayTreeBottomToTop();
+    data1.forEach((value) => tree1.insert(value));
+    expect(tree1.height).toBe(6);
+    tree1.find(1);
+    expect(tree1.root!.val).toBe(1);
+    expect(tree1.height).toBe(4);
+    tree1.find(2);
+    expect(tree1.root!.val).toBe(2);
+    expect(tree1.root!.left!.val).toBe(1);
+    const data2 = [12, 5, 25, 20, 24, 30, 15, 13, 18, 16];
+    const tree2 = new SplayTreeBottomToTop();
+    data2.forEach((value) => tree2.insert(value));
+    expect(tree2.height).toBe(5);
+    tree2.find(19);
+    expect(tree2.root!.val).toBe(18);
+    expect(tree2.height).toBe(3);
+    tree2.find(12);
+    expect(tree2.root!.val).toBe(12);
   });
-  test("查找元素", () => {
-    tree.find(1);
-    expect(tree.root!.val).toBe(1);
-    expect(tree.height).toBe(4);
-    tree.find(2);
-    expect(tree.root!.val).toBe(2);
-    expect(tree.root!.left!.val).toBe(1);
+  test("自顶向下伸展树", () => {
+    const data1 = [7, 6, 5, 4, 3, 2, 1];
+    const tree1 = new SplayTreeTopToBottom();
+    data1.forEach((value) => tree1.insert(value));
+    expect(tree1.height).toBe(6);
+    tree1.find(1);
+    expect(tree1.root!.val).toBe(1);
+    expect(tree1.height).toBe(4);
+    tree1.find(2);
+    expect(tree1.root!.val).toBe(2);
+    expect(tree1.root!.left!.val).toBe(1);
+    const data2 = [12, 5, 25, 20, 24, 30, 15, 13, 18, 16];
+    const tree2 = new SplayTreeTopToBottom();
+    data2.forEach((value) => tree2.insert(value));
+    expect(tree2.height).toBe(5);
+    tree2.find(19);
+    expect(tree2.root!.val).toBe(18);
+    expect(tree2.height).toBe(3);
+    expect(tree2.root!.left!.val).toBe(12);
+    expect(tree2.root!.right!.right!.val).toBe(25);
+    expect(tree2.root!.left!.right!.val).toBe(15);
   });
 });

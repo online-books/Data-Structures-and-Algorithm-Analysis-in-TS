@@ -1,5 +1,5 @@
-import BinarySearchTree from "./binary-search-tree";
-import BinaryTreeNode from "./binary-tree-node";
+import BinarySearchTree from "../binary-search-tree";
+import BinaryTreeNode from "../binary-tree-node";
 
 /**
  * 伸展树
@@ -7,7 +7,7 @@ import BinaryTreeNode from "./binary-tree-node";
  * 要点：每次查找操作对应的节点X，若其有父节点P与祖父节点G，对G->P->X进行一字型或之字形旋转。
  */
 
-export default class SplayTree extends BinarySearchTree {
+export default class SplayTreeBottomToTop extends BinarySearchTree {
   constructor() {
     super();
   }
@@ -19,13 +19,14 @@ export default class SplayTree extends BinarySearchTree {
     treeNode: BinaryTreeNode | null,
     val: number
   ): BinaryTreeNode | null {
+    // console.log("*****【treeNode】*****", treeNode);
     if (!treeNode) {
       return null;
     }
     if (treeNode.val > val) {
       const childNode = treeNode.left;
       if (!childNode) {
-        return null;
+        return treeNode;
       }
       if (childNode.val === val) {
         return this.zigRotateWidthLeft(treeNode);
@@ -41,7 +42,7 @@ export default class SplayTree extends BinarySearchTree {
     } else if (treeNode.val < val) {
       const childNode = treeNode.right;
       if (!childNode) {
-        return null;
+        return treeNode;
       }
       if (childNode.val === val) {
         return this.zigRotateWidthRight(treeNode);
