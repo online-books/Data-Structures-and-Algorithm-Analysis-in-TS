@@ -2,8 +2,8 @@
  * 自顶向下伸展树
  */
 
-import BinarySearchTree from "../binary-search-tree";
-import BinaryTreeNode from "../binary-tree-node";
+import BinarySearchTree from "../binary-search-tree/binary-search-tree";
+import BinaryTreeNode from "../binary-search-tree/binary-tree-node";
 
 export default class SplayTreeTopToBottom extends BinarySearchTree {
   constructor() {
@@ -27,7 +27,7 @@ export default class SplayTreeTopToBottom extends BinarySearchTree {
     while (val !== treeNode.val) {
       if (treeNode.val > val) {
         if (treeNode.left && treeNode.left.val > val) {
-          treeNode = this.singleRotateLeft(treeNode);
+          treeNode = this.singleRotateWithLeft(treeNode);
         }
         if (treeNode.left === null) {
           break;
@@ -37,7 +37,7 @@ export default class SplayTreeTopToBottom extends BinarySearchTree {
         treeNode = treeNode.left;
       } else {
         if (treeNode.right && treeNode.right.val < val) {
-          treeNode = this.singleRotateRight(treeNode);
+          treeNode = this.singleRotateWithRight(treeNode);
         }
         if (treeNode.right === null) {
           break;
@@ -53,13 +53,13 @@ export default class SplayTreeTopToBottom extends BinarySearchTree {
     treeNode.right = header.left;
     return treeNode;
   }
-  private singleRotateLeft(treeNode: BinaryTreeNode): BinaryTreeNode {
+  private singleRotateWithLeft(treeNode: BinaryTreeNode): BinaryTreeNode {
     const child = treeNode.left!;
     treeNode.left = child.right;
     child.right = treeNode;
     return child;
   }
-  private singleRotateRight(treeNode: BinaryTreeNode): BinaryTreeNode {
+  private singleRotateWithRight(treeNode: BinaryTreeNode): BinaryTreeNode {
     const child = treeNode.right!;
     treeNode.right = child.left;
     child.left = treeNode;

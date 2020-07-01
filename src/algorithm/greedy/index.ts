@@ -1,4 +1,4 @@
-import BinaryTreeNode from "@src/data-structures/tree/binary-tree-node";
+import BinaryTreeNode from "@src/data-structures/tree/binary-search-tree/binary-tree-node";
 import BinaryHeap from "@src/data-structures/priority-queue/binary-heap";
 import { compareDecrease } from "@src/share/utils";
 

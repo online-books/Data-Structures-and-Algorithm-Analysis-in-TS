@@ -1,5 +1,5 @@
-import BinarySearchTree from "../binary-search-tree";
-import BinaryTreeNode from "../binary-tree-node";
+import BinarySearchTree from "../binary-search-tree/binary-search-tree";
+import BinaryTreeNode from "../binary-search-tree/binary-tree-node";
 
 /**
  * 伸展树

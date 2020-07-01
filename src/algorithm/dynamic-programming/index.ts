@@ -1,4 +1,4 @@
-import BinaryTreeNode from "@src/data-structures/tree/binary-tree-node";
+import BinaryTreeNode from "@src/data-structures/tree/binary-search-tree/binary-tree-node";
 
 export type Matrix = number[][];
 export type WordProb = { word: string; prob: number };
@@ -83,12 +83,10 @@ export function optBinarySearchTree(
   words: WordProb[]
 ): { tree: BinaryTreeNode | null; cost: number } {
   const cache = {};
-  let count = 0;
   function buildTree(
     start: number,
     end: number
   ): { tree: BinaryTreeNode | null; cost: number } {
-    count += 1;
     const key = `${start}-${end}`;
     if (cache[key]) {
       return cache[key];
