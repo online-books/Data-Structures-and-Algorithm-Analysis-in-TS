@@ -101,9 +101,6 @@ export default class RedBlackTree {
   private rotate(treeNode: RedBlackTreeNode, val: number): RedBlackTreeNode {
     if (treeNode.val > val) {
       const leftChild = treeNode.left!;
-      if (!leftChild) {
-        console.log(this);
-      }
       if (leftChild.val > val) {
         treeNode.left = this.singleRotateWithLeft(leftChild);
       } else {

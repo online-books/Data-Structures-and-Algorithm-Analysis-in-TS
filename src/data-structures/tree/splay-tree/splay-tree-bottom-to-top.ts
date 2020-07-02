@@ -19,7 +19,6 @@ export default class SplayTreeBottomToTop extends BinarySearchTree {
     treeNode: BinaryTreeNode | null,
     val: number
   ): BinaryTreeNode | null {
-    // console.log("*****【treeNode】*****", treeNode);
     if (!treeNode) {
       return null;
     }

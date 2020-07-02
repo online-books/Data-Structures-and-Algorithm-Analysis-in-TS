@@ -13,6 +13,7 @@
         "--runInBand",
         "--config=${workspaceFolder}/jest.config.js",
         "--watch",
+        "--collectCoverage",
         "--o"
       ],
       "console": "integratedTerminal",

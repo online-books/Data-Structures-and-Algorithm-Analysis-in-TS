@@ -3,9 +3,7 @@ import BinarySearchTree from "./binary-search-tree/binary-search-tree";
 import SplayTreeBottomToTop from "./splay-tree/splay-tree-bottom-to-top";
 import SplayTreeTopToBottom from "./splay-tree/splay-tree-top-to-bottom";
 import RedBlackTree from "./red-black-tree/red-black-tree";
-// import RedBlackTreeNode from "./red-black-tree/red-black-tree-node";
-
-import { generateExpressionTree } from "./index";
+import { generateExpressionTree } from "@src/share/utils";
 import RedBlackTreeNode from "./red-black-tree/red-black-tree-node";
 
 describe("树", () => {

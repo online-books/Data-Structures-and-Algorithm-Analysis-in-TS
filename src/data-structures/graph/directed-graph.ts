@@ -29,16 +29,12 @@ export default class DirectedGraph extends Graph {
     const path = forest.reduce((prev, next) => prev.concat(next), []);
     const graphReversed = new DirectedGraph(edgesReversed);
     const forestReversed: number[][] = [];
-    console.log(path);
-    console.log(graphReversed);
     while (path.length) {
       const treeReversed = graphReversed.getDfsSpanningTree(path.pop()!, () => {
-        // console.log(path.pop());
         path.pop();
       });
       forestReversed.push([...treeReversed]);
     }
-    console.log(forestReversed);
     return true;
   }
 
@@ -275,7 +271,6 @@ export default class DirectedGraph extends Graph {
     const { vertexList } = this;
     const visited = new Array(vertexList.length).fill(0);
     const tree: number[] = [];
-    console.log(vertexIndex);
     const dfs = (vertexIndex: number) => {
       visited[vertexIndex] = 1;
       tree.push(vertexIndex);
