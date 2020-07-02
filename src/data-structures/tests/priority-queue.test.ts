@@ -1,8 +1,8 @@
-import BinaryHeap from "./binary-heap";
-import LeftistHeap from "./leftist-heap/leftist-heap";
-import LeftistHeapNode from "./leftist-heap/leftist-heap-node";
-import SkewHeap from "./skew-heap";
-import BinomialQueue from "./binomal-queue/binomial-queue";
+import BinaryHeap from "../priority-queue/binary-heap";
+import LeftistHeap from "../priority-queue/leftist-heap/leftist-heap";
+import LeftistHeapNode from "../priority-queue/leftist-heap/leftist-heap-node";
+import SkewHeap from "../priority-queue/skew-heap";
+import BinomialQueue from "../priority-queue/binomal-queue/binomial-queue";
 
 describe("二叉堆", () => {
   const data = [15, 17, 13, 9, 16, 14, 10].map((value) => ({ value }));

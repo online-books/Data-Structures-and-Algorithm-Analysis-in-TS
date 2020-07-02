@@ -1,4 +1,4 @@
-import { minDistance } from "./index";
+import { minDistance } from "../divide-conquer";
 
 describe("divide conquer", () => {
   test("min distance", () => {

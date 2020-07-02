@@ -1,8 +1,8 @@
-import insertionSort from "./insertion";
-import mergeSort from "./merge";
-import quickSort from "./quick";
-import selectSort from "./select";
-import shellSort from "./shell";
+import insertionSort from "../sort/insertion";
+import mergeSort from "../sort/merge";
+import quickSort from "../sort/quick";
+import selectSort from "../sort/select";
+import shellSort from "../sort/shell";
 
 function generateTestArray(size: number) {
   const arr = [];

@@ -4,7 +4,7 @@ import {
   Matrix,
   optMatrixMul,
   optBinarySearchTree,
-} from "./index";
+} from "../dynamic-programming";
 
 function createMatix(rowNum: number, columnNum: number, value = 1): Matrix {
   return new Array(rowNum).fill(new Array(columnNum).fill(value));

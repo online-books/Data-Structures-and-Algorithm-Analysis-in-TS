@@ -1,4 +1,4 @@
-import HashTable from "../hash-table/linear-detection-hash-table";
+import HashTable from "../hash-table";
 
 export interface EdgeNode {
   weight: number;

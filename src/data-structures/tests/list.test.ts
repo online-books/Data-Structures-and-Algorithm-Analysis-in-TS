@@ -1,5 +1,6 @@
-import ListNode from "./linked-list/list-node";
-import SingleList from "./linked-list/single-list";
+import ListNode from "../list/linked-list/list-node";
+import SingleList from "../list/linked-list/single-list";
+import SkipList from "../list/deterministic-skip-list/skip-list";
 
 describe("链表", () => {
   test("单向链表", () => {
@@ -25,5 +26,10 @@ describe("链表", () => {
       val: 5,
       next: null,
     });
+  });
+  test("确定性跳跃表", () => {
+    const skipList = new SkipList();
+    skipList.insert(10);
+    console.log(skipList);
   });
 });

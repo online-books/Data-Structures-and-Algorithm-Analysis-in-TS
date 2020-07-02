@@ -1,9 +1,9 @@
-import AVLTree from "./avl-tree/avl-tree";
-import BinarySearchTree from "./binary-search-tree/binary-search-tree";
-import SplayTreeBottomToTop from "./splay-tree/splay-tree-bottom-to-top";
-import SplayTreeTopToBottom from "./splay-tree/splay-tree-top-to-bottom";
-import RedBlackTree from "./red-black-tree/red-black-tree";
-import RedBlackTreeNode from "./red-black-tree/red-black-tree-node";
+import AVLTree from "../tree/avl-tree/avl-tree";
+import BinarySearchTree from "../tree/binary-search-tree/binary-search-tree";
+import SplayTreeBottomToTop from "../tree/splay-tree/splay-tree-bottom-to-top";
+import SplayTreeTopToBottom from "../tree/splay-tree/splay-tree-top-to-bottom";
+import RedBlackTree from "../tree/red-black-tree/red-black-tree";
+import RedBlackTreeNode from "../tree/red-black-tree/red-black-tree-node";
 
 describe("树", () => {
   test("二叉查找树", () => {
