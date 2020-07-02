@@ -3,16 +3,9 @@ import BinarySearchTree from "./binary-search-tree/binary-search-tree";
 import SplayTreeBottomToTop from "./splay-tree/splay-tree-bottom-to-top";
 import SplayTreeTopToBottom from "./splay-tree/splay-tree-top-to-bottom";
 import RedBlackTree from "./red-black-tree/red-black-tree";
-import { generateExpressionTree } from "@src/share/utils";
 import RedBlackTreeNode from "./red-black-tree/red-black-tree-node";
 
 describe("树", () => {
-  test("后缀表达式构造表达式树", () => {
-    const expression = "12+345+**";
-    const binaryTree = generateExpressionTree(expression);
-    expect(binaryTree.val).toBe("*");
-  });
-
   test("二叉查找树", () => {
     const data = [8, 5, 12, 13, 15];
     const tree = new BinarySearchTree();

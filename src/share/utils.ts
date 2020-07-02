@@ -36,29 +36,6 @@ export function swapChildNode(treeNode: { left: any; right: any }) {
   treeNode.right = left;
 }
 
-export function generateExpressionTree(
-  postfixExpression: string
-): BinaryTreeNode {
-  const reg = /[*-+\/]/;
-  const nodesStack: BinaryTreeNode[] = [];
-  const { length } = postfixExpression;
-  for (let i = 0; i < length; i++) {
-    const value = postfixExpression[i];
-    const node = new BinaryTreeNode(value);
-    if (reg.test(value)) {
-      if (nodesStack.length < 2) {
-        throw Error("表达式错误");
-      }
-      const node1 = nodesStack.shift() as BinaryTreeNode;
-      const node2 = nodesStack.shift() as BinaryTreeNode;
-      node.left = node2;
-      node.right = node1;
-    }
-    nodesStack.unshift(node);
-  }
-  return nodesStack.shift() || new BinaryTreeNode("");
-}
-
 export function buildBinaryTree(
   input: Array<number | null>
 ): BinaryTreeNode | null {
