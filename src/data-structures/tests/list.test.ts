@@ -1,6 +1,6 @@
 import ListNode from "../list/linked-list/list-node";
 import SingleList from "../list/linked-list/single-list";
-import SkipList from "../list/deterministic-skip-list/skip-list";
+import SkipList from "../list/skip-list/skip-list";
 
 describe("链表", () => {
   test("单向链表", () => {
@@ -44,7 +44,7 @@ describe("链表", () => {
     expect(skipList.height).toBe(3);
     expect(skipList.find(14)!.down.val).toBe(10);
     expect(skipList.find(25)!.right.val).toBe(Number.POSITIVE_INFINITY);
-    expect(skipList.find(11)).toBeNull();
     expect(skipList.find(20)!.right.val).toBe(25);
+    expect(skipList.find(11)).toBeNull();
   });
 });

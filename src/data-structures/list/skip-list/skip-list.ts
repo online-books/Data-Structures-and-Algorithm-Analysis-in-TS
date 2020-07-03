@@ -3,10 +3,11 @@ import SkipListNode from "./skip-list-node";
 /**
  * 1-2-3确定性跳跃表
  * 性质：每一个间隙(除头和尾之间可能的零间隙外)的容量为1、2、3
+ * TODO:delete
  */
 export default class SkipList {
-  private head: SkipListNode;
-  private tail: SkipListNode;
+  public head: SkipListNode;
+  public tail: SkipListNode;
   private bottom: SkipListNode;
   constructor() {
     const head = new SkipListNode(Number.POSITIVE_INFINITY);
@@ -40,11 +41,11 @@ export default class SkipList {
         current = current.right;
       }
       if (current.val > current.down.right.right.val) {
-        const newNod = new SkipListNode(val);
-        newNod.right = current.right;
-        newNod.down = current.down.right.right;
-        current.right = newNod;
-        newNod.val = current.val;
+        const newNode = new SkipListNode(val);
+        newNode.right = current.right;
+        newNode.down = current.down.right.right;
+        current.right = newNode;
+        newNode.val = current.val;
         current.val = current.down.right.val;
       } else {
         current = current.down;
