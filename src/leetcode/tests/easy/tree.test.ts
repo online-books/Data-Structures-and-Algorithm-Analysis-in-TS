@@ -7,7 +7,7 @@ import {
   levelOrder,
   maxDepth,
   sortedArrayToBST,
-} from "./index";
+} from "@src/leetcode/easy/tree";
 
 describe("easy => Trees", () => {
   test("Maximum Depth of Binary Tree", () => {

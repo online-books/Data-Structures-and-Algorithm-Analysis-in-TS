@@ -4,7 +4,7 @@ import {
   mergeTwoSortedLists,
   removeNthFromEnd,
   reverseList,
-} from "./index";
+} from "@src/leetcode/easy/linked-list";
 
 import ListNode from "@src/data-structures/list/linked-list/list-node";
 import { buildList } from "@src/data-structures/list/linked-list/single-list";

@@ -1,5 +1,9 @@
 import SkipListNode from "./skip-list-node";
 
+/**
+ * 1-2-3确定性跳跃表
+ * 性质：每一个间隙(除头和尾之间可能的零间隙外)的容量为1、2、3
+ */
 export default class SkipList {
   private head: SkipListNode;
   private tail: SkipListNode;
@@ -18,6 +22,16 @@ export default class SkipList {
     this.tail = tail;
     this.bottom = bottom;
   }
+  public get height() {
+    let height = 0;
+    let current = this.head;
+    while (current !== this.bottom) {
+      height += 1;
+      current = current.down;
+    }
+    return height;
+  }
+
   public insert(val: number) {
     this.bottom.val = val;
     let current = this.head;

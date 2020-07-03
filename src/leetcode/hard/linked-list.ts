@@ -1,4 +1,4 @@
-import { mergeTwoSortedLists } from "../../easy/linked-list";
+import { mergeTwoSortedLists } from "../easy/linked-list";
 
 import ListNode from "@src/data-structures/list/linked-list/list-node";
 /**

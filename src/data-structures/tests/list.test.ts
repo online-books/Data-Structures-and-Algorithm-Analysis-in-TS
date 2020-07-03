@@ -29,7 +29,22 @@ describe("链表", () => {
   });
   test("确定性跳跃表", () => {
     const skipList = new SkipList();
+    expect(skipList.height).toBe(1);
     skipList.insert(10);
-    console.log(skipList);
+    expect(skipList.height).toBe(2);
+    expect(skipList.find(10)!.right.val).toBe(Number.POSITIVE_INFINITY);
+    skipList.insert(14);
+    expect(skipList.height).toBe(2);
+    expect(skipList.find(10)!.right.val).toBe(14);
+    expect(skipList.find(14)!.right.val).toBe(Number.POSITIVE_INFINITY);
+    skipList.insert(20);
+    expect(skipList.height).toBe(2);
+    expect(skipList.find(14)!.right.val).toBe(20);
+    skipList.insert(25);
+    expect(skipList.height).toBe(3);
+    expect(skipList.find(14)!.down.val).toBe(10);
+    expect(skipList.find(25)!.right.val).toBe(Number.POSITIVE_INFINITY);
+    expect(skipList.find(11)).toBeNull();
+    expect(skipList.find(20)!.right.val).toBe(25);
   });
 });

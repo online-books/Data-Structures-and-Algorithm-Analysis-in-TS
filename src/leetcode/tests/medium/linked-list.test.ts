@@ -1,4 +1,4 @@
-import { addTwoNumbers, oddEvenList } from "./index";
+import { addTwoNumbers, oddEvenList } from "@src/leetcode/medium/linked-list";
 
 import ListNode from "@src/data-structures/list/linked-list/list-node";
 import { buildList } from "@src/data-structures/list/linked-list/single-list";

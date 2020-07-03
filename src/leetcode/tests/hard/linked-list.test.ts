@@ -1,7 +1,7 @@
 import { buildList } from "@src/data-structures/list/linked-list/single-list";
 import { getValuesFromList } from "@src/share/utils";
 
-import { mergeKLists, sortList } from "./index";
+import { mergeKLists, sortList } from "@src/leetcode/hard/linked-list";
 
 describe("Hard => Linked List", () => {
   test("Merge k Sorted Lists", () => {

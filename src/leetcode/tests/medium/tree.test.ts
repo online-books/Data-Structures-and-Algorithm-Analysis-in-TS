@@ -1,6 +1,11 @@
 import { buildBinaryTree } from "@src/share/utils";
 
-import { buildTree, inorderTraverse, kthSmallest, numIslands } from "./index";
+import {
+  buildTree,
+  inorderTraverse,
+  kthSmallest,
+  numIslands,
+} from "@src/leetcode/medium/tree";
 
 describe("medium => Tree", () => {
   test("Binary Tree Inorder Traversal", () => {
