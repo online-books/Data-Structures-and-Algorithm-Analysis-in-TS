@@ -2,7 +2,7 @@ import {
   balanceSymbol,
   postfixExpression,
   transformInFixExpressionToPostfixExpression,
-} from "../stack";
+} from "../../data-structures/stack";
 
 describe("栈", () => {
   test("平衡符号", () => {

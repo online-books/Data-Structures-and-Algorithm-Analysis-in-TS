@@ -3,7 +3,7 @@ import {
   binPackingProblemWithFirstFit,
   binPackingProblemWithBestFit,
   binPackingProblemWithFirstFitDecreasing,
-} from "../greedy";
+} from "../../algorithm/greedy";
 
 describe("greedy", () => {
   test("huffman code", () => {

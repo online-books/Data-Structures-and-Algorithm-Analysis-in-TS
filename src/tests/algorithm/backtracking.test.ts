@@ -1,4 +1,4 @@
-import { turnpike } from "../backtracking";
+import { turnpike } from "../../algorithm/backtracking";
 
 describe("backtracking", () => {
   test("turnpike", () => {

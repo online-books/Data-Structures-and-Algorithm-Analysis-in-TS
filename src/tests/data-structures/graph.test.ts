@@ -1,5 +1,5 @@
-import UndirectedGraph from "../graph/undirected-graph";
-import DirectedGraph from "../graph/directed-graph";
+import UndirectedGraph from "../../data-structures/graph/undirected-graph";
+import DirectedGraph from "../../data-structures/graph/directed-graph";
 
 describe("无向图", () => {
   const edges = [

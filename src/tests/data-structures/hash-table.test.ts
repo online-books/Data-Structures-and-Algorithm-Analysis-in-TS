@@ -1,4 +1,4 @@
-import HashTable from "../hash-table";
+import HashTable from "../../data-structures/hash-table";
 
 describe("hash table", () => {
   const hashTable = new HashTable(100);

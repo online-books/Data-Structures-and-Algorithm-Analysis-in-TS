@@ -1,4 +1,4 @@
-import DisjointSet from "../disjoint-set";
+import DisjointSet from "../../data-structures/disjoint-set";
 
 describe("不相交集", () => {
   const disSet = new DisjointSet(9);

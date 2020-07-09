@@ -1,6 +1,6 @@
 import BinaryTreeNode from "@src/data-structures/tree/binary-search-tree/binary-tree-node";
 import BinaryHeap from "@src/data-structures/priority-queue/binary-heap";
-import { compareDecrease } from "@src/share/utils";
+import { compare } from "@src/share/utils";
 
 export function huffmanCode(s: string): BinaryTreeNode {
   const dict: { [propName: string]: number } = {};
@@ -111,6 +111,6 @@ export function binPackingProblemWithFirstFitDecreasing(
   goods: number[],
   boxCap: number
 ): number {
-  const sortedGoods = goods.sort(compareDecrease);
+  const sortedGoods = goods.sort((a, b) => -compare(a, b));
   return binPackingProblemWithFirstFit(sortedGoods, boxCap);
 }
