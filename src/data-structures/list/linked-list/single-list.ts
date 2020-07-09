@@ -85,3 +85,28 @@ export function buildList(nums: number[]): ListNode {
   });
   return root;
 }
+
+function pow1(x, n) {
+  if (n === 0) {
+    return 1;
+  }
+  if (n % 2 === 1) {
+    return pow1(x * x, Math.floor(n / 2)) * x;
+  } else {
+    return pow1(x * x, n / 2);
+  }
+}
+
+function pow(x, n) {
+  if (n === 0) {
+    return 1;
+  }
+  if (n === 1) {
+    return x;
+  }
+  let product = x;
+  let m = n - 1;
+  while (m > 0) {
+    if()
+  }
+}
