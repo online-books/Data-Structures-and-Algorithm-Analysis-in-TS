@@ -4,7 +4,6 @@
 
 
 ## 目录结构
----
 
 ### 1.引论
 ### 2.算法分析
@@ -21,7 +20,6 @@
 
 
 ## 使用
----
 
 请确保已安装Node,且Node版本大于V10.0。
 
@@ -44,7 +42,6 @@ npm test
 
 ## 其他的数据结构与算法项目
 
----
 [JavaScript 算法与数据结构](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
 
 [Pythonic Data Structures and Algorithms](https://github.com/keon/algorithms)
