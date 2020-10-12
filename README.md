@@ -46,5 +46,3 @@ npm install
 ```
 npm test
 ```
-
-## 如何贡献
