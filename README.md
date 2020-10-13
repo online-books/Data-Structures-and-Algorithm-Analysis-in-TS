@@ -10,7 +10,7 @@
 
 ## 目录结构
 
-### [1.引论]()
+### [1.引论](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter1-Introduction)
 ### [2.算法分析]()
 ### [3.表、栈和队列]()
 ### [4.树]()
