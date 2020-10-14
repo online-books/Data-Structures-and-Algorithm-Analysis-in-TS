@@ -18,13 +18,14 @@
     "experimentalDecorators": true,
     "strictNullChecks": true,
     "paths": {
-      "@src/*": ["src/*"]
+      "@/*": ["SourceCode/*"]
     }
   },
   "exclude": [
     "node_modules"
   ],
   "include": [
-    "src/**/*"
+    "SourceCode/**/*",
+    "tests/**/*"
   ]
 }

@@ -2,7 +2,7 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   moduleNameMapper: {
-    '^@src/(.*)$': '<rootDir>/src/$1'
+    '^@/(.*)$': '<rootDir>/SourceCode/$1'
   },
   collectCoverageFrom: [
     "**/*.ts",
@@ -10,5 +10,6 @@ module.exports = {
   ],
   globals: {
     'ts-jest': {}
-  }
+  },
+  roots: ['tests']
 };
