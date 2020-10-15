@@ -1,7 +1,14 @@
 languagelanguage: node_js
 node_js:
   - 12
+branches:
+  only:
+    - master
 install:
   - npm i
+  - npm install -g codecov
+cache:
+  directories:
+    - node_modules
 script:
-  - npm run build
+  - npm run codecov
