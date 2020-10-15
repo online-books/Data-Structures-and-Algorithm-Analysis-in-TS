@@ -27,24 +27,24 @@ function maxSum(start: number, end: number, n: number[]): number {
     if (start === end) {
         return Math.max(n[start], 0)
     }
-    const middle = Math.ceil((start + end) / 2)
-    const leftMaxSum = maxSum(start, middle, n);
-    const rightMaxSum = maxSum(middle + 1, end, n);
+    const middle = Math.floor((start + end) / 2)
+    const maxLeftSum = maxSum(start, middle, n);
+    const maxRightSum = maxSum(middle + 1, end, n);
     let leftBorderSum = 0;
-    let rightBorderSum = 0;
     let leftMaxBorderSum = 0;
-    let rightmaxBorderSum = 0;
     for (let i = middle; i >= start; i--) {
         leftBorderSum += n[i];
         if (leftBorderSum > leftMaxBorderSum) {
             leftMaxBorderSum = leftBorderSum
         }
     }
+    let rightBorderSum = 0;
+    let maxRightBorderSum = 0;
     for (let j = middle + 1; j <= end; j++) {
         rightBorderSum += n[j]
-        if (rightBorderSum > rightmaxBorderSum) {
-            rightmaxBorderSum = rightBorderSum
+        if (rightBorderSum > maxRightBorderSum) {
+            maxRightBorderSum = rightBorderSum
         }
     }
-    return Math.max(leftMaxSum, rightMaxSum, leftBorderSum + rightBorderSum)
+    return Math.max(maxLeftSum, maxRightSum, leftMaxBorderSum + maxRightBorderSum)
 }
