@@ -8,6 +8,7 @@ module.exports = {
                     "@": "./SourceCode"
                 }
             }
-        ]
+        ],
+        "transform-class-properties"
     ]
 }

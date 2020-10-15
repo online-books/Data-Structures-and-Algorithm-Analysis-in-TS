@@ -16,8 +16,5 @@
   },
   "roots": [
     "tests"
-  ],
-  "transform": {
-    "^.+\\.ts$": "babel-jest"
-  }
+  ]
 }
