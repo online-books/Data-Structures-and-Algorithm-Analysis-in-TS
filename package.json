@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "npx jest --watch -o",
+    "test": "npx jest --watch -o --collectCoverage",
     "codecov": "cat ./coverage/lcov.info | ./node_modules/.bin/codecov"
   },
   "devDependencies": {
