@@ -1,4 +1,4 @@
-import { maxSubSequenceSum1, maxSubSequenceSum2 } from '@/Ch02'
+import { maxSubSequenceSum1, maxSubSequenceSum2, maxSubSequenceSum3 } from '@/Ch02'
 
 describe('Ch02', () => {
     describe('Max subsequence sum', () => {
@@ -10,5 +10,8 @@ describe('Ch02', () => {
             expect(maxSubSequenceSum2(n)).toBe(20);
             expect(maxSubSequenceSum2([])).toBe(0)
         });
+        test('solution 3', () => {
+            expect(maxSubSequenceSum3(n)).toBe(20)
+        })
     })
 })
