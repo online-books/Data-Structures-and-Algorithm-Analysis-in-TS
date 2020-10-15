@@ -8,10 +8,16 @@
     "**/*.ts",
     "!**/node_modules/**"
   ],
+  "moduleFileExtensions": [
+    "ts"
+  ],
   "globals": {
     "ts-jest": {}
   },
   "roots": [
     "tests"
-  ]
+  ],
+  "transform": {
+    "^.+\\.ts$": "babel-jest"
+  }
 }
