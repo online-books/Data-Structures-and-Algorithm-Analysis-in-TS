@@ -12,3 +12,5 @@ cache:
     - node_modules
 script:
   - npm run codecov
+codecov:
+  token: 3b790a08-caeb-4f15-b7cf-ded27b0a3e56

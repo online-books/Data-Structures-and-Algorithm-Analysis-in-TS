@@ -1,4 +1,6 @@
 # Typescrip 数据结构与算法
+![travis-cli](https://travis-ci.com/qindagang/data-structures-and-algorithm-analysis-in-typescript.svg?branch=master)
+[![codecov](https://codecov.io/gh/qindagang/data-structures-and-algorithm-analysis-in-typescript/branch/master/graph/badge.svg?token=B05PLKNLJP)]()
 
 本仓库是基于《数据结构与算法分析-C语言描述》（第二版）一书中介绍的数据结构与算法知识使用Typescript语言进行实现。每个章节都各自包含Typescript源码、书中留作思考与练习的部分题目解答以及测试用例三部分。
 
