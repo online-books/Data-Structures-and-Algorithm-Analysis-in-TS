@@ -106,14 +106,14 @@ class Stack<T>{
 ```
 
 栈的基本操作：
-- 进栈：向栈顶中插入一个元素
+- **进栈**：向栈顶中插入一个元素，运行时间$O(1)$
 ``` typescript
 public push(value: T) {
     this.capacity.push(value);
 }
 ```
 
-- 出栈：从栈中删除栈顶元素
+- **出栈**：从栈中删除栈顶元素，运行时间$O(1)$
 ``` typescript
 public pop() {
     this.capacity.pop();
@@ -138,14 +138,14 @@ export default class Queue<T>{
 ```
 
 队列的基本操作：
-- 入队：向数组的末端插入一个元素
+- **入队**：向数组的末端插入一个元素，运行时间$O(1)$
 ``` typescript
 public enqueue(value: T) {
     this.capacity.push(value);
 }
 ```
 
-- 出队：删除数组开头的元素
+- **出队**：删除数组开头的元素，运行时间$O(1)$
 ``` typescript
 public dequeue() {
     this.capacity.unshift();
