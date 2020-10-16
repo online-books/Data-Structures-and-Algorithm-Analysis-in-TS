@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1602758514592" clover="3.2.0">
-  <project timestamp="1602758514592" name="All files">
-    <metrics statements="25" coveredstatements="25" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7" elements="40" coveredelements="40" complexity="0" loc="25" ncloc="25" packages="1" files="2" classes="2"/>
-    <file name="LinkedList.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/SourceCode/list/LinkedList.ts">
-      <metrics statements="21" coveredstatements="21" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="6"/>
-      <line num="6" count="1" type="stmt"/>
-      <line num="9" count="2" type="stmt"/>
-      <line num="12" count="3" type="stmt"/>
-      <line num="13" count="3" type="cond" truecount="2" falsecount="0"/>
-      <line num="14" count="4" type="stmt"/>
-      <line num="16" count="3" type="stmt"/>
+<coverage generated="1602846513606" clover="3.2.0">
+  <project timestamp="1602846513606" name="All files">
+    <metrics statements="31" coveredstatements="31" conditionals="10" coveredconditionals="10" methods="8" coveredmethods="8" elements="49" coveredelements="49" complexity="0" loc="31" ncloc="31" packages="1" files="2" classes="2"/>
+    <file name="LinkedList.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/SourceCode/list/linked-list/LinkedList.ts">
+      <metrics statements="27" coveredstatements="27" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="16" count="6" type="stmt"/>
       <line num="19" count="3" type="stmt"/>
-      <line num="20" count="3" type="stmt"/>
-      <line num="21" count="3" type="stmt"/>
-      <line num="22" count="3" type="stmt"/>
-      <line num="23" count="3" type="stmt"/>
-      <line num="24" count="3" type="stmt"/>
-      <line num="27" count="1" type="stmt"/>
-      <line num="28" count="1" type="stmt"/>
-      <line num="29" count="1" type="stmt"/>
-      <line num="32" count="4" type="cond" truecount="2" falsecount="0"/>
-      <line num="33" count="2" type="stmt"/>
-      <line num="35" count="2" type="stmt"/>
-      <line num="36" count="2" type="cond" truecount="2" falsecount="0"/>
-      <line num="37" count="3" type="stmt"/>
-      <line num="39" count="2" type="stmt"/>
+      <line num="22" count="4" type="stmt"/>
+      <line num="23" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="24" count="4" type="stmt"/>
+      <line num="26" count="4" type="stmt"/>
+      <line num="29" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="30" count="3" type="stmt"/>
+      <line num="31" count="3" type="stmt"/>
+      <line num="32" count="3" type="stmt"/>
+      <line num="33" count="3" type="stmt"/>
+      <line num="34" count="3" type="stmt"/>
+      <line num="35" count="3" type="stmt"/>
+      <line num="38" count="2" type="stmt"/>
+      <line num="39" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="40" count="1" type="stmt"/>
+      <line num="42" count="1" type="stmt"/>
+      <line num="43" count="1" type="stmt"/>
+      <line num="44" count="1" type="stmt"/>
+      <line num="47" count="2" type="stmt"/>
+      <line num="48" count="2" type="stmt"/>
+      <line num="49" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="50" count="1" type="stmt"/>
+      <line num="52" count="3" type="stmt"/>
+      <line num="54" count="1" type="stmt"/>
     </file>
-    <file name="LinkedListNode.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/SourceCode/list/LinkedListNode.ts">
+    <file name="LinkedListNode.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/SourceCode/list/linked-list/LinkedListNode.ts">
       <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <line num="3" count="4" type="stmt"/>
       <line num="4" count="4" type="stmt"/>
