@@ -15,8 +15,8 @@
 ### [1.引论](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter1-Introduction)
 ### [2.算法分析](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter2-AlgorithmAnalysis)
 ### [3.表、栈和队列](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter3-ListStackQueue)
-### [4.树]()
--   **[二叉查找树]()**
+### [4.树](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter4-Trees)
+-   **[二叉查找树](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter4-Trees/4.1-BinarySearchTree)**
 -   **[AVL树]()**
 ### [5.散列]()
 ### [6.优先队列（堆）]()
@@ -35,8 +35,6 @@
 请确保已安装[Node]((https://nodejs.org/zh-cn/)),且Node版本大于V12。
 
 
-然后在根目录下执行
-
 ```
 npm install
 ```
@@ -44,8 +42,6 @@ npm install
 ### 执行测试用例
 
 本仓库使用[Jest](https://jestjs.io/)作为测试框架。
-
-然后在根目录下执行
 
 ```
 npm test
