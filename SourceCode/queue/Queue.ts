@@ -9,8 +9,8 @@ export default class Queue<T>{
         }
         return this.capacity[0];
     }
-    public enqueue(value: T) {
-        this.capacity.push(value);
+    public enqueue(element: T) {
+        this.capacity.push(element);
     }
     public dequeue() {
         return this.capacity.shift();

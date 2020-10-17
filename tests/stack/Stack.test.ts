@@ -17,8 +17,8 @@ describe('Stack', () => {
         expect(stack.size).toBe(2);
     });
     test('stack pop', () => {
-        const value = stack.pop();
-        expect(value).toBe(2);
+        const element = stack.pop();
+        expect(element).toBe(2);
         expect(stack.topElement).toBe(1);
     })
 })

@@ -17,8 +17,8 @@ describe('Queue', () => {
         expect(queue.size).toBe(2);
     });
     test('queue dequeue', () => {
-        const value = queue.dequeue();
-        expect(value).toBe(1);
+        const element = queue.dequeue();
+        expect(element).toBe(1);
         expect(queue.frontElement).toBe(2);
     })
 })

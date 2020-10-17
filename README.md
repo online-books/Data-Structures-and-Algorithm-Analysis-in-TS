@@ -16,6 +16,8 @@
 ### [2.算法分析](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter2-AlgorithmAnalysis)
 ### [3.表、栈和队列](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter3-ListStackQueue)
 ### [4.树]()
+-   **[二叉查找树]()**
+-   **[AVL树]()**
 ### [5.散列]()
 ### [6.优先队列（堆）]()
 ### [7.排序]()

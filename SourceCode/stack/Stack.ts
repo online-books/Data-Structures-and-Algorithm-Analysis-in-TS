@@ -12,7 +12,7 @@ export default class Stack<T>{
     public pop() {
         return this.capacity.pop();
     }
-    public push(value: T) {
-        this.capacity.push(value);
+    public push(element: T) {
+        this.capacity.push(element);
     }
 }

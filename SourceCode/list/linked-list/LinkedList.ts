@@ -18,16 +18,16 @@ export default class LinkedList<T> {
     public get firstNode(): LinkedListNode<T> | null {
         return this.head.next;
     }
-    public find(value: T): LinkedListNode<T> | null {
+    public find(element: T): LinkedListNode<T> | null {
         let currentNode: LinkedListNode<T> | null = this.head.next;
-        while (currentNode !== null && currentNode.value !== value) {
+        while (currentNode !== null && currentNode.element !== element) {
             currentNode = currentNode.next;
         }
         return currentNode;
     }
-    public insert(value: T, node?: LinkedListNode<T> | null): LinkedListNode<T> {
+    public insert(element: T, node?: LinkedListNode<T> | null): LinkedListNode<T> {
         const frontNode = node ? node : this.head;
-        const newNode = new LinkedListNode(value);
+        const newNode = new LinkedListNode(element);
         const nextNode = frontNode.next;
         frontNode.next = newNode;
         newNode.next = nextNode;
@@ -46,7 +46,7 @@ export default class LinkedList<T> {
     private findPrevNode(node: LinkedListNode<T>): LinkedListNode<T> | null {
         let currentNode = this.head;
         while (currentNode.next !== null) {
-            if (currentNode.next.value === node.value) {
+            if (currentNode.next.element === node.element) {
                 return currentNode;
             }
             currentNode = currentNode.next;
