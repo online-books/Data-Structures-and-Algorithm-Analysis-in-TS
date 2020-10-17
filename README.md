@@ -1,8 +1,8 @@
 # Typescrip 数据结构与算法
 ![travis-cli](https://travis-ci.com/qindagang/data-structures-and-algorithm-analysis-in-typescript.svg?branch=master)
-[![codecov](https://codecov.io/gh/qindagang/data-structures-and-algorithm-analysis-in-typescript/branch/master/graph/badge.svg?token=B05PLKNLJP)](undefined)
+![codecov](https://codecov.io/gh/qindagang/data-structures-and-algorithm-analysis-in-typescript/branch/master/graph/badge.svg?token=B05PLKNLJP)
 
-本仓库是基于《数据结构与算法分析-C语言描述》（第二版）一书中介绍的数据结构与算法知识使用Typescript语言进行实现。每个章节都各自包含Typescript源码、书中留作思考与练习的部分题目解答以及测试用例三部分。
+本仓库是基于《数据结构与算法分析-C语言描述》（第二版）一书中各章节介绍的数据结构与算法内容使用Typescript语言进行实现。
 
 ## 如何阅读
 1. 使用Chrome浏览器，并添加[MathJax Plugin for Github](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima)控件
@@ -14,7 +14,7 @@
 
 ### [1.引论](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter1-Introduction)
 ### [2.算法分析](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter2-AlgorithmAnalysis)
-### [3.表、栈和队列]()
+### [3.表、栈和队列](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter3-ListStackQueue)
 ### [4.树]()
 ### [5.散列]()
 ### [6.优先队列（堆）]()
@@ -30,12 +30,10 @@
 
 ### 安装依赖
 
-请确保已安装Node,且Node版本大于V10.0。
-
-[关于Node](https://nodejs.org/zh-cn/)
+请确保已安装[Node]((https://nodejs.org/zh-cn/)),且Node版本大于V12。
 
 
-在项目根目录下执行
+然后在根目录下执行
 
 ```
 npm install
@@ -43,8 +41,14 @@ npm install
 
 ### 执行测试用例
 
-[关于Jest](https://jestjs.io/)
+本仓库使用[Jest](https://jestjs.io/)作为测试框架。
+
+然后在根目录下执行
 
 ```
 npm test
 ```
+
+### 源码调试
+
+推荐使用[VsCode](https://code.visualstudio.com/docs/editor/debugging)进行调试，在该项目.vscode文件夹中已设好debugger配置。

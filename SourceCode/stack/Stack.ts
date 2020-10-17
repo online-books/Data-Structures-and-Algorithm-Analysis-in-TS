@@ -3,8 +3,14 @@ export default class Stack<T>{
     public get size() {
         return this.capacity.length;
     }
+    public get topElement(): T | null {
+        if (!this.size) {
+            return null;
+        }
+        return this.capacity[this.size - 1];
+    }
     public pop() {
-        this.capacity.pop();
+        return this.capacity.pop();
     }
     public push(value: T) {
         this.capacity.push(value);

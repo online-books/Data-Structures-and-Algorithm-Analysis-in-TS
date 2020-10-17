@@ -24,7 +24,7 @@ class LinkedListNode<T> {
 }
 ```
 
-定义链表并为其添加表头和节点数量：
+ 链表类并为其添加表头和节点数量：
 ``` typescript
 class LinkedList<T> {
     private head: LinkedListNode<T>;
@@ -98,7 +98,7 @@ class LinkedList<T> {
 
 #### 2.1 栈的数组实现
 
-定义栈并为其添加数组：
+定义栈类并为其添加数组：
 ``` typescript
 class Stack<T>{
     private capacity: T[] = [];
@@ -130,7 +130,7 @@ public pop() {
 
 #### 3.1 队列的数组实现
 
-定义队列并为其添加数组：
+定义队列类并为其添加数组：
 ``` typescript
 export default class Queue<T>{
     private capacity: T[] = []
@@ -155,5 +155,7 @@ public dequeue() {
 ### 代码位置
 ---
 链表：SourceCode/list/linked-list
+
 栈：SourceCode/stack
+
 队列：SourceCode/queue

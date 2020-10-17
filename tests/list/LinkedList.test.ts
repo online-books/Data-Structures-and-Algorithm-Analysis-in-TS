@@ -5,6 +5,7 @@ describe('linked list', () => {
         let list: LinkedList<number>;
         test('list initialization', () => {
             list = new LinkedList();
+            expect(list).toBeInstanceOf(LinkedList);
             expect(list.size).toBe(0);
             expect(list.firstNode).toBeNull()
         })
