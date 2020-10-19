@@ -17,7 +17,7 @@
 ### [3.表、栈和队列](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter3-ListStackQueue)
 ### [4.树](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter4-Trees)
 -   **[二叉查找树](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter4-Trees/4.1-BinarySearchTree)**
--   **[AVL树]()**
+-   **[AVL树](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter4-Trees/4.2-AVLTree)**
 ### [5.散列]()
 ### [6.优先队列（堆）]()
 ### [7.排序]()
