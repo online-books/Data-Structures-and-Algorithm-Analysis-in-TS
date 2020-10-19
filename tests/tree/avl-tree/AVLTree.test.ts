@@ -8,37 +8,25 @@ describe('AVL tree', () => {
         expect(tree).toBeInstanceOf(AVLTree);
     });
     test('insert', () => {
-        tree.insert(3);
-        tree.insert(2);
-        tree.insert(1);
-        expect(tree.root!.element).toBe(2);
-        expect(tree.root!.left!.element).toBe(1);
-        expect(tree.root!.right!.element).toBe(3);
-        tree.insert(4);
-        tree.insert(5);
-        expect(tree.root!.element).toBe(2);
-        expect(tree.root!.right!.element).toBe(4);
-        expect(tree.root!.left!.element).toBe(1);
-        tree.insert(6);
-        expect(tree.root!.element).toBe(4);
-        expect(tree.root!.left!.element).toBe(2);
-        expect(tree.root!.right!.element).toBe(5);
-        tree.insert(7);
-        tree.insert(16);
-        tree.insert(15);
-        expect(tree.root!.right!.right!.element).toBe(15);
-        expect(tree.root!.right!.right!.left!.element).toBe(7);
-        expect(tree.root!.right!.right!.right!.element).toBe(16);
+        const data = [3, 2, 1, 4, 5, 6, 7, 16, 15, 14, 13, 12, 11, 10, 8, 9];
+        data.forEach(value => tree.insert(value));
+        const root = tree.root!;
+        expect(root).not.toBeNull();
+        expect(root.element).toBe(7);
+        expect(root.height).toBe(4);
+        expect(root.left).not.toBeNull()
+        expect(root.left!.element).toBe(4);
+        expect(root.left!.height).toBe(2);
+        expect(root.right).not.toBeNull()
+        expect(root.right!.element).toBe(13);
+        expect(root.right!.height).toBe(3);
     });
     test('find', () => {
-        expect(tree.find(4)!.height).toBe(3);
-        expect(tree.find(2)!.height).toBe(1);
-        expect(tree.find(1)!.height).toBe(0);
-        expect(tree.find(3)!.height).toBe(0);
-        expect(tree.find(6)!.height).toBe(2);
-        expect(tree.find(5)!.height).toBe(0);
-        expect(tree.find(15)!.height).toBe(1);
-        expect(tree.find(7)!.height).toBe(0);
-        expect(tree.find(16)!.height).toBe(0);
+        const node = tree.find(9);
+        expect(node).not.toBeNull();
+        expect(node!.height).toBe(1);
+        expect(node!.left!.element).toBe(8);
+        expect(node!.right!.element).toBe(10);
+        expect(tree.find(20)).toBeNull()
     })
 })

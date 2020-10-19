@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">80.65% </span>
+        <span class="strong">77.27% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>50/62</span>
+        <span class='fraction'>51/66</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">86.36% </span>
+        <span class="strong">77.27% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>19/22</span>
+        <span class='fraction'>17/22</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">87.5% </span>
@@ -35,16 +35,16 @@
         <span class='fraction'>7/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">80.65% </span>
+        <span class="strong">77.27% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>50/62</span>
+        <span class='fraction'>51/66</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -150,20 +150,27 @@
 <a name='L102'></a><a href='#L102'>102</a>
 <a name='L103'></a><a href='#L103'>103</a>
 <a name='L104'></a><a href='#L104'>104</a>
-<a name='L105'></a><a href='#L105'>105</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">25x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -180,6 +187,9 @@
 <span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,6 +199,10 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -262,10 +276,10 @@ export default class AVLTree&lt;T&gt; {
         let node: AVLTreeNode&lt;T&gt; | null;
         node = this.root;
         while (node) {
-            if (node.element &gt; element) {
-                node = node.left;
-            } else if (node.element &lt; element) {
-                node = node.right;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (node.element &gt; element) {
+<span class="cstat-no" title="statement not covered" >                node = node.left;</span>
+            } else <span class="missing-if-branch" title="if path not taken" >I</span>if (node.element &lt; element) {
+<span class="cstat-no" title="statement not covered" >                node = node.right;</span>
             } else <span class="missing-if-branch" title="else path not taken" >E</span>if (node.element === element) {
                 return node;
             }
@@ -283,8 +297,11 @@ export default class AVLTree&lt;T&gt; {
                 node.right = this.addChild(element, node.right);
                 if (this.getHeight(node.right) - this.getHeight(node.left) &gt; 1) {
                     if (element &gt; node.right.element) {
+                        console.log('singleRotateWithRight')
                         node = this.singleRotateWithRight(node);
                     } else {
+                        console.log('doubleRotateWithRight')
+&nbsp;
                         node = this.doubleRotateWithRight(node);
                     }
                 }
@@ -292,8 +309,12 @@ export default class AVLTree&lt;T&gt; {
                 node.left = this.addChild(element, node.left);
                 if (this.getHeight(node.left) - this.getHeight(node.right) &gt; 1) {
                     <span class="missing-if-branch" title="else path not taken" >E</span>if (element &lt; node.left.element) {
+                        console.log('singleRotateWithLeft')
+&nbsp;
                         node = this.singleRotateWithLeft(node);
                     } else {
+<span class="cstat-no" title="statement not covered" >                        console.log('doubleRotateWithLeft')</span>
+&nbsp;
 <span class="cstat-no" title="statement not covered" >                        node = this.doubleRotateWithLeft(node);</span>
                     }
                 }
@@ -364,7 +385,7 @@ export default class AVLTree&lt;T&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 11:44:42 GMT+0800 (GMT+08:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Oct 19 2020 12:01:47 GMT+0800 (GMT+08:00)
 </div>
 </div>
 <script src="prettify.js"></script>
