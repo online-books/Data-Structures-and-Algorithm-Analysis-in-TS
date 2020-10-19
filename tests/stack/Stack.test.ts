@@ -2,7 +2,7 @@ import Stack from '@/stack/Stack';
 
 describe('Stack', () => {
     let stack: Stack<number>
-    test('stack initialize', () => {
+    test('stack initialization', () => {
         stack = new Stack<number>()
         expect(stack).toBeInstanceOf(Stack)
         expect(stack.size).toBe(0);

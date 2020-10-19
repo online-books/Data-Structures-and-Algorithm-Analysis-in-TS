@@ -49,4 +49,4 @@ npm test
 
 ### 源码调试
 
-推荐使用[VsCode](https://code.visualstudio.com/docs/editor/debugging)进行调试，在该项目.vscode文件夹中已设好debugger配置。
+[Debugging in VsCode](https://code.visualstudio.com/docs/editor/debugging)

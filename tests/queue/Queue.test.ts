@@ -2,7 +2,7 @@ import Queue from '@/queue/Queue';
 
 describe('Queue', () => {
     let queue: Queue<number>
-    test('queue initialize', () => {
+    test('queue initialization', () => {
         queue = new Queue<number>()
         expect(queue).toBeInstanceOf(Queue)
         expect(queue.size).toBe(0)

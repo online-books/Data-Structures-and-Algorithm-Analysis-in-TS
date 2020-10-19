@@ -2,7 +2,7 @@ import BinarySearchTree from '@/tree/binary-search-tree/BinarySearchTree';
 
 describe('binary search tree', () => {
     let tree: BinarySearchTree<number>;
-    test("bst create", () => {
+    test("bst initialization", () => {
         tree = new BinarySearchTree<number>();
         expect(tree).toBeInstanceOf(BinarySearchTree);
         expect(tree.root).toBeNull();
