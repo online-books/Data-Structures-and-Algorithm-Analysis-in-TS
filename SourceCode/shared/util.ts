@@ -13,3 +13,20 @@ export function compareFn(decrease = true) {
         }
     }
 }
+
+
+export function generateRandomKeys(characters: string, keyLength: number, num: number,) {
+    if (keyLength >= characters.length) {
+        throw new Error(`The key length has to be at most ${characters.length}`);
+    }
+    const keys: string[] = [];
+    for (let i = 0; i < num; i++) {
+        let key = '';
+        for (let j = 0; j < keyLength; j++) {
+            const index = Math.floor(Math.random() * characters.length);
+            key += characters[index]
+        }
+        keys.push(key)
+    }
+    return keys;
+}

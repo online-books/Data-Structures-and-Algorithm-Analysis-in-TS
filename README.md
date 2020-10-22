@@ -18,11 +18,11 @@
 ### [4.树](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter4-Trees)
 -   **[二叉查找树](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter4-Trees/4.1-BinarySearchTree)**
 -   **[AVL树](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter4-Trees/4.2-AVLTree)**
-### [5.散列]()
-### [6.优先队列（堆）]()
-### [7.排序]()
-### [8.不相交集ADT]()
-### [9.图论算法]()
+### [5.散列](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter5-Hashing)
+### [6.优先队列（堆）](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter6-PriorityQueue)
+### [7.排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting)
+### [8.不相交集ADT](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter8-DisjointSet)
+### [9.图论算法](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm)
 ### [10.算法设计技巧]()
 ### [11.摊还分析]()
 ### [12.高级数据结构及其实现]()
