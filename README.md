@@ -20,6 +20,10 @@
 -   **[AVL树](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter4-Trees/4.2-AVLTree)**
 ### [5.散列](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter5-Hashing)
 ### [6.优先队列（堆）](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter6-PriorityQueue)
+-   **[二叉堆]()**
+-   **[左式堆]()**
+-   **[斜堆]()**
+-   **[二项队列]()**
 ### [7.排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting)
 ### [8.不相交集ADT](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter8-DisjointSet)
 ### [9.图论算法](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm)
