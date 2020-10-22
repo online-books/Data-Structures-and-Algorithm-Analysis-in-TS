@@ -1,4 +1,4 @@
-import { compareFn, generateRandomKeys } from '@/shared/util';
+import { compareFn, generateRandomKeys, swap } from '@/shared/util';
 
 describe('util', () => {
     test('increase compare function', () => {
@@ -26,5 +26,10 @@ describe('util', () => {
         const keys = generateRandomKeys(characters, 2, 14);
         expect(keys.every(key => key.length === 2)).toBeTruthy()
         expect(keys.length).toBe(14)
+    });
+    test('swap array elements', () => {
+        const n = [1, 2, 3, 4]
+        swap(n, 2, 1)
+        expect(n).toEqual([1, 3, 2, 4])
     })
 })

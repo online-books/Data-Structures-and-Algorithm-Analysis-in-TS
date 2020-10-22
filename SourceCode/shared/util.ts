@@ -30,3 +30,9 @@ export function generateRandomKeys(characters: string, keyLength: number, num: n
     }
     return keys;
 }
+
+export function swap(n: any[], from: number, to: number) {
+    const temp = n[to];
+    n[to] = n[from];
+    n[from] = temp;
+}
