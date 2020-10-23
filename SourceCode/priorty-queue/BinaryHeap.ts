@@ -28,7 +28,7 @@ export default class BinaryHeap<T extends HeapNodeStructure> {
       percolateDown(this.list, i);
     }
   }
-  public findMin(): T {
+  public getMin(): T {
     if (!this.size) {
       throw new Error("Binary heap is empty!");
     }

@@ -9,20 +9,20 @@ describe("binary heap", () => {
             binaryHeap.deleteMin()
         }).toThrowError(Error);
         expect(() => {
-            binaryHeap.findMin()
+            binaryHeap.getMin()
         }).toThrowError(Error);
         data.forEach(value => binaryHeap.insert(value));
-        expect(binaryHeap.findMin()).toStrictEqual({ key: 9, value: 9 });
+        expect(binaryHeap.getMin()).toStrictEqual({ key: 9, value: 9 });
         expect(binaryHeap.deleteMin()).toStrictEqual({ key: 9, value: 9 });
-        expect(binaryHeap.findMin()).toStrictEqual({ key: 10, value: 10 });
+        expect(binaryHeap.getMin()).toStrictEqual({ key: 10, value: 10 });
     })
     let binaryHeap: BinaryHeap<{ key: number, value: number }>;
     test("initialization with data", () => {
         const data = [15, 17, 13, 9, 16, 14, 10].map((key) => ({ key, value: key }));
         binaryHeap = new BinaryHeap(data);
         expect(binaryHeap.size).toBe(data.length);
-        expect(binaryHeap.findMin()).toStrictEqual({ key: 9, value: 9 });
+        expect(binaryHeap.getMin()).toStrictEqual({ key: 9, value: 9 });
         expect(binaryHeap.deleteMin()).toStrictEqual({ key: 9, value: 9 });
-        expect(binaryHeap.findMin()).toStrictEqual({ key: 10, value: 10 });
+        expect(binaryHeap.getMin()).toStrictEqual({ key: 10, value: 10 });
     });
 });
