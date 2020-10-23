@@ -19,7 +19,7 @@ export default class LeftistHeap<T> {
     if (!this.root) {
       this.root = node;
     } else {
-      this.root = this.mergeToRightChild(node, this.root);
+      this.root = this.mergeToRightChild(this.root, node);
     }
   }
   public getMin(): T | null {
@@ -28,9 +28,8 @@ export default class LeftistHeap<T> {
     }
     return this.root.element;
   }
-  public merge(heap: LeftistHeap<T>): LeftistHeapNode<T> | null {
+  public merge(heap: LeftistHeap<T>) {
     this.root = this.mergeToRightChild(this.root, heap.root);
-    return this.root;
   }
   private mergeToRightChild(
     heapNode1: LeftistHeapNode<T> | null,
