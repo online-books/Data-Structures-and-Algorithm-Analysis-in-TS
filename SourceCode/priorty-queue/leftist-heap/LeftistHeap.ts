@@ -9,9 +9,11 @@ function swapChildNode(treeNode: { left: any; right: any }) {
 
 export default class LeftistHeap<T> {
   public root: LeftistHeapNode<T> | null = null;
+  public size: number = 0;
   public deleteMin(): void {
     if (this.root) {
       this.root = this.mergeToRightChild(this.root.left, this.root.right);
+      this.size -= 1;
     }
   }
   public insert(element: T): void {
@@ -21,6 +23,7 @@ export default class LeftistHeap<T> {
     } else {
       this.root = this.mergeToRightChild(this.root, node);
     }
+    this.size += 1;
   }
   public getMin(): T | null {
     if (!this.root) {
@@ -30,6 +33,7 @@ export default class LeftistHeap<T> {
   }
   public merge(heap: LeftistHeap<T>) {
     this.root = this.mergeToRightChild(this.root, heap.root);
+    this.size += heap.size;
   }
   private mergeToRightChild(
     heapNode1: LeftistHeapNode<T> | null,
