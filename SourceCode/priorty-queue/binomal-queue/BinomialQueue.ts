@@ -1,21 +1,15 @@
-import BinomialTree from './binomial-tree';
-/**
- * 二项队列
- * 是堆序树的集合，堆序树中的每一棵都是有约束形式，叫做二项树。
- * 每一个高度上至多存在一棵二项树
- * 高度为k的二项树Bk通过将一棵二项树B(k-1)附接到另一颗二项树B(k-1)的根上而构成
- */
+import BinomialTree from './BinomialTree';
 
-export default class BinomialQueue {
-    public forest: BinomialTree[] = [];
-    public findMin(): BinomialTree | null {
+export default class BinomialQueue<T> {
+    public forest: BinomialTree<T>[] = [];
+    public findMin(): BinomialTree<T> | null {
         const index = this.findMinTreeIndex();
         if (index === -1) {
             return null;
         }
         return this.forest[index];
     }
-    public merge(binQueue: BinomialQueue) {
+    public merge(binQueue: BinomialQueue<T>) {
         this.forest = this.mergeForest(this.forest, binQueue.forest);
     }
     public deleteMin(): void {
@@ -25,7 +19,7 @@ export default class BinomialQueue {
         }
         const [tree] = this.forest.splice(index, 1);
         const children = [];
-        let childTree: BinomialTree | null = tree.firstChild;
+        let childTree: BinomialTree<T> | null = tree.firstChild;
         while (childTree) {
             children.push(childTree);
             const nextChild = childTree.nextSibling;
@@ -34,8 +28,8 @@ export default class BinomialQueue {
         }
         this.forest = this.mergeForest(children, this.forest);
     }
-    public insert(val: number): void {
-        const binTree = new BinomialTree(val);
+    public insert(element: T): void {
+        const binTree = new BinomialTree(element);
         this.forest = this.mergeForest(this.forest, [binTree]);
     }
     private findMinTreeIndex(): number {
@@ -49,7 +43,7 @@ export default class BinomialQueue {
             return -1;
         }
         let index = 0;
-        let minTree: BinomialTree | null = forest[index] || null;
+        let minTree: BinomialTree<T> | null = forest[index] || null;
         for (let i = 1; i < length; i++) {
             const tree = forest[i];
             if (!minTree) {
@@ -57,14 +51,14 @@ export default class BinomialQueue {
                 index = i;
                 continue;
             }
-            if (tree && tree.val < minTree.val) {
+            if (tree && tree.element < minTree.element) {
                 minTree = tree;
                 index = i;
             }
         }
         return index;
     }
-    private mergeForest(forest1: BinomialTree[], forest2: BinomialTree[]): BinomialTree[] {
+    private mergeForest(forest1: BinomialTree<T>[], forest2: BinomialTree<T>[]): BinomialTree<T>[] {
         const {
             length: len1
         } = forest1;
@@ -77,8 +71,8 @@ export default class BinomialQueue {
         if (!len2) {
             return forest1;
         }
-        let carray!: BinomialTree;
-        const newForest: BinomialTree[] = [];
+        let carray!: BinomialTree<T>;
+        const newForest: BinomialTree<T>[] = [];
         for (let i = 0, j = Math.max(len1, len2); i <= j; i++) {
             const t1 = forest1[i];
             const t2 = forest2[i];
@@ -120,8 +114,8 @@ export default class BinomialQueue {
         }
         return newForest;
     }
-    private mergeTree(t1: BinomialTree, t2: BinomialTree): BinomialTree {
-        if (t1.val > t2.val) {
+    private mergeTree(t1: BinomialTree<T>, t2: BinomialTree<T>): BinomialTree<T> {
+        if (t1.element > t2.element) {
             return this.mergeTree(t2, t1);
         }
         t2.nextSibling = t1.firstChild;
