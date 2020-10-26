@@ -45,4 +45,4 @@
 
 ### 代码位置
 ---
-SourceCode/priorty-queue/leftist-heap
+SourceCode/priority-queue/leftist-heap

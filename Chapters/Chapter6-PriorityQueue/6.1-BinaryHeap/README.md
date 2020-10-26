@@ -60,4 +60,4 @@
 ### 代码位置
 ---
 
-SourceCode/priorty-queue/BinaryHeap.ts
+SourceCode/priority-queue/BinaryHeap.ts
