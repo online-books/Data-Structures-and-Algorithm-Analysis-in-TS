@@ -1,4 +1,4 @@
-import BinaryHeap from '@/priorty-queue/BinaryHeap';
+import BinaryHeap from '@/priority-queue/BinaryHeap';
 
 describe("binary heap", () => {
     const data = [15, 17, 13, 9, 16, 14, 10].map((key) => ({ key, value: key }));

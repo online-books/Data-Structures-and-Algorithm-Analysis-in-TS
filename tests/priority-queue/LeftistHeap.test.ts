@@ -1,4 +1,4 @@
-import LeftistHeap from '@/priorty-queue/leftist-heap/LeftistHeap';
+import LeftistHeap from '@/priority-queue/leftist-heap/LeftistHeap';
 
 describe("Leftist Heap", () => {
     let heap: LeftistHeap<number>;

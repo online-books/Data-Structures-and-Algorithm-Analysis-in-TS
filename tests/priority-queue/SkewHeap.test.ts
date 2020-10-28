@@ -1,4 +1,4 @@
-import SkewHeap from '@/priorty-queue/SkewHeap'
+import SkewHeap from '@/priority-queue/SkewHeap'
 
 describe("Skrew Heap", () => {
 
