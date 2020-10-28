@@ -25,6 +25,12 @@
 -   **[斜堆](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter6-PriorityQueue/6.3-SkewHeap)**
 -   **[二项队列](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter6-PriorityQueue/6.4-BinomalQueue)**
 ### [7.排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting)
+- **[插入排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting/7.1-InsertionSort)**
+- **[希尔排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting/7.2-ShellSort)**
+- **[堆排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting/7.3-HeapSort)**
+- **[归并排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting/7.4-MergeSort)**
+- **[快速排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting/7.5-QuickSort)**
+- **[外部排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting/7.6-ExternalSort)**
 ### [8.不相交集ADT](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter8-DisjointSet)
 ### [9.图论算法](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm)
 ### [10.算法设计技巧]()
