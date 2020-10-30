@@ -1,16 +1,12 @@
 import { swap } from "@/shared/util";
 
-interface HeapNodeStructure {
-  key: number;
-}
-
-function percolateDown(list: HeapNodeStructure[], i: number) {
+function percolateDown(list: any[], i: number) {
   while (2 * i <= list.length - 1) {
     let index = 2 * i;
-    if (index !== list.length - 1 && list[index].key > list[index + 1].key) {
+    if (index !== list.length - 1 && list[index] > list[index + 1]) {
       index += 1;
     }
-    if (list[i].key > list[index].key) {
+    if (list[i] > list[index]) {
       swap(list, i, index);
     } else {
       break;
@@ -18,11 +14,10 @@ function percolateDown(list: HeapNodeStructure[], i: number) {
     i = index;
   }
 }
-export default class BinaryHeap<T extends HeapNodeStructure> {
+export default class BinaryHeap<T> {
   private list: T[] = [];
   constructor(data: T[] = []) {
-    const sentinel = { key: -Infinity } as T;
-    this.list.push(sentinel);
+    this.list.push(data[0]);
     this.list.push(...data);
     for (let i = Math.floor(data.length / 2); i > 0; i--) {
       percolateDown(this.list, i);
@@ -45,10 +40,10 @@ export default class BinaryHeap<T extends HeapNodeStructure> {
     let i = 1;
     for (; i <= Math.floor(lastIndex / 2);) {
       let j = i * 2;
-      if (j !== lastIndex && list[j].key > list[j + 1].key) {
+      if (j !== lastIndex && list[j] > list[j + 1]) {
         j = j + 1;
       }
-      if (list[j].key < lastElement.key) {
+      if (list[j] < lastElement) {
         list[i] = list[j];
         i = j;
       } else {
@@ -64,7 +59,7 @@ export default class BinaryHeap<T extends HeapNodeStructure> {
     let index = list.push(data) - 1;
     for (; index > 1;) {
       const parentIndex = Math.floor(index / 2);
-      if (data.key < list[parentIndex].key) {
+      if (data < list[parentIndex]) {
         list[index] = list[parentIndex];
       } else {
         break;
