@@ -2,7 +2,7 @@
 ![travis-cli](https://travis-ci.com/qindagang/data-structures-and-algorithm-analysis-in-typescript.svg?branch=master)
 ![codecov](https://codecov.io/gh/qindagang/data-structures-and-algorithm-analysis-in-typescript/branch/master/graph/badge.svg?token=B05PLKNLJP)
 
-本仓库是基于《数据结构与算法分析-C语言描述》（第二版）一书中各章节介绍的数据结构与算法内容使用Typescript语言进行实现。
+本仓库是根据《数据结构与算法分析-C语言描述》（第二版）一书中所描述的各种数据结构与算法使用Typescript进行实现，并在每个章节中添加了必须要的解释与说明。相比原著，这里省略了大量的算法运行时间的定理证明与推导分析及其实现细节的详细描述，因此强烈建议您在原著的基础上再阅读本代码。
 
 ### 如何阅读
 ---
@@ -35,9 +35,7 @@
 - **[外部排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting/7.6-ExternalSort)**
 #### [8.不相交集ADT](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter8-DisjointSet)
 #### [9.图论算法](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm)
-#### [10.算法设计技巧]()
-#### [11.摊还分析]()
-#### [12.高级数据结构及其实现]()
+#### [10.算法设计技巧](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter10-AlgorithmDesingTechniques)
 
 
 ### 如何使用
@@ -45,8 +43,7 @@
 
 #### 安装依赖
 
-请确保已安装[Node]((https://nodejs.org/zh-cn/)),且Node版本大于V12。
-
+请确保已安装[Node]((https://nodejs.org/zh-cn/))。
 
 ```
 npm install
