@@ -1,5 +1,6 @@
 import { heapSort } from '@/sort/HeapSort';
 import insertionSort from '@/sort/InsertionSort';
+import mergeSort from '@/sort/MergeSort';
 import shellSort from '@/sort/ShellSort';
 
 
@@ -30,6 +31,11 @@ describe('sort', () => {
     });
     test('Heap Sort', () => {
         heapSort(data);
+        expect(data[0]).toBe(MIN_NUM);
+        expect(data[LAST_INDEX]).toBe(MAX_NUM);
+    });
+    test('Merge Sort', () => {
+        mergeSort(data);
         expect(data[0]).toBe(MIN_NUM);
         expect(data[LAST_INDEX]).toBe(MAX_NUM);
     });
