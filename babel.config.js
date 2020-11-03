@@ -1,14 +1,16 @@
+/** @format */
+
 module.exports = {
     presets: ['@babel/preset-typescript', '@babel/preset-env'],
     plugins: [
         [
-            "module-resolver",
+            'module-resolver',
             {
                 alias: {
-                    "@": "./SourceCode"
-                }
-            }
+                    '@': './SourceCode',
+                },
+            },
         ],
-        "transform-class-properties"
-    ]
+        'transform-class-properties',
+    ],
 }
