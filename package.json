@@ -25,9 +25,7 @@
     "tslib": "^1.10.0",
     "typescript": "^3.8.3"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
+  "gitHooks": {},
   "lint-staged": {
     "*.{ts}": [
       "npm run lint",
