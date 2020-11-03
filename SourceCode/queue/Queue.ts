@@ -1,18 +1,20 @@
-export default class Queue<T>{
+/** @format */
+
+export default class Queue<T> {
     private capacity: T[] = []
-    public get size() {
-        return this.capacity.length;
+    public get size(): number {
+        return this.capacity.length
     }
     public get frontElement(): T | null {
         if (!this.size) {
-            return null;
+            return null
         }
-        return this.capacity[0];
+        return this.capacity[0]
     }
-    public enqueue(element: T) {
-        this.capacity.push(element);
+    public enqueue(element: T): void {
+        this.capacity.push(element)
     }
-    public dequeue() {
-        return this.capacity.shift();
+    public dequeue(): T | undefined {
+        return this.capacity.shift()
     }
 }

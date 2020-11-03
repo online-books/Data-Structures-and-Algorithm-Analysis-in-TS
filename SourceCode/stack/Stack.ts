@@ -1,18 +1,20 @@
-export default class Stack<T>{
+/** @format */
+
+export default class Stack<T> {
     private capacity: T[] = []
-    public get size() {
-        return this.capacity.length;
+    public get size(): number {
+        return this.capacity.length
     }
     public get topElement(): T | null {
         if (!this.size) {
-            return null;
+            return null
         }
-        return this.capacity[this.size - 1];
+        return this.capacity[this.size - 1]
     }
-    public pop() {
-        return this.capacity.pop();
+    public pop(): T | undefined {
+        return this.capacity.pop()
     }
-    public push(element: T) {
-        this.capacity.push(element);
+    public push(element: T): void {
+        this.capacity.push(element)
     }
 }

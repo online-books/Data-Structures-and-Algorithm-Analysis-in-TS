@@ -1,8 +1,10 @@
+/** @format */
+
 export default class LeftistHeapNode<T> {
-    public left: LeftistHeapNode<T> | null = null;
-    public right: LeftistHeapNode<T> | null = null;
-    public npl: number = 0;
+    public left: LeftistHeapNode<T> | null = null
+    public right: LeftistHeapNode<T> | null = null
+    public npl = 0
     constructor(public element: T) {
-        this.element = element;
+        this.element = element
     }
 }

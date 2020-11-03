@@ -1,13 +1,13 @@
-import BinaryHeap from '../priority-queue/BinaryHeap';
+/** @format */
 
+import BinaryHeap from '../priority-queue/BinaryHeap'
 
-export function heapSort(arr: number[]) {
-    const heap = new BinaryHeap(arr);
-    let i = 0;
+export function heapSort(n: number[]): void {
+    const heap = new BinaryHeap(n)
+    let i = 0
     while (heap.size) {
-        const min = heap.deleteMin();
-        arr[i] = min;
-        i += 1;
+        const min = heap.deleteMin()
+        n[i] = min
+        i += 1
     }
-    return arr;
 }

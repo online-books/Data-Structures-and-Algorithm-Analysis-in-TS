@@ -1,43 +1,45 @@
+/** @format */
+
 import BinaryTreeNode from './BinaryTreeNode'
 
-export default class BinarySearchTree<T>{
-    public root: BinaryTreeNode<T> | null = null;
+export default class BinarySearchTree<T> {
+    public root: BinaryTreeNode<T> | null = null
 
-    public find(element: T) {
-        let node: BinaryTreeNode<T> | null;
-        node = this.root;
+    public find(element: T): BinaryTreeNode<T> | null {
+        let node: BinaryTreeNode<T> | null
+        node = this.root
         while (node) {
             if (node.element > element) {
-                node = node.left;
+                node = node.left
             } else if (node.element < element) {
-                node = node.right;
+                node = node.right
             } else {
-                return node;
+                return node
             }
         }
-        return null;
+        return null
     }
     public findMin(node = this.root): BinaryTreeNode<T> | null {
         while (node && node.left) {
-            node = node.left;
+            node = node.left
         }
-        return node;
+        return node
     }
     public findMax(node = this.root): BinaryTreeNode<T> | null {
         while (node && node.right) {
-            node = node.right;
+            node = node.right
         }
-        return node;
+        return node
     }
-    public insert(element: T) {
-        this.root = this.addChild(element, this.root);
+    public insert(element: T): void {
+        this.root = this.addChild(element, this.root)
     }
     public delete(element: T): BinaryTreeNode<T> | null {
-        return this.removeChild(element, this.root);
+        return this.removeChild(element, this.root)
     }
     private addChild(element: T, parentNode: BinaryTreeNode<T> | null) {
         if (!parentNode) {
-            return new BinaryTreeNode(element);
+            return new BinaryTreeNode(element)
         }
         if (element > parentNode.element) {
             parentNode.right = this.addChild(element, parentNode.right)
@@ -46,39 +48,39 @@ export default class BinarySearchTree<T>{
         } else {
             parentNode.element = element
         }
-        return parentNode;
+        return parentNode
     }
     private removeChild(element: T, node: BinaryTreeNode<T> | null) {
         if (!node) {
-            return null;
+            return null
         }
         if (node.element === element) {
-            const { left: leftChild, right: rightChild } = node;
+            const {left: leftChild, right: rightChild} = node
             // 节点是树叶，直接删除
             if (!leftChild && !rightChild) {
-                node = null;
+                node = null
             }
             // 节点只包含一个子节点，返回其子节点
             else if (leftChild && !rightChild) {
-                node.left = null;
-                return leftChild;
+                node.left = null
+                return leftChild
             } else if (!leftChild && rightChild) {
-                node.right = null;
-                return rightChild;
+                node.right = null
+                return rightChild
             }
             // 节点有两个儿子节点，找出其右子树中最小节点X，将节点X的关键字值赋予该节点，然后删除X节点
             else {
-                const minRightNode = this.findMin(node.right)!;
-                node.element = minRightNode.element;
-                node.right = this.removeChild(minRightNode.element, node.right);
+                const minRightNode = this.findMin(node.right)!
+                node.element = minRightNode.element
+                node.right = this.removeChild(minRightNode.element, node.right)
             }
         } else {
             if (node.element > element) {
-                node.left = this.removeChild(element, node.left);
+                node.left = this.removeChild(element, node.left)
             } else {
-                node.right = this.removeChild(element, node.right);
+                node.right = this.removeChild(element, node.right)
             }
         }
-        return node;
+        return node
     }
 }
