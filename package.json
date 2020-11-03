@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "npx jest -o --collectCoverage",
+    "test": "npx jest -o --watch --collectCoverage",
     "codecov": "cat ./coverage/lcov.info | ./node_modules/.bin/codecov",
     "lint": "eslint --fix --ext .ts"
   },
@@ -25,13 +25,7 @@
     "tslib": "^1.10.0",
     "typescript": "^3.8.3"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{ts}": [
-      "npm run lint",
-      "git add"
-    ]
-  }
+  "pre-commit": [
+    "lint"
+  ]
 }
