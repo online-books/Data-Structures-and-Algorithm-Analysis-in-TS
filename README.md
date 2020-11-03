@@ -77,6 +77,8 @@ npm test
 
 ### 如何贡献
 
+参考[使用议题和拉取请求进行协作](https://docs.github.com/cn/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests)
+
 ---
 
 ### LICENSE
