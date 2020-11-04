@@ -25,19 +25,19 @@ export function maxSubSequenceSum2(n: number[]): number {
     return maxSum(0, n.length - 1, n)
 }
 
-function maxSum(start: number, end: number, n: number[]): number {
-    if (start === end) {
-        return Math.max(n[start], 0)
+function maxSum(left: number, right: number, n: number[]): number {
+    if (left === right) {
+        return Math.max(n[left], 0)
     }
-    const middle = Math.floor((start + end) / 2)
+    const center = Math.floor((left + right) / 2)
     // 递归求解左半部分最大子序列和
-    const maxLeftSum = maxSum(start, middle, n)
+    const maxLeftSum = maxSum(left, center, n)
     // 递归求解左半部分最大子序列和
-    const maxRightSum = maxSum(middle + 1, end, n)
+    const maxRightSum = maxSum(center + 1, right, n)
     let leftBorderSum = 0
     let leftMaxBorderSum = 0
     // 计算中间分界处到左半部分的最大和
-    for (let i = middle; i >= start; i--) {
+    for (let i = center; i >= left; i--) {
         leftBorderSum += n[i]
         if (leftBorderSum > leftMaxBorderSum) {
             leftMaxBorderSum = leftBorderSum
@@ -46,7 +46,7 @@ function maxSum(start: number, end: number, n: number[]): number {
     let rightBorderSum = 0
     let maxRightBorderSum = 0
     // 计算中间分界处到右半部分的最大和
-    for (let j = middle + 1; j <= end; j++) {
+    for (let j = center + 1; j <= right; j++) {
         rightBorderSum += n[j]
         if (rightBorderSum > maxRightBorderSum) {
             maxRightBorderSum = rightBorderSum

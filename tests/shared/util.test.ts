@@ -6,10 +6,17 @@ describe('util', () => {
     test('increase compare function', () => {
         const a = [2, 1]
         const b = [1, 2]
+        const c = [3, 2, 1]
+        const d = [1, 2, 3]
+
         a.sort(compareFn(false))
-        b.sort(compareFn(false))
+        b.sort(compareFn(true))
+        c.sort(compareFn(true))
+        d.sort(compareFn(false))
         expect(a).toEqual([1, 2])
-        expect(b).toEqual([1, 2])
+        expect(b).toEqual([2, 1])
+        expect(c).toEqual([3, 2, 1])
+        expect(d).toEqual([1, 2, 3])
     })
     test('decrease compare function', () => {
         const a = [1, 2]

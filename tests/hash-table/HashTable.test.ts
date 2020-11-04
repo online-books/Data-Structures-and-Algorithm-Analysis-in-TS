@@ -18,8 +18,6 @@ describe('Hash Table', () => {
             const [key] = generateRandomKeys(characters, 3, 1)
             hashTable.insert(key, i)
         }
-        const keys = hashTable.getKeys()
-        console.log(keys.length)
         expect(hashTable.size).toEqual(MAX_SIZE)
         expect(() => {
             hashTable.insert('a', 1)

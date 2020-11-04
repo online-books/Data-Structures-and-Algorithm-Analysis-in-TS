@@ -38,20 +38,20 @@ export function swap(n: any[], from: number, to: number): void {
     n[from] = temp
 }
 
-export function midian3(n: number[], start = 0, end = n.length - 1): number {
-    if (end < 2) {
+export function midian3(n: number[], left = 0, right = n.length - 1): number {
+    if (right < 2) {
         throw new Error('n has at least 3 elements')
     }
-    const middle = Math.floor((start + end) / 2)
-    if (n[start] > n[middle]) {
-        swap(n, start, middle)
+    const center = Math.floor((left + right) / 2)
+    if (n[left] > n[center]) {
+        swap(n, left, center)
     }
-    if (n[start] > n[end]) {
-        swap(n, start, end)
+    if (n[left] > n[right]) {
+        swap(n, left, right)
     }
-    if (n[middle] > n[end]) {
-        swap(n, middle, end)
+    if (n[center] > n[right]) {
+        swap(n, center, right)
     }
-    swap(n, end - 1, middle)
-    return n[end - 1]
+    swap(n, right - 1, center)
+    return n[right - 1]
 }
