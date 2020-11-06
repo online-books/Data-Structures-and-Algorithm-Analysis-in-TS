@@ -1,95 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1604488971949" clover="3.2.0">
-  <project timestamp="1604488971949" name="All files">
-    <metrics statements="74" coveredstatements="74" conditionals="31" coveredconditionals="31" methods="10" coveredmethods="10" elements="115" coveredelements="115" complexity="0" loc="74" ncloc="74" packages="2" files="3" classes="3"/>
-    <package name="shared">
-      <metrics statements="32" coveredstatements="32" conditionals="19" coveredconditionals="19" methods="5" coveredmethods="5"/>
-      <file name="util.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/SourceCode/shared/util.ts">
-        <metrics statements="32" coveredstatements="32" conditionals="19" coveredconditionals="19" methods="5" coveredmethods="5"/>
-        <line num="4" count="6" type="stmt"/>
-        <line num="5" count="8" type="cond" truecount="2" falsecount="0"/>
-        <line num="6" count="5" type="cond" truecount="2" falsecount="0"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
-        <line num="11" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="20" count="300" type="cond" truecount="2" falsecount="0"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="23" count="299" type="stmt"/>
-        <line num="24" count="299" type="stmt"/>
-        <line num="25" count="312" type="stmt"/>
-        <line num="26" count="312" type="stmt"/>
-        <line num="27" count="922" type="stmt"/>
-        <line num="28" count="922" type="stmt"/>
-        <line num="30" count="312" type="stmt"/>
-        <line num="32" count="299" type="stmt"/>
-        <line num="36" count="55" type="stmt"/>
-        <line num="37" count="55" type="stmt"/>
-        <line num="38" count="55" type="stmt"/>
-        <line num="42" count="15" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="45" count="14" type="stmt"/>
-        <line num="46" count="14" type="cond" truecount="2" falsecount="0"/>
-        <line num="47" count="5" type="stmt"/>
-        <line num="49" count="14" type="cond" truecount="2" falsecount="0"/>
-        <line num="50" count="6" type="stmt"/>
-        <line num="52" count="14" type="cond" truecount="2" falsecount="0"/>
-        <line num="53" count="10" type="stmt"/>
-        <line num="55" count="14" type="stmt"/>
-        <line num="56" count="14" type="stmt"/>
-      </file>
-    </package>
-    <package name="sort">
-      <metrics statements="42" coveredstatements="42" conditionals="12" coveredconditionals="12" methods="5" coveredmethods="5"/>
-      <file name="HeapSort.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/SourceCode/sort/HeapSort.ts">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="12" type="stmt"/>
-        <line num="10" count="12" type="stmt"/>
-        <line num="11" count="12" type="stmt"/>
-      </file>
-      <file name="QuickSort.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/SourceCode/sort/QuickSort.ts">
-        <metrics statements="36" coveredstatements="36" conditionals="12" coveredconditionals="12" methods="4" coveredmethods="4"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="9" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="10" count="4" type="stmt"/>
-        <line num="11" count="4" type="stmt"/>
-        <line num="12" count="4" type="stmt"/>
-        <line num="13" count="4" type="stmt"/>
-        <line num="14" count="6" type="stmt"/>
-        <line num="15" count="6" type="stmt"/>
-        <line num="16" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="19" count="4" type="stmt"/>
-        <line num="37" count="4" type="stmt"/>
-        <line num="38" count="4" type="stmt"/>
-        <line num="39" count="4" type="stmt"/>
-        <line num="41" count="5" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="50" count="5" type="cond" truecount="2" falsecount="0"/>
-        <line num="51" count="4" type="stmt"/>
-        <line num="52" count="4" type="stmt"/>
-        <line num="53" count="4" type="stmt"/>
-        <line num="54" count="4" type="stmt"/>
-        <line num="55" count="6" type="stmt"/>
-        <line num="56" count="6" type="stmt"/>
-        <line num="57" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="58" count="2" type="stmt"/>
-        <line num="60" count="4" type="stmt"/>
-        <line num="64" count="4" type="stmt"/>
-        <line num="65" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="66" count="1" type="stmt"/>
-        <line num="68" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="69" count="2" type="stmt"/>
-        <line num="71" count="1" type="stmt"/>
-        <line num="73" count="1" type="stmt"/>
-        <line num="74" count="1" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="84" count="2" type="stmt"/>
-      </file>
-    </package>
+<coverage generated="1604635610398" clover="3.2.0">
+  <project timestamp="1604635610398" name="All files">
+    <metrics statements="43" coveredstatements="43" conditionals="19" coveredconditionals="19" methods="6" coveredmethods="6" elements="68" coveredelements="68" complexity="0" loc="43" ncloc="43" packages="1" files="1" classes="1"/>
+    <file name="util.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/SourceCode/shared/util.ts">
+      <metrics statements="43" coveredstatements="43" conditionals="19" coveredconditionals="19" methods="6" coveredmethods="6"/>
+      <line num="4" count="6" type="stmt"/>
+      <line num="5" count="8" type="cond" truecount="2" falsecount="0"/>
+      <line num="6" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="9" count="3" type="stmt"/>
+      <line num="11" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="12" count="2" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="20" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="25" count="14" type="stmt"/>
+      <line num="26" count="14" type="stmt"/>
+      <line num="27" count="28" type="stmt"/>
+      <line num="28" count="28" type="stmt"/>
+      <line num="30" count="14" type="stmt"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="36" count="566424" type="stmt"/>
+      <line num="37" count="566424" type="stmt"/>
+      <line num="38" count="566424" type="stmt"/>
+      <line num="42" count="33773" type="cond" truecount="2" falsecount="0"/>
+      <line num="43" count="1" type="stmt"/>
+      <line num="45" count="33772" type="stmt"/>
+      <line num="46" count="33772" type="cond" truecount="2" falsecount="0"/>
+      <line num="47" count="15095" type="stmt"/>
+      <line num="49" count="33772" type="cond" truecount="2" falsecount="0"/>
+      <line num="50" count="9589" type="stmt"/>
+      <line num="52" count="33772" type="cond" truecount="2" falsecount="0"/>
+      <line num="53" count="19099" type="stmt"/>
+      <line num="55" count="33772" type="stmt"/>
+      <line num="56" count="33772" type="stmt"/>
+      <line num="60" count="9" type="stmt"/>
+      <line num="61" count="9" type="stmt"/>
+      <line num="62" count="9" type="stmt"/>
+      <line num="63" count="9" type="stmt"/>
+      <line num="64" count="9" type="stmt"/>
+      <line num="65" count="9" type="stmt"/>
+      <line num="66" count="600101" type="stmt"/>
+      <line num="67" count="600101" type="stmt"/>
+      <line num="69" count="9" type="stmt"/>
+      <line num="70" count="9" type="stmt"/>
+      <line num="71" count="9" type="stmt"/>
+    </file>
   </project>
 </coverage>

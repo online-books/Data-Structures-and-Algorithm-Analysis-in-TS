@@ -46,7 +46,6 @@
 -   **[堆排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting/7.3-HeapSort)**
 -   **[归并排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting/7.4-MergeSort)**
 -   **[快速排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting/7.5-QuickSort)**
--   **[外部排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting/7.6-ExternalSort)**
 
 #### [8.不相交集 ADT](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter8-DisjointSet)
 

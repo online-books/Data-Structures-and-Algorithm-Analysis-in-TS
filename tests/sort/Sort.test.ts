@@ -5,20 +5,22 @@ import insertionSort from '@/sort/InsertionSort'
 import mergeSort from '@/sort/MergeSort'
 import {quickSort, quickSelect} from '@/sort/QuickSort'
 import shellSort from '@/sort/ShellSort'
-
-function initializeData(): number[] {
-    return [34, 8, 64, 51, 4, 7, 9, 36, 19, 42, 32, 21]
-}
+import {generateRandomNumberArray} from '@/shared/util'
 
 describe('sort', () => {
-    const MAX_NUM = 64
-    const MIN_NUM = 4
-    const LAST_INDEX = 11
+    const MAX_NUM = 1e5
+    const MIN_NUM = 1
+    const LAST_INDEX = MAX_NUM - MIN_NUM
     let data: number[]
+    let startTime: number
+    let endTime: number
     beforeEach(() => {
-        data = initializeData()
-        expect(data[0]).toBe(34)
-        expect(data[LAST_INDEX]).toBe(21)
+        data = generateRandomNumberArray(MIN_NUM, MAX_NUM)
+        startTime = Date.now()
+    })
+    afterEach(() => {
+        endTime = Date.now()
+        console.log('【Time used】:', endTime - startTime)
     })
     test('Insertion Sort', () => {
         insertionSort(data)
@@ -47,6 +49,6 @@ describe('sort', () => {
     })
     test('Quick Select', () => {
         expect(quickSelect(data, 1)).toBe(MAX_NUM)
-        expect(quickSelect(data, LAST_INDEX)).toBe(7)
+        expect(quickSelect(data, LAST_INDEX + 1)).toBe(MIN_NUM)
     })
 })
