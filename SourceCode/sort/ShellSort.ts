@@ -1,6 +1,6 @@
 /** @format */
 
-const INCREMENT = [0, 1, 3, 7, 15, 19, 41, 109]
+const INCREMENT = [0, 1, 5, 19, 41, 109, 505, 929, 3905, 16001]
 
 export default function shellSort(n: number[]): void {
     const {length} = n

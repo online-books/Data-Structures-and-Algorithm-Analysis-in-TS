@@ -20,7 +20,7 @@ export default class BinaryHeap<T> {
     private list: T[] = []
     constructor(data: T[] = []) {
         this.list.push(data[0])
-        this.list.push(...data)
+        this.list = this.list.concat(data)
         for (let i = Math.floor(data.length / 2); i > 0; i--) {
             percolateDown(this.list, i)
         }
