@@ -1,6 +1,6 @@
 <!-- @format -->
 
-# Typescrip 数据结构与算法
+# Typescript 数据结构与算法
 
 ![travis-cli](https://travis-ci.com/qindagang/data-structures-and-algorithm-analysis-in-typescript.svg?branch=master)
 ![codecov](https://codecov.io/gh/qindagang/data-structures-and-algorithm-analysis-in-typescript/branch/master/graph/badge.svg?token=B05PLKNLJP)
@@ -50,6 +50,12 @@
 #### [8.不相交集 ADT](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter8-DisjointSet)
 
 #### [9.图论算法](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm)
+
+-   **[拓扑排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.1-TopSort)**
+-   **[最短路径算法](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm)**
+-   **[网络流问题](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.3-NetworkFlow)**
+-   **[最小生成树](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.4-MinimumSpanningTree)**
+-   **[深度优先搜索的应用](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.5-DepthFirstSearcht)**
 
 #### [10.算法设计技巧](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter10-AlgorithmDesingTechniques)
 
