@@ -4,6 +4,7 @@ import HashTable from '@/hash-table/HashTable'
 import {generateRandomKeys} from '@/shared/util'
 
 describe('Hash Table', () => {
+    const keys: string[] = []
     let hashTable: HashTable<number>
     test('initialization', () => {
         hashTable = new HashTable<number>()
@@ -16,6 +17,7 @@ describe('Hash Table', () => {
         const i = 0
         while (hashTable.size < MAX_SIZE) {
             const [key] = generateRandomKeys(characters, 3, 1)
+            keys.push(key)
             hashTable.insert(key, i)
         }
         expect(hashTable.size).toEqual(MAX_SIZE)
@@ -24,12 +26,10 @@ describe('Hash Table', () => {
         }).toThrow(Error)
     })
     test('find', () => {
-        const keys = hashTable.getKeys()
         expect(hashTable.find(keys[0])).not.toBeNull()
         expect(hashTable.find('a')).toBeNull()
     })
     test('delete', () => {
-        const keys = hashTable.getKeys()
         hashTable.delete(keys[0])
         expect(hashTable.size).toBe(hashTable.MAX_SIZE - 1)
         hashTable.delete('a')

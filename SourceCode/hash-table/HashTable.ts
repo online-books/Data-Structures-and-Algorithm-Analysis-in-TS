@@ -1,10 +1,10 @@
 /** @format */
 
 export default class HashTable<T> {
+    public size = 0
     private readonly LOAD_FACTOR = 0.5
     private readonly CAPACITY = [7, 17, 37, 97, 197, 397]
     private buckets: Array<{element: T; key: string} | null>
-    private keys: Set<string> = new Set()
     private level = 0
     constructor() {
         this.buckets = new Array(this.CAPACITY[this.level]).fill(null)
@@ -12,40 +12,35 @@ export default class HashTable<T> {
     public get MAX_SIZE(): number {
         return Math.floor(this.CAPACITY[this.CAPACITY.length - 1] * this.LOAD_FACTOR)
     }
-    public get size(): number {
-        return this.keys.size
-    }
     public find(key: string): T | null {
-        if (!this.hasKey(key)) {
-            return null
-        }
         const hashKey = this.getHashKey(key)
-        return this.buckets[hashKey]!.element
+        const value = this.buckets[hashKey]
+        if (value) {
+            return value.element
+        }
+        return null
     }
-    public insert(key: string, element: T): void {
+    public insert(key: string, element: T): number {
         if ((this.size + 1) / this.CAPACITY[this.level] > this.LOAD_FACTOR) {
             this.reHashing()
         }
-        if (!this.hasKey(key)) {
-            this.keys.add(key)
-        }
         const hashKey = this.getHashKey(key)
+        if (!this.buckets[hashKey]) {
+            this.size += 1
+        }
         this.buckets[hashKey] = {
             key,
             element,
         }
+        return hashKey
     }
 
     public delete(key: string): void {
-        if (!this.hasKey(key)) {
-            return
-        }
         const hashKey = this.getHashKey(key)
+        if (this.buckets[hashKey]) {
+            this.size -= 1
+        }
         this.buckets[hashKey] = null
-        this.keys.delete(key)
-    }
-    public getKeys(): string[] {
-        return Array.from(this.keys)
     }
 
     private hash(key: string): number {
@@ -69,9 +64,6 @@ export default class HashTable<T> {
         }
         return hashKey
     }
-    private hasKey(key: string) {
-        return this.keys.has(key)
-    }
     private reHashing() {
         if (this.level === this.CAPACITY.length - 1) {
             throw new Error('Exceed the limit ')
@@ -79,7 +71,7 @@ export default class HashTable<T> {
         this.level += 1
         const {buckets} = this
         this.buckets = new Array(this.CAPACITY[this.level]).fill(null)
-        this.keys.clear()
+        this.size = 0
         buckets.forEach(item => {
             if (item) {
                 this.insert(item.key, item.element)

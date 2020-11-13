@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>27/27</span>
+        <span class='fraction'>29/29</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>27/27</span>
+        <span class='fraction'>29/29</span>
       </div>
     </div>
     <p class="quiet">
@@ -101,7 +101,13 @@
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -124,6 +130,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
@@ -156,68 +165,74 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import LinkedListNode from './LinkedListNode';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** @format */
 &nbsp;
-export interface PolynomialNodeStruct {
-    coefficient: number
-    exponent: number
+import LinkedListNode from './LinkedListNode'
+&nbsp;
+interface DummyNodeStruct&lt;T&gt; {
+    next: null | LinkedListNode&lt;T&gt;
 }
 &nbsp;
 export default class LinkedList&lt;T&gt; {
-    private head: LinkedListNode&lt;T&gt;;
-    private nodeNum: number;
+    private head: DummyNodeStruct&lt;T&gt;
+    private nodeNum: number
     constructor() {
-        this.head = new LinkedListNode()
-        this.nodeNum = 0;
+        this.head = {next: null}
+        this.nodeNum = 0
     }
     public get size(): number {
-        return this.nodeNum;
+        return this.nodeNum
     }
     public get firstNode(): LinkedListNode&lt;T&gt; | null {
-        return this.head.next;
+        return this.head.next
     }
-    public find(element: T): LinkedListNode&lt;T&gt; | null {
-        let currentNode: LinkedListNode&lt;T&gt; | null = this.head.next;
-        while (currentNode !== null &amp;&amp; currentNode.element !== element) {
-            currentNode = currentNode.next;
+    public find(callback: (element: T) =&gt; boolean): LinkedListNode&lt;T&gt; | null {
+        let currentNode = this.head.next
+        while (currentNode !== null) {
+            if (callback(currentNode.element)) {
+                break
+            }
+            currentNode = currentNode.next
         }
-        return currentNode;
+        return currentNode
     }
     public insert(element: T, node?: LinkedListNode&lt;T&gt; | null): LinkedListNode&lt;T&gt; {
-        const frontNode = node ? node : this.head;
-        const newNode = new LinkedListNode(element);
-        const nextNode = frontNode.next;
-        frontNode.next = newNode;
-        newNode.next = nextNode;
-        this.nodeNum += 1;
-        return newNode;
+        const frontNode = node ? node : this.head
+        const newNode = new LinkedListNode(element)
+        const nextNode = frontNode.next
+        frontNode.next = newNode
+        newNode.next = nextNode
+        this.nodeNum += 1
+        return newNode
     }
-    public delete(node: LinkedListNode&lt;T&gt;) {
-        const prevNode = this.findPrevNode(node);
+    public delete(node: LinkedListNode&lt;T&gt;): void {
+        const prevNode = this.findPrevNode(node)
         if (!prevNode) {
-            return;
+            return
         }
-        prevNode.next = node.next;
-        node.next = null;
-        this.nodeNum -= 1;
+        prevNode.next = node.next
+        node.next = null
+        this.nodeNum -= 1
     }
-    private findPrevNode(node: LinkedListNode&lt;T&gt;): LinkedListNode&lt;T&gt; | null {
-        let currentNode = this.head;
+    private findPrevNode(node: LinkedListNode&lt;T&gt;): DummyNodeStruct&lt;T&gt; | null {
+        let currentNode = this.head
         while (currentNode.next !== null) {
             if (currentNode.next.element === node.element) {
-                return currentNode;
+                return currentNode
             }
-            currentNode = currentNode.next;
+            currentNode = currentNode.next
         }
-        return null;
+        return null
     }
-}</pre></td></tr>
+}
+&nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Oct 17 2020 12:06:58 GMT+0800 (GMT+08:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Nov 13 2020 11:33:35 GMT+0800 (GMT+08:00)
 </div>
 </div>
 <script src="../../prettify.js"></script>

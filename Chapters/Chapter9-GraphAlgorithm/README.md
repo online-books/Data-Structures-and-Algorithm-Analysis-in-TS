@@ -42,6 +42,4 @@
 
 ---
 
-SourceCode/graph/DirectedGraph.ts
-
-SourceCode/graph/UnDirectedGraph.ts
+SourceCode/graph/Graph.ts

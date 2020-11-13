@@ -16,5 +16,7 @@
     "eslint.run": "onSave",
     "eslint.codeAction.showDocumentation": {
         "enable": true
-    }
+    },
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSave": true
 }
