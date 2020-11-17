@@ -24,6 +24,13 @@ describe('linked list', () => {
             expect(list.size).toBe(3)
             expect(node3.next).toBeNull()
             expect(node1!.next!.element).toBe(6)
+            const data: number[] = []
+            const mock = jest.fn(element => {
+                data.push(element)
+            })
+            list.traverse(mock)
+            expect(mock.mock.calls.length).toBe(3)
+            expect(data).toStrictEqual([6, 4, 3])
         })
         test('find node', () => {
             const node2 = list.find(element => element === 3)
@@ -33,13 +40,10 @@ describe('linked list', () => {
             expect(list.find(element => element === 5)).toBeNull()
         })
         test('delete node', () => {
-            const node1 = list.find(element => element === 4)
-            const node2 = list.find(element => element === 3)
-            list.delete(node1!)
+            list.delete(element => element === 3)
             expect(list.size).toBe(2)
-            expect(node2!.next!.element).toBe(6)
-            list.delete(node1!)
-            expect(list.size).toBe(2)
+            list.delete(element => element === 6)
+            expect(list.size).toBe(1)
         })
     })
 })

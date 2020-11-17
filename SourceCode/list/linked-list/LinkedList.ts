@@ -8,13 +8,13 @@ interface DummyNodeStruct<T> {
 
 export default class LinkedList<T> {
     private head: DummyNodeStruct<T>
-    private nodeNum: number
+    private nodeCount: number
     constructor() {
         this.head = {next: null}
-        this.nodeNum = 0
+        this.nodeCount = 0
     }
     public get size(): number {
-        return this.nodeNum
+        return this.nodeCount
     }
     public get firstNode(): LinkedListNode<T> | null {
         return this.head.next
@@ -35,26 +35,27 @@ export default class LinkedList<T> {
         const nextNode = frontNode.next
         frontNode.next = newNode
         newNode.next = nextNode
-        this.nodeNum += 1
+        this.nodeCount += 1
         return newNode
     }
-    public delete(node: LinkedListNode<T>): void {
-        const prevNode = this.findPrevNode(node)
-        if (!prevNode) {
-            return
-        }
-        prevNode.next = node.next
-        node.next = null
-        this.nodeNum -= 1
-    }
-    private findPrevNode(node: LinkedListNode<T>): DummyNodeStruct<T> | null {
+    public delete(callback: (element: T) => boolean): void {
         let currentNode = this.head
         while (currentNode.next !== null) {
-            if (currentNode.next.element === node.element) {
-                return currentNode
+            if (callback(currentNode.next.element)) {
+                currentNode.next = currentNode.next.next
+                break
             }
             currentNode = currentNode.next
         }
-        return null
+        this.nodeCount -= 1
+    }
+    public traverse(callback: (element: T) => void): void {
+        const dfs = (node: LinkedListNode<T> | null) => {
+            if (node) {
+                dfs(node.next)
+                callback(node.element)
+            }
+        }
+        dfs(this.head.next)
     }
 }

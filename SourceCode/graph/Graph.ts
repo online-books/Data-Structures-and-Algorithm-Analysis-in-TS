@@ -2,60 +2,135 @@
 
 import LinkedList from '../list/linked-list/LinkedList'
 import HashTable from '../hash-table/HashTable'
-import GraphEdge from './GraphEdge'
+import Stack from '../stack/Stack'
 
-export interface AdjacencyListNodeStruct {
+export interface AdjVerticesListNodeStruct {
     weight: number
     adjVex: number
 }
 
-export const enum GRAPH_TYPE {
-    DIRECTED_GRAPH = 0,
-    UNDIRECTED_GRAPH = 1,
-}
-
 export default abstract class Graph {
-    protected adjacencyList: LinkedList<AdjacencyListNodeStruct>[]
+    protected adjVerticesLists: LinkedList<AdjVerticesListNodeStruct>[]
     protected vertices: HashTable<number>
-    protected type: GRAPH_TYPE
-    protected vertexCount = 0
-    protected init(): void {
+    protected indegrees: number[]
+    protected outdegrees: number[]
+    private vertexNames: string[]
+    private vertexPool: Stack<number>
+    protected constructor() {
         this.vertices = new HashTable()
-        this.adjacencyList = []
+        this.adjVerticesLists = []
+        this.vertexNames = []
+        this.indegrees = []
+        this.outdegrees = []
+        this.vertexPool = new Stack()
+    }
+    public getAdjVertices(vertexName: string): string[] {
+        const {vertexNames, adjVerticesLists, vertices} = this
+        const vertexIndex = vertices.find(vertexName)
+        const result: string[] = []
+        if (vertexIndex !== null) {
+            const verticesList = adjVerticesLists[vertexIndex]
+            verticesList.traverse(element => {
+                result.push(vertexNames[element.adjVex])
+            })
+        }
+        return result
+    }
+    public getIndegreeByVertexName(vertexName: string): number {
+        const vertexIndex = this.vertices.find(vertexName)
+        if (vertexIndex === null) {
+            return -1
+        }
+        return this.indegrees[vertexIndex] || 0
+    }
+    public getOutdegreeByVertexName(vertexName: string): number {
+        const vertexIndex = this.vertices.find(vertexName)
+        if (vertexIndex === null) {
+            return -1
+        }
+        return this.outdegrees[vertexIndex] || 0
     }
 
-    protected addEdge(edge: GraphEdge): void {
-        const {from, to, weight} = edge
-        let fromVertexIndex = this.vertices.find(from)
-        if (fromVertexIndex === null) {
-            fromVertexIndex = this.vertexCount
-            this.addVertex(from)
+    protected removeEdge(fromVertex: string, toVertex: string): boolean {
+        const headVertex = this.vertices.find(fromVertex)
+        if (headVertex === null) {
+            return false
         }
-        const adjacencyList = this.adjacencyList[fromVertexIndex]
-        let adjVex = this.vertices.find(to)
+        const verticesList = this.adjVerticesLists[headVertex]
+        const adjVex = this.vertices.find(toVertex)
         if (adjVex === null) {
-            adjVex = this.addVertex(to)
+            return false
         }
-        const existedNode = adjacencyList.find(element => {
+        const adjVertex = verticesList.find(element => {
             return element.adjVex === adjVex
         })
-        if (existedNode) {
-            return
+        if (!adjVertex) {
+            return false
         }
-        adjacencyList.insert({
+        verticesList.delete(element => {
+            return element.adjVex === adjVex
+        })
+        this.decreaseDegree(this.outdegrees, headVertex)
+        this.decreaseDegree(this.indegrees, adjVex)
+        if (this.indegrees[headVertex] + this.outdegrees[headVertex] === 0) {
+            this.removeVertex(fromVertex, headVertex)
+        }
+        if (this.indegrees[adjVex] + this.outdegrees[adjVex] === 0) {
+            this.removeVertex(toVertex, adjVex)
+        }
+        return true
+    }
+
+    protected addEdge(fromVertex: string, toVertex: string, weight: number): boolean {
+        const headVertex = this.getVertex(fromVertex)
+        const verticesList = this.adjVerticesLists[headVertex]
+        const adjVex = this.getVertex(toVertex)
+        const existedVertex = verticesList.find(element => {
+            return element.adjVex === adjVex
+        })
+        if (existedVertex) {
+            return false
+        }
+        this.increaseDegree(this.outdegrees, headVertex)
+        this.increaseDegree(this.indegrees, adjVex)
+        verticesList.insert({
             weight,
             adjVex,
         })
+        return true
     }
     private addVertex(vertexName: string): number {
-        const index = this.vertices.insert(vertexName, this.vertexCount)
-        const list = new LinkedList<AdjacencyListNodeStruct>()
-        list.insert({
-            weight: 0,
-            adjVex: index,
-        })
-        this.adjacencyList.push(list)
-        this.vertexCount += 1
-        return index
+        let vertexIndex: number
+        if (this.vertexPool.size) {
+            vertexIndex = this.vertexPool.pop()!
+        } else {
+            vertexIndex = this.vertexNames.length
+            const list = new LinkedList<AdjVerticesListNodeStruct>()
+            this.adjVerticesLists.push(list)
+        }
+        this.vertexNames.splice(vertexIndex, 1, vertexName)
+        this.vertices.insert(vertexName, vertexIndex)
+        return vertexIndex
+    }
+    private removeVertex(vertexName: string, vertexIndex: number): void {
+        this.vertices.delete(vertexName)
+        this.vertexNames.splice(vertexIndex, 1, '')
+        this.vertexPool.push(vertexIndex)
+    }
+    private getVertex(vertexName: string): number {
+        let vertexIndex = this.vertices.find(vertexName)
+        if (vertexIndex === null) {
+            vertexIndex = this.addVertex(vertexName)
+        }
+        return vertexIndex
+    }
+    private increaseDegree(degree: number[], index: number) {
+        if (degree[index] === undefined) {
+            degree[index] = 0
+        }
+        degree[index] += 1
+    }
+    private decreaseDegree(degree: number[], index: number) {
+        degree[index] -= 1
     }
 }

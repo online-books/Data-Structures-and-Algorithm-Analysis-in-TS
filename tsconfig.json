@@ -1,31 +1,26 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "module": "Commonjs",
-    "target": "ESNext",
-    "lib": ["ESNext"],
-    "sourceMap": true,
-    "allowJs": false,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "importHelpers": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "experimentalDecorators": true,
-    "strictNullChecks": true,
-    "paths": {
-      "@/*": ["SourceCode/*"]
-    }
-  },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "SourceCode/**/*",
-    "tests/**/*"
-  ]
+    "compilerOptions": {
+        "baseUrl": ".",
+        "module": "Commonjs",
+        "target": "ESNext",
+        "lib": ["ESNext"],
+        "sourceMap": true,
+        "allowJs": false,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "importHelpers": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "noUnusedLocals": true,
+        "experimentalDecorators": true,
+        "strictNullChecks": true,
+        "paths": {
+            "@/*": ["SourceCode/*"]
+        }
+    },
+    "exclude": ["node_modules"],
+    "include": ["SourceCode/**/*", "tests/**/*"]
 }
