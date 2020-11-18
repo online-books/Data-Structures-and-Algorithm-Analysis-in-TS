@@ -1,133 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1605605248769" clover="3.2.0">
-  <project timestamp="1605605248769" name="All files">
-    <metrics statements="106" coveredstatements="106" conditionals="37" coveredconditionals="37" methods="26" coveredmethods="26" elements="169" coveredelements="169" complexity="0" loc="106" ncloc="106" packages="3" files="4" classes="4"/>
-    <package name="SourceCode.graph">
-      <metrics statements="75" coveredstatements="75" conditionals="29" coveredconditionals="29" methods="18" coveredmethods="18"/>
-      <file name="DirectedGraph.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/SourceCode/graph/DirectedGraph.ts">
-        <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="3"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="11" count="17" type="stmt"/>
-        <line num="15" count="8" type="stmt"/>
-      </file>
-      <file name="Graph.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/SourceCode/graph/Graph.ts">
-        <metrics statements="72" coveredstatements="72" conditionals="28" coveredconditionals="28" methods="15" coveredmethods="15"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="28" count="28" type="stmt"/>
-        <line num="29" count="28" type="stmt"/>
-        <line num="30" count="28" type="stmt"/>
-        <line num="31" count="28" type="cond" truecount="2" falsecount="0"/>
-        <line num="32" count="23" type="stmt"/>
-        <line num="33" count="23" type="stmt"/>
-        <line num="34" count="39" type="stmt"/>
-        <line num="37" count="28" type="stmt"/>
-        <line num="40" count="16" type="stmt"/>
-        <line num="41" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="42" count="6" type="stmt"/>
-        <line num="44" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="47" count="16" type="stmt"/>
-        <line num="48" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="49" count="6" type="stmt"/>
-        <line num="51" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="55" count="21" type="stmt"/>
-        <line num="56" count="21" type="cond" truecount="2" falsecount="0"/>
-        <line num="57" count="2" type="stmt"/>
-        <line num="59" count="19" type="stmt"/>
-        <line num="60" count="19" type="stmt"/>
-        <line num="61" count="19" type="cond" truecount="2" falsecount="0"/>
-        <line num="62" count="2" type="stmt"/>
-        <line num="64" count="17" type="stmt"/>
-        <line num="65" count="36" type="stmt"/>
-        <line num="67" count="17" type="cond" truecount="2" falsecount="0"/>
-        <line num="68" count="2" type="stmt"/>
-        <line num="70" count="15" type="stmt"/>
-        <line num="71" count="32" type="stmt"/>
-        <line num="73" count="15" type="stmt"/>
-        <line num="74" count="15" type="stmt"/>
-        <line num="75" count="15" type="cond" truecount="2" falsecount="0"/>
-        <line num="76" count="2" type="stmt"/>
-        <line num="78" count="15" type="cond" truecount="2" falsecount="0"/>
-        <line num="79" count="2" type="stmt"/>
-        <line num="81" count="15" type="stmt"/>
-        <line num="85" count="50" type="stmt"/>
-        <line num="86" count="50" type="stmt"/>
-        <line num="87" count="50" type="stmt"/>
-        <line num="88" count="50" type="stmt"/>
-        <line num="89" count="48" type="stmt"/>
-        <line num="91" count="50" type="cond" truecount="2" falsecount="0"/>
-        <line num="92" count="2" type="stmt"/>
-        <line num="94" count="48" type="stmt"/>
-        <line num="95" count="48" type="stmt"/>
-        <line num="96" count="48" type="stmt"/>
-        <line num="100" count="48" type="stmt"/>
-        <line num="104" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="105" count="2" type="stmt"/>
-        <line num="107" count="20" type="stmt"/>
-        <line num="108" count="20" type="stmt"/>
-        <line num="109" count="20" type="stmt"/>
-        <line num="111" count="22" type="stmt"/>
-        <line num="112" count="22" type="stmt"/>
-        <line num="113" count="22" type="stmt"/>
-        <line num="116" count="4" type="stmt"/>
-        <line num="117" count="4" type="stmt"/>
-        <line num="118" count="4" type="stmt"/>
-        <line num="121" count="100" type="stmt"/>
-        <line num="122" count="100" type="cond" truecount="2" falsecount="0"/>
-        <line num="123" count="22" type="stmt"/>
-        <line num="125" count="100" type="stmt"/>
-        <line num="128" count="96" type="cond" truecount="2" falsecount="0"/>
-        <line num="129" count="39" type="stmt"/>
-        <line num="131" count="96" type="stmt"/>
-        <line num="134" count="30" type="stmt"/>
-      </file>
-    </package>
-    <package name="SourceCode.list.linked-list">
-      <metrics statements="29" coveredstatements="29" conditionals="8" coveredconditionals="8" methods="8" coveredmethods="8"/>
-      <file name="LinkedList.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/SourceCode/list/linked-list/LinkedList.ts">
-        <metrics statements="29" coveredstatements="29" conditionals="8" coveredconditionals="8" methods="8" coveredmethods="8"/>
-        <line num="13" count="21" type="stmt"/>
-        <line num="14" count="21" type="stmt"/>
-        <line num="17" count="6" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="23" count="69" type="stmt"/>
-        <line num="24" count="69" type="stmt"/>
-        <line num="25" count="88" type="cond" truecount="2" falsecount="0"/>
-        <line num="26" count="18" type="stmt"/>
-        <line num="28" count="70" type="stmt"/>
-        <line num="30" count="69" type="stmt"/>
-        <line num="33" count="51" type="cond" truecount="2" falsecount="0"/>
-        <line num="34" count="51" type="stmt"/>
-        <line num="35" count="51" type="stmt"/>
-        <line num="36" count="51" type="stmt"/>
-        <line num="37" count="51" type="stmt"/>
-        <line num="38" count="51" type="stmt"/>
-        <line num="39" count="51" type="stmt"/>
-        <line num="42" count="17" type="stmt"/>
-        <line num="43" count="17" type="stmt"/>
-        <line num="44" count="35" type="cond" truecount="2" falsecount="0"/>
-        <line num="45" count="17" type="stmt"/>
-        <line num="46" count="17" type="stmt"/>
-        <line num="48" count="18" type="stmt"/>
-        <line num="50" count="17" type="stmt"/>
-        <line num="53" count="24" type="stmt"/>
-        <line num="54" count="66" type="cond" truecount="2" falsecount="0"/>
-        <line num="55" count="42" type="stmt"/>
-        <line num="56" count="42" type="stmt"/>
-        <line num="59" count="24" type="stmt"/>
-      </file>
-    </package>
-    <package name="tests.graph">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="EdgeData.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/tests/graph/EdgeData.ts">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-      </file>
-    </package>
+<coverage generated="1605671918478" clover="3.2.0">
+  <project timestamp="1605671918478" name="All files">
+    <metrics statements="92" coveredstatements="92" conditionals="34" coveredconditionals="34" methods="20" coveredmethods="20" elements="146" coveredelements="146" complexity="0" loc="92" ncloc="92" packages="1" files="2" classes="2"/>
+    <file name="Graph.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/SourceCode/graph/Graph.ts">
+      <metrics statements="71" coveredstatements="71" conditionals="28" coveredconditionals="28" methods="17" coveredmethods="17"/>
+      <line num="20" count="3" type="stmt"/>
+      <line num="21" count="3" type="stmt"/>
+      <line num="22" count="3" type="stmt"/>
+      <line num="23" count="3" type="stmt"/>
+      <line num="24" count="3" type="stmt"/>
+      <line num="25" count="3" type="stmt"/>
+      <line num="28" count="60" type="stmt"/>
+      <line num="34" count="39" type="stmt"/>
+      <line num="35" count="39" type="stmt"/>
+      <line num="36" count="39" type="cond" truecount="2" falsecount="0"/>
+      <line num="37" count="34" type="stmt"/>
+      <line num="38" count="34" type="stmt"/>
+      <line num="39" count="54" type="stmt"/>
+      <line num="44" count="36" type="stmt"/>
+      <line num="45" count="36" type="cond" truecount="2" falsecount="0"/>
+      <line num="46" count="6" type="stmt"/>
+      <line num="48" count="30" type="cond" truecount="2" falsecount="0"/>
+      <line num="51" count="16" type="stmt"/>
+      <line num="52" count="16" type="cond" truecount="2" falsecount="0"/>
+      <line num="53" count="6" type="stmt"/>
+      <line num="55" count="10" type="cond" truecount="2" falsecount="0"/>
+      <line num="59" count="23" type="stmt"/>
+      <line num="60" count="23" type="cond" truecount="2" falsecount="0"/>
+      <line num="61" count="2" type="stmt"/>
+      <line num="63" count="21" type="stmt"/>
+      <line num="64" count="21" type="stmt"/>
+      <line num="65" count="21" type="cond" truecount="2" falsecount="0"/>
+      <line num="66" count="2" type="stmt"/>
+      <line num="68" count="19" type="stmt"/>
+      <line num="69" count="39" type="stmt"/>
+      <line num="71" count="19" type="cond" truecount="2" falsecount="0"/>
+      <line num="72" count="2" type="stmt"/>
+      <line num="74" count="17" type="stmt"/>
+      <line num="75" count="35" type="stmt"/>
+      <line num="77" count="17" type="stmt"/>
+      <line num="78" count="17" type="stmt"/>
+      <line num="79" count="17" type="cond" truecount="2" falsecount="0"/>
+      <line num="80" count="2" type="stmt"/>
+      <line num="82" count="17" type="cond" truecount="2" falsecount="0"/>
+      <line num="83" count="2" type="stmt"/>
+      <line num="85" count="17" type="stmt"/>
+      <line num="89" count="65" type="stmt"/>
+      <line num="90" count="65" type="stmt"/>
+      <line num="91" count="65" type="stmt"/>
+      <line num="92" count="65" type="stmt"/>
+      <line num="93" count="55" type="stmt"/>
+      <line num="95" count="65" type="cond" truecount="2" falsecount="0"/>
+      <line num="96" count="2" type="stmt"/>
+      <line num="98" count="63" type="stmt"/>
+      <line num="99" count="63" type="stmt"/>
+      <line num="100" count="63" type="stmt"/>
+      <line num="104" count="63" type="stmt"/>
+      <line num="108" count="32" type="cond" truecount="2" falsecount="0"/>
+      <line num="109" count="2" type="stmt"/>
+      <line num="111" count="30" type="stmt"/>
+      <line num="112" count="30" type="stmt"/>
+      <line num="113" count="30" type="stmt"/>
+      <line num="115" count="32" type="stmt"/>
+      <line num="116" count="32" type="stmt"/>
+      <line num="117" count="32" type="stmt"/>
+      <line num="120" count="4" type="stmt"/>
+      <line num="121" count="4" type="stmt"/>
+      <line num="122" count="4" type="stmt"/>
+      <line num="125" count="130" type="stmt"/>
+      <line num="126" count="130" type="cond" truecount="2" falsecount="0"/>
+      <line num="127" count="32" type="stmt"/>
+      <line num="129" count="130" type="stmt"/>
+      <line num="132" count="126" type="cond" truecount="2" falsecount="0"/>
+      <line num="133" count="57" type="stmt"/>
+      <line num="135" count="126" type="stmt"/>
+      <line num="138" count="34" type="stmt"/>
+    </file>
+    <file name="TopSort.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/SourceCode/graph/TopSort.ts">
+      <metrics statements="21" coveredstatements="21" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="8" count="2" type="stmt"/>
+      <line num="9" count="2" type="stmt"/>
+      <line num="10" count="2" type="stmt"/>
+      <line num="11" count="2" type="stmt"/>
+      <line num="12" count="2" type="stmt"/>
+      <line num="13" count="20" type="stmt"/>
+      <line num="14" count="20" type="cond" truecount="2" falsecount="0"/>
+      <line num="15" count="4" type="stmt"/>
+      <line num="17" count="20" type="stmt"/>
+      <line num="19" count="2" type="stmt"/>
+      <line num="20" count="11" type="stmt"/>
+      <line num="21" count="11" type="stmt"/>
+      <line num="22" count="11" type="stmt"/>
+      <line num="23" count="11" type="stmt"/>
+      <line num="24" count="15" type="stmt"/>
+      <line num="25" count="15" type="cond" truecount="2" falsecount="0"/>
+      <line num="26" count="7" type="stmt"/>
+      <line num="30" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="33" count="1" type="stmt"/>
+    </file>
   </project>
 </coverage>

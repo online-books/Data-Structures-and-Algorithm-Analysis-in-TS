@@ -24,17 +24,21 @@ export default abstract class Graph {
         this.outdegrees = []
         this.vertexPool = new Stack()
     }
-    public getAdjVertices(vertexName: string): string[] {
+    public getAllVertices(): string[] {
+        return this.vertexNames.filter(vertexName => vertexName)
+    }
+    public traverseAdjVertices(
+        vertexName: string,
+        callback: (adjVertexName: string, adjVertexIndex: number) => void,
+    ): void {
         const {vertexNames, adjVerticesLists, vertices} = this
         const vertexIndex = vertices.find(vertexName)
-        const result: string[] = []
         if (vertexIndex !== null) {
             const verticesList = adjVerticesLists[vertexIndex]
             verticesList.traverse(element => {
-                result.push(vertexNames[element.adjVex])
+                callback(vertexNames[element.adjVex], element.adjVex)
             })
         }
-        return result
     }
     public getIndegreeByVertexName(vertexName: string): number {
         const vertexIndex = this.vertices.find(vertexName)

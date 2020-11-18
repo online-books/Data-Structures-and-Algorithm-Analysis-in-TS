@@ -4,6 +4,14 @@ import DirectedGraph from '@/graph/DirectedGraph'
 import UnDirectedGraph from '@/graph/UnDirectedGraph'
 import {edges} from './EdgeData'
 
+function getAdjVertices(graph: DirectedGraph | UnDirectedGraph, vertexName: string) {
+    const adjVertices: string[] = []
+    graph.traverseAdjVertices(vertexName, adjVertexName => {
+        adjVertices.push(adjVertexName)
+    })
+    return adjVertices
+}
+
 describe('graph', () => {
     describe('Directed Graph', () => {
         let directedgraph: DirectedGraph
@@ -17,12 +25,13 @@ describe('graph', () => {
                 return directedgraph.addEdge(from, to)
             })
             expect(result).toBeTruthy()
+            expect(directedgraph.getAllVertices()).toStrictEqual(['a', 'b', 'd', 'c', 'f', 'e', 'g', 'h', 'j', 'i'])
             expect(directedgraph.addEdge('b', 'f')).toBeFalsy()
-            expect(directedgraph.getAdjVertices('a')).toStrictEqual(['b', 'd'])
-            expect(directedgraph.getAdjVertices('f')).toStrictEqual(['c'])
-            expect(directedgraph.getAdjVertices('h')).toStrictEqual(['f', 'j'])
-            expect(directedgraph.getAdjVertices('e')).toStrictEqual([])
-            expect(directedgraph.getAdjVertices('k')).toStrictEqual([])
+            expect(getAdjVertices(directedgraph, 'a')).toStrictEqual(['b', 'd'])
+            expect(getAdjVertices(directedgraph, 'f')).toStrictEqual(['c'])
+            expect(getAdjVertices(directedgraph, 'h')).toStrictEqual(['f', 'j'])
+            expect(getAdjVertices(directedgraph, 'e')).toStrictEqual([])
+            expect(getAdjVertices(directedgraph, 'k')).toStrictEqual([])
         })
         test('get degree', () => {
             expect(directedgraph.getOutdegreeByVertexName('a')).toBe(2)
@@ -34,18 +43,20 @@ describe('graph', () => {
         })
         test('remove edge', () => {
             expect(directedgraph.removeEdge('a', 'b')).toBeTruthy()
-            expect(directedgraph.getAdjVertices('a')).toStrictEqual(['d'])
+            expect(getAdjVertices(directedgraph, 'a')).toStrictEqual(['d'])
             expect(directedgraph.removeEdge('d', 'a')).toBeFalsy()
             expect(directedgraph.removeEdge('a', 'd')).toBeTruthy()
-            expect(directedgraph.getAdjVertices('a')).toStrictEqual([])
+            expect(getAdjVertices(directedgraph, 'a')).toStrictEqual([])
             expect(directedgraph.removeEdge('c', 'a')).toBeTruthy()
-            expect(directedgraph.getAdjVertices('c')).toStrictEqual(['d', 'e'])
+            expect(getAdjVertices(directedgraph, 'c')).toStrictEqual(['d', 'e'])
+            expect(directedgraph.getAllVertices()).toStrictEqual(['b', 'd', 'c', 'f', 'e', 'g', 'h', 'j', 'i'])
             expect(directedgraph.removeEdge('c', 'd')).toBeTruthy()
-            expect(directedgraph.getAdjVertices('d')).toStrictEqual(['e'])
+            expect(getAdjVertices(directedgraph, 'd')).toStrictEqual(['e'])
             expect(directedgraph.removeEdge('d', 'e')).toBeTruthy()
-            expect(directedgraph.getAdjVertices('d')).toStrictEqual([])
+            expect(getAdjVertices(directedgraph, 'd')).toStrictEqual([])
             expect(directedgraph.removeEdge('c', 'k')).toBeFalsy()
             expect(directedgraph.removeEdge('k', 'c')).toBeFalsy()
+            expect(directedgraph.getAllVertices()).toStrictEqual(['b', 'c', 'f', 'e', 'g', 'h', 'j', 'i'])
         })
         test('get degree after removing edge', () => {
             expect(directedgraph.getIndegreeByVertexName('a')).toBe(-1)
@@ -59,12 +70,13 @@ describe('graph', () => {
         })
         test('add edge after removing edge', () => {
             expect(directedgraph.addEdge('e', 'k')).toBeTruthy()
-            expect(directedgraph.getAdjVertices('e')).toStrictEqual(['k'])
+            expect(getAdjVertices(directedgraph, 'e')).toStrictEqual(['k'])
             expect(directedgraph.getIndegreeByVertexName('e')).toBe(1)
             expect(directedgraph.getOutdegreeByVertexName('e')).toBe(1)
-            expect(directedgraph.getAdjVertices('k')).toStrictEqual([])
+            expect(getAdjVertices(directedgraph, 'k')).toStrictEqual([])
             expect(directedgraph.getIndegreeByVertexName('k')).toBe(1)
             expect(directedgraph.getOutdegreeByVertexName('k')).toBe(0)
+            expect(directedgraph.getAllVertices()).toStrictEqual(['b', 'k', 'c', 'f', 'e', 'g', 'h', 'j', 'i'])
         })
     })
 
@@ -80,10 +92,10 @@ describe('graph', () => {
             })
             expect(result).toBeTruthy()
             expect(unDirectedGraph.addEdge('h', 'g')).toBeFalsy()
-            expect(unDirectedGraph.getAdjVertices('a')).toStrictEqual(['b', 'd', 'c'])
-            expect(unDirectedGraph.getAdjVertices('d')).toStrictEqual(['a', 'c', 'e'])
-            expect(unDirectedGraph.getAdjVertices('f')).toStrictEqual(['b', 'c', 'g', 'h'])
-            expect(unDirectedGraph.getAdjVertices('k')).toStrictEqual([])
+            expect(getAdjVertices(unDirectedGraph, 'a')).toStrictEqual(['b', 'd', 'c'])
+            expect(getAdjVertices(unDirectedGraph, 'd')).toStrictEqual(['a', 'c', 'e'])
+            expect(getAdjVertices(unDirectedGraph, 'f')).toStrictEqual(['b', 'c', 'g', 'h'])
+            expect(getAdjVertices(unDirectedGraph, 'k')).toStrictEqual([])
         })
         test('get degree', () => {
             expect(unDirectedGraph.getIndegreeByVertexName('a')).toBe(3)
@@ -100,20 +112,20 @@ describe('graph', () => {
             expect(unDirectedGraph.removeEdge('k', 'a')).toBeFalsy()
             expect(unDirectedGraph.removeEdge('a', 'k')).toBeFalsy()
             expect(unDirectedGraph.removeEdge('a', 'b')).toBeTruthy()
-            expect(unDirectedGraph.getAdjVertices('a')).toStrictEqual(['d', 'c'])
-            expect(unDirectedGraph.getAdjVertices('b')).toStrictEqual(['c', 'f'])
+            expect(getAdjVertices(unDirectedGraph, 'a')).toStrictEqual(['d', 'c'])
+            expect(getAdjVertices(unDirectedGraph, 'b')).toStrictEqual(['c', 'f'])
             expect(unDirectedGraph.removeEdge('a', 'd')).toBeTruthy()
-            expect(unDirectedGraph.getAdjVertices('a')).toStrictEqual(['c'])
-            expect(unDirectedGraph.getAdjVertices('d')).toStrictEqual(['c', 'e'])
+            expect(getAdjVertices(unDirectedGraph, 'a')).toStrictEqual(['c'])
+            expect(getAdjVertices(unDirectedGraph, 'd')).toStrictEqual(['c', 'e'])
             expect(unDirectedGraph.removeEdge('a', 'c')).toBeTruthy()
-            expect(unDirectedGraph.getAdjVertices('a')).toStrictEqual([])
-            expect(unDirectedGraph.getAdjVertices('c')).toStrictEqual(['b', 'd', 'e', 'f'])
+            expect(getAdjVertices(unDirectedGraph, 'a')).toStrictEqual([])
+            expect(getAdjVertices(unDirectedGraph, 'c')).toStrictEqual(['b', 'd', 'e', 'f'])
             expect(unDirectedGraph.removeEdge('d', 'c')).toBeTruthy()
-            expect(unDirectedGraph.getAdjVertices('c')).toStrictEqual(['b', 'e', 'f'])
-            expect(unDirectedGraph.getAdjVertices('d')).toStrictEqual(['e'])
+            expect(getAdjVertices(unDirectedGraph, 'c')).toStrictEqual(['b', 'e', 'f'])
+            expect(getAdjVertices(unDirectedGraph, 'd')).toStrictEqual(['e'])
             expect(unDirectedGraph.removeEdge('e', 'd')).toBeTruthy()
-            expect(unDirectedGraph.getAdjVertices('e')).toStrictEqual(['c'])
-            expect(unDirectedGraph.getAdjVertices('d')).toStrictEqual([])
+            expect(getAdjVertices(unDirectedGraph, 'e')).toStrictEqual(['c'])
+            expect(getAdjVertices(unDirectedGraph, 'd')).toStrictEqual([])
         })
         test('get degree after removing edge', () => {
             expect(unDirectedGraph.getIndegreeByVertexName('a')).toBe(-1)
@@ -125,8 +137,8 @@ describe('graph', () => {
         })
         test('add edge after removing edge', () => {
             expect(unDirectedGraph.addEdge('k', 'e')).toBeTruthy()
-            expect(unDirectedGraph.getAdjVertices('k')).toStrictEqual(['e'])
-            expect(unDirectedGraph.getAdjVertices('e')).toStrictEqual(['c', 'k'])
+            expect(getAdjVertices(unDirectedGraph, 'k')).toStrictEqual(['e'])
+            expect(getAdjVertices(unDirectedGraph, 'e')).toStrictEqual(['c', 'k'])
         })
     })
 })
