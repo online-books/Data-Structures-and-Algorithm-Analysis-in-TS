@@ -6,7 +6,7 @@
 ![codecov](https://codecov.io/gh/qindagang/data-structures-and-algorithm-analysis-in-typescript/branch/master/graph/badge.svg?token=B05PLKNLJP)
 ![GitHub](https://img.shields.io/github/license/qindagang/data-structures-and-algorithm-analysis-in-typescript)
 
-本仓库是根据《数据结构与算法分析-C 语言描述》（第二版）一书中所描述的各种数据结构与算法使用 Typescript 进行实现，并在每个章节中添加了必须要的解释与说明。相比原书，这里省略了大量涉及算法运行时间的定理证明、推导分析过程及算法实现的细节描述，因此强烈建议您在原书的基础上阅读本代码。
+本仓库是根据《数据结构与算法分析-C 语言描述》（第二版）一书中所描述的各种数据结构与算法使用 Typescript 进行实现，并在每个章节中添加了必须要的解释与说明。相比原书，这里省略了大量涉及算法运行时间的定理证明、推导分析过程及算法实现的细节描述，因此强烈建议您在原著的基础上阅读本代码。
 
 ### 如何阅读
 
@@ -47,15 +47,25 @@
 -   **[归并排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting/7.4-MergeSort)**
 -   **[快速排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter7-Sorting/7.5-QuickSort)**
 
-#### [8.不相交集 ADT](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter8-DisjointSet)
+#### [8.不相交集](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter8-DisjointSet)
 
 #### [9.图论算法](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm)
 
 -   **[拓扑排序](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.1-TopSort)**
 -   **[最短路径算法](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm)**
+    -   [无权最短路径](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.1-UnweightedShortestPaths)
+    -   [Dijkstra 算法](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.2-TheAlgorithmOfDijkstra)
+    -   [具有负边值的图](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.3-GraphsWithNegativeEdgeCosts)
+    -   [无圈图](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.4-AcyclicGraphs)
+    -   [所有点对最短路径](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.5-AllPairsShortestPath)
 -   **[网络流问题](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.3-NetworkFlow)**
 -   **[最小生成树](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.4-MinimumSpanningTree)**
 -   **[深度优先搜索的应用](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.5-DepthFirstSearcht)**
+    -   无向图遍历
+    -   双连通性
+    -   欧拉回路
+    -   有向图遍历
+    -   查找强分支
 
 #### [10.算法设计技巧](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter10-AlgorithmDesingTechniques)
 
