@@ -25,7 +25,7 @@ export default function unWeightedShortestPaths(directedGraph: DirectedGraph, ve
             }
         })
     }
-    if (counter) {
+    if (counter && counter < visitedVertices.length) {
         visitedVertices.forEach(visitedVertexName => {
             if (visitedVertexName) {
                 result[visitedVertexName] = []
