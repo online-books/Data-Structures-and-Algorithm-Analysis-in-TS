@@ -9,8 +9,15 @@ describe("dijkstra's algorithm", () => {
     weightedEdges.forEach(edge => {
         directedGraph.addEdge(...edge)
     })
-    test('vertex not in graph', () => {
+    test('the result of a vertex not in graph should be null', () => {
         expect(dijkstra(directedGraph, 's')).toBeNull()
+    })
+    test('negative weight should raise an error', () => {
+        const anotherGraph = new DirectedGraph()
+        anotherGraph.addEdge('a', 'b', -1)
+        expect(() => {
+            dijkstra(anotherGraph, 'a')
+        }).toThrowError()
     })
     test('going as expected', () => {
         const result = dijkstra(directedGraph, 'a')!

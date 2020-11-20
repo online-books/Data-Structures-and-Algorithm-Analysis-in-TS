@@ -29,7 +29,7 @@ export default abstract class Graph {
     }
     public traverseAdjVertices(
         vertexName: string,
-        callback: (adjVertexName: string, adjVertexIndex: number, adjVertexWeight?: number) => void,
+        callback: (adjVertexName: string, adjVertexIndex: number, adjVertexWeight: number) => void,
     ): void {
         const {vertexNames, adjVerticesLists, vertices} = this
         const vertexIndex = vertices.find(vertexName)

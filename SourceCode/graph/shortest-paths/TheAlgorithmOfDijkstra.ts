@@ -52,6 +52,9 @@ export default function dijkstra(directedGraph: DirectedGraph, vertexName: strin
             visited[currentVertex.vertexIndex] = 1
             counter += 1
             directedGraph.traverseAdjVertices(currentVertexName, (adjVertexName, adjVertexIndex, adjVertexWeight) => {
+                if (adjVertexWeight < 0) {
+                    throw new Error('negative weight is invalid')
+                }
                 const updatedDistance = currentDistance + adjVertexWeight
                 if (updatedDistance < distances[adjVertexIndex]) {
                     heap.insert(new VertexHeapNode(adjVertexIndex, updatedDistance))

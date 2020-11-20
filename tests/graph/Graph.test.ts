@@ -68,7 +68,7 @@ describe('graph', () => {
             expect(directedgraph.getIndegreeByVertexName('c')).toBe(2)
             expect(directedgraph.getOutdegreeByVertexName('c')).toBe(1)
         })
-        test('add edge after removing edge', () => {
+        test('add edge after removing edges', () => {
             expect(directedgraph.addEdge('e', 'k')).toBeTruthy()
             expect(getAdjVertices(directedgraph, 'e')).toStrictEqual(['k'])
             expect(directedgraph.getIndegreeByVertexName('e')).toBe(1)
