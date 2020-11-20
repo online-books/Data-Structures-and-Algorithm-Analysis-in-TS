@@ -4,13 +4,13 @@ import Queue from '@/queue/Queue'
 
 describe('Queue', () => {
     let queue: Queue<number>
-    test('queue initialization', () => {
+    test('initialization', () => {
         queue = new Queue<number>()
         expect(queue).toBeInstanceOf(Queue)
         expect(queue.size).toBe(0)
         expect(queue.frontElement).toBeNull()
     })
-    test('queue enqueue', () => {
+    test('enqueue', () => {
         queue.enqueue(1)
         expect(queue.frontElement).toBe(1)
         expect(queue.size).toBe(1)
@@ -18,9 +18,13 @@ describe('Queue', () => {
         expect(queue.frontElement).toBe(1)
         expect(queue.size).toBe(2)
     })
-    test('queue dequeue', () => {
+    test('dequeue', () => {
         const element = queue.dequeue()
         expect(element).toBe(1)
         expect(queue.frontElement).toBe(2)
+    })
+    test('exist', () => {
+        expect(queue.exist(3)).toBeFalsy()
+        expect(queue.exist(2)).toBeTruthy()
     })
 })

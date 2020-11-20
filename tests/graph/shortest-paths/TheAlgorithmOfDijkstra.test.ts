@@ -2,7 +2,7 @@
 
 import DirectedGraph from '@/graph/DirectedGraph'
 import dijkstra from '@/graph/shortest-paths/TheAlgorithmOfDijkstra'
-import {weightedEdges} from '../EdgeData'
+import {weightedEdges, weightedNegativeEdges} from '../EdgeData'
 
 describe("dijkstra's algorithm", () => {
     const directedGraph = new DirectedGraph()
@@ -14,7 +14,9 @@ describe("dijkstra's algorithm", () => {
     })
     test('negative weight should raise an error', () => {
         const anotherGraph = new DirectedGraph()
-        anotherGraph.addEdge('a', 'b', -1)
+        weightedNegativeEdges.forEach(edge => {
+            anotherGraph.addEdge(...edge)
+        })
         expect(() => {
             dijkstra(anotherGraph, 'a')
         }).toThrowError()

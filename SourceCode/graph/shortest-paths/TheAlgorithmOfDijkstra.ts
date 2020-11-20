@@ -2,23 +2,7 @@
 
 import BinaryHeap from '@/priority-queue/BinaryHeap'
 import DirectedGraph from '../DirectedGraph'
-
-interface PathCostMap {
-    [propName: string]: {
-        path: string[]
-        distance: number
-    }
-}
-class VertexHeapNode extends Object {
-    constructor(public vertexIndex: number, public distance: number) {
-        super()
-        this.vertexIndex = vertexIndex
-        this.distance = distance
-    }
-    public valueOf(): number {
-        return this.distance
-    }
-}
+import {VertexHeapNode, PathCostMap} from './HelperClass'
 
 export default function dijkstra(directedGraph: DirectedGraph, vertexName: string): PathCostMap | null {
     const vertices = directedGraph.getAllVertices()

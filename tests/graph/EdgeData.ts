@@ -32,3 +32,11 @@ export const weightedEdges: Array<[string, string, number]> = [
     ['e', 'g', 6],
     ['g', 'f', 1],
 ]
+
+export const weightedNegativeEdges: Array<[string, string, number]> = [
+    ['a', 'b', 2],
+    ['b', 'f', 1],
+    ['b', 'c', 3],
+    ['f', 'c', 4],
+    ['c', 'a', -10],
+]

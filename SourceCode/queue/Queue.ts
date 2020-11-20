@@ -11,6 +11,9 @@ export default class Queue<T> {
         }
         return this.capacity[0]
     }
+    public exist(element: T): boolean {
+        return this.capacity.includes(element)
+    }
     public enqueue(element: T): void {
         this.capacity.push(element)
     }
