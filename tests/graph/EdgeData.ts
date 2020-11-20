@@ -22,7 +22,7 @@ export const weightedEdges: Array<[string, string, number]> = [
     ['a', 'b', 2],
     ['a', 'd', 1],
     ['b', 'd', 3],
-    ['b', 'e', 1],
+    ['b', 'e', 4],
     ['c', 'a', 4],
     ['c', 'f', 5],
     ['d', 'c', 2],

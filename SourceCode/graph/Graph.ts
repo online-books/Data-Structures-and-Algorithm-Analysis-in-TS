@@ -29,14 +29,14 @@ export default abstract class Graph {
     }
     public traverseAdjVertices(
         vertexName: string,
-        callback: (adjVertexName: string, adjVertexIndex: number) => void,
+        callback: (adjVertexName: string, adjVertexIndex: number, adjVertexWeight?: number) => void,
     ): void {
         const {vertexNames, adjVerticesLists, vertices} = this
         const vertexIndex = vertices.find(vertexName)
         if (vertexIndex !== null) {
             const verticesList = adjVerticesLists[vertexIndex]
             verticesList.traverse(element => {
-                callback(vertexNames[element.adjVex], element.adjVex)
+                callback(vertexNames[element.adjVex], element.adjVex, element.weight)
             })
         }
     }
