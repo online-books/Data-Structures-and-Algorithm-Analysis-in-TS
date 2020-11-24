@@ -56,8 +56,7 @@
     -   [无权最短路径](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.1-UnweightedShortestPaths)
     -   [Dijkstra 算法](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.2-TheAlgorithmOfDijkstra)
     -   [具有负边值的图](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.3-GraphsWithNegativeEdgeCosts)
-    -   [无圈图](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.4-AcyclicGraphs)
-    -   [所有点对最短路径](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.5-AllPairsShortestPath)
+    -   [所有点对最短路径](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.4-AllPairsShortestPath)
 -   **[网络流问题](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.3-NetworkFlow)**
 -   **[最小生成树](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.4-MinimumSpanningTree)**
 -   **[深度优先搜索的应用](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.5-DepthFirstSearcht)**

@@ -6,6 +6,7 @@ export interface PathCostMap {
         distance: number
     }
 }
+
 export class VertexHeapNode {
     constructor(public vertexIndex: number, public distance: number) {
         this.vertexIndex = vertexIndex
