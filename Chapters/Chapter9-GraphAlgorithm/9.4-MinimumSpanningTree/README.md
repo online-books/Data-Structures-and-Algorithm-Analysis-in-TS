@@ -37,4 +37,16 @@ Prim 算法基本上和求最短路径的 Dijkstra 算法一样。不用堆时�
 
 图 9-4-3 在每一步之后的 Kruskal 算法
 
-我们
+我们用到的一个恒定的事实是，在算法实施的任一时刻，两个顶点属于同一个集合当且仅当它们在当前的生成森林中连通。因此，每个顶点最初是在它自己的集合中。如果$u$和$v$在一个集合中，那么连接它们的边就要放弃。因为它们已经连通了，因此再添加边$(u,v)$会形成一个圈。如果这两个顶点不再一个集合中，则将该边加入，并对包含顶点$u$和$v$的这两个集合实施一次合并。容易看到，这将保持集合不变性，因为一旦边$(u,v)$添加到生成森林中，若$w$连通到$u$而$x$连通到$v$，则$x$和$w$必然是连通的，因此属于相同的集合。
+
+用线性时间建立一个堆，此时$DeleteMin$将使得边序依次得到测试。典型情况下，在算法终止钱只有一小部分边需要测试，尽管测试所有的边的情况也是有可能的。
+
+该算法的最坏情形运行时间为$O(|E|log|E|)$，由于$|E|=O(|V|^2)$，因此这个运行时间实际上是$O(|E|log|V|)$。
+
+### 代码位置
+
+---
+
+[SourceCode/Graph/MinimumSpanningTree/Prim.ts](../../../SourceCode/Graph/MinimumSpanningTree/Prim.ts)
+
+[SourceCode/Graph/MinimumSpanningTree/Kruskal.ts](../../../SourceCode/Graph/MinimumSpanningTree/Kruskal.ts)
