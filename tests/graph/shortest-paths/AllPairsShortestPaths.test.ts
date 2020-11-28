@@ -2,7 +2,7 @@
 
 import DirectedGraph from '@/graph/DirectedGraph'
 import allPairsShortestPath from '@/graph/shortest-paths/AllPairsShortestPaths'
-import {weightedEdges} from '../EdgeData'
+import {SHORTEST_PATH_EDGES} from '../EdgeData'
 
 function visualize(table: any[][]) {
     const rows = table.length
@@ -19,7 +19,7 @@ function visualize(table: any[][]) {
 
 describe('all pairs shortest path', () => {
     const directedGraph = new DirectedGraph()
-    weightedEdges.forEach(edge => {
+    SHORTEST_PATH_EDGES.forEach(edge => {
         directedGraph.addEdge(...edge)
     })
     test('going as expected', () => {

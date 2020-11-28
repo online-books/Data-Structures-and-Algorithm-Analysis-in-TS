@@ -2,11 +2,11 @@
 
 import DirectedGraph from '@/graph/DirectedGraph'
 import maximumFlow, {copyDirectedGraph, searchMaxAugmentingPath} from '@/graph/NetworkFlow'
-import {weightedEdges} from './EdgeData'
+import {SHORTEST_PATH_EDGES} from './EdgeData'
 
 describe('NetworkFlow', () => {
     const directedGraph = new DirectedGraph()
-    weightedEdges.forEach(edge => {
+    SHORTEST_PATH_EDGES.forEach(edge => {
         directedGraph.addEdge(...edge)
     })
     test('duplicate directed graph', () => {

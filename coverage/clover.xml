@@ -1,79 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1606463931301" clover="3.2.0">
-  <project timestamp="1606463931301" name="All files">
-    <metrics statements="70" coveredstatements="70" conditionals="22" coveredconditionals="22" methods="10" coveredmethods="10" elements="102" coveredelements="102" complexity="0" loc="70" ncloc="70" packages="1" files="1" classes="1"/>
-    <file name="NetworkFlow.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/SourceCode/graph/NetworkFlow.ts">
-      <metrics statements="70" coveredstatements="70" conditionals="22" coveredconditionals="22" methods="10" coveredmethods="10"/>
-      <line num="13" count="5" type="stmt"/>
-      <line num="14" count="5" type="stmt"/>
-      <line num="15" count="5" type="stmt"/>
-      <line num="16" count="35" type="stmt"/>
-      <line num="17" count="60" type="stmt"/>
-      <line num="20" count="5" type="stmt"/>
-      <line num="32" count="97" type="cond" truecount="2" falsecount="0"/>
-      <line num="33" count="19" type="stmt"/>
-      <line num="34" count="19" type="stmt"/>
-      <line num="35" count="19" type="stmt"/>
-      <line num="39" count="78" type="cond" truecount="2" falsecount="0"/>
-      <line num="40" count="18" type="stmt"/>
-      <line num="41" count="18" type="stmt"/>
-      <line num="43" count="60" type="stmt"/>
-      <line num="44" count="60" type="stmt"/>
-      <line num="45" count="60" type="stmt"/>
-      <line num="46" count="100" type="cond" truecount="2" falsecount="0"/>
-      <line num="47" count="17" type="stmt"/>
-      <line num="49" count="83" type="stmt"/>
-      <line num="50" count="83" type="stmt"/>
-      <line num="51" count="83" type="stmt"/>
-      <line num="52" count="83" type="cond" truecount="2" falsecount="0"/>
-      <line num="53" count="59" type="stmt"/>
-      <line num="54" count="86" type="stmt"/>
-      <line num="55" count="86" type="stmt"/>
-      <line num="58" count="83" type="stmt"/>
-      <line num="60" count="60" type="stmt"/>
-      <line num="65" count="78" type="stmt"/>
-      <line num="66" count="104" type="stmt"/>
-      <line num="68" count="78" type="stmt"/>
-      <line num="69" count="104" type="stmt"/>
-      <line num="71" count="78" type="stmt"/>
-      <line num="79" count="14" type="stmt"/>
-      <line num="80" count="14" type="stmt"/>
-      <line num="81" count="14" type="stmt"/>
-      <line num="82" count="14" type="stmt"/>
-      <line num="83" count="14" type="stmt"/>
-      <line num="84" count="98" type="cond" truecount="2" falsecount="0"/>
-      <line num="85" count="14" type="stmt"/>
-      <line num="87" count="84" type="stmt"/>
-      <line num="90" count="14" type="stmt"/>
-      <line num="91" count="14" type="stmt"/>
-      <line num="92" count="14" type="stmt"/>
-      <line num="93" count="14" type="stmt"/>
-      <line num="94" count="37" type="stmt"/>
-      <line num="95" count="37" type="stmt"/>
-      <line num="96" count="37" type="stmt"/>
-      <line num="97" count="117" type="cond" truecount="2" falsecount="0"/>
-      <line num="98" count="55" type="stmt"/>
-      <line num="101" count="37" type="cond" truecount="2" falsecount="0"/>
-      <line num="102" count="13" type="stmt"/>
-      <line num="103" count="13" type="stmt"/>
-      <line num="106" count="14" type="cond" truecount="2" falsecount="0"/>
-      <line num="107" count="14" type="cond" truecount="2" falsecount="0"/>
-      <line num="108" count="14" type="stmt"/>
-      <line num="116" count="4" type="stmt"/>
-      <line num="117" count="4" type="stmt"/>
-      <line num="118" count="4" type="stmt"/>
-      <line num="119" count="10" type="stmt"/>
-      <line num="120" count="10" type="cond" truecount="2" falsecount="0"/>
-      <line num="121" count="4" type="stmt"/>
-      <line num="123" count="6" type="stmt"/>
-      <line num="124" count="16" type="stmt"/>
-      <line num="125" count="16" type="stmt"/>
-      <line num="126" count="16" type="stmt"/>
-      <line num="127" count="16" type="stmt"/>
-      <line num="128" count="16" type="cond" truecount="2" falsecount="0"/>
-      <line num="129" count="8" type="stmt"/>
-      <line num="132" count="6" type="stmt"/>
-      <line num="135" count="4" type="stmt"/>
+<coverage generated="1606475327724" clover="3.2.0">
+  <project timestamp="1606475327724" name="All files">
+    <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="2" coveredelements="2" complexity="0" loc="2" ncloc="2" packages="1" files="1" classes="1"/>
+    <file name="EdgeData.ts" path="/Users/momo/Documents/GitHub/data-structures-algorithm-typescript/tests/graph/EdgeData.ts">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="3" count="7" type="stmt"/>
+      <line num="21" count="7" type="stmt"/>
     </file>
   </project>
 </coverage>

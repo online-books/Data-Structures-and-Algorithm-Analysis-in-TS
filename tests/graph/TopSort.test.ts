@@ -2,12 +2,12 @@
 
 import DirectedGraph from '@/graph/DirectedGraph'
 import topSort from '@/graph/TopSort'
-import {edges} from './EdgeData'
+import {SHORTEST_PATH_EDGES} from './EdgeData'
 
 describe('top sort', () => {
     const graph = new DirectedGraph()
     test('a graph of having cycle should throw an error', () => {
-        edges.forEach(edge => {
+        SHORTEST_PATH_EDGES.forEach(edge => {
             graph.addEdge(edge[0], edge[1])
         })
         expect(() => {

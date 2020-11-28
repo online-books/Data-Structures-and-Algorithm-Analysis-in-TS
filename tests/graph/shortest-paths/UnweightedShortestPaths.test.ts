@@ -2,11 +2,11 @@
 
 import DirectedGraph from '@/graph/DirectedGraph'
 import unWeightedShortestPaths from '@/graph/shortest-paths/UnweightedShortestPaths'
-import {edges} from '../EdgeData'
+import {SHORTEST_PATH_EDGES} from '../EdgeData'
 
 describe('unweighted shortest paths', () => {
     const directedGraph = new DirectedGraph()
-    edges.forEach(edge => {
+    SHORTEST_PATH_EDGES.forEach(edge => {
         directedGraph.addEdge(edge[0], edge[1])
     })
     test("a nonexistend vertex's shortest paths should be empty", () => {

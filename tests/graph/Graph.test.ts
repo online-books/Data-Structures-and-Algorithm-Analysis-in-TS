@@ -2,7 +2,7 @@
 
 import DirectedGraph from '@/graph/DirectedGraph'
 import UnDirectedGraph from '@/graph/UnDirectedGraph'
-import {edges} from './EdgeData'
+import {SHORTEST_PATH_EDGES} from './EdgeData'
 
 function getAdjVertices(graph: DirectedGraph | UnDirectedGraph, vertexName: string) {
     const adjVertices: string[] = []
@@ -21,7 +21,7 @@ describe('graph', () => {
             expect(directedgraph).toBeInstanceOf(DirectedGraph)
         })
         test('add edge', () => {
-            const result = edges.every(([from, to]) => {
+            const result = SHORTEST_PATH_EDGES.every(([from, to]) => {
                 return directedgraph.addEdge(from, to)
             })
             expect(result).toBeTruthy()
@@ -87,7 +87,7 @@ describe('graph', () => {
             expect(unDirectedGraph).toBeInstanceOf(UnDirectedGraph)
         })
         test('add edge', () => {
-            const result = edges.every(([from, to]) => {
+            const result = SHORTEST_PATH_EDGES.every(([from, to]) => {
                 return unDirectedGraph.addEdge(from, to)
             })
             expect(result).toBeTruthy()

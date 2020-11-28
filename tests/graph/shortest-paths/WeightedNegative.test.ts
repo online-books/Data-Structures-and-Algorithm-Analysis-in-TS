@@ -2,13 +2,14 @@
 
 import DirectedGraph from '@/graph/DirectedGraph'
 import weightedNegativeShortestPaths from '@/graph/shortest-paths/WeightedNegative'
-import {weightedNegativeEdges} from '../EdgeData'
+import {SHORTEST_PATH_EDGES} from '../EdgeData'
 
 describe('weighted negative shortest paths', () => {
     const graph = new DirectedGraph()
-    weightedNegativeEdges.forEach(edge => {
+    SHORTEST_PATH_EDGES.forEach(edge => {
         graph.addEdge(...edge)
     })
+    graph.addEdge('b', 'f', -1)
     test('the result of a vertex not in graph should be null', () => {
         expect(weightedNegativeShortestPaths(graph, 'g')).toBeNull()
     })

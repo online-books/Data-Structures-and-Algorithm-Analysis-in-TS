@@ -2,26 +2,31 @@
 
 import DirectedGraph from '@/graph/DirectedGraph'
 import dijkstra from '@/graph/shortest-paths/TheAlgorithmOfDijkstra'
-import {weightedEdges, weightedNegativeEdges} from '../EdgeData'
+import {SHORTEST_PATH_EDGES} from '../EdgeData'
 
-describe("dijkstra's algorithm", () => {
+function createDirectedGrap(): DirectedGraph {
     const directedGraph = new DirectedGraph()
-    weightedEdges.forEach(edge => {
+    SHORTEST_PATH_EDGES.forEach(edge => {
         directedGraph.addEdge(...edge)
     })
+    return directedGraph
+}
+
+describe("dijkstra's algorithm", () => {
     test('the result of a vertex not in graph should be null', () => {
+        const directedGraph = createDirectedGrap()
         expect(dijkstra(directedGraph, 's')).toBeNull()
     })
     test('negative weight should raise an error', () => {
-        const anotherGraph = new DirectedGraph()
-        weightedNegativeEdges.forEach(edge => {
-            anotherGraph.addEdge(...edge)
-        })
+        const directedGraph = createDirectedGrap()
+
+        directedGraph.addEdge('f', 'b', -1)
         expect(() => {
-            dijkstra(anotherGraph, 'a')
+            dijkstra(directedGraph, 'a')
         }).toThrowError()
     })
     test('going as expected', () => {
+        const directedGraph = createDirectedGrap()
         const result = dijkstra(directedGraph, 'a')!
         expect(result).not.toBeNull()
         expect(result['a']).toEqual({

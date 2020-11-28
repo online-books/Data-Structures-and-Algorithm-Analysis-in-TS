@@ -1,6 +1,6 @@
 /** @format */
 
-export const edges: Array<[string, string]> = [
+export const STRONG_BRANCH_EDGES = [
     ['a', 'b'],
     ['a', 'd'],
     ['b', 'c'],
@@ -18,11 +18,11 @@ export const edges: Array<[string, string]> = [
     ['i', 'h'],
 ]
 
-export const weightedEdges: Array<[string, string, number]> = [
+export const SHORTEST_PATH_EDGES: Array<[string, string, number]> = [
     ['a', 'b', 2],
     ['a', 'd', 1],
     ['b', 'd', 3],
-    ['b', 'e', 4],
+    ['b', 'e', 10],
     ['c', 'a', 4],
     ['c', 'f', 5],
     ['d', 'c', 2],
@@ -31,12 +31,4 @@ export const weightedEdges: Array<[string, string, number]> = [
     ['d', 'g', 4],
     ['e', 'g', 6],
     ['g', 'f', 1],
-]
-
-export const weightedNegativeEdges: Array<[string, string, number]> = [
-    ['a', 'b', 2],
-    ['b', 'f', 1],
-    ['b', 'c', 3],
-    ['f', 'c', 4],
-    ['c', 'a', -10],
 ]
