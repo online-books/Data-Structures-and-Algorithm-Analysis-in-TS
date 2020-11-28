@@ -10,6 +10,14 @@ describe('Prim algorithm', () => {
         unDirectedGraph.addEdge(...edge)
     })
     test('Prim', () => {
-        prim(unDirectedGraph)
+        const edges = prim(unDirectedGraph)
+        expect(edges).toStrictEqual([
+            ['a', 'd', 1],
+            ['d', 'c', 2],
+            ['a', 'b', 2],
+            ['d', 'g', 4],
+            ['g', 'f', 1],
+            ['g', 'e', 6],
+        ])
     })
 })

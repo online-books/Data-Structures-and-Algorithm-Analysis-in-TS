@@ -28,21 +28,21 @@
 
 记住，我们的问题不要求$Find$操作返回任何特定的名字，而只是要求当且仅当两个元素属于相同的集合时，作用在这两个元素的$Find$返回相同的名字。一种想法是可以使用树来表示每一个集合，因为树上的每一个元素都有相同的根。这样，该跟就可以用来命名所在的集合。我们用树来表示每一个集合，开始时每个集合都含有一个元素。集合的名字由根处的节点给出，由于只需要父节点的名字，因此我们可以假设树被存储在一个数组中：数组的每个成员$P[i]$表示元素$i$的父亲，如果$i$是根，那么$P[i]=0$。在图 8-1 的森林中，对于$1 \leq i \leq 8,P[i]=0$。
 
-<image src="../../Images/ch8/8-1.png"/>
+<image src="../../Assets/Images/ch8/8-1.png"/>
 
 图 8-1 八个元素，最初是在八个不同的集合上
 
 为了执行两个集合的$Union$运算，我们使一个节点的根指针指向另一棵树的根节点。这种操作花费常数时间。图 8-2、8-3 和 8-4 分别表示在$Union(5,6)$，$Union(7,8)$，$Union(5,7)$之后的森林。
 
-<image src="../../Images/ch8/8-2.png"/>
+<image src="../../Assets/Images/ch8/8-2.png"/>
 
 图 8-2 在$Union(5,6)之后$
 
-<image src="../../Images/ch8/8-3.png"/>
+<image src="../../Assets/Images/ch8/8-3.png"/>
 
 图 8-3 在$Union(7,8)之后$
 
-<image src="../../Images/ch8/8-4.png"/>
+<image src="../../Assets/Images/ch8/8-4.png"/>
 
 图 8-4 在$Union(5,7)之后$
 
@@ -64,11 +64,11 @@
 
 设操作为$Find(X)$，此时路径压缩的效果是，从$X$到根的路径上的每一个节点都使它的父节点变成根。
 
-<image src="../../Images/ch8/8-5.png"/>
+<image src="../../Assets/Images/ch8/8-5.png"/>
 
 图 8-5 路径压缩之前
 
-<image src="../../Images/ch8/8-6.png"/>
+<image src="../../Assets/Images/ch8/8-6.png"/>
 
 图 8-6 路径压缩之后
 

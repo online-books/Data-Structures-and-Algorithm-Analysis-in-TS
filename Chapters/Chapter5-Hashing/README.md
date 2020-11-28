@@ -10,7 +10,7 @@
 
 理想的散列结构是包含有关键字的具有固定大小的数组，每个关键字被映射到从$0$到$TableSize-1$这个范围中的某个树，并且被放到适当的单元中，这个映射就叫做散列函数。
 
-<image src="../../Images/ch5/hash_table.png" />
+<image src="../../Assets/Images/ch5/hash_table.png" />
 
 图 5-1 一个理想的散列表
 
@@ -38,7 +38,7 @@ private hash(element: string): number {
 
 分离链接法是将散列到同一个值的所有元素保留到一个表中。
 
-<image src="../../Images/ch5/separate_chaining_hash_table.png" />
+<image src="../../Assets/Images/ch5/separate_chaining_hash_table.png" />
 
 图 5-2 分离链接散列表
 

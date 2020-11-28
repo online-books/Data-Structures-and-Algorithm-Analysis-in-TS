@@ -60,10 +60,8 @@
 -   **[网络流问题](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.3-NetworkFlow)**
 -   **[最小生成树](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.4-MinimumSpanningTree)**
 -   **[深度优先搜索的应用](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter9-GraphAlgorithm/9.5-DepthFirstSearcht)**
-    -   无向图遍历
     -   双连通性
     -   欧拉回路
-    -   有向图遍历
     -   查找强分支
 
 #### [10.算法设计技巧](https://github.com/qindagang/data-structures-and-algorithm-analysis-in-typescript/tree/master/Chapters/Chapter10-AlgorithmDesingTechniques)

@@ -4,13 +4,13 @@
 
 AVL(Adelson-Velskii 和 Landis)树是带有平衡条件的二叉查找树。这个平衡条件是其每个节点的左子树和右子树的高度最多差 1 的二叉查找树（空树的高度定义为$-1$）。
 
-<image src="../../../Images/ch4/avltree_true.png">
+<image src="../../../Assets/Images/ch4/avltree_true.png">
 
 图 4-1 两棵二叉查找树，只有左边的数是 AVL 树
 
 举个例子，下图 4-2 显示一棵具有最少节点数$143$高度为$9$的 AVL 树。这棵树的左子树是高度为$7$且节点树最少的 AVL 树，右子树是高度为$8$的节点数最少的 AVL 树。由此可得在高度为$h$的 AVL 树中，最少节点数$S(h)=S(h-1)+S(h-2)+1$。对于$h=0$，$S(h)=1$；$h=1$，$S(h)=2$。函数$S(h)$与斐波那契数密切相关。
 
-<image src="../../../Images/ch4/avltree_h9.png">
+<image src="../../../Assets/Images/ch4/avltree_h9.png">
 
 图 4-2 高度为 9 的最小的 AVL 树
 
@@ -52,7 +52,7 @@ export default class AVLTreeNode<T> {
 
 图 4-3 显示单旋转如何调整情形$a$。旋转前的图在左边，而旋转后的图在右边。节点$k_2$不满足 AVL 平衡特性，因为它的左子树比右子树深$2$层。为使树恢复平衡，我们把$X$上移一层，并把$Z$下移一层。
 
-<image src="../../../Images/ch4/avltree_single_rotation.png">
+<image src="../../../Assets/Images/ch4/avltree_single_rotation.png">
 
 图 4-3 调整情形$a$的单旋转
 
@@ -101,13 +101,13 @@ private getHeight(node: AVLTreeNode<T> | null): number {
 
 如图 4-4 所示，单旋转对情形$b$和$c$无效，问题在于子树$Y$太深，单旋转没有减低它的深度。
 
-<image src="../../../Images/ch4/avltree_single_rotation_invalid.png">
+<image src="../../../Assets/Images/ch4/avltree_single_rotation_invalid.png">
 
 图 4-4 单旋转不能修复情形$b$
 
 在图 4-4 中的子树$Y$已经有一项插入其中，因为我们可以假设它有一个根和两个子树。于是我们可以把整棵树看作是四棵子树由 3 个节点连接而成，如图 4-5 所示。为了重新平衡，不能再让$k_3$作为根了，而图 4-4 所示的在$k_3$和$k_1$之间的旋转又解决不了问题，唯一的选择就是把$k_2$当作新的根。这迫使$k_1$是$k_2$的左儿子，$k_3$是它的右儿子，从而完全确定这四颗树的最终位置。
 
-<image src="../../../Images/ch4/avltree_doouble_rotation.png">
+<image src="../../../Assets/Images/ch4/avltree_doouble_rotation.png">
 
 图 4-5 左-右双旋转修复情形$b$
 

@@ -7,7 +7,7 @@
 ---
 
 链表由一系列不必在内存中相连的节点组成。每个节点均含有一个节点值（下图中的$A_1$、$A_2$等）和指向后继节点的指针（下图中的箭头所表示），这里称之为 Next 指针。最后一个节点的 Next 指针指向 NULL。
-<img src="../../Images/ch3/list_overview.png"/>
+<img src="../../Assets/Images/ch3/list_overview.png"/>
 
 图 1-1 一个链表
 
@@ -42,7 +42,7 @@ class LinkedList<T> {
 链表的基本操作：
 
 -   **插入**：以$O(1)$的运行时间向链表中插入一个新的节点。
-    <img src="../../Images/ch3/list_insert.png"/>
+    <img src="../../Assets/Images/ch3/list_insert.png"/>
 
 图 1-2 在$A_2$节点后向链表中插入
 
@@ -63,7 +63,7 @@ class LinkedList<T> {
 ```
 
 -   **删除**：为了将某个节点从链表中删除，需要先找出被删除节点的前驱节点。运行时间为$O(N)$。
-    <img src="../../Images/ch3/list_delete.png"/>
+    <img src="../../Assets/Images/ch3/list_delete.png"/>
 
 图 1-3 从链表中删除$A_3$节点
 
@@ -99,7 +99,7 @@ class LinkedList<T> {
 
 栈（stack）又叫 LIFO(后进先出)表，是限制插入和删除只能在表的一个位置上进行，叫做栈的顶（Top）。
 
-<image src="../../Images/ch3/stack.png"/>
+<image src="../../Assets/Images/ch3/stack.png"/>
 
 图 2-1 栈模型：占有栈顶元素是可访问的
 
@@ -137,7 +137,7 @@ public pop() {
 
 队列(queue)是插入在一端进行而删除则在另一端进行的表。
 
-<image src="../../Images/ch3/queue.png"/>
+<image src="../../Assets/Images/ch3/queue.png"/>
 
 图 3-1 队列模型
 
