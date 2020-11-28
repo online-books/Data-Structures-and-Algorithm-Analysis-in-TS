@@ -47,7 +47,7 @@ describe("dijkstra's algorithm", () => {
         })
         expect(result['e']).toEqual({
             path: ['a', 'd', 'e'],
-            distance: 3,
+            distance: 8,
         })
         expect(result['g']).toEqual({
             path: ['a', 'd', 'g'],

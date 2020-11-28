@@ -26,7 +26,7 @@ export const SHORTEST_PATH_EDGES: Array<[string, string, number]> = [
     ['c', 'a', 4],
     ['c', 'f', 5],
     ['d', 'c', 2],
-    ['d', 'e', 2],
+    ['d', 'e', 7],
     ['d', 'f', 8],
     ['d', 'g', 4],
     ['e', 'g', 6],

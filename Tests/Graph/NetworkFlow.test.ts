@@ -36,7 +36,7 @@ describe('NetworkFlow', () => {
     })
     test('maximum flow', () => {
         expect(maximumFlow(directedGraph, 'a', 'f')).toBe(3)
-        expect(maximumFlow(directedGraph, 'b', 'e')).toBe(12)
+        expect(maximumFlow(directedGraph, 'b', 'e')).toBe(13)
         expect(maximumFlow(directedGraph, 'b', 'f')).toBe(4)
         expect(maximumFlow(directedGraph, 'g', 'c')).toBe(0)
     })
