@@ -37,4 +37,4 @@ Dijkstra 算法像无权最短路径算法一样，按阶段进行。在算法�
 
 ---
 
-SourceCode/graph/shortest-paths/TheAlgorithmOfDijkstra.ts
+SourceCode/Graph/ShortestPaths/TheAlgorithmOfDijkstra.ts

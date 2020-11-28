@@ -1,6 +1,6 @@
 /** @format */
 
-import BinaryHeap from '../priority-queue/BinaryHeap'
+import BinaryHeap from '../PriorityQueue/BinaryHeap'
 
 export default function heapSort(n: number[]): void {
     const heap = new BinaryHeap(n)

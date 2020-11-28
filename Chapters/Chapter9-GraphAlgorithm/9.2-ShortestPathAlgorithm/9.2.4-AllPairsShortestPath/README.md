@@ -28,7 +28,7 @@ Dijkstra 算法的时间复杂度为$O(|V|^2)$，对稀疏图运行更快。动�
 
 ---
 
-SourceCode/graph/shortest-path/AllPairsShortestPaths.ts
+SourceCode/Graph/ShortestPaths/AllPairsShortestPaths.ts
 
 ### 参考
 

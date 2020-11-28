@@ -1,6 +1,6 @@
 /** @format */
 
-import {swap, midian3} from '@/shared/util'
+import {swap, midian3} from '@/Shared/Util'
 import insertionSort from './InsertionSort'
 
 const CUTOFF = 3
@@ -62,9 +62,6 @@ function qSelect(n: number[], left: number, right: number, k: number): number {
         }
         // ;[1, 2, 3, 4, 5, 6], (k = 3), (i = 4)
         swap(n, i, right - 1)
-        if (k === right - i + 1) {
-            return n[i]
-        }
         if (k <= right - i) {
             return qSelect(n, i + 1, right, k)
         }

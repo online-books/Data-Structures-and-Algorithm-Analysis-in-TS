@@ -1,7 +1,6 @@
 /** @format */
 
 import DirectedGraph from '../DirectedGraph'
-import {PathCostMap} from './HelperClass'
 
 type AllPathCostTable = (string | number)[][]
 

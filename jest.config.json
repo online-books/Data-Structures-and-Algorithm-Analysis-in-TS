@@ -9,12 +9,13 @@
     "!**/node_modules/**"
   ],
   "moduleFileExtensions": [
+    "js",
     "ts"
   ],
   "globals": {
     "ts-jest": {}
   },
   "roots": [
-    "tests"
+    "Tests"
   ]
 }

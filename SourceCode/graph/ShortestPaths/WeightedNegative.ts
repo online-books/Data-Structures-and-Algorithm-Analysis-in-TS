@@ -1,6 +1,6 @@
 /** @format */
 
-import Queue from '@/queue/Queue'
+import Queue from '@/Queue/Queue'
 import DirectedGraph from '../DirectedGraph'
 import {PathCostMap} from './HelperClass'
 

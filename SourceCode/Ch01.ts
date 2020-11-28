@@ -1,6 +1,6 @@
 /** @format */
 
-import {compareFn} from '@/shared/util'
+import {compareFn} from '@/Shared/Util'
 
 // 选择问题，解法1
 export function kThMaximumSelection1(n: number[], k: number): number {

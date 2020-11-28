@@ -18,4 +18,4 @@
 
 ---
 
-SourceCode/graph/shortest-paths/UnweightedShortestPaths.ts
+SourceCode/Graph/ShortestPaths/UnweightedShortestPaths.ts

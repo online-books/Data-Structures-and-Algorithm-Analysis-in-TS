@@ -78,4 +78,4 @@
 
 ---
 
-SourceCode/disjoint-set/DisjoinSet.ts
+SourceCode/DisjointSet/DisjoinSet.ts

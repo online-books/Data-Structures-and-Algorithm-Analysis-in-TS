@@ -1,6 +1,6 @@
 /** @format */
 
-import {swap} from '@/shared/util'
+import {swap} from '@/Shared/Util'
 
 function percolateDown(list: any[], i: number) {
     while (2 * i <= list.length - 1) {

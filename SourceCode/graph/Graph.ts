@@ -1,8 +1,8 @@
 /** @format */
 
-import LinkedList from '../list/linked-list/LinkedList'
-import HashTable from '../hash-table/HashTable'
-import Stack from '../stack/Stack'
+import LinkedList from '../List/LinkedList/LinkedList'
+import HashTable from '../HashTable/HashTable'
+import Stack from '../Stack/Stack'
 
 export interface AdjVerticesListNodeStruct {
     weight: number

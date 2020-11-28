@@ -12,4 +12,4 @@
 
 ---
 
-SourceCode/graph/shortest-paths/WeightedNegative.ts
+SourceCode/Graph/ShortestPaths/WeightedNegative.ts
