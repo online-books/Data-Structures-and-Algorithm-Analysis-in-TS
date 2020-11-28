@@ -1,6 +1,6 @@
 /** @format */
 
-import AVLTree from '@/tree/avl-tree/AVLTree'
+import AVLTree from '@'
 
 describe('AVL tree', () => {
     let tree: AVLTree<number>

@@ -1,5 +1,5 @@
 /** @format */
 
-import UnDirectedGraph from '../UnDirectedGraph'
+import UnDirectedGraph from '../UndirectedGraph'
 
 export default function prim(graph: UnDirectedGraph): UnDirectedGraph {}

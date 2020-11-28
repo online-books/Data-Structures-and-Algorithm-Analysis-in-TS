@@ -1,6 +1,6 @@
 /** @format */
 
-import BinaryHeap from '@/priority-queue/BinaryHeap'
+import BinaryHeap from '@/PriorityQueue/BinaryHeap'
 import DirectedGraph from '../DirectedGraph'
 import {VertexHeapNode, PathCostMap} from './HelperClass'
 

@@ -1,6 +1,6 @@
 /** @format */
 
-import BinaryTreeNode from '../tree/binary-search-tree/BinaryTreeNode'
+import BinaryTreeNode from '../Tree/BinarySearchTree/BinaryTreeNode'
 
 function swapChildNode(treeNode: {left: any; right: any}) {
     const {left, right} = treeNode
