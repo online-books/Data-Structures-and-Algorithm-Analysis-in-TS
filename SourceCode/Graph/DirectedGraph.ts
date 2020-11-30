@@ -7,7 +7,7 @@ export default class DirectedGraph extends Graph {
         super()
     }
 
-    public addEdge(fromVertex: string, toVertex: string, weight = 0): boolean {
+    public addEdge(fromVertex: string, toVertex: string, weight?: number): boolean {
         return super.addEdge(fromVertex, toVertex, weight)
     }
 

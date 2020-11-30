@@ -2,12 +2,12 @@
 
 import Graph from './Graph'
 
-export default class UnDirectedGraph extends Graph {
+export default class UndirectedGraph extends Graph {
     constructor() {
         super()
     }
 
-    public addEdge(fromVertex: string, toVertex: string, weight = 0): boolean {
+    public addEdge(fromVertex: string, toVertex: string, weight?: number): boolean {
         if (fromVertex === toVertex) {
             return false
         }

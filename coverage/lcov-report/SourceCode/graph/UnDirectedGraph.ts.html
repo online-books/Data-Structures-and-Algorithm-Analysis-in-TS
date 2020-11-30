@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.06% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.22% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/9</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.67% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.06% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -91,66 +91,66 @@
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">57x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-yes">56x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">55x</span>
+<span class="cline-any cline-yes">55x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** @format */
 &nbsp;
 import Graph from './Graph'
 &nbsp;
-export default class UnDirectedGraph extends Graph {
+export default class UndirectedGraph extends Graph {
     constructor() {
         super()
     }
 &nbsp;
-    public addEdge(fromVertex: string, toVertex: string, weight = <span class="branch-0 cbranch-no" title="branch not covered" >0)</span>: boolean {
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (fromVertex === toVertex) {
-<span class="cstat-no" title="statement not covered" >            return false</span>
+    public addEdge(fromVertex: string, toVertex: string, weight?: number): boolean {
+        if (fromVertex === toVertex) {
+            return false
         }
         const result = super.addEdge(fromVertex, toVertex, weight)
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (!result) {
-<span class="cstat-no" title="statement not covered" >            return false</span>
+        if (!result) {
+            return false
         }
         super.addEdge(toVertex, fromVertex, weight)
         return true
     }
-    public <span class="fstat-no" title="function not covered" >removeEdge(</span>fromVertex: string, toVertex: string): boolean {
-<span class="cstat-no" title="statement not covered" >        if (fromVertex === toVertex) {</span>
-<span class="cstat-no" title="statement not covered" >            return false</span>
+    public removeEdge(fromVertex: string, toVertex: string): boolean {
+        if (fromVertex === toVertex) {
+            return false
         }
-        const result = <span class="cstat-no" title="statement not covered" >super.removeEdge(fromVertex, toVertex)</span>
-<span class="cstat-no" title="statement not covered" >        if (!result) {</span>
-<span class="cstat-no" title="statement not covered" >            return false</span>
+        const result = super.removeEdge(fromVertex, toVertex)
+        if (!result) {
+            return false
         }
-<span class="cstat-no" title="statement not covered" >        super.removeEdge(toVertex, fromVertex)</span>
-<span class="cstat-no" title="statement not covered" >        return true</span>
+        super.removeEdge(toVertex, fromVertex)
+        return true
     }
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -160,7 +160,7 @@ export default class UnDirectedGraph extends Graph {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Nov 28 2020 15:11:14 GMT+0800 (中国标准时间)
+                at Mon Nov 30 2020 18:27:16 GMT+0800 (中国标准时间)
             </div>
         </div>
         <script src="../../prettify.js"></script>

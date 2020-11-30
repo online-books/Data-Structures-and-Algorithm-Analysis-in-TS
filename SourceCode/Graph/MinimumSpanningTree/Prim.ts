@@ -1,10 +1,10 @@
 /** @format */
 
-import BinaryHeap from '@/PriorityQueue/BinaryHeap'
+import BinaryHeap from '../../PriorityQueue/BinaryHeap'
 import {VertexHeapNode} from '../ShortestPaths/HelperClass'
-import UnDirectedGraph from '../UndirectedGraph'
+import UndirectedGraph from '../UndirectedGraph'
 
-export default function prim(graph: UnDirectedGraph): Array<[string, string, number]> {
+export default function prim(graph: UndirectedGraph): Array<[string, string, number]> {
     const vertices = graph.getAllVertices()
     const visited = new Array(vertices.length).fill(0)
     const distances = new Array(vertices.length).fill(Infinity)

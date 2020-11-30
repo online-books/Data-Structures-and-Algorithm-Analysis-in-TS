@@ -1,6 +1,6 @@
 /** @format */
 
-export const STRONG_BRANCH_EDGES = [
+export const STRONG_BRANCH_EDGES: Array<[string, string]> = [
     ['a', 'b'],
     ['a', 'd'],
     ['b', 'c'],

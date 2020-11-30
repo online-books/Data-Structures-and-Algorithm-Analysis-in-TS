@@ -85,7 +85,7 @@ export default abstract class Graph {
         return true
     }
 
-    protected addEdge(fromVertex: string, toVertex: string, weight: number): boolean {
+    protected addEdge(fromVertex: string, toVertex: string, weight = 1): boolean {
         const headVertex = this.getVertex(fromVertex)
         const verticesList = this.adjVerticesLists[headVertex]
         const adjVex = this.getVertex(toVertex)
