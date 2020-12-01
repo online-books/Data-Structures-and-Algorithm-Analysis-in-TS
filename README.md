@@ -19,52 +19,52 @@
 
 ---
 
-#### [1.引论](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter1-Introduction)
+#### [1.引论](Chapters/Chapter1-Introduction)
 
-#### [2.算法分析](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter2-AlgorithmAnalysis)
+#### [2.算法分析](Chapters/Chapter2-AlgorithmAnalysis)
 
-#### [3.表、栈和队列](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter3-ListStackQueue)
+#### [3.表、栈和队列](Chapters/Chapter3-ListStackQueue)
 
-#### [4.树](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter4-Trees)
+#### [4.树](Chapters/Chapter4-Trees)
 
--   **[二叉查找树](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter4-Trees/4.1-BinarySearchTree)**
--   **[AVL 树](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter4-Trees/4.2-AVLTree)**
+-   **[二叉查找树](Chapters/Chapter4-Trees/4.1-BinarySearchTree)**
+-   **[AVL 树](Chapters/Chapter4-Trees/4.2-AVLTree)**
 
-#### [5.散列](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter5-Hashing)
+#### [5.散列](Chapters/Chapter5-Hashing)
 
-#### [6.优先队列（堆）](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter6-PriorityQueue)
+#### [6.优先队列（堆）](Chapters/Chapter6-PriorityQueue)
 
--   **[二叉堆](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter6-PriorityQueue/6.1-BinaryHeap)**
--   **[左式堆](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter6-PriorityQueue/6.2-LeftistHeap)**
--   **[斜堆](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter6-PriorityQueue/6.3-SkewHeap)**
--   **[二项队列](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter6-PriorityQueue/6.4-BinomalQueue)**
+-   **[二叉堆](Chapters/Chapter6-PriorityQueue/6.1-BinaryHeap)**
+-   **[左式堆](Chapters/Chapter6-PriorityQueue/6.2-LeftistHeap)**
+-   **[斜堆](Chapters/Chapter6-PriorityQueue/6.3-SkewHeap)**
+-   **[二项队列](Chapters/Chapter6-PriorityQueue/6.4-BinomalQueue)**
 
-#### [7.排序](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter7-Sorting)
+#### [7.排序](Chapters/Chapter7-Sorting)
 
--   **[插入排序](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter7-Sorting/7.1-InsertionSort)**
--   **[希尔排序](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter7-Sorting/7.2-ShellSort)**
--   **[堆排序](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter7-Sorting/7.3-HeapSort)**
--   **[归并排序](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter7-Sorting/7.4-MergeSort)**
--   **[快速排序](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter7-Sorting/7.5-QuickSort)**
+-   **[插入排序](Chapters/Chapter7-Sorting/7.1-InsertionSort)**
+-   **[希尔排序](Chapters/Chapter7-Sorting/7.2-ShellSort)**
+-   **[堆排序](Chapters/Chapter7-Sorting/7.3-HeapSort)**
+-   **[归并排序](Chapters/Chapter7-Sorting/7.4-MergeSort)**
+-   **[快速排序](Chapters/Chapter7-Sorting/7.5-QuickSort)**
 
-#### [8.不相交集](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter8-DisjointSet)
+#### [8.不相交集](Chapters/Chapter8-DisjointSet)
 
-#### [9.图论算法](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter9-GraphAlgorithm)
+#### [9.图论算法](Chapters/Chapter9-GraphAlgorithm)
 
--   **[拓扑排序](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter9-GraphAlgorithm/9.1-TopSort)**
--   **[最短路径算法](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm)**
-    -   [无权最短路径](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.1-UnweightedShortestPaths)
-    -   [Dijkstra 算法](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.2-TheAlgorithmOfDijkstra)
-    -   [具有负边值的图](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.3-GraphsWithNegativeEdgeCosts)
-    -   [所有点对最短路径](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.4-AllPairsShortestPath)
--   **[网络流问题](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter9-GraphAlgorithm/9.3-NetworkFlow)**
--   **[最小生成树](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter9-GraphAlgorithm/9.4-MinimumSpanningTree)**
--   **[深度优先搜索的应用](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter9-GraphAlgorithm/9.5-DepthFirstSearcht)**
-    -   双连通性
-    -   欧拉回路
-    -   查找强分支
+-   **[拓扑排序](Chapters/Chapter9-GraphAlgorithm/9.1-TopSort)**
+-   **[最短路径算法](Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm)**
+    -   [无权最短路径](Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.1-UnweightedShortestPaths)
+    -   [Dijkstra 算法](Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.2-TheAlgorithmOfDijkstra)
+    -   [具有负边值的图](Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.3-GraphsWithNegativeEdgeCosts)
+    -   [所有点对最短路径](Chapters/Chapter9-GraphAlgorithm/9.2-ShortestPathAlgorithm/9.2.4-AllPairsShortestPath)
+-   **[网络流问题](Chapters/Chapter9-GraphAlgorithm/9.3-NetworkFlow)**
+-   **[最小生成树](Chapters/Chapter9-GraphAlgorithm/9.4-MinimumSpanningTree)**
+-   **[深度优先搜索的应用](Chapters/Chapter9-GraphAlgorithm/9.5-DepthFirstSearcht)**
+    -   [双连通性](Chapters/Chapter9-GraphAlgorithm/9.5-DepthFirstSearch/9.5.1-Biconnectivity/README.md)
+    -   [欧拉回路](Chapters/Chapter9-GraphAlgorithm/9.5-DepthFirstSearch/9.5.2-EulerCircuits/README.md)
+    -   [查找强分支](Chapters/Chapter9-GraphAlgorithm/9.5-DepthFirstSearch/9.5.3-FindingStrongComponents/README.md)
 
-#### [10.算法设计技巧](https://github.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/tree/master/Chapters/Chapter10-AlgorithmDesingTechniques)
+#### [10.算法设计技巧](Chapters/Chapter10-AlgorithmDesingTechniques)
 
 ### 如何使用
 
