@@ -32,3 +32,24 @@ export const SHORTEST_PATH_EDGES: Array<[string, string, number]> = [
     ['e', 'g', 6],
     ['g', 'f', 1],
 ]
+
+export const BICONNECTED_EDGES: Array<[string, string]> = [
+    ['a', 'b'],
+    ['a', 'd'],
+    ['a', 'e'],
+    ['b', 'd'],
+    ['d', 'c'],
+    ['b', 'c'],
+    ['c', 'e'],
+]
+
+export const ARTICULATION_POINTS_EDGES: Array<[string, string]> = [
+    ['a', 'b'],
+    ['a', 'd'],
+    ['b', 'c'],
+    ['c', 'g'],
+    ['c', 'd'],
+    ['d', 'f'],
+    ['d', 'e'],
+    ['e', 'f'],
+]
