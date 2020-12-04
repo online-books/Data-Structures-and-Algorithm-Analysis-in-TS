@@ -24,6 +24,13 @@ export default abstract class Graph {
         this.outdegrees = []
         this.vertexPool = new Stack()
     }
+    public hasVertex(vertexName: string): boolean {
+        const vertexIndex = this.vertices.find(vertexName)
+        if (vertexIndex === null) {
+            return false
+        }
+        return true
+    }
     public getAllVertices(): string[] {
         return this.vertexNames.filter(vertexName => vertexName)
     }
@@ -43,14 +50,14 @@ export default abstract class Graph {
     public getIndegreeByVertexName(vertexName: string): number {
         const vertexIndex = this.vertices.find(vertexName)
         if (vertexIndex === null) {
-            return -1
+            return 0
         }
         return this.indegrees[vertexIndex] || 0
     }
     public getOutdegreeByVertexName(vertexName: string): number {
         const vertexIndex = this.vertices.find(vertexName)
         if (vertexIndex === null) {
-            return -1
+            return 0
         }
         return this.outdegrees[vertexIndex] || 0
     }

@@ -1,6 +1,6 @@
 /** @format */
 
-import LinkedList from '@/List/Linkedlist/LinkedList'
+import LinkedList from '@/List/LinkedList/LinkedList'
 
 describe('linked list', () => {
     describe('linked list implementation', () => {
