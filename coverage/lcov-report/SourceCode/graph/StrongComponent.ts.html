@@ -25,21 +25,21 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>47/47</span>
+                <span class='fraction'>48/48</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.67% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>11/12</span>
+                <span class='fraction'>9/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -146,14 +146,7 @@
 <a name='L87'></a><a href='#L87'>87</a>
 <a name='L88'></a><a href='#L88'>88</a>
 <a name='L89'></a><a href='#L89'>89</a>
-<a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a>
-<a name='L93'></a><a href='#L93'>93</a>
-<a name='L94'></a><a href='#L94'>94</a>
-<a name='L95'></a><a href='#L95'>95</a>
-<a name='L96'></a><a href='#L96'>96</a>
-<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L90'></a><a href='#L90'>90</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -174,24 +167,17 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">55x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -235,8 +221,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">35x</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">20x</span>
 <span class="cline-any cline-yes">20x</span>
@@ -263,31 +249,24 @@ interface AfterAllCallback {
 &nbsp;
 export default function findStrongComponents(directedGraph: DirectedGraph): string[][] {
     const {spanningForest, reversedDirectedGraph} = spanDfsForest(directedGraph)
-    const vertices = directedGraph.getAllVertices()
+    const vertices = reversedDirectedGraph.getAllVertices()
     const visited = new Array(vertices.length).fill(0)
     const strongComponent: string[] = []
     const result: string[][] = []
     while (spanningForest.length) {
         const spanningTree = spanningForest.pop()!
-        strongComponent.length = 0
         while (spanningTree.length) {
-            const lastVertexIndex = spanningTree.pop()
-            if (!lastVertexIndex || lastVertexIndex &lt; 0) {
-                continue
+            const vertexName = spanningTree.pop()!
+            strongComponent.length = 0
+            const vertexIndex = vertices.findIndex(val =&gt; val === vertexName)
+            dfs(reversedDirectedGraph, visited, vertices[vertexIndex], vertexIndex, undefined, vertexName =&gt; {
+                strongComponent.push(vertexName)
+            })
+            if (strongComponent.length) {
+                result.push([...strongComponent])
             }
-            dfs(
-                reversedDirectedGraph,
-                visited,
-                vertices[lastVertexIndex],
-                lastVertexIndex,
-                undefined,
-                (vertexName, vertexIndex) =&gt; {
-                    strongComponent.push(vertexName)
-                    spanningTree.splice(vertexIndex, 1, -1)
-                },
-            )
+            strongComponent.length = 0
         }
-        result.push([...strongComponent])
     }
     return result
 }
@@ -295,19 +274,19 @@ export default function findStrongComponents(directedGraph: DirectedGraph): stri
 function spanDfsForest(
     directedGraph: DirectedGraph,
 ): {
-    spanningForest: number[][]
+    spanningForest: string[][]
     reversedDirectedGraph: DirectedGraph
 } {
     const reversedDirectedGraph = new DirectedGraph()
     const vertices = directedGraph.getAllVertices()
     const visited = new Array(vertices.length).fill(0)
-    const spanningForest: number[][] = []
-    const spanningTree: number[] = []
-    const addEdge: BeforeEachCallback = (vertexName, adjVertexName, adjVertexIndex) =&gt; {
+    const spanningForest: string[][] = []
+    const spanningTree: string[] = []
+    const addEdge: BeforeEachCallback = (vertexName, adjVertexName) =&gt; {
         reversedDirectedGraph.addEdge(adjVertexName, vertexName)
     }
-    const addForest: AfterAllCallback = (vertexName, vertexIndex) =&gt; {
-        spanningTree[vertexIndex] = vertexIndex
+    const addForest: AfterAllCallback = vertexName =&gt; {
+        spanningTree.push(vertexName)
     }
     for (let i = 0; i &lt; vertices.length; ) {
         spanningTree.length = 0
@@ -352,7 +331,7 @@ function dfs(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Dec 09 2020 11:28:26 GMT+0800 (中国标准时间)
+                at Wed Dec 09 2020 18:06:39 GMT+0800 (中国标准时间)
             </div>
         </div>
         <script src="../../prettify.js"></script>

@@ -9,5 +9,6 @@ test('Finding strong cmponents', () => {
     STRONG_BRANCH_EDGES.forEach(edge => {
         directedGraph.addEdge(...edge)
     })
-    findStrongComponents(directedGraph)
+    const result = findStrongComponents(directedGraph)
+    expect(result).toStrictEqual([['g'], ['j', 'i', 'h'], ['b', 'f', 'c', 'a'], ['d'], ['e']])
 })

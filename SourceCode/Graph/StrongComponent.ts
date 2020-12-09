@@ -12,32 +12,24 @@ interface AfterAllCallback {
 
 export default function findStrongComponents(directedGraph: DirectedGraph): string[][] {
     const {spanningForest, reversedDirectedGraph} = spanDfsForest(directedGraph)
-    const vertices = directedGraph.getAllVertices()
+    const vertices = reversedDirectedGraph.getAllVertices()
     const visited = new Array(vertices.length).fill(0)
     const strongComponent: string[] = []
     const result: string[][] = []
     while (spanningForest.length) {
         const spanningTree = spanningForest.pop()!
-        strongComponent.length = 0
-        let i = 0
-        while (i < spanningTree.length) {
-            const vertexIndex = spanningTree[i]
-            if (vertexIndex === undefined) {
-                continue
+        while (spanningTree.length) {
+            const vertexName = spanningTree.pop()!
+            strongComponent.length = 0
+            const vertexIndex = vertices.findIndex(val => val === vertexName)
+            dfs(reversedDirectedGraph, visited, vertices[vertexIndex], vertexIndex, undefined, vertexName => {
+                strongComponent.push(vertexName)
+            })
+            if (strongComponent.length) {
+                result.push([...strongComponent])
             }
-            dfs(
-                reversedDirectedGraph,
-                visited,
-                vertices[vertexIndex],
-                vertexIndex,
-                undefined,
-                (vertexName, vertexIndex) => {
-                    strongComponent.push(vertexName)
-                    spanningTree.splice(vertexIndex, 1)
-                },
-            )
+            strongComponent.length = 0
         }
-        result.push([...strongComponent])
     }
     return result
 }
@@ -45,19 +37,19 @@ export default function findStrongComponents(directedGraph: DirectedGraph): stri
 function spanDfsForest(
     directedGraph: DirectedGraph,
 ): {
-    spanningForest: number[][]
+    spanningForest: string[][]
     reversedDirectedGraph: DirectedGraph
 } {
     const reversedDirectedGraph = new DirectedGraph()
     const vertices = directedGraph.getAllVertices()
     const visited = new Array(vertices.length).fill(0)
-    const spanningForest: number[][] = []
-    const spanningTree: number[] = []
-    const addEdge: BeforeEachCallback = (vertexName, adjVertexName, adjVertexIndex) => {
+    const spanningForest: string[][] = []
+    const spanningTree: string[] = []
+    const addEdge: BeforeEachCallback = (vertexName, adjVertexName) => {
         reversedDirectedGraph.addEdge(adjVertexName, vertexName)
     }
-    const addForest: AfterAllCallback = (vertexName, vertexIndex) => {
-        spanningTree[vertexIndex] = vertexIndex
+    const addForest: AfterAllCallback = vertexName => {
+        spanningTree.push(vertexName)
     }
     for (let i = 0; i < vertices.length; ) {
         spanningTree.length = 0
