@@ -1,6 +1,6 @@
 /** @format */
 
-import SkewHeap from '@/PriorityQueue/SkewHeap'
+import SkewHeap from '@/PriorityQueue/SkewHeap/SkewHeap'
 
 describe('Skrew Heap', () => {
     let skewHeap: SkewHeap<number>

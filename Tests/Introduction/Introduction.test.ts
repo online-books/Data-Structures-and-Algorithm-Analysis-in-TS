@@ -1,8 +1,15 @@
 /** @format */
 
-import {F, kThMaximumSelection1, kThMaximumSelection2} from '@/Ch01'
+import {
+    F,
+    kThMaximumSelection1,
+    kThMaximumSelection2,
+    maxSubSequenceSum1,
+    maxSubSequenceSum2,
+    maxSubSequenceSum3,
+} from '@/Introduction/Introduction'
 
-describe('Ch01', () => {
+describe('Introduction', () => {
     describe('kth maximum selection 1', () => {
         const data = [1, 6, 3, 7, 2, 5, 8, 4, 9, 0]
         test('the 2th maximum number', () => {
@@ -37,6 +44,19 @@ describe('Ch01', () => {
     describe('recursion', () => {
         test('calculate number', () => {
             expect(F(2)).toBe(10)
+        })
+    })
+    describe('Max subsequence sum', () => {
+        const n = [-2, 11, -4, 13, -5, -2]
+        test('solution 1', () => {
+            expect(maxSubSequenceSum1(n)).toBe(20)
+        })
+        test('solution 2', () => {
+            expect(maxSubSequenceSum2(n)).toBe(20)
+            expect(maxSubSequenceSum2([])).toBe(0)
+        })
+        test('solution 3', () => {
+            expect(maxSubSequenceSum3(n)).toBe(20)
         })
     })
 })

@@ -1,6 +1,6 @@
 /** @format */
 
-import BinaryTreeNode from '../Tree/BinarySearchTree/BinaryTreeNode'
+import SkewHeapNode from './SkewHeapNode'
 
 function swapChildNode(treeNode: {left: any; right: any}) {
     const {left, right} = treeNode
@@ -9,7 +9,7 @@ function swapChildNode(treeNode: {left: any; right: any}) {
 }
 
 export default class SkewHeap<T> {
-    public root: BinaryTreeNode<T> | null = null
+    public root: SkewHeapNode<T> | null = null
     public size = 0
     public merge(skewHeap: SkewHeap<T>): void {
         this.root = this.mergeToRightChild(this.root, skewHeap.root)
@@ -22,7 +22,7 @@ export default class SkewHeap<T> {
         return this.root.element
     }
     public insert(element: T): void {
-        const node = new BinaryTreeNode<T>(element)
+        const node = new SkewHeapNode<T>(element)
         this.root = this.mergeToRightChild(this.root, node)
         this.size += 1
     }
@@ -33,10 +33,7 @@ export default class SkewHeap<T> {
             this.size -= 1
         }
     }
-    private mergeToRightChild(
-        node1: BinaryTreeNode<T> | null,
-        node2: BinaryTreeNode<T> | null,
-    ): BinaryTreeNode<T> | null {
+    private mergeToRightChild(node1: SkewHeapNode<T> | null, node2: SkewHeapNode<T> | null): SkewHeapNode<T> | null {
         if (!node1) {
             return node2
         }
@@ -49,7 +46,7 @@ export default class SkewHeap<T> {
             return this.mergeNode(node2, node1)
         }
     }
-    private mergeNode(node1: BinaryTreeNode<T>, node2: BinaryTreeNode<T>): BinaryTreeNode<T> {
+    private mergeNode(node1: SkewHeapNode<T>, node2: SkewHeapNode<T>): SkewHeapNode<T> {
         node1.right = this.mergeToRightChild(node1.right, node2)
         swapChildNode(node1)
         return node1
