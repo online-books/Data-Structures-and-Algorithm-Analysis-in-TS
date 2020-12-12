@@ -1,0 +1,56 @@
+/** @format */
+
+import SplayTree from '@/Tree/SplayTree/SplayTree'
+
+describe('Splay Tree', () => {
+    let splayTree: SplayTree<number>
+    test('initialization', () => {
+        splayTree = new SplayTree()
+        expect(splayTree).toBeInstanceOf(SplayTree)
+        expect(splayTree.find(1)).toBeNull()
+    })
+    test('insert', () => {
+        splayTree.insert(12, 12)
+        expect(splayTree.root).not.toBeNull()
+        expect(splayTree.size).toBe(1)
+        expect(splayTree.min()).toBe(12)
+        expect(splayTree.root!.key).toBe(12)
+        splayTree.insert(5, 5)
+        expect(splayTree.root!.value).toBe(5)
+        expect(splayTree.size).toBe(2)
+        splayTree.insert(25, 25)
+        expect(splayTree.root!.value).toBe(25)
+        expect(splayTree.size).toBe(3)
+        splayTree.insert(20, 20)
+        expect(splayTree.root!.value).toBe(20)
+        expect(splayTree.size).toBe(4)
+        splayTree.insert(24, 24)
+        expect(splayTree.root!.value).toBe(24)
+        expect(splayTree.size).toBe(5)
+        expect(splayTree.min()).toBe(5)
+        expect(splayTree.max()).toBe(25)
+    })
+    test('find', () => {
+        splayTree.find(25)
+        expect(splayTree.root!.value).toBe(25)
+        splayTree.find(24)
+        expect(splayTree.root!.value).toBe(24)
+    })
+    test('delete', () => {
+        expect(splayTree.delete(1))
+        expect(splayTree.size).toBe(5)
+        expect(splayTree.root!.key).toBe(5)
+        splayTree.delete(5)
+        expect(splayTree.size).toBe(4)
+        expect(splayTree.root!.value).toBe(20)
+        splayTree.delete(20)
+        expect(splayTree.root!.value).toBe(12)
+        splayTree.delete(12)
+        expect(splayTree.root!.value).toBe(24)
+        splayTree.delete(24)
+        expect(splayTree.root!.value).toBe(25)
+        splayTree.delete(25)
+        expect(splayTree.root).toBeNull()
+        splayTree.delete(25)
+    })
+})

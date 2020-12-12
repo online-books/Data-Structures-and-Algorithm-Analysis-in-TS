@@ -4,78 +4,88 @@ import BinarySearchTree from '../BinarySearchTree/BinarySearchTree'
 import BinaryTreeNode from '../BinarySearchTree/BinaryTreeNode'
 
 export default class SplayTree<T> extends BinarySearchTree<T> {
-    public find(element: T): BinaryTreeNode<T> | null {
+    public find(key: number): T | null {
         if (!this.root) {
             return null
         }
-        this.splay(element, this.root)
-        return this.root
+        this.root = this.splay(key, this.root)
+        return this.root.value
     }
-    public delete(element: T): BinaryTreeNode<T> | null {
+    public delete(key: number): void {
         let {root} = this
         if (!root) {
-            return null
+            return
         }
-        root = this.splay(element, root)
+        root = this.splay(key, root)
         let newRoot: BinaryTreeNode<T> | null = root
-        if (element === root.element) {
+        if (key === root.key) {
+            this.size -= 1
             if (root.left === null) {
                 newRoot = root.right
             } else {
                 newRoot = root.left
-                newRoot = this.splay(element, root.left)
+                newRoot = this.splay(key, newRoot)
                 newRoot.right = root.right
             }
         }
         this.root = newRoot
-        return newRoot
     }
-    public insert(element: T): void {
-        const newNode = new BinaryTreeNode(element)
+    public insert(key: number, value: T): void {
+        const newNode = new BinaryTreeNode(key, value)
         let {root} = this
         if (!root) {
+            this.size += 1
             root = newNode
         } else {
-            root = this.splay(element, root)
-            if (element > root.element) {
-                newNode.left = root.left
-                newNode.right = root
-                root.left = null
-                root = newNode
+            root = this.splay(key, root)
+            if (key !== root.key) {
+                this.size += 1
+                if (key > root.key) {
+                    newNode.left = root
+                    newNode.right = root.right
+                    root.right = null
+                    root = newNode
+                } else {
+                    newNode.right = root
+                    newNode.left = root.left
+                    root.left = null
+                    root = newNode
+                }
             }
         }
         this.root = root
     }
-    private splay(element: T, node: BinaryTreeNode<T>): BinaryTreeNode<T> {
-        const root = new BinaryTreeNode(element)
-        root.left = new BinaryTreeNode(element)
-        root.right = new BinaryTreeNode(element)
-        let leftTreeMax = node
-        let rightTreeMin = node
-        while (element !== node.element) {
-            if (element < node.element) {
-                const leftChild = node.left
-                if (!leftChild) {
+    private splay(key: number, node: BinaryTreeNode<T>): BinaryTreeNode<T> {
+        const root = new BinaryTreeNode(key, node.value)
+        let leftTreeMax = root
+        let rightTreeMin = root
+        while (key !== node.key) {
+            if (key < node.key) {
+                if (!node.left) {
                     break
                 }
-                if (element < leftChild.element) {
+                if (key < node.left.key) {
                     node = this.singleRoteWithLeft(node)
+                }
+                if (!node.left) {
+                    break
                 }
                 rightTreeMin.left = node
                 rightTreeMin = node
-                node = leftChild
+                node = node.left
             } else {
-                const rightChild = node.right
-                if (!rightChild) {
+                if (!node.right) {
                     break
                 }
-                if (element > rightChild.element) {
+                if (key > node.right.key) {
                     node = this.singleRoteWithRight(node)
                 }
-
+                if (!node.right) {
+                    break
+                }
                 leftTreeMax.right = node
                 leftTreeMax = node
-                node = rightChild
+                node = node.right
             }
         }
         leftTreeMax.right = node.left!
@@ -88,12 +98,12 @@ export default class SplayTree<T> extends BinarySearchTree<T> {
         const leftChild = node.left!
         node.left = leftChild.right
         leftChild.right = node
-        return node
+        return leftChild
     }
     private singleRoteWithRight(node: BinaryTreeNode<T>): BinaryTreeNode<T> {
         const rightChild = node.right!
         node.right = rightChild.left
         rightChild.left = node
-        return node
+        return rightChild
     }
 }
