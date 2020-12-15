@@ -1,6 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1607770704109" clover="3.2.0">
-  <project timestamp="1607770704110" name="All files">
-    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
+<coverage generated="1608024511103" clover="3.2.0">
+  <project timestamp="1608024511103" name="All files">
+    <metrics statements="136" coveredstatements="128" conditionals="46" coveredconditionals="37" methods="16" coveredmethods="16" elements="198" coveredelements="181" complexity="0" loc="136" ncloc="136" packages="2" files="2" classes="2"/>
+    <package name="AVLTree">
+      <metrics statements="64" coveredstatements="64" conditionals="22" coveredconditionals="20" methods="9" coveredmethods="9"/>
+      <file name="AVLTree.ts" path="/Users/momo/Documents/GitHub/Data-Structures-and-Algorithm-Analysis-in-TS/SourceCode/Tree/AVLTree/AVLTree.ts">
+        <metrics statements="64" coveredstatements="64" conditionals="22" coveredconditionals="20" methods="9" coveredmethods="9"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="16" type="stmt"/>
+        <line num="25" count="66" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="16" type="stmt"/>
+        <line num="28" count="50" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="28" type="stmt"/>
+        <line num="30" count="28" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="37" count="22" type="cond" truecount="1" falsecount="1"/>
+        <line num="38" count="22" type="stmt"/>
+        <line num="39" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="40" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="4" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="48" count="66" type="stmt"/>
+        <line num="49" count="66" type="stmt"/>
+        <line num="52" count="268" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="88" type="stmt"/>
+        <line num="55" count="180" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="60" count="4" type="stmt"/>
+        <line num="61" count="4" type="stmt"/>
+        <line num="62" count="4" type="stmt"/>
+        <line num="63" count="4" type="stmt"/>
+        <line num="64" count="4" type="stmt"/>
+        <line num="68" count="4" type="stmt"/>
+        <line num="69" count="4" type="stmt"/>
+        <line num="70" count="4" type="stmt"/>
+        <line num="71" count="4" type="stmt"/>
+        <line num="72" count="4" type="stmt"/>
+        <line num="73" count="4" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="90" count="2" type="stmt"/>
+        <line num="91" count="2" type="stmt"/>
+        <line num="92" count="2" type="stmt"/>
+        <line num="93" count="2" type="stmt"/>
+        <line num="94" count="2" type="stmt"/>
+        <line num="95" count="2" type="stmt"/>
+        <line num="96" count="2" type="stmt"/>
+        <line num="97" count="2" type="stmt"/>
+        <line num="98" count="2" type="stmt"/>
+        <line num="99" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="RedBlackTree">
+      <metrics statements="72" coveredstatements="64" conditionals="24" coveredconditionals="17" methods="7" coveredmethods="7"/>
+      <file name="RedBlackTree.ts" path="/Users/momo/Documents/GitHub/Data-Structures-and-Algorithm-Analysis-in-TS/SourceCode/Tree/RedBlackTree/RedBlackTree.ts">
+        <metrics statements="72" coveredstatements="64" conditionals="24" coveredconditionals="17" methods="7" coveredmethods="7"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="26" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="32" count="15" type="stmt"/>
+        <line num="33" count="15" type="stmt"/>
+        <line num="34" count="15" type="stmt"/>
+        <line num="35" count="15" type="stmt"/>
+        <line num="36" count="15" type="stmt"/>
+        <line num="37" count="15" type="stmt"/>
+        <line num="38" count="15" type="stmt"/>
+        <line num="39" count="53" type="stmt"/>
+        <line num="40" count="53" type="stmt"/>
+        <line num="41" count="53" type="stmt"/>
+        <line num="42" count="53" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="21" type="stmt"/>
+        <line num="45" count="32" type="stmt"/>
+        <line num="47" count="53" type="cond" truecount="4" falsecount="0"/>
+        <line num="48" count="5" type="stmt"/>
+        <line num="51" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="55" count="14" type="stmt"/>
+        <line num="56" count="14" type="stmt"/>
+        <line num="57" count="14" type="stmt"/>
+        <line num="58" count="14" type="stmt"/>
+        <line num="59" count="14" type="stmt"/>
+        <line num="60" count="14" type="stmt"/>
+        <line num="61" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="62" count="7" type="stmt"/>
+        <line num="64" count="7" type="stmt"/>
+        <line num="66" count="14" type="stmt"/>
+        <line num="75" count="19" type="stmt"/>
+        <line num="76" count="19" type="stmt"/>
+        <line num="77" count="19" type="stmt"/>
+        <line num="78" count="19" type="cond" truecount="2" falsecount="0"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="80" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="86" count="19" type="stmt"/>
+        <line num="89" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="90" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="97" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="98" count="1" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
+        <line num="102" count="2" type="stmt"/>
+        <line num="107" count="1" type="stmt"/>
+        <line num="108" count="1" type="stmt"/>
+        <line num="109" count="1" type="stmt"/>
+        <line num="110" count="1" type="stmt"/>
+        <line num="114" count="1" type="stmt"/>
+        <line num="115" count="1" type="stmt"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="117" count="1" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

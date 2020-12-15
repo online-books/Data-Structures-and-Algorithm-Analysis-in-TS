@@ -4,40 +4,40 @@ import AVLTreeNode from './AVLTreeNode'
 
 export default class AVLTree<T> {
     public root: AVLTreeNode<T> | null = null
-    public find(element: T): AVLTreeNode<T> | null {
+    public find(key: number): T | null {
         let node: AVLTreeNode<T> | null
         node = this.root
         while (node) {
-            if (node.element > element) {
+            if (node.key > key) {
                 node = node.left
-            } else if (node.element < element) {
+            } else if (node.key < key) {
                 node = node.right
-            } else if (node.element === element) {
-                return node
+            } else if (node.key === key) {
+                return node.value
             }
         }
         return null
     }
-    public insert(element: T): void {
-        this.root = this.addChild(element, this.root)
+    public insert(key: number, value: T): void {
+        this.root = this.addChild(key, value, this.root)
     }
-    private addChild(element: T, node: AVLTreeNode<T> | null): AVLTreeNode<T> {
+    private addChild(key: number, value: T, node: AVLTreeNode<T> | null): AVLTreeNode<T> {
         if (!node) {
-            node = new AVLTreeNode(element)
+            node = new AVLTreeNode(key, value)
         } else {
-            if (node.element < element) {
-                node.right = this.addChild(element, node.right)
+            if (node.key < key) {
+                node.right = this.addChild(key, value, node.right)
                 if (this.getHeight(node.right) - this.getHeight(node.left) > 1) {
-                    if (element > node.right.element) {
+                    if (key > node.right.key) {
                         node = this.singleRotateWithRight(node)
                     } else {
                         node = this.doubleRotateWithRight(node)
                     }
                 }
-            } else if (node.element > element) {
-                node.left = this.addChild(element, node.left)
+            } else if (node.key > key) {
+                node.left = this.addChild(key, value, node.left)
                 if (this.getHeight(node.left) - this.getHeight(node.right) > 1) {
-                    if (element < node.left.element) {
+                    if (key < node.left.key) {
                         node = this.singleRotateWithLeft(node)
                     } else {
                         node = this.doubleRotateWithLeft(node)
