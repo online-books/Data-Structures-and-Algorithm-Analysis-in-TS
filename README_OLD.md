@@ -70,7 +70,7 @@
 
 ---
 
-请确保已安装[Node](<(https://nodejs.org/zh-cn/)>)。
+请确保已安装[Node](https://nodejs.org/zh-cn/)
 
 #### 安装依赖
 
