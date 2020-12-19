@@ -34,5 +34,5 @@ SourceCode/Graph/ShortestPaths/AllPairsShortestPaths.ts
 
 ---
 
-[动态规划求图中所有顶点对的最短路径](https://blog.csdn.net/weixin_40170902/article/details/80849250)
-[所有点对的最短路径-FloydWarshall 算法](https://blog.csdn.net/midgard/article/details/4314869)
+[动态规划求图中所有顶点对的最短路径](https://b\log.csdn.net/weixin_40170902/article/details/80849250)
+[所有点对的最短路径-FloydWarshall 算法](https://b\log.csdn.net/midgard/article/details/4314869)

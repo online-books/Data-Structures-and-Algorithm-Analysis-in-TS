@@ -1,49 +1,10 @@
 /** @format */
 
-import {compareFn} from '@/Shared/Util'
+/**
+ * 最大子序列和问题之穷举法
+ * @param  {number[]} n
+ */
 
-// 选择问题，解法1
-export function kThMaximumSelection1(n: number[], k: number): number {
-    if (n.length <= k || k < 1) {
-        throw new RangeError('k is out of range')
-    }
-    return n.sort(compareFn())[k - 1]
-}
-
-// 选择问题，解法2
-export function kThMaximumSelection2(n: number[], k: number): number {
-    if (n.length < k || k < 1) {
-        throw new RangeError('k is out of range')
-    }
-    const kSorted = n.splice(0, k).sort(compareFn())
-    while (n.length) {
-        const value = n.pop()!
-        let i = k - 1
-        while (value > kSorted[i]) {
-            i -= 1
-            if (i >= 0) {
-                kSorted[i + 1] = kSorted[i]
-            }
-        }
-        if (i !== k - 1) {
-            kSorted[i + 1] = value
-        }
-    }
-    return kSorted[k - 1]
-}
-
-export function F(x: number): number {
-    // 基准情形
-    if (x === 0) {
-        return 0
-    }
-    // 不断推进
-    return (2 * F(x - 1) + x) ^ 2
-}
-
-/** @format */
-
-// 算法1，穷举法
 export function maxSubSequenceSum1(n: number[]): number {
     const {length} = n
     let currentSum = 0
@@ -60,7 +21,11 @@ export function maxSubSequenceSum1(n: number[]): number {
     return maxSum
 }
 
-// 算法2，分治法
+/**
+ * 最大子序列和问题之分治法
+ * @param  {number[]} n
+ */
+
 export function maxSubSequenceSum2(n: number[]): number {
     if (n.length === 0) {
         return 0
@@ -98,7 +63,11 @@ function maxSum(left: number, right: number, n: number[]): number {
     return Math.max(maxLeftSum, maxRightSum, leftMaxBorderSum + maxRightBorderSum)
 }
 
-// 算法3，联机法
+/**
+ * 最大子序列和问题之联机法
+ * @param  {number[]} n
+ */
+
 export function maxSubSequenceSum3(n: number[]): number {
     let currentSum = 0
     let maxSum = 0
