@@ -1,92 +1,40 @@
 <!-- @format -->
 
-### 1 链表
+## 链表
+
+链表是由表头(header)和一系列不必在内存中相连的节点(node)组成。每个节点均含有一个节点值（下图中的$A_1$、$A_2$等）和指向后继节点的 Next 指针（下图中的箭头所表示）。最后一个节点的 Next 指针指向 NULL。
+<img src="../../Assets/Images/ch3/1-1.png"/>
+
+图 1-1 链表模型
+
+### 链表的基本操作
 
 ---
 
-链表由一系列不必在内存中相连的节点组成。每个节点均含有一个节点值（下图中的$A_1$、$A_2$等）和指向后继节点的指针（下图中的箭头所表示），这里称之为 Next 指针。最后一个节点的 Next 指针指向 NULL。
-<img src="../../Assets/Images/ch3/list_overview.png"/>
+#### 1.插入
 
-图 1-1 一个链表
+创建新的节点并将其插入到表头之后。
 
-#### 1.1 链表的实现
+<img src="../../Assets/Images/ch3/1-2.png"/>
 
-定义链表中的节点结构：
+图 1-2 向链表中插入新值$X$，虚线表示原来的 Next 指针
 
-```typescript
-class LinkedListNode<T> {
-    public next: LinkedListNode<T> | null = null
-    public value: T | null = null
-    constructor(value?: T) {
-        if (value) {
-            this.value = value
-        }
-    }
-}
-```
+#### 2.查找
 
-链表类并为其添加表头和节点数量：
+从表头的 Next 指针指向的第一个节点开始，顺序遍历整个链表。若当前节点的值与输入值相等则停止。若下一节点为 NULL，则表明要查找的值不存在。
 
-```typescript
-class LinkedList<T> {
-    private head: LinkedListNode<T>;
-    private nodeNum: number;
-    constructor() {
-        this.head = new LinkedListNode()
-        this.nodeNum = 0;
-    }
-```
+#### 3.删除
 
-链表的基本操作：
+为了将某个节点从链表中删除，需要先找出被删除节点的前驱节点，然后将前驱节点的 Next 指针指向被删除节点的后继节点。
 
--   **插入**：以$O(1)$的运行时间向链表中插入一个新的节点。
-    <img src="../../Assets/Images/ch3/list_insert.png"/>
+<img src="../../Assets/Images/ch3/1-3.png"/>
 
-图 1-2 在$A_2$节点后向链表中插入
+图 1-4 从链表中删除$A_2$节点
 
-将要插入的节点值与另一节点$P$一起传入，新生成的节点$N$将插入到$P$节点之后。若 P 未传，则默认将其插入到表头之后。运行时间为$O(1)$。
+对于插入操作来说，其运行时间是$O(1)$。而对于查找和删除操作，在最坏情形下的运行时间是$O(N)$，因为若要查找的节点未找到或其位于表的末尾则要遍历整个表。
 
-代码如下：
+### 代码位置
 
-```typescript
-    public insert(value: T, node?: LinkedListNode<T>): LinkedListNode<T> {
-        const frontNode = node ? node : this.head;
-        const newNode = new LinkedListNode(value);
-        const nextNode = frontNode.next;
-        frontNode.next = newNode;
-        newNode.next = nextNode;
-        this.nodeNum += 1;
-        return newNode;
-    }
-```
+---
 
--   **删除**：为了将某个节点从链表中删除，需要先找出被删除节点的前驱节点。运行时间为$O(N)$。
-    <img src="../../Assets/Images/ch3/list_delete.png"/>
-
-图 1-3 从链表中删除$A_3$节点
-
-代码如下：
-
-```typescript
-    public delete(node: LinkedListNode<T>) {
-        const prevNode = this.findPrevNode(node);
-        if (!prevNode) {
-            return;
-        }
-        prevNode.next = node.next;
-        node.next = null;
-        this.nodeNum -= 1;
-    }
-```
-
--   **查找**：返回链表中的某个节点，运行时间为$O(N)$。
-
-```typescript
-    public find(value: T): LinkedListNode<T> | null {
-        let currentNode: LinkedListNode<T> | null = this.head.next;
-        while (currentNode !== null && currentNode.value !== value) {
-            currentNode = currentNode.next;
-        }
-        return currentNode;
-    }
-```
+[SouceCode/List/LinkedList](../../SourceCode/List/LinkedList/LinkedList.ts)
