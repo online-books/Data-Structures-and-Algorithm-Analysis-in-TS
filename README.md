@@ -39,7 +39,7 @@
 
 | 序号 | 内容                                                       | 要点                               | 备注               |
 | :--: | :--------------------------------------------------------- | :--------------------------------- | ------------------ |
-|  1   | [二叉查找树](Chapters/Chapter4-Trees/4.1-BinarySearchTree) | 二叉查找树的结构性质               | 无                 |
+|  1   | [二叉查找树](Chapters/Chapter4-Trees/4.1-BinarySearchTree) | 二叉查找树的结构性质；操作平均时间 | 无                 |
 |  2   | [AVL 树](Chapters/Chapter4-Trees/4.2-AVLTree)              | AVL 树的结构性质；单旋转、双旋转   | 依赖本节 1 内容    |
 |  3   | [伸展树](Chapters/Chapter4-Trees/4.3-SplayTree)            | 自顶向下的伸展过程                 | 依赖本节 1、2 内容 |
 |  4   | [红黑树](Chapters/Chapter4-Trees/4.4-RedBlackTree)         | 着色法则；自顶向下的旋转与着色过程 | 依赖本节 1、2 内容 |
