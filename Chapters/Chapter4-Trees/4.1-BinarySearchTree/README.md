@@ -2,144 +2,94 @@
 
 ## 二叉查找树
 
-二叉查找树的性质是，对于树中的每个节点$X$，它的左子树中所有关键字值小于$X$的关键值；而它的右子树中所有关键字值大于$X$的关键字值。
+<!-- 对于大量的输入数据，链表的线性访问时间太慢，而二叉查找树大部分操作的运行时间平均为$O(\log N)$。 -->
 
-<image src="../../../Assets/Images/ch4/binary_search_tree.png">
+### 1.树
 
-图 4-1 两棵二叉树（只有左边的树是查找树）
+一棵树是由称作根的节点$r$以及$0$个或多个非空的子树$T_1,T_2,\dots,T_k$组成。每一棵子树叫做根$r$的儿子，而$r$是每一棵子树的父亲。每一个节点可以有任意多个儿子，没有儿子的节点叫做树叶。一棵树有$N$个节点和$N-1$条边。
 
-### 二叉查找树的实现
+<image src="../../../Assets/Images/ch4/4-1.png">
 
-#### 定义二叉树节点结构
+图 4-1 一棵具体的树
 
-因为一棵二叉树最多有两个儿子，所以一个节点就是由关键字信息加上两个指向其他节点的指针（Left 和 Right）组成的结构。
+在图 4-1 中，节点$A$是根，节点$B,C,D,H$是其儿子。$E,F,G$是树叶。
 
-```typescript
-export default class BinaryTreeNode<T> {
-    public left: null | BinaryTreeNode<T>
-    public right: null | BinaryTreeNode<T>
-    public element: T
-    constructor(element: T) {
-        this.left = null
-        this.right = null
-        this.element = element
-    }
-}
-```
+对树中的任意节点$n_k$，$n_k$的深度为从根到$n_k$的唯一路径的长。因此，根的深度为$0$。$n_k$的高是从$n_k$到一片树叶的最长路径的长。因此所有的树叶的高都为$0$。一棵树的高等于它的根的高。
 
-#### 二叉查找树的基本操作
+对于图 4-1 中的树，$B$的深度是$1$，高度是$0$；$C$的深度是$1$，高度是$1$。
 
--   **查找**
+### 2. 二叉查找树
 
-这个操作需要返回指向树 T 中具有关键字$X$的节点，如果这样的节点不存在则返回 NULL。
+**二叉树**是一棵每个节点都不能有多余两个儿子的树。使二叉树成为二叉查找树的性质是，对于树中的每个节点$X$，它的左子树中所有关键字值小于$X$的关键值；而它的右子树中所有关键字值大于$X$的关键字值。二叉查找树的平均深度是$O(\log N)$。
 
-```typescript
-public find(element: T) {
-    let node: BinaryTreeNode<T> | null;
-    node = this.root;
-    while (node) {
-            if (node.element > element) {
-                node = node.left;
-        } else if (node.element < element) {
-                node = node.right;
-        } else {
-                return node;
-        }
-    }
-    return null;
-}
-```
+<image src="../../../Assets/Images/ch4/4-2.png">
 
--   **插入**
+图 4-2 两棵二叉树
 
-为了将$X$插入到树$T$中，可以像用 Find 那样沿着树查找。如果找到 X，则什么也不做(或做一些更新)。否则，将 X 插入到遍历的路径上的最后一个点上。
+在图 4-2 的两棵二叉树中，只有左边的树是二叉查找树。
 
-<image src="../../../Assets/Images/ch4/bst_insert.png"/>
+### 2.1 二叉查找树的实现
 
-图 4-2 在插入 5 以前和以后的二叉查找树
+#### 查找
 
-因为从树的根开始插入，而根又在第一次插入时变化，因此$insert$被写成一个指向新树根的入口函数。这里添加一个$addChild$方法来递归地将$X$插入到适当的子树中。
+查找操作需要返回树$T$中具有关键字$X$的节点值。从树$T$的根节点$r$开始，如果$r$的关键字值等于$X$，则返回$r$的节点值；若$X$小于$r$的关键字值，则对左子树进行一次递归调用；若$X$大于$r$的关键字值，则对右子树进行一次递归调用；若这样的节点不存在则返回 NULL。
 
-```typescript
-public insert(element: T) {
-    this.root = this.addChild(element, this.root);
-}
+<image src="../../../Assets/Images/ch4/4-3.png">
 
-private addChild(element: T, parentNode: BinaryTreeNode<T> | null) {
-    if (!parentNode) {
-        return new BinaryTreeNode(element);
-    }
-    if (element > parentNode.element) {
-        parentNode.right = this.addChild(element, parentNode.right)
-    } else if (element < parentNode.element) {
-        parentNode.left = this.addChild(element, parentNode.left)
-    } else {
-        parentNode.element = element
-    }
-    return parentNode;
-}
-```
+图 4-3 以查找关键字$4$为例，查找过程的递归调用路径用黄色标示
 
--   **删除**
+#### 插入
 
-    要被删除的节点有如下几种可能性：
+为了将关键字$X$和节点值插入到树$T$中，可以像用查找操作那样沿着树进行。将$X$和节点值插入到遍历的路径上的最后一个点上。
 
-    -   如果节点是一片树叶，那么它可以立即被删除；
-    -   如果节点有一个儿子，则该节点可以在其父节点调整指针绕过该节点后被删除；
-    -   如果节点有两个儿子，一般的删除策略是用其右子树的最小节点的数据代替该节点的数据并递归地删除那个最小节点。因为右子树的最小节点不可能有左儿子，所以第二次删除要容易；
+<image src="../../../Assets/Images/ch4/4-4.png">
 
-<image src="../../../Assets/Images/ch4/bst_delete1.png"/>
+图 4-4 以插入关键字$5$为例，将新节点添加在查找路径上关键字为$4$的节点的右儿子上
 
-图 4-3 具有一个儿子的节点(4)被删除前后的情况
+#### 删除
 
-<image src="../../../Assets/Images/ch4/bst_delete1.png"/>
+要被删除的节点有如下几种可能性：
 
-图 4-4 具有两个儿子的节点(2)被删除前后的情况
+-   a.如果节点是一片树叶，那么可以立即删除；
+-   b.如果节点有一个儿子，则将该节点对应的父节点指针指向该节点的儿子节点；
+-   c.如果节点有两个儿子，则用该节点右子树上的最小节点的数据代替该节点的数据并递归地删除那个最小节点。因为右子树的最小节点不可能有左儿子，所以第二次删除就是情形 b；
 
-```typescript
-public delete(element: T): BinaryTreeNode<T> | null {
-    return this.removeChild(element, this.root);
-}
+<image height="300" src="../../../Assets/Images/ch4/4-5.png"/>
 
-private removeChild(element: T, node: BinaryTreeNode<T> | null) {
-    if (!node) {
-        return null;
-    }
-    if (node.element === element) {
-        const { left: leftChild, right: rightChild } = node;
-        // 节点是树叶，直接删除
-        if (!leftChild && !rightChild) {
-            node = null;
-        }
-        // 节点只包含一个子节点，返回其子节点
-        else if (leftChild && !rightChild) {
-            node.left = null;
-            return leftChild;
-        } else if (!leftChild && rightChild) {
-            node.right = null;
-            return rightChild;
-        }
-        // 节点有两个儿子节点，找出其右子树中最小节点X，将节点X的关键字值赋予该点，然后删除X节点
-        else {
-            const minRightNode = this.findMin(node.right)!;
-            node.element = minRightNode.element;
-            node.right = this.removeChild(minRightNode.element, noderight);
-        }
-    } else {
-        if (node.element > element) {
-            node.left = this.removeChild(element, node.left);
-        } else {
-            node.right = this.removeChild(element, node.right);
-        }
-    }
-    return node;
-}
-```
+图 4-5 具有一个儿子的节点(4)被删除前后的情况
 
-上面描述的删除算法有助于使得左子树比右子树深度深，因为我们总是用右子树的一个节点来代替被删除的节点。如果我们交替的插入和删除$\Theta(N^2)$次，那么树的期望深度将是$\Theta(\sqrt{N})$。图 4-5 中右沉的树看起来明显地不平衡。
+<image height="300" src="../../../Assets/Images/ch4/4-6.png"/>
 
-<image  src="../../../Assets/Images/ch4/bst_insert_delete.png"/>
+图 4-6 具有两个儿子的节点(2)被删除前后的情况
 
-图 4-5 在$\Theta(N^2)$次 Insert/Delete 后的二叉树
+### 2.2 平均情形分析
 
-下一节，我们将实现一种最老的平衡查找树，即 AVL 树。
+在对二叉查找树的所有操作中，我们都是用常数时间在树中降低了一层，这样对树的操作大致减少一半。如果能够证明**二叉查找树的所有节点的平均深度为$O(\log N)$**，那么这些操作的平均花费时间就为$O(\log N)$。
+
+一棵树的所有节点的深度的和称为*内部路径长*。令$D(N)$是具有$N$个节点的某棵树$T$的内部路径长，$D(1)=0$。一棵$N$节点树是由一棵$i(0 \leqq i < N)$节点左子树和一棵$(N-i-1)$节点右子树以及深度为$0$的一个根节点组成。那么$D(i)$为根的左子树的内部路径长，$D(N-i-1)$为根的右子树的内部路径长，但是在原树中所有这些子节点的深度都要加$1$，因此我们得到递归关系式：
+
+$$D(N)=D(i)+D(N-i-1)+N-1$$
+
+对于二叉查找树来说，所有子树的大小都等可能地出现，因此$D(i)$和$D(N-i-1)$的平均值都是$\frac{1}{N}\sum_{j=0}^{N-1}D(j)$。于是
+
+$$D(N)=\frac{2}{N}\sum_{j=0}^{N-1}D(j)+N-1$$
+
+因此任意节点的期望深度为$O(\log N)$，证毕。
+
+### 2.3 最坏情形
+
+在 2.1 节中描述的删除操作中，由于我们总是采用右子树的一个节点来代替删除的节点，因此在足够多次数的插入和删除操作后，有可能使得左子树比右子树的深度深。
+
+如果向一棵预先排序的树输入数据，那么插入操作将花费二次时间，此时的树将只由那些没有左儿子的节点组成。如图 4-7 所示。
+
+<image  height="300" src="../../../Assets/Images/ch4/4-7.png"/>
+
+解决这两种情况的一种方案就是在树中附加一个平衡性的结构条件，使得任何节点的深度不得过深。
+
+具体实现请参见下节内容。
+
+### 代码位置
+
+---
+
+[SourceCode/Tree/BinarySearchTree/BinarySearchTree.ts](../../../SourceCode/Tree/BinarySearchTree/BinarySearchTree.ts)
