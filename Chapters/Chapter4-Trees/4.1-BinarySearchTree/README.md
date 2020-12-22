@@ -78,29 +78,29 @@ $$N\cdot D(N)=2\sum_{j=0}^{N-1}D(j)+N\cdot (N-1) \tag{4-2}$$
 
 将$N-1$代入方程 4-2，得到
 
-$$(N-1)\cdot D(N-1)=2\sum_{j=0}^{N-2}D(j)+(N-1)\cdot (N-2) \tag{4-2}$$
+$$(N-1)\cdot D(N-1)=2\sum_{j=0}^{N-2}D(j)+(N-1)\cdot (N-2) \tag{4-3}$$
 
-我们需要去除求和符号以简化计算，用方程 4-1 减去 4-2 得到：
+我们需要去除求和符号以简化计算，用方程 4-2 减去 4-3 得到：
 
-$$N\cdot D(N)-(N-1)\cdot D(N-1)=2D(N-1)+2(N-1) \tag{4-3}$$
+$$N\cdot D(N)-(N-1)\cdot D(N-1)=2D(N-1)+2(N-1) \tag{4-4}$$
 
 移项后得到
 
-$$N\cdot D(N)=(N+1)\cdot D(N-1)+2(N-1) \tag{4-4} $$
+$$N\cdot D(N)=(N+1)\cdot D(N-1)+2(N-1) \tag{4-5} $$
 
-方程 4-4 两边除以$N \cdot(N-1)$得到
+方程 4-5 两边除以$N \cdot(N-1)$得到
 
-$$\frac{D(N)}{N+1} =\frac{D(N-1)}{N}+\frac{2(N-1)}{N(N+1)}\approx \frac{D(N-1)}{N}+\frac{2}{N+1}\tag{4-5} $$
+$$\frac{D(N)}{N+1} =\frac{D(N-1)}{N}+\frac{2(N-1)}{N(N+1)}\approx \frac{D(N-1)}{N}+\frac{2}{N+1}\tag{4-6} $$
 
 继续迭代后得到
 
-$$\frac{D(N-1)}{N} =\frac{D(N-2)}{N-1}+\frac{2}{N} \tag{4-6} $$
+$$\frac{D(N-1)}{N} =\frac{D(N-2)}{N-1}+\frac{2}{N} \tag{4-7} $$
 $$\vdots$$
-$$\frac{D(2)}{3} =\frac{D(1)}{1}+\frac{2}{3} \tag{4-7} $$
+$$\frac{D(2)}{3} =\frac{D(1)}{1}+\frac{2}{3} \tag{4-8} $$
 
-将方程 4-5 到 4-7 的左右两端分别相加后得到
+将方程 4-6 到 4-8 的左右两端分别相加后得到
 
-$$\frac{D(N)}{N+1}=D(1)+2\sum_{i=3}^{N+1}\frac{1}{i} \tag{4-8}$$
+$$\frac{D(N)}{N+1}=D(1)+2\sum_{i=3}^{N+1}\frac{1}{i} \tag{4-9}$$
 
 该和大约为$\ln(N+1)+\gamma-\frac{3}{2}$，其中$\gamma$叫做欧拉常数。
 
