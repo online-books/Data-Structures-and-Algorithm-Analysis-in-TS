@@ -29,8 +29,10 @@ export default class AVLTree<T> {
                 node.right = this.addChild(key, value, node.right)
                 if (this.getHeight(node.right) - this.getHeight(node.left) > 1) {
                     if (key > node.right.key) {
+                        // 情形d
                         node = this.singleRotateWithRight(node)
                     } else {
+                        // 情形c
                         node = this.doubleRotateWithRight(node)
                     }
                 }
@@ -38,8 +40,10 @@ export default class AVLTree<T> {
                 node.left = this.addChild(key, value, node.left)
                 if (this.getHeight(node.left) - this.getHeight(node.right) > 1) {
                     if (key < node.left.key) {
+                        // 情形a
                         node = this.singleRotateWithLeft(node)
                     } else {
+                        // 情形b
                         node = this.doubleRotateWithLeft(node)
                     }
                 }
