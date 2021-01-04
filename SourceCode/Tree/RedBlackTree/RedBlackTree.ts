@@ -13,6 +13,7 @@ import RedBlackTreeNode, {COLOR_TYPES} from './RedBlackTreeNode'
 export default class RedBlackTree<T> {
     public root: RedBlackTreeNode<T>
     private currentNode: RedBlackTreeNode<T>
+    private siblingNode: RedBlackTreeNode<T>
     private parentNode: RedBlackTreeNode<T>
     private grandNode: RedBlackTreeNode<T>
     private greatGrandNode: RedBlackTreeNode<T>
@@ -29,11 +30,11 @@ export default class RedBlackTree<T> {
         this.root.left = this.nullNode
         this.root.right = this.nullNode
     }
-    public find(value: number): T | null {
+    public find(key: number): T | null {
         let node: RedBlackTreeNode<T> = this.root.right
-        this.nullNode.key = value
-        while (node.key !== value) {
-            if (node.key > value) {
+        this.nullNode.key = key
+        while (node.key !== key) {
+            if (node.key > key) {
                 node = node.left
             } else {
                 node = node.right
@@ -43,6 +44,9 @@ export default class RedBlackTree<T> {
             return null
         }
         return node.value
+    }
+    public delete(key: number): void {
+        this.removeChild(key, this.root)
     }
     public insert(key: number, value: T): void {
         this.currentNode = this.root
@@ -96,6 +100,18 @@ export default class RedBlackTree<T> {
             this.currentNode.color = COLOR_TYPES.BLACK
         }
         this.root.right.color = COLOR_TYPES.BLACK
+    }
+    private removeChild(key: number, node: RedBlackTreeNode<T>) {
+        this.currentNode = node
+        this.siblingNode = node
+        this.currentNode = node
+        this.nullNode.key = key
+        while (key !== this.currentNode.key) {}
+        if (this.currentNode === this.nullNode) {
+            return
+        }
+        if (this.currentNode.left && this.currentNode.right) {
+        }
     }
 
     private rotate(treeNode: RedBlackTreeNode<T>, key: number): RedBlackTreeNode<T> {

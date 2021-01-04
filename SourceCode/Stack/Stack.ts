@@ -1,20 +1,37 @@
 /** @format */
 
 export default class Stack<T> {
-    private capacity: T[] = []
-    public get size(): number {
-        return this.capacity.length
+    private list: T[] = []
+    private capacity: number
+    private index = -1
+    constructor(capacity: number) {
+        this.capacity = capacity
     }
-    public get topElement(): T | null {
-        if (!this.size) {
+    public get top(): T | null {
+        if (this.index < 0) {
             return null
         }
-        return this.capacity[this.size - 1]
+        return this.list[this.index]
     }
-    public pop(): T | undefined {
-        return this.capacity.pop()
+    public isEmpty(): boolean {
+        return this.index < 0
+    }
+    public isFull(): boolean {
+        return this.index === this.capacity - 1
+    }
+    public pop(): T {
+        if (this.isEmpty()) {
+            throw Error('Stack is empty.')
+        }
+        const value = this.list[this.index]
+        this.index -= 1
+        return value
     }
     public push(element: T): void {
-        this.capacity.push(element)
+        if (this.isFull()) {
+            throw Error('Stack is full')
+        }
+        this.index += 1
+        this.list[this.index] = element
     }
 }

@@ -5,26 +5,36 @@ import Queue from '@/Queue/Queue'
 describe('Queue', () => {
     let queue: Queue<number>
     test('initialization', () => {
-        queue = new Queue<number>()
+        queue = new Queue<number>(5)
         expect(queue).toBeInstanceOf(Queue)
-        expect(queue.size).toBe(0)
-        expect(queue.frontElement).toBeNull()
+        expect(queue.isEmpty()).toBeTruthy()
     })
     test('enqueue', () => {
-        queue.enqueue(1)
-        expect(queue.frontElement).toBe(1)
-        expect(queue.size).toBe(1)
-        queue.enqueue(2)
-        expect(queue.frontElement).toBe(1)
-        expect(queue.size).toBe(2)
-    })
-    test('dequeue', () => {
-        const element = queue.dequeue()
-        expect(element).toBe(1)
-        expect(queue.frontElement).toBe(2)
+        const data = [1, 2, 3, 4, 5]
+        data.forEach(value => {
+            queue.enqueue(value)
+        })
+        expect(queue.isFull()).toBeTruthy()
+        expect(() => {
+            queue.enqueue(6)
+        }).toThrowError()
     })
     test('exist', () => {
-        expect(queue.exist(3)).toBeFalsy()
         expect(queue.exist(2)).toBeTruthy()
+        expect(queue.exist(6)).toBeFalsy()
+    })
+    test('dequeue', () => {
+        const data = []
+        data.push(queue.dequeue())
+        data.push(queue.dequeue())
+        queue.enqueue(9)
+        queue.enqueue(8)
+        while (!queue.isEmpty()) {
+            data.push(queue.dequeue())
+        }
+        expect(data).toStrictEqual([1, 2, 3, 4, 5, 9, 8])
+        expect(() => {
+            queue.dequeue()
+        }).toThrowError()
     })
 })

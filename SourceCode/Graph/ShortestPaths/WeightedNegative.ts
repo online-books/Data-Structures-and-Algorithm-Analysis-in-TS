@@ -13,7 +13,7 @@ export default function weightedNegativeShortestPaths(
     if (startVertexIndex === -1) {
         return null
     }
-    const queue = new Queue<number>()
+    const queue = new Queue<number>(Math.pow(vertices.length, 2))
     const result: PathCostMap = {}
     const distances = new Array(vertices.length).fill(Infinity)
     const parents = new Array(vertices.length).fill(startVertexIndex)
@@ -21,8 +21,8 @@ export default function weightedNegativeShortestPaths(
     distances[startVertexIndex] = 0
     queue.enqueue(startVertexIndex)
     result[vertexName] = {path: [], distance: 0}
-    while (queue.size) {
-        const currentVertexIndex = queue.dequeue()!
+    while (!queue.isEmpty()) {
+        const currentVertexIndex = queue.dequeue()
         if (visited[currentVertexIndex] > vertices.length) {
             break
         }

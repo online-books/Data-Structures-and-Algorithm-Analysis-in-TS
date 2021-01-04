@@ -5,7 +5,7 @@ import DirectedGraph from './DirectedGraph'
 
 export default function topSort(directedGraph: DirectedGraph): string[] {
     const vertices = directedGraph.getAllVertices()
-    const queue = new Queue<string>()
+    const queue = new Queue<string>(vertices.length)
     const result: string[] = []
     const indegrees: number[] = []
     let counter = 0
@@ -16,8 +16,8 @@ export default function topSort(directedGraph: DirectedGraph): string[] {
         }
         indegrees.push(indegree)
     })
-    while (queue.size) {
-        const vertexName = queue.dequeue()!
+    while (!queue.isEmpty()) {
+        const vertexName = queue.dequeue()
         result.push(vertexName)
         counter += 1
         directedGraph.traverseAdjVertices(vertexName, (adjVertexName, adjVertexIndex) => {

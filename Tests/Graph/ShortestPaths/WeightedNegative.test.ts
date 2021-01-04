@@ -16,6 +16,6 @@ describe('weighted negative shortest paths', () => {
     test('going as expected', () => {
         const result = weightedNegativeShortestPaths(graph, 'a')!
         expect(result).not.toBeNull()
-        expect(result['c'].distance).toBe(-52)
+        expect(result['c'].distance).toBe(-10)
     })
 })
