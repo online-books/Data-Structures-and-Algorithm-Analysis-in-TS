@@ -64,4 +64,4 @@
 
 ---
 
-SourceCode/PriorityQueue/BinaryHeap.ts
+[SourceCode/PriorityQueue/BinaryHeap.ts](../../../SourceCode/PriorityQueue/BinaryHeap.ts)

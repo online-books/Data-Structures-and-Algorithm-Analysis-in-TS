@@ -57,4 +57,4 @@
 
 ---
 
-SourceCode/HashTable/HashTable.ts
+[SourceCode/HashTable/HashTable.ts](../../SourceCode/HashTable/HashTable.ts)

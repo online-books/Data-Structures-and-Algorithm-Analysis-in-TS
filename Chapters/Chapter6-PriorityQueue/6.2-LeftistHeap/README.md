@@ -50,4 +50,4 @@
 
 ---
 
-SourceCode/PriorityQueue/leftist-heap
+[SourceCode/PriorityQueue/LeftistHeap/LeftistHeap.ts](../../../SourceCode/PriorityQueue/LeftistHeap/LeftistHeap.ts)

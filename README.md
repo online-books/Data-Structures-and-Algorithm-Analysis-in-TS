@@ -52,12 +52,12 @@
 
 #### 2.5 优先队列(堆)
 
-| 序号 | 内容                                                         | 要点                           | 备注 |
-| :--: | :----------------------------------------------------------- | :----------------------------- | ---- |
-|  1   | [二叉堆](Chapters/Chapter6-PriorityQueue/6.1-BinaryHeap)     | 堆序性质；二叉堆的结构性质     | 无   |
-|  2   | [左式堆](Chapters/Chapter6-PriorityQueue/6.2-LeftistHeap)    | 零路径长；堆的合并             | 无   |
-|  3   | [斜堆](Chapters/Chapter6-PriorityQueue/6.3-SkewHeap)         | 左式堆的自调节                 | 无   |
-|  4   | [二项队列](Chapters/Chapter6-PriorityQueue/6.4-BinomalQueue) | 二项树的结构性质；二项树的合并 | 无   |
+| 序号 | 内容                                                         | 要点                           | 备注                 |
+| :--: | :----------------------------------------------------------- | :----------------------------- | -------------------- |
+|  1   | [二叉堆](Chapters/Chapter6-PriorityQueue/6.1-BinaryHeap)     | 堆序性质；二叉堆的结构性质     | 无                   |
+|  2   | [左式堆](Chapters/Chapter6-PriorityQueue/6.2-LeftistHeap)    | 零路径长；堆的合并             | 无                   |
+|  3   | [斜堆](Chapters/Chapter6-PriorityQueue/6.3-SkewHeap)         | 左式堆的自调节                 | 依赖本节左式堆的内容 |
+|  4   | [二项队列](Chapters/Chapter6-PriorityQueue/6.4-BinomalQueue) | 二项树的结构性质；二项树的合并 | 无                   |
 
 #### 2.6 不相交集
 
