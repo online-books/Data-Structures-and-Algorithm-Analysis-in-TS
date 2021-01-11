@@ -71,4 +71,4 @@
 
 ---
 
-SourceCode/PriorityQueue/BinomialQueue/BinomialQueue.ts
+[SourceCode/PriorityQueue/BinomialQueue/BinomialQueue.ts](../../../SourceCode/PriorityQueue/BinomialQueue/BinomialQueue.ts)
