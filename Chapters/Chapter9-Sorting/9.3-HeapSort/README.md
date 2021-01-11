@@ -2,12 +2,12 @@
 
 ## 堆排序
 
-优先队列可以用于花费$O(\logN)$时间的排序，基于该排序的算法叫做堆排序。
+基于优先队列排序的算法叫做堆排序。
 
-首先建立$N$个元素的二叉堆，此时的花费是$O(N)$时间，然后我们执行$N$次$DeleteMin$操作。按照顺序，最小的元素先离开该堆。通过将这些元素按顺序重新放到被排序的数组中，我们得到$N$个元素的排序。由于每个$DeleteMin$花费时间$O(\logN)$，因此总的运行时间是$O(N\logN)$。
+首先以$O(N)$的运行时间建立$N$个元素的二叉堆，然后执行$N$次$DeleteMin$操作。将每次$DeleteMin$操作删除的最小元素按顺序重新放到被排序的数组中，就得到$N$个元素的排序。由于每次$DeleteMin$操作花费时间$O(\log N)$，因此总的运行时间是$O(N\log N)$。
 
 ### 代码位置
 
 ---
 
-SourceCode/Sort/HeapSort.ts
+[SourceCode/Sort/HeapSort.ts](../../../SourceCode/Sort/HeapSort.ts)

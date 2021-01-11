@@ -85,13 +85,13 @@
 
 #### 3.1 排序算法
 
-| 序号 | 内容                                                     | 要点                                  | 备注                |
-| :--: | :------------------------------------------------------- | :------------------------------------ | ------------------- |
-|  1   | [插入排序](Chapters/Chapter9-Sorting/9.1-InsertionSort/) | 时间界：$O(N^2)$                      | 无                  |
-|  2   | [希尔排序](Chapters/Chapter9-Sorting/9.2-ShellSort)      | 增量序列； 时间界：$O(NlogN)$         | 无                  |
-|  3   | [堆排序](Chapters/Chapter9-Sorting/9.3-HeapSort)         | 时间界：$O(NlogN)$                    | 依赖 2.5 二叉堆内容 |
-|  4   | [归并排序](Chapters/Chapter9-Sorting/9.4-MergeSort)      | 分治算法； 时间界：$O(NlogN)$         | 无                  |
-|  5   | [快速排序](Chapters/Chapter9-Sorting/9.5-QuickSort)      | 枢纽元；分治算法； 时间界：$O(NlogN)$ | 无                  |
+| 序号 | 内容                                                     | 要点                                    | 备注                |
+| :--: | :------------------------------------------------------- | :-------------------------------------- | ------------------- |
+|  1   | [插入排序](Chapters/Chapter9-Sorting/9.1-InsertionSort/) | 时间界：$O(N^2)$                        | 无                  |
+|  2   | [希尔排序](Chapters/Chapter9-Sorting/9.2-ShellSort)      | 增量序列； 时间界：$O(N\log N)$         | 无                  |
+|  3   | [堆排序](Chapters/Chapter9-Sorting/9.3-HeapSort)         | 时间界：$O(N\log N)$                    | 依赖 2.5 二叉堆内容 |
+|  4   | [归并排序](Chapters/Chapter9-Sorting/9.4-MergeSort)      | 分治算法； 时间界：$O(N\log N)$         | 无                  |
+|  5   | [快速排序](Chapters/Chapter9-Sorting/9.5-QuickSort)      | 枢纽元；分治算法； 时间界：$O(N\log N)$ | 无                  |
 
 #### 3.2 贪婪算法
 
