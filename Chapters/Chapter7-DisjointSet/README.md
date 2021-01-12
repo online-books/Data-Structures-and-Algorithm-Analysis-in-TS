@@ -28,7 +28,7 @@
 
 由于$Find$操作返回的是包含给定元素的等价类的名字，当两个元素$a$和$b$属于相同的集合时，$Find(a)==Find(b)$。因此可以使用树来表示每一个集合，因为树上的每一个元素都有相同的根。这样，该根就可以用来命名所在的集合。在开始时每个集合都只含有一个元素。集合的名字由根处的节点给出，由于只需要父节点的名字，因此我们可以用数组来实现这个树：数组的每个成员$P[i]$表示元素$i$的父节点，如果$i$是根，那么$P[i]=0$。在图 8-1 的森林中，对于$1 \leq i \leq 8,P[i]=0$。
 
-<image src="../../Assets/Images/ch8/8-1.png"/>
+<image height="200" src="../../Assets/Images/ch8/8-1.png"/>
 
 图 8-1 八个元素，最初是在八个不同的集合上
 
@@ -36,15 +36,15 @@
 
 两个集合的$Union$操作，通过将一个集合的根节点指向另一个集合的根节点所在数组的下标，如下图所示。
 
-<image src="../../Assets/Images/ch8/8-2.png"/>
+<image  height="200"  src="../../Assets/Images/ch8/8-2.png"/>
 
 图 8-2 在$Union(5,6)之后$
 
-<image src="../../Assets/Images/ch8/8-3.png"/>
+<image  height="200"  src="../../Assets/Images/ch8/8-3.png"/>
 
 图 8-3 在$Union(7,8)之后$
 
-<image src="../../Assets/Images/ch8/8-4.png"/>
+<image height="200"  src="../../Assets/Images/ch8/8-4.png"/>
 
 图 8-4 在$Union(5,7)之后$
 
@@ -60,7 +60,7 @@
 
 为了实现这种方法，需要记住每一棵树的高度。我们可以让每个根节点在数组中的值是该树的高度的负值。这样的话，初始时树的数组就全都为$-1$。在图 8-4 所示的求并结果就变为图 8-5 所示。
 
-<image src="../../Assets/Images/ch8/8-5.png"/>
+<image height="200"  src="../../Assets/Images/ch8/8-5.png"/>
 
 图 8-5 按高度求并
 
@@ -70,13 +70,13 @@
 
 从集合$S$中查找节点$X$，路径压缩的效果是，从$X$到根节点的路径上的每一个节点的父节点变成根节点。图 8-6 展示
 
-<image src="../../Assets/Images/ch8/8-6.png"/>
+<image height="200"  src="../../Assets/Images/ch8/8-6.png"/>
 
 图 8-6 路径压缩之前
 
 路径压缩的关键在于对从节点$X$到通向根节点路径上的每一个节点递归地将节点的父节点设置为根节点。
 
-<image src="../../Assets/Images/ch8/8-7.png"/>
+<image height="200" src="../../Assets/Images/ch8/8-7.png"/>
 
 图 8-7 执行$Find(8)$之后路径压缩的效果
 
