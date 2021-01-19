@@ -8,7 +8,7 @@
 
 ---
 
-Dijkstra 算法在顶点$s$开始并分阶段工作。图中的每个顶点最终都要被选作中间顶点。如果当前所选的顶点是$v$，那么对于每个$w \in V$，置$d_w=min(d_w,d_v+c_{w,v})$。也就是说从$v$到$w$的最佳距离或者是前面直到的从$s$到$w$的距离，或者是从$s$到$v$然后在直接从$v$到$w$的结果。
+Dijkstra 算法在顶点$s$开始并分阶段工作。图中的每个顶点最终都要被选作中间顶点。如果当前所选的顶点是$v$，那么对于每个$w \in V$，置$d_w=min(d_w,d_v+c_{w,v})$。也就是说从$v$到$w$的最佳距离或者是前面知道的从$s$到$w$的距离，或者是从$s$到$v$然后在直接从$v$到$w$的结果。
 
 Dijkstra 算法提供了动态规划算法的想法：我们依序选择这些顶点。将$D_{k,i,j}$定义为从$v_i$到$v_j$只使用$v_1,v_2,v_3,...,v_k$作为中间顶点的最短路径。则根据定义:$D_{0,i,j}=c_{i,j}即直接等于连接权值，其中若$(v*i,v_j)$不是该图的边则$c*{i,j}是$\infty$。再有，根据定义，$D_{|V|,i,j}$是图中从$v_i$到$v_j$的最短路径。
 
@@ -28,7 +28,7 @@ Dijkstra 算法的时间复杂度为$O(|V|^2)$，对稀疏图运行更快。动�
 
 ---
 
-SourceCode/Graph/ShortestPaths/AllPairsShortestPaths.ts
+[SourceCode/Graph/ShortestPaths/AllPairsShortestPaths.ts](../../../../SourceCode/Graph/ShortestPaths/AllPairsShortestPaths.ts)
 
 ### 参考
 
