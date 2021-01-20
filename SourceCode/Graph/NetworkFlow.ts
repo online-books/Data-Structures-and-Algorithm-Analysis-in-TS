@@ -113,9 +113,11 @@ export function searchMaxAugmentingPath(
 }
 
 export default function maximumFlow(directedGraph: DirectedGraph, sourceVertex: string, sinkVertex: string): number {
+    // 构造残余图
     const residualGraph = copyDirectedGraph(directedGraph)
     let result = 0
     while (true) {
+        // 寻找增广路径
         const {path, flow, weight} = searchMaxAugmentingPath(residualGraph, sourceVertex, sinkVertex)
         if (!path.length) {
             break

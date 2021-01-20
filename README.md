@@ -67,19 +67,19 @@
 
 #### 2.7 图
 
-| 序号 | 内容                                                                                                               | 要点                                   | 备注                              |
-| :--: | :----------------------------------------------------------------------------------------------------------------- | :------------------------------------- | --------------------------------- |
-|  1   | [图的表示](Chapters/Chapter8-Graph/8.1-GraphRepresentation)                                                        | 有向图；无向图；赋权图；环圈；         | 无                                |
-|  2   | [拓扑排序](Chapters/Chapter8-Graph/8.2-TopSort)                                                                    | 入度、出度                             | 无                                |
-|  3   | [单源最短路径-无权最短路径](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.1-UnweightedShortestPaths)       | 图的广度优先搜索                       | 依赖 2.1 队列内容                 |
-|  4   | [单源最短路径-Dijkstra 算法](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.2-TheAlgorithmOfDijkstra)       | 非负赋权图；贪婪算法；图的深度优先搜索 | 依赖 2.5 二叉堆内容               |
-|  5   | [单源最短路径-具有负边值的图](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.3-GraphsWithNegativeEdgeCosts) | 图的广度优先搜索                       | 依赖 2.1 队列内容                 |
-|  6   | [所有点对最短路径](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.4-AllPairsShortestPath)                   | FloydWarshall 算法 ；动态规划          | 依赖本节 3.2 内容                 |
-|  7   | [最大网络流](Chapters/Chapter8-Graph/8.4-NetworkFlow)                                                              | 残余图；最大增广路径；图的深度优先搜索 | 无                                |
-|  8   | [最小生成树](Chapters/Chapter8-Graph/8.5-MinimumSpanningTree)                                                      | Prim 算法;Kruskal 算法；贪婪算法       | 依赖 2.5 二叉堆、2.6 不相交集内容 |
-|  9   | [双连通性](Chapters/Chapter8-Graph/8.6-Biconnectivity)                                                             | 图的深度优先搜索；先序遍历；后序遍历   | 无                                |
-|  10  | [欧拉回路](Chapters/Chapter8-Graph/8.7-EulerPath)                                                                  | 图的深度优先搜索；路径拼接             | 无                                |
-|  11  | [强连通分支](Chapters/Chapter8-Graph/8.8-FindingStrongComponents)                                                  | 图的深度优先搜索； 后序遍历；反向图    | 无                                |
+| 序号 | 内容                                                                                                               | 要点                                   | 备注                                |
+| :--: | :----------------------------------------------------------------------------------------------------------------- | :------------------------------------- | ----------------------------------- |
+|  1   | [图的表示](Chapters/Chapter8-Graph/8.1-GraphRepresentation)                                                        | 有向图；无向图；赋权图；环圈；         | 无                                  |
+|  2   | [拓扑排序](Chapters/Chapter8-Graph/8.2-TopSort)                                                                    | 入度、出度                             | 无                                  |
+|  3   | [单源最短路径-无权最短路径](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.1-UnweightedShortestPaths)       | 图的广度优先搜索                       | 依赖 2.1 队列内容                   |
+|  4   | [单源最短路径-Dijkstra 算法](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.2-TheAlgorithmOfDijkstra)       | 非负赋权图；贪婪算法；图的深度优先搜索 | 依赖 2.5 二叉堆内容                 |
+|  5   | [单源最短路径-具有负边值的图](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.3-GraphsWithNegativeEdgeCosts) | 图的广度优先搜索                       | 依赖 2.1 队列内容                   |
+|  6   | [所有点对最短路径](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.4-AllPairsShortestPath)                   | FloydWarshall 算法 ；动态规划          | 依赖本节 3.2 内容                   |
+|  7   | [最大网络流](Chapters/Chapter8-Graph/8.4-NetworkFlow)                                                              | 残余图；最大增广路径；图的深度优先搜索 | 依赖 Dijksra 算法、无权最短路径算法 |
+|  8   | [最小生成树](Chapters/Chapter8-Graph/8.5-MinimumSpanningTree)                                                      | Prim 算法;Kruskal 算法；贪婪算法       | 依赖 2.5 二叉堆、2.6 不相交集内容   |
+|  9   | [双连通性](Chapters/Chapter8-Graph/8.6-Biconnectivity)                                                             | 图的深度优先搜索；先序遍历；后序遍历   | 无                                  |
+|  10  | [欧拉回路](Chapters/Chapter8-Graph/8.7-EulerPath)                                                                  | 图的深度优先搜索；路径拼接             | 无                                  |
+|  11  | [强连通分支](Chapters/Chapter8-Graph/8.8-FindingStrongComponents)                                                  | 图的深度优先搜索； 后序遍历；反向图    | 无                                  |
 
 ## 3.算法
 
