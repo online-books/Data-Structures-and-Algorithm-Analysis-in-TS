@@ -16,7 +16,7 @@
 
 以有向图为例（无向图可类似表示），图 8-1 中所示的图有 $7$ 个顶点和 $12$ 条边。
 
-<image src="../../../Assets/Images/ch8/8-1.png"/>
+<image   height="240" src="../../../Assets/Images/ch8/8-1.png"/>
 
 图 8-1 一个有向图
 
@@ -34,7 +34,7 @@
 
 使用邻接表是表示稀疏图的更好的方式。对每一个顶点都有一个相应的链表存放所有与其邻接的顶点，如果边有权，则将权值存储在链表的节点中。这种表示法的空间需求是$O(\mid E \mid+\mid V \mid)$。如图 8-2 所示 。
 
-<image src="../../../Assets/Images/ch8/8-2.png"/>
+<image  height="240" src="../../../Assets/Images/ch8/8-2.png"/>
 
 图 8-2 图的邻接表表示法
 

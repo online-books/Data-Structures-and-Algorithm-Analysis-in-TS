@@ -60,7 +60,7 @@
 
 为了实现这种方法，需要记住每一棵树的高度。我们可以让每个根节点在数组中的值是该树的高度的负值。这样的话，初始时树的数组就全都为$-1$。在图 7-4 所示的求并结果就变为图 7-5 所示。
 
-<image height="200"  src="../../Assets/Images/ch7/7-5.png"/>
+<image height="240"  src="../../Assets/Images/ch7/7-5.png"/>
 
 图 7-5 按高度求并
 
@@ -70,13 +70,13 @@
 
 从集合$S$中查找节点$X$，路径压缩的效果是，从$X$到根节点的路径上的每一个节点的父节点变成根节点。图 7-6 展示
 
-<image height="200"  src="../../Assets/Images/ch7/7-6.png"/>
+<image height="240"  src="../../Assets/Images/ch7/7-6.png"/>
 
 图 7-6 路径压缩之前
 
 路径压缩的关键在于对从节点$X$到通向根节点路径上的每一个节点递归地将节点的父节点设置为根节点。
 
-<image height="200" src="../../Assets/Images/ch7/7-7.png"/>
+<image height="240" src="../../Assets/Images/ch7/7-7.png"/>
 
 图 7-7 执行$Find(8)$之后路径压缩的效果
 

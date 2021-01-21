@@ -12,13 +12,13 @@
 
 例如，在图 8-4 中，从$v_1$到$v_6$的最短赋权路径的值为$6$。它是从$v_1$到$v_4$到$v_7$的再到$v_6$的路径。在这两个顶点间的最短无权路径长为$2$。
 
-<image  src="../../../../Assets/Images/ch8/8-4.png"/>
+<image  height="240"  src="../../../../Assets/Images/ch8/8-4.png"/>
 
 图 8-4 有向图$G$
 
 如果图中含有负值圈(negative-cost cycle)，那么最短路径问题就是不确定的。在图 8-5 中，从$v_5$到$v_4$的路径的权重为$1$，但是通过循环$v_5,v_4,v_2,v_5,v_4$存在一条最短路径，它的值是$-5$。这条路径仍然不是最短的，因为可以在这条路径中循环任意长。因此，两个顶点间的最短路径问题是不确定的。
 
-<image  src="../../../../Assets/Images/ch8/8-5.png"/>
+<image  height="240" src="../../../../Assets/Images/ch8/8-5.png"/>
 
 图 8-5 带有负值圈的有向图
 
@@ -26,7 +26,7 @@
 
 无权最短路径是赋权最短路径的特殊情形，因为我们可以为所有的边都赋权为$1$。 图 8-6 表示一个无权的图
 
-<image src="../../../../Assets/Images/ch8/8-6.png">
+<image  height="240" src="../../../../Assets/Images/ch8/8-6.png">
 
 图 8-6 一个无权有向图 G
 
@@ -38,4 +38,4 @@
 
 ---
 
-SourceCode/Graph/ShortestPaths/UnweightedShortestPaths.ts
+[SourceCode/Graph/ShortestPaths/UnweightedShortestPaths.ts](../../../../SourceCode/Graph/ShortestPaths/UnweightedShortestPaths.ts)

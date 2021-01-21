@@ -3,7 +3,7 @@
 ## 链表
 
 链表是由表头(header)和一系列不必在内存中相连的节点(node)组成。每个节点均含有一个节点值（下图中的$A_1$、$A_2$等）和指向后继节点的 Next 指针（下图中的箭头所表示）。最后一个节点的 Next 指针指向 null。
-<img src="../../Assets/Images/ch3/1-1.png"/>
+<img src="../../../Assets/Images/ch3/1-1.png"/>
 
 图 1-1 链表模型
 
@@ -15,7 +15,7 @@
 
 创建新的节点并将其插入到表头之后。
 
-<img src="../../Assets/Images/ch3/1-2.png"/>
+<img src="../../../Assets/Images/ch3/1-2.png"/>
 
 图 1-2 向链表中插入新值$X$，虚线表示原来的 Next 指针
 
@@ -27,7 +27,7 @@
 
 为了将某个节点从链表中删除，需要先找出被删除节点的前驱节点，然后将前驱节点的 Next 指针指向被删除节点的后继节点。
 
-<img src="../../Assets/Images/ch3/1-3.png"/>
+<img src="../../../Assets/Images/ch3/1-3.png"/>
 
 图 1-4 从链表中删除$A_2$节点
 
