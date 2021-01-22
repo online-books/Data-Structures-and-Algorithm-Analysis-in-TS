@@ -34,4 +34,4 @@
 
 ---
 
-[SourceCode/Graph/Biconnectivity.ts](../../../../SourceCode/Graph/Biconnectivity.ts)
+[SourceCode/Graph/Biconnectivity.ts](../../../SourceCode/Graph/Biconnectivity.ts)
