@@ -11,4 +11,7 @@ export default class BinaryTreeNode<T> {
         this.key = key
         this.value = value
     }
+    public valueOf(): number {
+        return this.key
+    }
 }
