@@ -45,4 +45,4 @@
 
 ---
 
-[SouceCode/List/LinkedList](../../SourceCode/List/LinkedList/LinkedList.ts)
+[SouceCode/List/LinkedList](../../../SourceCode/List/LinkedList/LinkedList.ts)

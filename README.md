@@ -36,27 +36,27 @@
 
 #### 2.3 二叉树
 
-| 序号 | 内容                                                       | 要点                               | 备注               |
-| :--: | :--------------------------------------------------------- | :--------------------------------- | ------------------ |
-|  1   | [二叉查找树](Chapters/Chapter4-Trees/4.1-BinarySearchTree) | 二叉查找树的结构性质；操作平均时间 | 无                 |
-|  2   | [AVL 树](Chapters/Chapter4-Trees/4.2-AVLTree)              | AVL 树的结构性质；单旋转、双旋转   | 依赖本节 1 内容    |
-|  3   | [伸展树](Chapters/Chapter4-Trees/4.3-SplayTree)            | 自顶向下的伸展过程                 | 依赖本节 1、2 内容 |
-|  4   | [红黑树](Chapters/Chapter4-Trees/4.4-RedBlackTree)         | 着色法则；自顶向下的旋转与着色过程 | 依赖本节 1、2 内容 |
+| 序号 | 内容                                                       | 要点                               | 备注                       |
+| :--: | :--------------------------------------------------------- | :--------------------------------- | -------------------------- |
+|  1   | [二叉查找树](Chapters/Chapter4-Trees/4.1-BinarySearchTree) | 二叉查找树的结构性质；操作平均时间 | 无                         |
+|  2   | [AVL 树](Chapters/Chapter4-Trees/4.2-AVLTree)              | AVL 树的结构性质；单旋转、双旋转   | 依赖二叉查找树内容         |
+|  3   | [伸展树](Chapters/Chapter4-Trees/4.3-SplayTree)            | 自顶向下的伸展过程                 | 依赖二叉查找树、AVL 树内容 |
+|  4   | [红黑树](Chapters/Chapter4-Trees/4.4-RedBlackTree)         | 着色法则；自顶向下的旋转与着色过程 | 依赖二叉查找树、AVL 树内容 |
 
 #### 2.4 散列
 
-| 序号 | 内容                                | 要点                                     | 备注              |
-| :--: | :---------------------------------- | :--------------------------------------- | ----------------- |
-|  1   | [散列表](Chapters/Chapter5-Hashing) | 散列函数；分离链接法；开放定址法；再散列 | 依赖 2.2 链表内容 |
+| 序号 | 内容                                | 要点                                     | 备注         |
+| :--: | :---------------------------------- | :--------------------------------------- | ------------ |
+|  1   | [散列表](Chapters/Chapter5-Hashing) | 散列函数；分离链接法；开放定址法；再散列 | 依赖链表内容 |
 
 #### 2.5 优先队列(堆)
 
-| 序号 | 内容                                                         | 要点                           | 备注                 |
-| :--: | :----------------------------------------------------------- | :----------------------------- | -------------------- |
-|  1   | [二叉堆](Chapters/Chapter6-PriorityQueue/6.1-BinaryHeap)     | 堆序性质；二叉堆的结构性质     | 无                   |
-|  2   | [左式堆](Chapters/Chapter6-PriorityQueue/6.2-LeftistHeap)    | 零路径长；堆的合并             | 无                   |
-|  3   | [斜堆](Chapters/Chapter6-PriorityQueue/6.3-SkewHeap)         | 左式堆的自调节                 | 依赖本节左式堆的内容 |
-|  4   | [二项队列](Chapters/Chapter6-PriorityQueue/6.4-BinomalQueue) | 二项树的结构性质；二项树的合并 | 无                   |
+| 序号 | 内容                                                         | 要点                           | 备注             |
+| :--: | :----------------------------------------------------------- | :----------------------------- | ---------------- |
+|  1   | [二叉堆](Chapters/Chapter6-PriorityQueue/6.1-BinaryHeap)     | 堆序性质；二叉堆的结构性质     | 无               |
+|  2   | [左式堆](Chapters/Chapter6-PriorityQueue/6.2-LeftistHeap)    | 零路径长；堆的合并             | 无               |
+|  3   | [斜堆](Chapters/Chapter6-PriorityQueue/6.3-SkewHeap)         | 左式堆的自调节                 | 依赖左式堆的内容 |
+|  4   | [二项队列](Chapters/Chapter6-PriorityQueue/6.4-BinomalQueue) | 二项树的结构性质；二项树的合并 | 无               |
 
 #### 2.6 不相交集
 
@@ -68,14 +68,14 @@
 
 | 序号 | 内容                                                                                                               | 要点                                   | 备注                                |
 | :--: | :----------------------------------------------------------------------------------------------------------------- | :------------------------------------- | ----------------------------------- |
-|  1   | [图的表示](Chapters/Chapter8-Graph/8.1-GraphRepresentation)                                                        | 有向图；无向图；赋权图；环圈；         | 无                                  |
-|  2   | [拓扑排序](Chapters/Chapter8-Graph/8.2-TopSort)                                                                    | 入度、出度                             | 无                                  |
-|  3   | [单源最短路径-无权最短路径](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.1-UnweightedShortestPaths)       | 图的广度优先搜索                       | 依赖 2.1 队列内容                   |
-|  4   | [单源最短路径-Dijkstra 算法](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.2-TheAlgorithmOfDijkstra)       | 非负赋权图；贪婪算法；图的深度优先搜索 | 依赖 2.5 二叉堆内容                 |
-|  5   | [单源最短路径-具有负边值的图](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.3-GraphsWithNegativeEdgeCosts) | 图的广度优先搜索                       | 依赖 2.1 队列内容                   |
-|  6   | [所有点对最短路径](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.4-AllPairsShortestPath)                   | FloydWarshall 算法 ；动态规划          | 依赖本节 3.2 内容                   |
+|  1   | [图的表示](Chapters/Chapter8-Graph/8.1-GraphRepresentation)                                                        | 有向图；无向图；赋权图；环圈；         | 依赖链表、散列、栈内容              |
+|  2   | [拓扑排序](Chapters/Chapter8-Graph/8.2-TopSort)                                                                    | 入度、出度                             | 依赖队列内容                        |
+|  3   | [单源最短路径-无权最短路径](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.1-UnweightedShortestPaths)       | 图的广度优先搜索                       | 依赖队列内容                        |
+|  4   | [单源最短路径-Dijkstra 算法](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.2-TheAlgorithmOfDijkstra)       | 非负赋权图；贪婪算法；图的深度优先搜索 | 依赖二叉堆内容                      |
+|  5   | [单源最短路径-具有负边值的图](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.3-GraphsWithNegativeEdgeCosts) | 图的广度优先搜索                       | 依赖队列内容                        |
+|  6   | [所有点对最短路径](Chapters/Chapter8-Graph/8.3-ShortestPathAlgorithm/8.3.4-AllPairsShortestPath)                   | FloydWarshall 算法 ；动态规划          | 无                                  |
 |  7   | [最大网络流](Chapters/Chapter8-Graph/8.4-NetworkFlow)                                                              | 残余图；最大增广路径；图的深度优先搜索 | 依赖 Dijksra 算法、无权最短路径算法 |
-|  8   | [最小生成树](Chapters/Chapter8-Graph/8.5-MinimumSpanningTree)                                                      | Prim 算法;Kruskal 算法；贪婪算法       | 依赖 2.5 二叉堆、2.6 不相交集内容   |
+|  8   | [最小生成树](Chapters/Chapter8-Graph/8.5-MinimumSpanningTree)                                                      | Prim 算法;Kruskal 算法；贪婪算法       | 依赖二叉堆、不相交集内容            |
 |  9   | [双连通性](Chapters/Chapter8-Graph/8.6-Biconnectivity)                                                             | 图的深度优先搜索；先序遍历；后序遍历   | 无                                  |
 |  10  | [欧拉回路](Chapters/Chapter8-Graph/8.7-EulerPath)                                                                  | 图的深度优先搜索；路径拼接             | 无                                  |
 |  11  | [强连通分支](Chapters/Chapter8-Graph/8.8-FindingStrongComponents)                                                  | 图的深度优先搜索； 后序遍历；反向图    | 无                                  |
@@ -94,15 +94,15 @@
 
 #### 3.2 贪婪算法
 
-| 序号 | 内容                                                    | 要点       | 备注                |
-| :--: | :------------------------------------------------------ | :--------- | ------------------- |
-|  1   | [Huffman 编码](Chapters/Chapter9-Algorithms/9.2-Greedy) | 哈夫曼算法 | 依赖 2.5 二叉堆内容 |
+| 序号 | 内容                                                    | 要点       | 备注           |
+| :--: | :------------------------------------------------------ | :--------- | -------------- |
+|  1   | [Huffman 编码](Chapters/Chapter9-Algorithms/9.2-Greedy) | 哈夫曼算法 | 依赖二叉堆内容 |
 
 #### 3.3 分治算法
 
-| 序号 | 内容       | 要点 | 备注   |
-| :--: | :--------- | :--- | ------ |
-|  1   | 最近点问题 |      | 待更新 |
+| 序号 | 内容       | 要点 | 备注 |
+| :--: | :--------- | :--- | ---- |
+|  1   | 最近点问题 |      | 无   |
 
 #### 3.4 动态规划算法
 

@@ -20,4 +20,4 @@
 
 ---
 
-[SourceCode/Graph/StrongComponnent.ts](../../../../SourceCode/Graph/StrongComponent.ts)
+[SourceCode/Graph/StrongComponnent.ts](../../../SourceCode/Graph/StrongComponent.ts)

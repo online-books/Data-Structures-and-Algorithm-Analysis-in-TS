@@ -12,4 +12,4 @@
 
 ---
 
-SourceCode/Graph/ShortestPaths/WeightedNegative.ts
+[SourceCode/Graph/ShortestPaths/WeightedNegative.ts](../../../../SourceCode/Graph/ShortestPaths/WeightedNegative.ts)

@@ -39,4 +39,5 @@
 ---
 
 [SourceCode/Stack/Stack.ts](../../SourceCode/Stack/Stack.ts)
+
 [SourceCode/Queue/Queue.ts](../../SourceCode/Queue/Queue.ts)
