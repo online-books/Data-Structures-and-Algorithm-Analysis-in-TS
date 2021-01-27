@@ -14,13 +14,13 @@
 
 代表这些字母的二进制代码可以用二叉树来表示，如图 9-9 所示。
 
-<image height="240" src="../../../assets/images/ch10/9-1.png" />
+<image height="240" src="../../../assets/images/ch9/9-1.png" />
 
 图 9-1 的树只在树叶上有数据。每个字符从根节点开始用 0 表示左分支用 1 表示右分支，那么字符 s 就被编码成 011，这样的编码方式叫做前缀码。如果字符$c_j$在深度$d_j$处且出现$f_j$次，那么该字母代码的值就等于$\sum d_jf_j$。
 
 因此，这种编码方式的关键就在于找到总价值最小的满二叉树。图 9-2 显示了这些字母的最优树，而这种编码只用了 146 个比特。
 
-<image height="240" src="../../../assets/images/ch10/9-2.png" />
+<image height="240" src="../../../assets/images/ch9/9-2.png" />
 
 |  字符   | 编码  | 频率 | 总比特数 |
 | :-----: | :---- | :--- | -------- |
@@ -39,15 +39,15 @@
 
 将文件$F$中的 58 个字符应用哈夫曼算法生成的最优编码树如图 9-3 和 9-5 所示。
 
-<image height="240" src="../../../assets/images/ch10/9-3.png" />
+<image height="240" src="../../../assets/images/ch9/9-3.png" />
 
 图 9-3
 
-<image height="240" src="../../../assets/images/ch10/9-4.png" />
+<image height="240" src="../../../assets/images/ch9/9-4.png" />
 
 图 9-4
 
-<image height="240" src="../../../assets/images/ch10/9-5.png" />
+<image height="240" src="../../../assets/images/ch9/9-5.png" />
 
 图 9-5
 
@@ -55,4 +55,4 @@
 
 ### 代码位置
 
-[SourceCode/Algorithms/Greedy/HuffmanCode.ts](SourceCode/Algorithms/Greedy/HuffmanCode.ts)
+[SourceCode/Algorithms/Greedy/HuffmanCode.ts](/SourceCode/Algorithms/Greedy/HuffmanCode.ts)

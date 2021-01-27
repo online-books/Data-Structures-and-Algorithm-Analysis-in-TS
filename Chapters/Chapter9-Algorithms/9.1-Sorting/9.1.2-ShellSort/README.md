@@ -20,4 +20,4 @@
 
 ---
 
-[SourceCode/Sort/ShellSort.ts](SourceCode/Sort/ShellSort.ts)
+[SourceCode/Sort/ShellSort.ts](../../../../SourceCode/Sort/ShellSort.ts)

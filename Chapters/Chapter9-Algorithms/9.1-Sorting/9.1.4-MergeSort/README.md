@@ -32,4 +32,4 @@ $$T(N)=N\log N+N=O(N\log N) \tag{7}$$
 
 ---
 
-[SourceCode/Sort/MergeSort.ts](SourceCode/Sort/MergeSort.ts)
+[SourceCode/Sort/MergeSort.ts](../../../../SourceCode/Sort/MergeSort.ts)

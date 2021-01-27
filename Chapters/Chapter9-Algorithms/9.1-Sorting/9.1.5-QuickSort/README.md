@@ -137,4 +137,4 @@ $$T(N)=O(N\log N) \tag{24}$$
 
 ---
 
-[SourceCode/Sort/QuickSort.ts](SourceCode/Sort/QuickSort.ts)
+[SourceCode/Sort/QuickSort.ts](../../../../SourceCode/Sort/QuickSort.ts)

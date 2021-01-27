@@ -10,4 +10,4 @@
 
 ---
 
-[SourceCode/Sort/HeapSort.ts](SourceCode/Sort/HeapSort.ts)
+[SourceCode/Sort/HeapSort.ts](../../../../SourceCode/Sort/HeapSort.ts)

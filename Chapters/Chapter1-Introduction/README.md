@@ -132,7 +132,7 @@ $$
 2. 如果$T(N)$是一个$k$次多项式，则$T(N)=\Theta(N^k)$
 3. 对任意常数$k$，$\log^kN=O(N)$，也就是说对数增长得非常缓慢。
 
-在需要大$O$表示的任何分析中，对精度的要求很低，各种简化都是可能发生的。低阶项一般可以被忽略，常数项也可以弃掉。比如$T(N)=O(2N^2)$或$T(N)=O(N^2+N)$的写法是错误 ❌ 的 。
+在需要大$O$表示的任何分析中，对精度的要求很低，各种简化都是可能发生的。低阶项一般可以被忽略，常数项也可以弃掉。比如$T(N)=O(2N^2)$或$T(N)=O(N^2+N)$的写法是错误的 。
 
 通过计算 $\lim\limits_{n \to \infty}\frac{f(n)}{g(n)}$可以确定两个函数$f(N)$和$g(N)$的相对增长率。该极限有四种可能的值：
 
@@ -304,7 +304,7 @@ export function maxSubSequenceSum3(n: number[]): number {
 
 ---
 
-[SourceCode/Intorduction/Intorduction.ts](../../SourceCode/Introduction/Introduction.ts)
+[SourceCode/Intorduction/Intorduction.ts](/SourceCode/Introduction/Introduction.ts)
 
 ### 参考
 
