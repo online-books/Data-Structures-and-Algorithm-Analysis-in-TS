@@ -102,4 +102,4 @@ $$
 
 ### 代码位置
 
-[SourceCode/Algorithms/DivideAndConquer/FindingNearestPointPair.ts](SourceCode/Algorithms/DivideAndConquer/FindingNearestPointPair.ts)
+[SourceCode/Algorithms/DivideAndConquer/FindingNearestPointPair.ts](/SourceCode/Algorithms/DivideAndConquer/FindingNearestPointPair.ts)
