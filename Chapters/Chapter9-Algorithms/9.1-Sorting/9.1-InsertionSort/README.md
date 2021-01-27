@@ -10,4 +10,4 @@
 
 ---
 
-[SourceCode/Sort/InsertionSort.ts](../../../SourceCode/Sort/InsertionSort.ts)
+[SourceCode/Sort/InsertionSort.ts](SourceCode/Sort/InsertionSort.ts)
