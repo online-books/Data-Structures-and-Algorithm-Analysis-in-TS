@@ -1,6 +1,6 @@
 <!-- @format -->
 
-# Typescript 数据结构与算法
+# Typescript 数据结构与算法分析
 
 ![travis-cli](https://travis-ci.com/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS.svg?branch=master)
 [![codecov](https://codecov.io/gh/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS/branch/master/graph/badge.svg?token=B05PLKNLJP)](https://codecov.io/gh/qindagang/Data-Structures-and-Algorithm-Analysis-in-TS)
