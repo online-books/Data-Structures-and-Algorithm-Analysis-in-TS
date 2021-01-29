@@ -147,19 +147,17 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6783x</span>
-<span class="cline-any cline-yes">3391x</span>
-<span class="cline-any cline-yes">3391x</span>
-<span class="cline-any cline-yes">3391x</span>
-<span class="cline-any cline-yes">3391x</span>
-<span class="cline-any cline-yes">27711x</span>
-<span class="cline-any cline-yes">27711x</span>
-<span class="cline-any cline-yes">27711x</span>
-<span class="cline-any cline-yes">24320x</span>
+<span class="cline-any cline-yes">6749x</span>
+<span class="cline-any cline-yes">3374x</span>
+<span class="cline-any cline-yes">3374x</span>
+<span class="cline-any cline-yes">3374x</span>
+<span class="cline-any cline-yes">3374x</span>
+<span class="cline-any cline-yes">27645x</span>
+<span class="cline-any cline-yes">27645x</span>
+<span class="cline-any cline-yes">27645x</span>
+<span class="cline-any cline-yes">24271x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3391x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3374x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -175,38 +173,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3391x</span>
-<span class="cline-any cline-yes">3391x</span>
-<span class="cline-any cline-yes">3391x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3392x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3374x</span>
+<span class="cline-any cline-yes">3374x</span>
+<span class="cline-any cline-yes">3374x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3375x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">8025x</span>
+<span class="cline-any cline-yes">8025x</span>
+<span class="cline-any cline-yes">8025x</span>
+<span class="cline-any cline-yes">8003x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">7443x</span>
-<span class="cline-any cline-yes">7443x</span>
-<span class="cline-any cline-yes">7443x</span>
-<span class="cline-any cline-yes">7423x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -261,6 +261,7 @@ function qSort(n: number[], left: number, right: number): void {
         qSort(n, left, i - 1)
         qSort(n, i + 1, right)
     } else {
+        // 对小于CUTOFF元素个数的进行插入排序
         insertionSort(n, left, right + 1)
     }
 }
@@ -283,7 +284,6 @@ function qSelect(n: number[], left: number, right: number, k: number): number {
                 break
             }
         }
-        // ;[1, 2, 3, 4, 5, 6], (k = 3), (i = 4)
         swap(n, i, right - 1)
         if (k &lt;= right - i) {
             return qSelect(n, i + 1, right, k)
@@ -310,7 +310,7 @@ export function quickSelect(n: number[], k: number): number {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Dec 02 2020 11:06:34 GMT+0800 (中国标准时间)
+                at Fri Jan 29 2021 08:13:12 GMT+0800 (China Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

@@ -8,6 +8,8 @@ import RedBlackTreeNode, {COLOR_TYPES} from './RedBlackTreeNode'
  * 2.根节点是黑色
  * 3.如果一个节点是红色，那么它的子节点必须是黑色
  * 4.从一个节点到一个null指针的每一条路径必须包含相同数量的黑色节点
+ *
+ * TODO:delete
  */
 
 export default class RedBlackTree<T> {
@@ -100,6 +102,7 @@ export default class RedBlackTree<T> {
             this.currentNode.color = COLOR_TYPES.BLACK
         }
         this.root.right.color = COLOR_TYPES.BLACK
+        this.siblingNode
     }
     private removeChild(key: number, node: RedBlackTreeNode<T>) {
         this.currentNode = node

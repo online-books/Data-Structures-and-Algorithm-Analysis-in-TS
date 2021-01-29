@@ -112,8 +112,8 @@ export default abstract class Graph {
     }
     private addVertex(vertexName: string): number {
         let vertexIndex: number
-        if (this.vertexPool.size) {
-            vertexIndex = this.vertexPool.pop()!
+        if (!this.vertexPool.isEmpty()) {
+            vertexIndex = this.vertexPool.pop()
         } else {
             vertexIndex = this.vertexNames.length
             const list = new LinkedList<AdjVerticesListNodeStruct>()

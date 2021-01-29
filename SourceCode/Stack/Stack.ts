@@ -4,7 +4,7 @@ export default class Stack<T> {
     private list: T[] = []
     private capacity: number
     private index = -1
-    constructor(capacity: number) {
+    constructor(capacity = Infinity) {
         this.capacity = capacity
     }
     public get top(): T | null {

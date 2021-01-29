@@ -78,7 +78,7 @@ describe('graph', () => {
             expect(getAdjVertices(directedgraph, 'k')).toStrictEqual([])
             expect(directedgraph.getIndegreeByVertexName('k')).toBe(1)
             expect(directedgraph.getOutdegreeByVertexName('k')).toBe(0)
-            expect(directedgraph.getAllVertices()).toStrictEqual(['b', 'c', 'f', 'e', 'g', 'h', 'j', 'i', 'k'])
+            expect(directedgraph.getAllVertices()).toStrictEqual(['b', 'k', 'c', 'f', 'e', 'g', 'h', 'j', 'i'])
         })
     })
 
