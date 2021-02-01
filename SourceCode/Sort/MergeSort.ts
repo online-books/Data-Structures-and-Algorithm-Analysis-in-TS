@@ -1,6 +1,6 @@
 /** @format */
 
-function merge(n: number[], tmpArray: number[], leftPos: number, rightPos: number, rightEnd: number) {
+export function merge(n: number[], tmpArray: number[], leftPos: number, rightPos: number, rightEnd: number): void {
     const leftEnd = rightPos - 1
     const elementNum = rightEnd - leftPos + 1
     let tmpPos = leftPos
