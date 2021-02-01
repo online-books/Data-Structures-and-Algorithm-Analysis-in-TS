@@ -3,12 +3,12 @@
 import heapSort from '@/Sort/HeapSort'
 import insertionSort from '@/Sort/InsertionSort'
 import mergeSort from '@/Sort/MergeSort'
-import {quickSort, quickSelect} from '@/Sort/QuickSort'
+import { quickSort, quickSelect } from '@/Sort/QuickSort'
 import shellSort from '@/Sort/ShellSort'
-import {generateRandomNumberArray} from '@/Shared/Util'
+import { generateRandomNumberArray } from '@/Shared/Util'
 
 describe('sort', () => {
-    const MAX_NUM = 1e4
+    const MAX_NUM = 5e4
     const MIN_NUM = 1
     const LAST_INDEX = MAX_NUM - MIN_NUM
     let data: number[]
