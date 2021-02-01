@@ -1,52 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1612162110591" clover="3.2.0">
-  <project timestamp="1612162110591" name="All files">
-    <metrics statements="43" coveredstatements="43" conditionals="12" coveredconditionals="12" methods="7" coveredmethods="7" elements="62" coveredelements="62" complexity="0" loc="43" ncloc="43" packages="1" files="1" classes="1"/>
-    <file name="FindingNearestPointPair.ts" path="/Users/momo/Documents/GitHub/Data-Structures-and-Algorithm-Analysis-in-TS/SourceCode/Algorithms/DivideAndConquer/FindingNearestPointPair.ts">
-      <metrics statements="43" coveredstatements="43" conditionals="12" coveredconditionals="12" methods="7" coveredmethods="7"/>
-      <line num="3" count="1" type="stmt"/>
+<coverage generated="1612180950899" clover="3.2.0">
+  <project timestamp="1612180950899" name="All files">
+    <metrics statements="39" coveredstatements="39" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2" elements="49" coveredelements="49" complexity="0" loc="39" ncloc="39" packages="1" files="2" classes="2"/>
+    <file name="OptBST.ts" path="/Users/momo/Documents/GitHub/Data-Structures-and-Algorithm-Analysis-in-TS/SourceCode/Algorithms/DynamicProgramming/OptBST.ts">
+      <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
       <line num="10" count="1" type="stmt"/>
       <line num="11" count="1" type="stmt"/>
       <line num="12" count="1" type="stmt"/>
-      <line num="13" count="200" type="stmt"/>
-      <line num="18" count="1" type="stmt"/>
-      <line num="19" count="200" type="stmt"/>
-      <line num="20" count="200" type="stmt"/>
-      <line num="22" count="1" type="stmt"/>
-      <line num="25" count="1" type="stmt"/>
-      <line num="26" count="21490" type="stmt"/>
-      <line num="30" count="399" type="cond" truecount="2" falsecount="0"/>
-      <line num="31" count="200" type="stmt"/>
-      <line num="33" count="199" type="stmt"/>
-      <line num="34" count="199" type="stmt"/>
-      <line num="35" count="199" type="stmt"/>
-      <line num="36" count="199" type="stmt"/>
-      <line num="37" count="199" type="stmt"/>
-      <line num="38" count="199" type="stmt"/>
-      <line num="39" count="199" type="stmt"/>
-      <line num="40" count="1544" type="cond" truecount="2" falsecount="0"/>
-      <line num="41" count="752" type="stmt"/>
-      <line num="44" count="1121" type="cond" truecount="2" falsecount="0"/>
-      <line num="45" count="199" type="stmt"/>
-      <line num="46" count="752" type="stmt"/>
-      <line num="47" count="1590" type="stmt"/>
-      <line num="48" count="1590" type="cond" truecount="2" falsecount="0"/>
-      <line num="49" count="141" type="stmt"/>
-      <line num="54" count="199" type="stmt"/>
-      <line num="57" count="1" type="stmt"/>
-      <line num="58" count="1480" type="cond" truecount="2" falsecount="0"/>
-      <line num="59" count="1" type="stmt"/>
-      <line num="60" count="1" type="stmt"/>
-      <line num="61" count="1" type="stmt"/>
-      <line num="64" count="1" type="stmt"/>
-      <line num="65" count="1" type="stmt"/>
-      <line num="66" count="1" type="stmt"/>
-      <line num="67" count="1" type="stmt"/>
-      <line num="68" count="200" type="stmt"/>
-      <line num="69" count="19900" type="stmt"/>
-      <line num="70" count="19900" type="cond" truecount="2" falsecount="0"/>
-      <line num="71" count="7" type="stmt"/>
-      <line num="75" count="1" type="stmt"/>
+      <line num="13" count="7" type="stmt"/>
+      <line num="14" count="7" type="stmt"/>
+      <line num="15" count="7" type="stmt"/>
+      <line num="16" count="7" type="stmt"/>
+      <line num="17" count="7" type="stmt"/>
+      <line num="18" count="21" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="22" count="6" type="stmt"/>
+      <line num="23" count="21" type="stmt"/>
+      <line num="24" count="21" type="stmt"/>
+      <line num="25" count="21" type="stmt"/>
+      <line num="26" count="56" type="stmt"/>
+      <line num="27" count="56" type="cond" truecount="2" falsecount="0"/>
+      <line num="28" count="34" type="stmt"/>
+      <line num="33" count="1" type="stmt"/>
+    </file>
+    <file name="OptMatrix.ts" path="/Users/momo/Documents/GitHub/Data-Structures-and-Algorithm-Analysis-in-TS/SourceCode/Algorithms/DynamicProgramming/OptMatrix.ts">
+      <metrics statements="19" coveredstatements="19" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="3" type="stmt"/>
+      <line num="5" count="3" type="stmt"/>
+      <line num="6" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="9" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="13" count="4" type="stmt"/>
+      <line num="14" count="4" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="17" count="4" type="stmt"/>
+      <line num="18" count="6" type="stmt"/>
+      <line num="19" count="6" type="stmt"/>
+      <line num="20" count="6" type="stmt"/>
+      <line num="21" count="10" type="stmt"/>
+      <line num="22" count="10" type="cond" truecount="2" falsecount="0"/>
+      <line num="23" count="6" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
