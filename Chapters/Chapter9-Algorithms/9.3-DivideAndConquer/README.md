@@ -70,31 +70,31 @@ $$
 
 假设平面上的这些点已经按坐标$x$排序，如图 9-6 所示。
 
-<image height="240" src="../../../assets/images/ch9/9-6.png" />
+<image height="240" src="../../../Assets/images/ch9/9-6.png" />
 
 图 9-6 点集$p$
 
 既然这些点已经按照$x$坐标排序，那么我们可以用一条线将点集分为两部分：$p_L$和$p_R$。此时，最近的一对点或者都在$p_L$中，或者都在$p_R$中，或者一个在$p_L$中另一个在$p_R$中，我们把这三个距离分别叫做$d_L,d_R,d_C$。如图 9-7 所示。
 
-<image height="240" src="../../../assets/images/ch9/9-7.png" />
+<image height="240" src="../../../Assets/images/ch9/9-7.png" />
 
 图 9-7 被分成$p_L$和$p_R$的点集$p$
 
 我们可以递归地计算$d_L$和$d_R$。此时问题的关键就是计算$d_C$。令$m=min(d_L,d_R)$，如果$d_C<m$，那么定义$d_C$的两个点必然在分割线的$m$距离之内。如图 9-8 所示。
 
-<image height="240" src="../../../assets/images/ch9/9-8.png" />
+<image height="240" src="../../../Assets/images/ch9/9-8.png" />
 
 图 9-8 双道带区域
 
 在最坏的情形下，所有的点可能都在这条带状区域内，但如果带状区域内的点是按$y$坐标排序的，则我们只需要计算当确定$d_C$的两个点$p_i$和$p_j$的 y 坐标最多相差$m$时的情况，如图 9-9 所示。
 
-<image height="240" src="../../../assets/images/ch9/9-9.png" />
+<image height="240" src="../../../Assets/images/ch9/9-9.png" />
 
 图 9-9 对于点$p_3$来说，只需考虑$p_1$和$p_4$
 
 对于任意的点$p_i$，在最坏的情况下最多有$7$个点被考虑。因为这些点必定落在该带状区域左半部分的$m \times m$方块内或者落在该带状区域右半部分的$m\times m$方块内。另一方面，在每个$m\times m$方块内的所遇点至少分离$m$。在最坏的情况下，每个方块包含 4 个点，每个角上一个点。这些点中有一个是$p_i$，因此最多还剩下$7$个点要考虑。最坏情形如图 9-10 所示。
 
-<image height="240" src="../../../assets/images/ch9/9-10.png" />
+<image height="240" src="../../../Assets/images/ch9/9-10.png" />
 
 图 9-10 最多有$8$个点在该矩形中，其中有两个坐标分别被左右两部分的点共享
 

@@ -6,7 +6,7 @@ export interface Word {
 }
 
 export default function optBST(words: Word[]): number {
-    const { length } = words
+    const {length} = words
     const table: number[][] = []
     const costs: number[][] = []
     for (let i = 0; i < length; i++) {
