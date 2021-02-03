@@ -1,5 +1,6 @@
 /** @format */
 
+import TicTacToe from '@/Algorithms/BackTracking/TicTacToe'
 import turnpike from '@/Algorithms/BackTracking/Turnpike'
 
 describe('back tracking', () => {
@@ -11,5 +12,13 @@ describe('back tracking', () => {
         expect(() => {
             turnpike([1, 2])
         }).toThrowError()
+    })
+    test.only('tic-tac-toe game', () => {
+        const game = new TicTacToe()
+        game.visualize('game start')
+        game.play([1, 1])
+        game.play([2, 2])
+        game.play([1, 3])
+        game.play([3, 1])
     })
 })

@@ -11,7 +11,7 @@
             "program": "${workspaceFolder}/node_modules/jest/bin/jest",
             "cwd": "${workspaceFolder}",
             "args": ["--runInBand", "--watch", "--collectCoverage", "--o"],
-            "console": "internalConsole",
+            "console": "externalTerminal",
             "runtimeExecutable": "/usr/local/bin/node"
         }
     ]
