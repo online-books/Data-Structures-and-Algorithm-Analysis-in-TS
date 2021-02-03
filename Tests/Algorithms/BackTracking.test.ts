@@ -1,6 +1,6 @@
 /** @format */
 
-import TicTacToe from '@/Algorithms/BackTracking/TicTacToe'
+// import TicTacToe from '@/Algorithms/BackTracking/TicTacToe'
 import turnpike from '@/Algorithms/BackTracking/Turnpike'
 
 describe('back tracking', () => {
@@ -13,12 +13,23 @@ describe('back tracking', () => {
             turnpike([1, 2])
         }).toThrowError()
     })
-    test.only('tic-tac-toe game', () => {
-        const game = new TicTacToe()
-        game.visualize('game start')
-        game.play([1, 1])
-        game.play([2, 2])
-        game.play([1, 3])
-        game.play([3, 1])
-    })
+    // describe.skip('tic-tac-toe game', () => {
+    //     const game = new TicTacToe()
+    //     game.visualize('game start')
+    //     test('out of space',()=>{
+    //         expect(()=>{
+    //             game.play([3,4])
+    //         }).toThrowError()
+    //     })
+    //     test('computer win',()=>{
+    //         game.play([2,2])
+    //         game.play([2,3])
+    //         game.play([1,3])
+    //     })
+    //     test('when game is end',()=>{
+    //         expect(()=>{
+    //             game.play([3,3])
+    //         }).toThrowError()
+    //     })
+    // })
 })

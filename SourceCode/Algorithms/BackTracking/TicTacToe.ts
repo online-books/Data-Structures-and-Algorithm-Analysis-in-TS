@@ -28,11 +28,26 @@ export default class TicTacToe {
         if (!this.isValidPosition(row) || !this.isValidPosition(column)) {
             throw Error('Position is invalid')
         }
-        const position = (row - 1) * this.BORAD_SHAPE + column - 1
         if (this.isBoardFull()) {
             throw Error('Position is invalid')
         }
+        const position = (row - 1) * this.BORAD_SHAPE + column - 1
+        if(!this.isBoradEmpty(position)){
+            throw Error('Position is invalid')
+        }
         this.humanTurn(position)
+    }  
+    public visualize(title: string): void {
+        const {board, BOARD_SIZE, BORAD_SHAPE} = this
+        const border = '-'.repeat(10)
+        let output = `${border} ${title} ${border}\n`
+        for (let i = 0; i < BOARD_SIZE; i++) {
+            output += ` ${board[i]} `
+            if (i % BORAD_SHAPE === 2) {
+                output += '\n'
+            }
+        }
+        console.log(output)
     }
     private humanTurn(position: number): void {
         this.place(position, this.HUMAN_CHAR)
@@ -90,7 +105,8 @@ export default class TicTacToe {
             }
         }
     }
-    public findHumanNextMove(humanMove: Move): void {
+
+    private findHumanNextMove(humanMove: Move): void {
         const computerMove: Move = {
             position: this.prevComputerPosition,
             value: this.GAME_LOSS,
@@ -115,18 +131,6 @@ export default class TicTacToe {
                 }
             }
         }
-    }
-    public visualize(title: string): void {
-        const {board, BOARD_SIZE, BORAD_SHAPE} = this
-        const border = '-'.repeat(10)
-        let output = `${border} ${title} ${border}\n`
-        for (let i = 0; i < BOARD_SIZE; i++) {
-            output += ` ${board[i]} `
-            if (i % BORAD_SHAPE === 2) {
-                output += '\n'
-            }
-        }
-        console.log(output)
     }
     private isBoardFull(): boolean {
         let count = 0
