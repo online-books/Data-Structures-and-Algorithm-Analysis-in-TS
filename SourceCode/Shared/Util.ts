@@ -39,7 +39,7 @@ export function swap(n: any[], from: number, to: number): void {
 }
 
 export function midian3(n: number[], left = 0, right = n.length - 1): number {
-    if (right < 2) {
+    if (right - left < 2) {
         throw new Error('n has at least 3 elements')
     }
     const center = Math.floor((left + right) / 2)

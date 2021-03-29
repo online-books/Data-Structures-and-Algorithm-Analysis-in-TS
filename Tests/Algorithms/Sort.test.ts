@@ -3,9 +3,9 @@
 import heapSort from '@/Sort/HeapSort'
 import insertionSort from '@/Sort/InsertionSort'
 import mergeSort from '@/Sort/MergeSort'
-import { quickSort, quickSelect } from '@/Sort/QuickSort'
 import shellSort from '@/Sort/ShellSort'
 import { generateRandomNumberArray } from '@/Shared/Util'
+import { quickSort, quickSelect } from '@/Sort/QuickSort'
 
 describe('sort', () => {
     const MAX_NUM = 5e4
@@ -22,33 +22,38 @@ describe('sort', () => {
         endTime = Date.now()
         console.log('【Time used】:', endTime - startTime)
     })
-    test('Insertion Sort', () => {
+    test.skip('Insertion Sort', () => {
         insertionSort(data)
         expect(data[0]).toBe(MIN_NUM)
         expect(data[LAST_INDEX]).toBe(MAX_NUM)
     })
-    test('Shell Sort', () => {
+    test.skip('Shell Sort', () => {
         shellSort(data)
         expect(data[0]).toBe(MIN_NUM)
         expect(data[LAST_INDEX]).toBe(MAX_NUM)
     })
-    test('Heap Sort', () => {
+    test.skip('Heap Sort', () => {
         heapSort(data)
         expect(data[0]).toBe(MIN_NUM)
         expect(data[LAST_INDEX]).toBe(MAX_NUM)
     })
-    test('Merge Sort', () => {
+    test.skip('Merge Sort', () => {
         mergeSort(data)
         expect(data[0]).toBe(MIN_NUM)
         expect(data[LAST_INDEX]).toBe(MAX_NUM)
     })
-    test('Quick Sort', () => {
+    test.skip('Quick Sort', () => {
         quickSort(data)
         expect(data[0]).toBe(MIN_NUM)
         expect(data[LAST_INDEX]).toBe(MAX_NUM)
     })
-    test('Quick Select', () => {
+    test('Quick Select Maximum Number', () => {
         expect(quickSelect(data, 1)).toBe(MAX_NUM)
+    })
+    test('Quick Select Minimum Number', () => {
         expect(quickSelect(data, LAST_INDEX + 1)).toBe(MIN_NUM)
+    })
+    test.only('Quick Select N/2 Number', () => {
+        expect(quickSelect(data, Math.ceil(MAX_NUM / 2))).toBeLessThanOrEqual(MAX_NUM)
     })
 })

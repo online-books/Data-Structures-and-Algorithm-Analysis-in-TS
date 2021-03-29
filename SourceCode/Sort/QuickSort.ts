@@ -1,6 +1,4 @@
-/** @format */
-
-import {swap, midian3} from '@/Shared/Util'
+import { swap, midian3 } from '@/Shared/Util'
 import insertionSort from './InsertionSort'
 
 const CUTOFF = 3
@@ -11,38 +9,26 @@ function qSort(n: number[], left: number, right: number): void {
         let i = left
         let j = right - 1
         while (true) {
-            while (n[--j] > pivot) {}
-            while (n[++i] < pivot) {}
+            while (n[--j] > pivot) { }
+            while (n[++i] < pivot) { }
             if (j > i) {
                 swap(n, i, j)
             } else {
                 break
             }
         }
-        /** 
-         * 如果11-21行代码改为下述写法则不能正常运行
-         * 因为若n[i]===pivot并且n[j]===pivot则会产生无限循环
-         *  let i = left + 1
-            let j = right - 2
-            while (true) {
-                while (n[j] > pivot) {j--}
-                while (n[i] < pivot) {i++}
-                if (j > i) {
-                    swap(n, i, j)
-                } else {
-                    break
-                }
-            }
-        */
         swap(n, i, right - 1)
         qSort(n, left, i - 1)
         qSort(n, i + 1, right)
     } else {
-        // 对小于CUTOFF元素个数的进行插入排序
         insertionSort(n, left, right + 1)
     }
 }
 
+/**
+ * 快速排序算法
+ * @param {number[]} n 
+ */
 export function quickSort(n: number[]): void {
     qSort(n, 0, n.length - 1)
 }
@@ -53,8 +39,8 @@ function qSelect(n: number[], left: number, right: number, k: number): number {
         let i = left
         let j = right - 1
         while (true) {
-            while (n[++i] < pivot) {}
-            while (n[--j] > pivot) {}
+            while (n[++i] < pivot) { }
+            while (n[--j] > pivot) { }
             if (i < j) {
                 swap(n, i, j)
             } else {
@@ -62,8 +48,10 @@ function qSelect(n: number[], left: number, right: number, k: number): number {
             }
         }
         swap(n, i, right - 1)
-        if (k <= right - i) {
-            return qSelect(n, i + 1, right, k)
+        if (k === i + 1) {
+            return n[i]
+        } else if (k <= right - i + 1) {
+            return qSelect(n, i, right, k)
         }
         return qSelect(n, left, i - 1, k - (right - i + 1))
     } else {
@@ -74,8 +62,10 @@ function qSelect(n: number[], left: number, right: number, k: number): number {
 }
 
 /**
- * 选择问题
- * 从n中找到第k大元素
+ * 快速选择算法
+ * @param {number[]} n
+ * @param {number} k 
+ * @returns {number}
  */
 export function quickSelect(n: number[], k: number): number {
     return qSelect(n, 0, n.length - 1, k)
