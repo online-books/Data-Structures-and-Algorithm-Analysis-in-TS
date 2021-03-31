@@ -1,4 +1,6 @@
-import { swap, midian3 } from '@/Shared/Util'
+/** @format */
+
+import {swap, midian3} from '@/Shared/Util'
 import insertionSort from './InsertionSort'
 
 const CUTOFF = 3
@@ -9,8 +11,8 @@ function qSort(n: number[], left: number, right: number): void {
         let i = left
         let j = right - 1
         while (true) {
-            while (n[--j] > pivot) { }
-            while (n[++i] < pivot) { }
+            while (n[--j] > pivot) {}
+            while (n[++i] < pivot) {}
             if (j > i) {
                 swap(n, i, j)
             } else {
@@ -27,7 +29,7 @@ function qSort(n: number[], left: number, right: number): void {
 
 /**
  * 快速排序算法
- * @param {number[]} n 
+ * @param {number[]} n
  */
 export function quickSort(n: number[]): void {
     qSort(n, 0, n.length - 1)
@@ -39,8 +41,8 @@ function qSelect(n: number[], left: number, right: number, k: number): number {
         let i = left
         let j = right - 1
         while (true) {
-            while (n[++i] < pivot) { }
-            while (n[--j] > pivot) { }
+            while (n[++i] < pivot) {}
+            while (n[--j] > pivot) {}
             if (i < j) {
                 swap(n, i, j)
             } else {
@@ -48,9 +50,9 @@ function qSelect(n: number[], left: number, right: number, k: number): number {
             }
         }
         swap(n, i, right - 1)
-        if (k === i + 1) {
+        if (k === right - i + 1) {
             return n[i]
-        } else if (k <= right - i + 1) {
+        } else if (k < right - i + 1) {
             return qSelect(n, i, right, k)
         }
         return qSelect(n, left, i - 1, k - (right - i + 1))
@@ -64,7 +66,7 @@ function qSelect(n: number[], left: number, right: number, k: number): number {
 /**
  * 快速选择算法
  * @param {number[]} n
- * @param {number} k 
+ * @param {number} k
  * @returns {number}
  */
 export function quickSelect(n: number[], k: number): number {

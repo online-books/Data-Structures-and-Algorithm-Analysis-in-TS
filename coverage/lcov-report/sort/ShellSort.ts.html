@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.76% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">12.5% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/16</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -88,50 +88,50 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">878485x</span>
+<span class="cline-any cline-yes">878485x</span>
+<span class="cline-any cline-yes">878485x</span>
+<span class="cline-any cline-yes">2850973x</span>
+<span class="cline-any cline-yes">2002413x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">848560x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">878485x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** @format */
 &nbsp;
-const INCREMENT = [0, 1, 5, 19, 41, 109, 505, 929, 3905, 16001]
+const INCREMENT = [0, 1, 5, 19, 41, 109, 505, 929, 3905, 16001, 99349]
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >shellSort(</span>n: number[]): void {
-    const {length} = <span class="cstat-no" title="statement not covered" >n</span>
-    let index = <span class="cstat-no" title="statement not covered" >INCREMENT.length - 1</span>
-<span class="cstat-no" title="statement not covered" >    while (INCREMENT[index] &gt; length / 2) {</span>
-<span class="cstat-no" title="statement not covered" >        index -= 1</span>
+export default function shellSort(n: number[]): void {
+    const {length} = n
+    let index = INCREMENT.length - 1
+    while (INCREMENT[index] &gt; length / 2) {
+        index -= 1
     }
-<span class="cstat-no" title="statement not covered" >    for (; index &gt; 0; index--) {</span>
-        const step = <span class="cstat-no" title="statement not covered" >INCREMENT[index]</span>
-<span class="cstat-no" title="statement not covered" >        for (let i = <span class="cstat-no" title="statement not covered" >step;</span> i &lt; length; i++) {</span>
-            const value = <span class="cstat-no" title="statement not covered" >n[i]</span>
-            let j = <span class="cstat-no" title="statement not covered" >i</span>
-<span class="cstat-no" title="statement not covered" >            for (; j &gt;= step; j -= step) {</span>
-<span class="cstat-no" title="statement not covered" >                if (value &lt; n[j - step]) {</span>
-<span class="cstat-no" title="statement not covered" >                    n[j] = n[j - step]</span>
+    for (; index &gt; 0; index--) {
+        const step = INCREMENT[index]
+        for (let i = step; i &lt; length; i++) {
+            const value = n[i]
+            let j = i
+            for (; j &gt;= step; j -= step) {
+                if (value &lt; n[j - step]) {
+                    n[j] = n[j - step]
                 } else {
-<span class="cstat-no" title="statement not covered" >                    break</span>
+                    break
                 }
             }
-<span class="cstat-no" title="statement not covered" >            n[j] = value</span>
+            n[j] = value
         }
     }
 }
@@ -142,7 +142,7 @@ export default function <span class="fstat-no" title="function not covered" >she
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Mar 29 2021 18:46:16 GMT+0800 (GMT+08:00)
+                at Wed Mar 31 2021 18:31:17 GMT+0800 (中国标准时间)
             </div>
         </div>
         <script src="../prettify.js"></script>

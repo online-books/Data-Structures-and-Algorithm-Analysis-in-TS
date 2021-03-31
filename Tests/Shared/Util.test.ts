@@ -1,6 +1,6 @@
 /** @format */
 
-import {compareFn, generateRandomKeys, generateRandomNumberArray, midian3, swap} from '@/Shared/Util'
+import {compareFn, generateRandomKeys, midian3, swap} from '@/Shared/Util'
 
 describe('util', () => {
     test('increase compare function', () => {
@@ -50,10 +50,5 @@ describe('util', () => {
         expect(midian3([2, 3, 1])).toBe(2)
         expect(midian3([3, 2, 1])).toBe(2)
         expect(midian3([3, 1, 2])).toBe(2)
-    })
-    test('generate random number array', () => {
-        expect(generateRandomNumberArray(1, 100).length).toBe(100)
-        expect(generateRandomNumberArray(1, 0).length).toBe(0)
-        expect(generateRandomNumberArray(1, 1).length).toBe(1)
     })
 })

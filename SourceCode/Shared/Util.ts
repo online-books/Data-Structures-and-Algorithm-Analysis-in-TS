@@ -55,18 +55,3 @@ export function midian3(n: number[], left = 0, right = n.length - 1): number {
     swap(n, right - 1, center)
     return n[right - 1]
 }
-
-export function generateRandomNumberArray(min: number, max: number): number[] {
-    const n: number[] = []
-    const count = max - min
-    const random = Math.random()
-    const minIndex = Math.floor(random * count)
-    const maxIndex = Math.floor((1 - random) * count)
-    for (let i = 0; i <= count; i++) {
-        const value = min + Math.floor(Math.random() * count)
-        n.push(value)
-    }
-    n[minIndex] = min
-    n[maxIndex] = max
-    return n
-}

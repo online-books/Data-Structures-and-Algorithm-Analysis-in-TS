@@ -1,59 +1,91 @@
 /** @format */
 
+import fs from 'fs'
+import path from 'path'
+
 import heapSort from '@/Sort/HeapSort'
 import insertionSort from '@/Sort/InsertionSort'
 import mergeSort from '@/Sort/MergeSort'
 import shellSort from '@/Sort/ShellSort'
-import { generateRandomNumberArray } from '@/Shared/Util'
-import { quickSort, quickSelect } from '@/Sort/QuickSort'
+import {quickSort, quickSelect} from '@/Sort/QuickSort'
+
+function isIncrease(data: number[]): boolean {
+    for (let i = 1, l = data.length; i < l; i++) {
+        if (data[i] < data[i - 1]) {
+            return false
+        }
+    }
+    return true
+}
+
+const readData = (() => {
+    let data: number[]
+    return (): number[] => {
+        if (data) {
+            return data.slice()
+        }
+        const result = fs.readFileSync(path.resolve(process.cwd(), 'Assets/Data/sort.json'), {encoding: 'utf-8'})
+        data = JSON.parse(result).data
+        return data.slice()
+    }
+})()
 
 describe('sort', () => {
-    const MAX_NUM = 5e4
-    const MIN_NUM = 1
-    const LAST_INDEX = MAX_NUM - MIN_NUM
-    let data: number[]
+    let data: number[] = readData()
+    let minNum = Infinity
+    let maxNum = 0
+    data.forEach(value => {
+        if (value > maxNum) {
+            maxNum = value
+        }
+        if (value < minNum) {
+            minNum = value
+        }
+    })
+    const count = data.length
     let startTime: number
     let endTime: number
     beforeEach(() => {
-        data = generateRandomNumberArray(MIN_NUM, MAX_NUM)
+        data = readData()
         startTime = Date.now()
     })
     afterEach(() => {
         endTime = Date.now()
         console.log('【Time used】:', endTime - startTime)
     })
-    test.skip('Insertion Sort', () => {
+    test('Insertion Sort', () => {
         insertionSort(data)
-        expect(data[0]).toBe(MIN_NUM)
-        expect(data[LAST_INDEX]).toBe(MAX_NUM)
+        expect(data[0]).toBe(minNum)
+        expect(data[count - 1]).toBe(maxNum)
+        expect(isIncrease(data)).toBeTruthy()
     })
-    test.skip('Shell Sort', () => {
+    test('Shell Sort', () => {
         shellSort(data)
-        expect(data[0]).toBe(MIN_NUM)
-        expect(data[LAST_INDEX]).toBe(MAX_NUM)
+        expect(data[0]).toBe(minNum)
+        expect(data[count - 1]).toBe(maxNum)
+        expect(isIncrease(data)).toBeTruthy()
     })
-    test.skip('Heap Sort', () => {
+    test('Heap Sort', () => {
         heapSort(data)
-        expect(data[0]).toBe(MIN_NUM)
-        expect(data[LAST_INDEX]).toBe(MAX_NUM)
+        expect(data[0]).toBe(minNum)
+        expect(data[count - 1]).toBe(maxNum)
+        expect(isIncrease(data)).toBeTruthy()
     })
-    test.skip('Merge Sort', () => {
+    test('Merge Sort', () => {
         mergeSort(data)
-        expect(data[0]).toBe(MIN_NUM)
-        expect(data[LAST_INDEX]).toBe(MAX_NUM)
+        expect(data[0]).toBe(minNum)
+        expect(data[count - 1]).toBe(maxNum)
+        expect(isIncrease(data)).toBeTruthy()
     })
-    test.skip('Quick Sort', () => {
+    test('Quick Sort', () => {
         quickSort(data)
-        expect(data[0]).toBe(MIN_NUM)
-        expect(data[LAST_INDEX]).toBe(MAX_NUM)
+        expect(data[0]).toBe(minNum)
+        expect(data[count - 1]).toBe(maxNum)
+        expect(isIncrease(data)).toBeTruthy()
     })
-    test('Quick Select Maximum Number', () => {
-        expect(quickSelect(data, 1)).toBe(MAX_NUM)
-    })
-    test('Quick Select Minimum Number', () => {
-        expect(quickSelect(data, LAST_INDEX + 1)).toBe(MIN_NUM)
-    })
-    test.only('Quick Select N/2 Number', () => {
-        expect(quickSelect(data, Math.ceil(MAX_NUM / 2))).toBeLessThanOrEqual(MAX_NUM)
+    test('Quick Select', () => {
+        expect(quickSelect(readData(), 1)).toBe(maxNum)
+        expect(quickSelect(data, 3)).toBe(99997)
+        expect(quickSelect(data, maxNum)).toBe(minNum)
     })
 })
