@@ -1,160 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1617186677065" clover="3.2.0">
-  <project timestamp="1617186677066" name="All files">
-    <metrics statements="130" coveredstatements="130" conditionals="43" coveredconditionals="43" methods="15" coveredmethods="15" elements="188" coveredelements="188" complexity="0" loc="130" ncloc="130" packages="2" files="6" classes="6"/>
-    <package name="Shared">
-      <metrics statements="36" coveredstatements="36" conditionals="19" coveredconditionals="19" methods="5" coveredmethods="5"/>
-      <file name="Util.ts" path="/Users/lxl/Documents/projects/Data-Structures-and-Algorithm-Analysis-in-TS/SourceCode/Shared/Util.ts">
-        <metrics statements="36" coveredstatements="36" conditionals="19" coveredconditionals="19" methods="5" coveredmethods="5"/>
-        <line num="3" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="6" type="stmt"/>
-        <line num="5" count="8" type="cond" truecount="2" falsecount="0"/>
-        <line num="6" count="5" type="cond" truecount="2" falsecount="0"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
-        <line num="11" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="14" type="stmt"/>
-        <line num="26" count="14" type="stmt"/>
-        <line num="27" count="28" type="stmt"/>
-        <line num="28" count="28" type="stmt"/>
-        <line num="30" count="14" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
-        <line num="36" count="638278" type="stmt"/>
-        <line num="37" count="638278" type="stmt"/>
-        <line num="38" count="638278" type="stmt"/>
-        <line num="41" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="42" count="33865" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="45" count="33864" type="stmt"/>
-        <line num="46" count="33864" type="cond" truecount="2" falsecount="0"/>
-        <line num="47" count="14824" type="stmt"/>
-        <line num="49" count="33864" type="cond" truecount="2" falsecount="0"/>
-        <line num="50" count="9661" type="stmt"/>
-        <line num="52" count="33864" type="cond" truecount="2" falsecount="0"/>
-        <line num="53" count="19173" type="stmt"/>
-        <line num="55" count="33864" type="stmt"/>
-        <line num="56" count="33864" type="stmt"/>
-      </file>
-    </package>
-    <package name="Sort">
-      <metrics statements="94" coveredstatements="94" conditionals="24" coveredconditionals="24" methods="10" coveredmethods="10"/>
-      <file name="HeapSort.ts" path="/Users/lxl/Documents/projects/Data-Structures-and-Algorithm-Analysis-in-TS/SourceCode/Sort/HeapSort.ts">
-        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="100000" type="stmt"/>
-        <line num="10" count="100000" type="stmt"/>
-        <line num="11" count="100000" type="stmt"/>
-      </file>
-      <file name="InsertionSort.ts" path="/Users/lxl/Documents/projects/Data-Structures-and-Algorithm-Analysis-in-TS/SourceCode/Sort/InsertionSort.ts">
-        <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="4" count="33806" type="stmt"/>
-        <line num="5" count="132396" type="stmt"/>
-        <line num="6" count="132396" type="stmt"/>
-        <line num="7" count="132396" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="2506274614" type="stmt"/>
-        <line num="9" count="2506274614" type="stmt"/>
-        <line num="11" count="132396" type="stmt"/>
-      </file>
-      <file name="MergeSort.ts" path="/Users/lxl/Documents/projects/Data-Structures-and-Algorithm-Analysis-in-TS/SourceCode/Sort/MergeSort.ts">
-        <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="99999" type="stmt"/>
-        <line num="5" count="99999" type="stmt"/>
-        <line num="6" count="99999" type="stmt"/>
-        <line num="7" count="99999" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="1536650" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="776801" type="stmt"/>
-        <line num="11" count="759849" type="stmt"/>
-        <line num="14" count="99999" type="stmt"/>
-        <line num="15" count="77103" type="stmt"/>
-        <line num="17" count="99999" type="stmt"/>
-        <line num="18" count="55175" type="stmt"/>
-        <line num="20" count="99999" type="stmt"/>
-        <line num="21" count="1668928" type="stmt"/>
-        <line num="26" count="199999" type="cond" truecount="2" falsecount="0"/>
-        <line num="27" count="99999" type="stmt"/>
-        <line num="28" count="99999" type="stmt"/>
-        <line num="29" count="99999" type="stmt"/>
-        <line num="30" count="99999" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-      </file>
-      <file name="QuickSort.ts" path="/Users/lxl/Documents/projects/Data-Structures-and-Algorithm-Analysis-in-TS/SourceCode/Sort/QuickSort.ts">
-        <metrics statements="40" coveredstatements="40" conditionals="12" coveredconditionals="12" methods="4" coveredmethods="4"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="9" count="67605" type="cond" truecount="2" falsecount="0"/>
-        <line num="10" count="33802" type="stmt"/>
-        <line num="11" count="33802" type="stmt"/>
-        <line num="12" count="33802" type="stmt"/>
-        <line num="13" count="33802" type="stmt"/>
-        <line num="14" count="356359" type="stmt"/>
-        <line num="15" count="356359" type="stmt"/>
-        <line num="16" count="356359" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="322557" type="stmt"/>
-        <line num="19" count="33802" type="stmt"/>
-        <line num="22" count="33802" type="stmt"/>
-        <line num="23" count="33802" type="stmt"/>
-        <line num="24" count="33802" type="stmt"/>
-        <line num="26" count="33803" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="39" count="58" type="cond" truecount="2" falsecount="0"/>
-        <line num="40" count="56" type="stmt"/>
-        <line num="41" count="56" type="stmt"/>
-        <line num="42" count="56" type="stmt"/>
-        <line num="43" count="56" type="stmt"/>
-        <line num="44" count="129743" type="stmt"/>
-        <line num="45" count="129743" type="stmt"/>
-        <line num="46" count="129743" type="cond" truecount="2" falsecount="0"/>
-        <line num="47" count="129687" type="stmt"/>
-        <line num="49" count="56" type="stmt"/>
-        <line num="52" count="56" type="stmt"/>
-        <line num="53" count="56" type="cond" truecount="2" falsecount="0"/>
-        <line num="54" count="1" type="stmt"/>
-        <line num="55" count="55" type="cond" truecount="2" falsecount="0"/>
-        <line num="56" count="43" type="stmt"/>
-        <line num="58" count="12" type="stmt"/>
-        <line num="60" count="2" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="62" count="2" type="stmt"/>
-        <line num="72" count="1" type="stmt"/>
-        <line num="73" count="3" type="stmt"/>
-      </file>
-      <file name="ShellSort.ts" path="/Users/lxl/Documents/projects/Data-Structures-and-Algorithm-Analysis-in-TS/SourceCode/Sort/ShellSort.ts">
-        <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="9" type="stmt"/>
-        <line num="13" count="9" type="stmt"/>
-        <line num="14" count="878485" type="stmt"/>
-        <line num="15" count="878485" type="stmt"/>
-        <line num="16" count="878485" type="stmt"/>
-        <line num="17" count="2850973" type="cond" truecount="2" falsecount="0"/>
-        <line num="18" count="2002413" type="stmt"/>
-        <line num="20" count="848560" type="stmt"/>
-        <line num="23" count="878485" type="stmt"/>
-      </file>
-    </package>
+<coverage generated="1617707898898" clover="3.2.0">
+  <project timestamp="1617707898898" name="All files">
+    <metrics statements="90" coveredstatements="90" conditionals="22" coveredconditionals="22" methods="10" coveredmethods="10" elements="122" coveredelements="122" complexity="0" loc="90" ncloc="90" packages="1" files="2" classes="2"/>
+    <file name="LinkedList.ts" path="/Users/lxl/Documents/projects/Data-Structures-and-Algorithm-Analysis-in-TS/SourceCode/List/LinkedList/LinkedList.ts">
+      <metrics statements="31" coveredstatements="31" conditionals="8" coveredconditionals="8" methods="8" coveredmethods="8"/>
+      <line num="3" count="14" type="stmt"/>
+      <line num="9" count="14" type="stmt"/>
+      <line num="13" count="213" type="stmt"/>
+      <line num="14" count="213" type="stmt"/>
+      <line num="17" count="6" type="stmt"/>
+      <line num="20" count="39" type="stmt"/>
+      <line num="23" count="528" type="stmt"/>
+      <line num="24" count="528" type="stmt"/>
+      <line num="25" count="627" type="cond" truecount="2" falsecount="0"/>
+      <line num="26" count="82" type="stmt"/>
+      <line num="28" count="545" type="stmt"/>
+      <line num="30" count="528" type="stmt"/>
+      <line num="33" count="486" type="cond" truecount="2" falsecount="0"/>
+      <line num="34" count="486" type="stmt"/>
+      <line num="35" count="486" type="stmt"/>
+      <line num="36" count="486" type="stmt"/>
+      <line num="37" count="486" type="stmt"/>
+      <line num="38" count="486" type="stmt"/>
+      <line num="39" count="486" type="stmt"/>
+      <line num="42" count="81" type="stmt"/>
+      <line num="43" count="81" type="stmt"/>
+      <line num="44" count="178" type="cond" truecount="2" falsecount="0"/>
+      <line num="45" count="81" type="stmt"/>
+      <line num="46" count="81" type="stmt"/>
+      <line num="48" count="97" type="stmt"/>
+      <line num="50" count="81" type="stmt"/>
+      <line num="53" count="245" type="stmt"/>
+      <line num="54" count="748" type="cond" truecount="2" falsecount="0"/>
+      <line num="55" count="503" type="stmt"/>
+      <line num="56" count="503" type="stmt"/>
+      <line num="59" count="245" type="stmt"/>
+    </file>
+    <file name="Polynomial.ts" path="/Users/lxl/Documents/projects/Data-Structures-and-Algorithm-Analysis-in-TS/SourceCode/List/LinkedList/Polynomial.ts">
+      <metrics statements="59" coveredstatements="59" conditionals="14" coveredconditionals="14" methods="2" coveredmethods="2"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="13" count="6" type="stmt"/>
+      <line num="14" count="6" type="stmt"/>
+      <line num="15" count="6" type="stmt"/>
+      <line num="16" count="6" type="stmt"/>
+      <line num="17" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="20" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="23" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="24" count="15" type="stmt"/>
+      <line num="28" count="15" type="stmt"/>
+      <line num="29" count="15" type="stmt"/>
+      <line num="30" count="15" type="cond" truecount="2" falsecount="0"/>
+      <line num="31" count="2" type="stmt"/>
+      <line num="32" count="2" type="stmt"/>
+      <line num="33" count="2" type="stmt"/>
+      <line num="34" count="2" type="stmt"/>
+      <line num="35" count="13" type="cond" truecount="2" falsecount="0"/>
+      <line num="36" count="8" type="stmt"/>
+      <line num="37" count="8" type="stmt"/>
+      <line num="38" count="8" type="stmt"/>
+      <line num="40" count="5" type="stmt"/>
+      <line num="41" count="5" type="stmt"/>
+      <line num="42" count="5" type="stmt"/>
+      <line num="44" count="15" type="stmt"/>
+      <line num="46" count="4" type="stmt"/>
+      <line num="47" count="2" type="stmt"/>
+      <line num="53" count="2" type="stmt"/>
+      <line num="55" count="4" type="stmt"/>
+      <line num="56" count="3" type="stmt"/>
+      <line num="62" count="3" type="stmt"/>
+      <line num="64" count="4" type="stmt"/>
+      <line num="67" count="1" type="stmt"/>
+      <line num="68" count="3" type="stmt"/>
+      <line num="69" count="3" type="stmt"/>
+      <line num="70" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="71" count="1" type="stmt"/>
+      <line num="73" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="74" count="1" type="stmt"/>
+      <line num="76" count="1" type="stmt"/>
+      <line num="77" count="1" type="stmt"/>
+      <line num="78" count="3" type="stmt"/>
+      <line num="79" count="3" type="stmt"/>
+      <line num="80" count="3" type="stmt"/>
+      <line num="81" count="3" type="stmt"/>
+      <line num="82" count="6" type="stmt"/>
+      <line num="83" count="6" type="stmt"/>
+      <line num="84" count="6" type="stmt"/>
+      <line num="91" count="6" type="stmt"/>
+      <line num="93" count="3" type="stmt"/>
+      <line num="94" count="3" type="stmt"/>
+      <line num="96" count="1" type="stmt"/>
+      <line num="97" count="2" type="stmt"/>
+      <line num="98" count="2" type="stmt"/>
+      <line num="99" count="2" type="stmt"/>
+      <line num="100" count="2" type="stmt"/>
+      <line num="102" count="1" type="stmt"/>
+    </file>
   </project>
 </coverage>
